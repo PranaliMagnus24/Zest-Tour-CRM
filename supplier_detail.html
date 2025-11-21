@@ -1,0 +1,3027 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/faraaz.css">
+
+    <style>
+        @media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 630px !important;
+        margin: 1.75rem auto;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="appHeader no-border transparent position-absolute hidden">
+        <div class="pageTitle"></div>
+        <div class="right "></div>
+    </div>
+    <div>
+        <div class="col-12 p-0 pull-left pt-2">
+            <div class="col-4 pull-left">
+                <div class="col-12 p-0 pull-left border-blue blue-back">
+                    <div class="col-12 pull-left text-center pt-2 pb-2 font-17 font-blue ">
+                        Supplier Info
+                        <div class="pull-right pe-1 edit_customer" data-bs-target="#add_supplier_modal" data-bs-toggle="modal">                        
+                            <ion-icon name="create-outline"></ion-icon>
+                            <span class="font-blue" style="font-size: 13px;">Edit </span>
+                        </div>
+                    </div>
+                    <div class="p-0 col-12 pull-left border-top-blue font12" style=" background: white; ">
+                        <div class=" col-12 pull-left pt-1" id="supplier_details">
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+            
+            <div class="col-8 upper_div pull-left" style=" line-height: 21px;">
+                <div class="col-12 pull-left ">
+                   <div class="card border-blue">
+                        <div class="card-body p-0">
+
+                            <ul class="nav nav-tabs lined">
+                                <li class="nav-item">
+                                    <a class="nav-link btn font-17 btn-sm">
+                                        Sales Contact
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="col-12 pull-left border-top-blue"></div>
+                            <div class="tab-content mt-1">
+                                <div class="tab-pane fade  show active p-1 pull-left w-100" id="sales" role="tabpanel">
+                                    <div class="pull-left border_8px w-100 font-blue border-blue bold overflow-hidden ">
+                                        <div class="col-12 pull-left text-center table_radiius blue-back p-0 flex-info">
+                                            <div class="col-3 pull-left border-right" style="min-height: 21px;">
+                                                Company Name
+                                            </div>
+                                            <div class="col-3 pull-left border-right">
+                                                Staff Name
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Email ID
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Phone Number
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Comments
+                                            </div>
+                                        </div>
+                                        <div class="sales_data pull-left w-100"></div>
+
+                                    </div>
+                                    <div class="col-12 pull-left pt-1 remove_source"> <button type="button"
+                                            class="btn btn-primary time-center-btn pink-back-btn no-border font-blue in-btn" style="width: 180px;"
+                                            data-bs-target="#add_sales" data-bs-toggle="modal"
+                                            onclick="set_title('Add Sales','#add_sales')">Add&nbsp;Sales Contact</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              <div class="col-8 upper_div pull-left" style=" line-height: 21px; margin-top: 10px;">
+                <div class="col-12 pull-left ">
+                   <div class="card border-blue">
+                        <div class="card-body p-0">
+
+                            <ul class="nav nav-tabs lined">
+                                <li class="nav-item">
+                                    <a class="nav-link font-17 btn btn-sm">
+                                        Operation Staff
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="col-12 pull-left border-top-blue"></div>
+                            <div class="tab-content mt-1">
+                                <div class="tab-pane fade  show active p-1 pull-left w-100" id="operation" role="tabpanel">
+                                    <div class="pull-left border_8px w-100 font-blue border-blue bold overflow-hidden">
+                                         <div class="col-12 pull-left text-center table_radiius blue-back p-0 flex-info">
+                                            <div class="col-3 pull-left border-right" style="min-height: 21px;">
+                                                Company Name
+                                            </div>
+                                            <div class="col-3 pull-left border-right">
+                                                Staff Name
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Email ID
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Phone Number
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Comments
+                                            </div>
+                                        </div>
+                                        <div class="operation_data pull-left w-100">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 pull-left pt-1 remove_source"> <button type="button"
+                                            class="btn btn-primary time-center-btn pink-back-btn no-border font-blue in-btn" style="width: 180px;"
+                                            data-bs-target="#add_operation" data-bs-toggle="modal"
+                                            onclick="set_title('Add Operation','#add_operation')">Add Operation Staff</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              <div class="col-8 upper_div pull-left" style=" line-height: 21px; margin-top: 10px;">
+                <div class="col-12 pull-left ">
+                   <div class="card border-blue">
+                        <div class="card-body p-0">
+
+                            <ul class="nav nav-tabs lined">
+                                <li class="nav-item">
+                                    <a class="nav-link font-17 btn btn-sm">
+                                        Accounts
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="col-12 pull-left border-top-blue"></div>
+                            <div class="tab-content mt-1">
+                                <div class="tab-pane fade show active p-1 pull-left w-100 text-center" role="tabpanel" id="accounts">
+
+                                        <div
+                                            class="pull-left w-100 border_8px font-blue border-blue bold overflow-hidden">
+                                            <div class="col-12 pull-left text-center table_radiius blue-back p-0 flex-info">
+                                            <div class="col-3 pull-left border-right" style="min-height: 21px;">
+                                                Company Name
+                                            </div>
+                                            <div class="col-3 pull-left border-right">
+                                                Staff Name
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Email ID
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Phone Number
+                                            </div>
+                                            <div class="col-2 pull-left border-right">
+                                                Comments
+                                            </div>
+                                        </div>
+                                            <div class="accounts_data pull-left col-12 p-0">
+
+                                            </div>
+                                        </div>
+                                    <div class="col-12 pull-left pt-1 remove_source"> <button type="button"
+                                            class="btn btn-primary time-center-btn pink-back-btn no-border font-blue in-btn" style="width: 180px;"
+                                            data-bs-toggle="modal" data-bs-target="#add_accounts"
+                                            onclick="set_title('Add Accounts','#add_accounts')">Add&nbsp;Accounts</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-12 pull-left ">
+            <div class="col-12 pull-left border-blue mt-3 mb-1">
+                <div class="col-12 pull-left">
+                    <div class="col-12 text-center pull-left pt-2">
+                        <h2>Timeline</h2>
+                    </div>
+                    <div class="col-12 pull-left" id="reminder_div">
+                        <div class="col-12 scrollbar pull-left" style="max-height: 300px;overflow: auto;">
+                            <div class="timeline reminder ms-3 pull-left" style="margin-left: 53px !important;width: calc(100% - 53px);"></div>
+                        </div>
+                        <div class="col-12 pull-left pb-2 pe-2 remove_source">
+                           <button type="button" class="btn btn-primary  pink-back font-blue in-btn-pink rounded" style="border: #d1202d solid 1px !important;" data-bs-toggle="modal" data-bs-target="#remark">Add Feedback</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        </div>        
+    </div>
+
+    </div>
+     
+    
+    <div class="modal fade dialogbox" id="remark" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0 text-start mb-2">
+                    <input type="hidden" name="edit_to_remark" id="edit_to_remark" value="">
+                    <input type="hidden" name="remark_id" id="remark_id" value="">
+                    <ul class="nav nav-tabs hidden lined" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#feedback" role="tab">
+                                Feedback
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#remainder" role="tab">
+                                Reminder
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-2" style="padding: 0 20px;">
+                        <!-- <div class="tab-pane fade show" id="feedback" role="tabpanel">
+                            <div class="col-12 pull-left text-center p-1 mt-1">
+                                <div class="divider card-title text-center"><span></span><span class="title" style="font-size: 15px;color: black;">Add Feedback</span><span></span></div>
+                            </div>
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label" for="text1">Enter Feedback text</label>
+                                    <input type="text" class="form-control" maxlength="150" id="remark_note" data-required="yes" data-validation-required-message="This field is required" name="remark" value="" style="padding: 0 25px 0 25px !important;">
+                                    <i class="clear-input">
+                                        <ion-icon name="close-circle"></ion-icon>
+                                    </i>
+                                </div>
+                            </div>                                    
+                            <div class="col-12 pull-left text-center mt-2">
+                                <button type="button" onclick="validate('#feedback','add_remark','#feedback')" class="btn btn-primary submits btn-sm me-1 no-border sub-blue" style="padding: 0px 15px;">Add Feedback</button>
+                                <button type="button" onclick="cancel_clr('#remark input')" class="btn btn-primary btn-sm ms-1 no-border sub-blue" data-bs-dismiss="modal" style="padding: 0px 15px;">Cancel</button>
+                            </div>
+                        </div> -->
+                        <div class="tab-pane fade show active" id="remainder" role="tabpanel">
+                            <div class="col-12 pull-left text-center p-1 mt-1">
+                                <div class="divider card-title text-center"><span></span><span class="title" style="font-size: 15px;color: black;">Add Feedback</span><span></span></div>
+                            </div>
+                            <input type="hidden" value="supplier" name="type">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label" for="text1">Enter text</label>
+                                    <input type="text" class="form-control" id="reminder_note" data-required="yes" data-validation-required-message="This field is required" name="reminder" value="" style="padding: 0 25px 0 25px !important;">
+                                    <i class="clear-input">
+                                        <ion-icon name="close-circle"></ion-icon>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="col-12 pull-left text-center mt-2">
+                                <button type="button" onclick="validate('#remainder','add_remark','#remainder')" class="btn btn-primary submits btn-sm me-1 no-border sub-blue" style="padding: 0px 15px;">Submit</button>
+                                <button type="button" onclick="cancel_clr('#remark input')" class="btn btn-primary btn-sm ms-1 no-border sub-blue" data-bs-dismiss="modal" style="padding: 0px 15px;">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+          
+    <div class="modal fade dialog" id="add_supplier_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <input type="hidden" name="id" class="getid">
+                    <input type="hidden" name="table" value="supplier">
+                    <input type="hidden" name="assigned_id" value="">
+                    <div class="divider card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Add Supplier</span><span></span></div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Status*</label>
+                                <select  class="form-control input_style" name="status" style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required">
+                                    <option value="Active">Active</option>
+                                    <option value="In-Active">In-Active</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                               <label class="label" for="name">Supplier Name *</label> 
+                                <!-- <input type="text" class="form-control input_style" name="name" style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required"> --> 
+                                <input type="text" class="form-control input_style" name="name" id="supplier_name"
+                                style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required">
+                            <div id="name_error" class="text-danger" style="font-size: 13px; margin-top: 5px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Country *</label>
+                                <select type="text" multiple class="form-control input_style" name="country_id" style="font-size: 15px !important;" data-required="yes"  data-validation-required-message="This field is required">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="country_name">
+                    <div class="w-100 pull-left contact_no">
+                            
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Contact Person Name*</label>
+                                <input type="text" class="form-control input_style" name="name_poc" style="font-size: 15px !important;" data-required="yes"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Designation </label>
+                                <input type="text" class="form-control input_style" name="designation" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-lg-6 col-md-6 pe-1" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Contact Number*</label>
+                                <!-- <input type="number" class="form-control input_style" id="contact_no" name="contact_no"
+                                        autocomplete="off"
+                                        minlength="10" maxlength="12"
+                                           data-validation-message="Only Numbers"
+                                    data-required="yes"  data-validation-required-message="This field is required"
+                                        style="font-size: 15px !important;"> -->
+                                         <input type="text" class="form-control input_style" id="contact_no" name="contact_no"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+    maxlength="12" 
+    style="font-size: 15px !important;"
+    >
+                                    <small class="text-danger" id="contactError" style="display: none;">
+                                        Please enter valid contact numbers, separated by commas.
+                                    </small>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="col-lg-6 col-md-6 pe-1" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Landline Number</label>
+                                <!-- <input type="number" class="form-control input_style" name="landline_no" autocomplete="off" data-pattern="^(\d)+$" minlength="8" maxlength="10" data-validation-message="Only Numbers" style="font-size: 15px !important;"> -->
+                                 
+                                <input 
+                                type="text" 
+                                class="form-control input_style only-digits" 
+                                name="landline_no" 
+                                id="landline_no"
+                                autocomplete="off" 
+                                pattern="^\d{8,12}$" 
+                                minlength="8" 
+                                maxlength="12" 
+                                inputmode="numeric"
+                                data-validation-message="Only numbers allowed (8–12 digits)" 
+                                style="font-size: 15px !important;" 
+                                >
+                            </div>
+                        </div>
+                    </div>email ID
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Email ID</label>
+                                <input type="text" class="form-control input_style" name="email" autocomplete="off"   data-pattern="^[a-zA-Z0-9.!#$%&amp;'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" data-validation-message="Not valid email" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Address</label>
+                                <input type="text" class="form-control input_style" name="address" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Operating From</label>
+                                <input type="text" class="form-control input_style" name="operating_from" autocomplete="off" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Categories</label>
+                                <select multiple class="form-control input_style" id="categoriesDropdown" name="categories" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                                    <option value="">Loading...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Remarks :</label>
+                                <input type="text" class="form-control input_style" name="remark" autocomplete="off" style="font-size: 15px !important;">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-12 pull-left text-center mt-1">
+                        <button type="button" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;" onclick='validate("#add_supplier_modal","add_supplier",{"divid":"#add_supplier_modal","fun":"get_supplier_data","param":supplier_id})'>Submit</button>
+                        <button type="button" data-bs-dismiss="modal" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    document.getElementById("contact_no").addEventListener("input", function () {
+        var input = this.value;
+        var errorMsg = document.getElementById("contactError");
+
+        // Allow only numbers and a single + at the beginning
+        const validPattern = /^\+?\d*$/;
+
+        if (!validPattern.test(input)) {
+            errorMsg.style.display = "block";
+            errorMsg.textContent = "Only numbers and an optional '+' at the beginning are allowed.";
+        } else {
+            errorMsg.style.display = "none";
+        }
+    });
+</script>
+
+
+    <div class="modal fade dialogbox" id="add_sales" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style=" max-width: 500px !important;">
+
+                <div class="modal-body" id="sales_upload">
+                    <div class="col-12 pull-left text-center p-1 mt-1">
+                        <div class="divider card-title text-center"><span></span><span class="title"
+                                style="font-size: 15px;color: black;">Add Sales Contact</span><span></span></div>
+                    </div>
+                    <input type="hidden" name="id" class="id">
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Company Name:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="company_name" name="company_name"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Staff Name:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="agent_name" name="agent_name"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Email-ID:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="email" class="w-100  no-border p-0" id="email_id" name="email_id"
+                                 style="border-bottom: #283477 1px solid !important;"   autocomplete="off" 
+       data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+       data-validation-message="Not a valid email address" 
+       data-validation-required-message="This field is required" 
+       style="font-size: 15px !important;">
+                            </div>
+                        </div>
+                    </div>
+                      <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Phone Number:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <!-- <input type="number" class="w-100  no-border p-0" id="phone_no" name="phone_no"
+                                    style="border-bottom: #283477 1px solid !important;" data-pattern="^(\d)+$" data-required="yes" minlength="10" maxlength="12" data-validation-message="Only Numbers"
+                                    data-validation-required-message="This field is required"> -->
+                                    <input 
+    type="text" 
+    class="w-100 no-border p-0 only-digits" 
+    id="phone_no" 
+    name="phone_no"
+    autocomplete="off"
+    inputmode="numeric"
+    pattern="^\d{10,12}$"
+    minlength="10" 
+    maxlength="12"
+    data-required="yes" 
+    data-validation-message="Only Numbers" 
+    data-validation-required-message="This field is required"
+    style="border-bottom: #283477 1px solid !important;"
+    >
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Comments:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="comments" name="comments"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left mt-2">
+
+                        <button type="button" class="btn btn-primary btn-sm submits me-1 no-border sub-blue"
+                            style="padding: 0px 15px;"
+                            onclick="validate('#add_sales','add_sales')">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm ms-1 no-border sub-blue"
+                            data-bs-dismiss="modal" style="padding: 0px 15px;"
+                            onclick="get_sales()">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+     <div class="modal fade dialogbox" id="add_operation" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style=" max-width: 500px !important;">
+
+                <div class="modal-body" id="operation_upload">
+                    <div class="col-12 pull-left text-center p-1 mt-1">
+                        <div class="divider card-title text-center"><span></span><span class="title"
+                                style="font-size: 15px;color: black;">Add Operation Staff</span><span></span></div>
+                    </div>
+                    <input type="hidden" name="id" class="id">
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Company Name:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="company_name" name="company_name"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Staff Name:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="agent_name" name="agent_name"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Email-ID:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="email" class="w-100  no-border p-0" id="email_id" name="email_id"
+                                style="border-bottom: #283477 1px solid !important;"     autocomplete="off" 
+       data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+       data-validation-message="Not a valid email address" 
+       data-validation-required-message="This field is required" 
+       style="font-size: 15px !important;">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Phone Number:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="phone_no" name="phone_no"
+                                    style="border-bottom: #283477 1px solid !important;" data-pattern="^(\d)+$" minlength="10" maxlength="12" data-validation-message="Only Numbers" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-12 pull-left p-0 text-left">
+                            Phone Number:
+                        </div>
+                        <div class="phone-input-container">
+                                <select id="country_code" name="country_code" class="no-border p-0" style="border-right: #283477 1px solid !important; width: 55%; font-size: 11px;">
+                                    <option value="">Select Country Code</option>
+                                    <option value="+93">Afghanistan (+93)</option>
+<option value="+355">Albania (+355)</option>
+<option value="+213">Algeria (+213)</option>
+<option value="+376">Andorra (+376)</option>
+<option value="+244">Angola (+244)</option>
+<option value="+1-268">Antigua and Barbuda (+1-268)</option>
+<option value="+54">Argentina (+54)</option>
+<option value="+374">Armenia (+374)</option>
+<option value="+61">Australia (+61)</option>
+<option value="+43">Austria (+43)</option>
+<option value="+994">Azerbaijan (+994)</option>
+<option value="+1-242">Bahamas (+1-242)</option>
+<option value="+973">Bahrain (+973)</option>
+<option value="+880">Bangladesh (+880)</option>
+<option value="+1-246">Barbados (+1-246)</option>
+<option value="+375">Belarus (+375)</option>
+<option value="+32">Belgium (+32)</option>
+<option value="+501">Belize (+501)</option>
+<option value="+229">Benin (+229)</option>
+<option value="+975">Bhutan (+975)</option>
+<option value="+591">Bolivia (+591)</option>
+<option value="+387">Bosnia and Herzegovina (+387)</option>
+<option value="+267">Botswana (+267)</option>
+<option value="+55">Brazil (+55)</option>
+<option value="+673">Brunei (+673)</option>
+<option value="+359">Bulgaria (+359)</option>
+<option value="+226">Burkina Faso (+226)</option>
+<option value="+257">Burundi (+257)</option>
+<option value="+238">Cabo Verde (+238)</option>
+<option value="+855">Cambodia (+855)</option>
+<option value="+237">Cameroon (+237)</option>
+<option value="+1">Canada (+1)</option>
+<option value="+236">Central African Republic (+236)</option>
+<option value="+235">Chad (+235)</option>
+<option value="+56">Chile (+56)</option>
+<option value="+86">China (+86)</option>
+<option value="+57">Colombia (+57)</option>
+<option value="+269">Comoros (+269)</option>
+<option value="+242">Congo (Congo-Brazzaville) (+242)</option>
+<option value="+506">Costa Rica (+506)</option>
+<option value="+385">Croatia (+385)</option>
+<option value="+53">Cuba (+53)</option>
+<option value="+357">Cyprus (+357)</option>
+<option value="+420">Czechia (+420)</option>+971
+<option value="+971">Dubai (+971)</option>
+<option value="+243">Democratic Republic of the Congo (+243)</option>
+<option value="+45">Denmark (+45)</option>
+<option value="+253">Djibouti (+253)</option>
+<option value="+1-767">Dominica (+1-767)</option>
+<option value="+1-809">Dominican Republic (+1-809)</option>
+<option value="+1-829">Dominican Republic (+1-829)</option>
+<option value="+1-849">Dominican Republic (+1-849)</option>
+<option value="+593">Ecuador (+593)</option>
+<option value="+20">Egypt (+20)</option>
+<option value="+503">El Salvador (+503)</option>
+<option value="+240">Equatorial Guinea (+240)</option>
+<option value="+291">Eritrea (+291)</option>
+<option value="+372">Estonia (+372)</option>
+<option value="+268">Eswatini (+268)</option>
+<option value="+251">Ethiopia (+251)</option>
+<option value="+679">Fiji (+679)</option>
+<option value="+358">Finland (+358)</option>
+<option value="+33">France (+33)</option>
+<option value="+241">Gabon (+241)</option>
+<option value="+220">Gambia (+220)</option>
+<option value="+995">Georgia (+995)</option>
+<option value="+49">Germany (+49)</option>
+<option value="+233">Ghana (+233)</option>
+<option value="+30">Greece (+30)</option>
+<option value="+1-473">Grenada (+1-473)</option>
+<option value="+502">Guatemala (+502)</option>
+<option value="+224">Guinea (+224)</option>
+<option value="+245">Guinea-Bissau (+245)</option>
+<option value="+592">Guyana (+592)</option>
+<option value="+31">Holland (+31)</option>
+<option value="+509">Haiti (+509)</option>
+<option value="+504">Honduras (+504)</option>
+<option value="+36">Hungary (+36)</option>
+<option value="+354">Iceland (+354)</option>
+<option value="+91">India (+91)</option>
+<option value="+62">Indonesia (+62)</option>
+<option value="+98">Iran (+98)</option>
+<option value="+964">Iraq (+964)</option>
+<option value="+353">Ireland (+353)</option>
+<option value="+972">Israel (+972)</option>
+<option value="+39">Italy (+39)</option>
+<option value="+1-876">Jamaica (+1-876)</option>
+<option value="+81">Japan (+81)</option>
+<option value="+962">Jordan (+962)</option>
+<option value="+7">Kazakhstan (+7)</option>
+<option value="+254">Kenya (+254)</option>
+<option value="+686">Kiribati (+686)</option>
+<option value="+965">Kuwait (+965)</option>
+<option value="+996">Kyrgyzstan (+996)</option>
+<option value="+856">Laos (+856)</option>
+<option value="+371">Latvia (+371)</option>
+<option value="+961">Lebanon (+961)</option>
+<option value="+266">Lesotho (+266)</option>
+<option value="+231">Liberia (+231)</option>
+<option value="+218">Libya (+218)</option>
+<option value="+423">Liechtenstein (+423)</option>
+<option value="+370">Lithuania (+370)</option>
+<option value="+352">Luxembourg (+352)</option>
+<option value="+261">Madagascar (+261)</option>
+<option value="+265">Malawi (+265)</option>
+<option value="+60">Malaysia (+60)</option>
+<option value="+960">Maldives (+960)</option>
+<option value="+223">Mali (+223)</option>
+<option value="+356">Malta (+356)</option>
+<option value="+692">Marshall Islands (+692)</option>
+<option value="+222">Mauritania (+222)</option>
+<option value="+230">Mauritius (+230)</option>
+<option value="+52">Mexico (+52)</option>
+<option value="+691">Micronesia (+691)</option>
+<option value="+373">Moldova (+373)</option>
+<option value="+377">Monaco (+377)</option>
+<option value="+976">Mongolia (+976)</option>
+<option value="+382">Montenegro (+382)</option>
+<option value="+212">Morocco (+212)</option>
+<option value="+258">Mozambique (+258)</option>
+<option value="+95">Myanmar (+95)</option>
+<option value="+264">Namibia (+264)</option>
+<option value="+674">Nauru (+674)</option>
+<option value="+977">Nepal (+977)</option>
+<option value="+31">Netherlands (+31)</option>
+<option value="+64">New Zealand (+64)</option>
+<option value="+505">Nicaragua (+505)</option>
+<option value="+227">Niger (+227)</option>
+<option value="+234">Nigeria (+234)</option>
+<option value="+850">North Korea (+850)</option>
+<option value="+389">North Macedonia (+389)</option>
+<option value="+47">Norway (+47)</option>
+<option value="+968">Oman (+968)</option>
+<option value="+92">Pakistan (+92)</option>
+<option value="+680">Palau (+680)</option>
+<option value="+507">Panama (+507)</option>
+<option value="+675">Papua New Guinea (+675)</option>
+<option value="+595">Paraguay (+595)</option>
+<option value="+51">Peru (+51)</option>
+<option value="+63">Philippines (+63)</option>
+<option value="+48">Poland (+48)</option>
+<option value="+351">Portugal (+351)</option>
+<option value="+974">Qatar (+974)</option>
+<option value="+40">Romania (+40)</option>
+<option value="+7">Russia (+7)</option>
+<option value="+250">Rwanda (+250)</option>
+<option value="+1-869">Saint Kitts and Nevis (+1-869)</option>
+<option value="+1-758">Saint Lucia (+1-758)</option>
+<option value="+1-784">Saint Vincent and the Grenadines (+1-784)</option>
+<option value="+685">Samoa (+685)</option>
+<option value="+378">San Marino (+378)</option>
+<option value="+239">Sao Tome and Principe (+239)</option>
+<option value="+966">Saudi Arabia (+966)</option>
+<option value="+221">Senegal (+221)</option>
+<option value="+381">Serbia (+381)</option>
+<option value="+248">Seychelles (+248)</option>
+<option value="+232">Sierra Leone (+232)</option>
+<option value="+65">Singapore (+65)</option>
+<option value="+421">Slovakia (+421)</option>
+<option value="+386">Slovenia (+386)</option>
+<option value="+677">Solomon Islands (+677)</option>
+<option value="+252">Somalia (+252)</option>
+<option value="+27">South Africa (+27)</option>
+<option value="+82">South Korea (+82)</option>
+<option value="+211">South Sudan (+211)</option>
+<option value="+34">Spain (+34)</option>
+<option value="+94">Sri Lanka (+94)</option>
+<option value="+249">Sudan (+249)</option>
+<option value="+597">Suriname (+597)</option>
+<option value="+46">Sweden (+46)</option>
+<option value="+41">Switzerland (+41)</option>
+<option value="+963">Syria (+963)</option>
+<option value="+992">Tajikistan (+992)</option>
+<option value="+255">Tanzania (+255)</option>
+<option value="+66">Thailand (+66)</option>
+<option value="+670">Timor-Leste (+670)</option>
+<option value="+228">Togo (+228)</option>
+<option value="+676">Tonga (+676)</option>
+<option value="+1-868">Trinidad and Tobago (+1-868)</option>
+<option value="+216">Tunisia (+216)</option>
+<option value="+90">Turkey (+90)</option>
+<option value="+993">Turkmenistan (+993)</option>
+<option value="+688">Tuvalu (+688)</option>
+<option value="+256">Uganda (+256)</option>
+<option value="+380">Ukraine (+380)</option>
+<option value="+971">United Arab Emirates (+971)</option>
+<option value="+44">United Kingdom (+44)</option>
+<option value="+1">United States (+1)</option>
+<option value="+598">Uruguay (+598)</option>
+<option value="+998">Uzbekistan (+998)</option>
+<option value="+678">Vanuatu (+678)</option>
+<option value="+39">Vatican City (+39)</option>
+<option value="+58">Venezuela (+58)</option>
+<option value="+84">Vietnam (+84)</option>
+<option value="+967">Yemen (+967)</option>
+<option value="+260">Zambia (+260)</option>
+<option value="+263">Zimbabwe (+263)</option>
+
+                                </select>
+                                <!-- <input type="text" class="w-70 no-border p-0" id="phone_no" name="phone_no"
+                                    minlength="10" maxlength="20"
+                                    data-pattern="^(\d)+$" data-validation-message="Only Numbers" data-required="yes"
+                                    data-validation-required-message="This field is required"> -->
+
+                                     <input type="tel" class="w-70 no-border p-0" id="phone_no" name="phone_no"
+       minlength="10" maxlength="20"
+       pattern="^\d+$" 
+       data-validation-message="Only Numbers"
+       data-required="yes"
+       data-validation-required-message="This field is required"
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                            </div>
+                    
+                    </div>
+                    
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                      <div class="col-4 pull-left p-0 text-left">
+                          Country:
+                      </div>
+                      <input type="hidden" name="country_name">
+                     <!-- Country Dropdown -->
+<!-- Country Dropdown -->
+<div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+    <div class="w-100 pull-left">
+        <select class="form-control input_style" multiple id="countryDropdown11" name="country_id" style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required">
+            <option value="" style="line-height: 16px !important; text-align: justify !important;">Loading...</option>
+        </select>
+    </div>
+</div>
+
+                      <!-- <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                          <div class="w-100 pull-left">
+                            <select type="text"  class="form-control input_style" name="country_id" style="font-size: 15px !important;"  data-required="yes" data-validation-required-message="This field is required">
+                            </select>
+                    <select class="w-100 no-border p-0" id="country_id" name="country_id" 
+                                  style="border-bottom: #283477 1px solid !important;" data-required="yes" 
+                                  data-validation-required-message="This field is required" >
+                                  <option value="">Select a country</option>
+                                  <option value="Afghanistan">Afghanistan</option>
+                                  <option value="Albania">Albania</option>
+                                  <option value="Algeria">Algeria</option>
+                                  <option value="Andorra">Andorra</option>
+                                  <option value="Angola">Angola</option>
+                                  <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                  <option value="Argentina">Argentina</option>
+                                  <option value="Armenia">Armenia</option>
+                                  <option value="Australia">Australia</option>
+                                  <option value="Austria">Austria</option>
+                                  <option value="Azerbaijan">Azerbaijan</option>
+                                  <option value="Bahamas">Bahamas</option>
+                                  <option value="Bahrain">Bahrain</option>
+                                  <option value="Bangladesh">Bangladesh</option>
+                                  <option value="Barbados">Barbados</option>
+                                  <option value="Belarus">Belarus</option>
+                                  <option value="Belgium">Belgium</option>
+                                  <option value="Belize">Belize</option>
+                                  <option value="Benin">Benin</option>
+                                  <option value="Bhutan">Bhutan</option>
+                                  <option value="Bolivia">Bolivia</option>
+                                  <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                                  <option value="Botswana">Botswana</option>
+                                  <option value="Brazil">Brazil</option>
+                                  <option value="Brunei">Brunei</option>
+                                  <option value="Bulgaria">Bulgaria</option>
+                                  <option value="Burkina Faso">Burkina Faso</option>
+                                  <option value="Burundi">Burundi</option>
+                                  <option value="Cabo Verde">Cabo Verde</option>
+                                  <option value="Cambodia">Cambodia</option>
+                                  <option value="Cameroon">Cameroon</option>
+                                  <option value="Canada">Canada</option>
+                                  <option value="Central African Republic">Central African Republic</option>
+                                  <option value="Chad">Chad</option>
+                                  <option value="Chile">Chile</option>
+                                  <option value="China">China</option>
+                                  <option value="Colombia">Colombia</option>
+                                  <option value="Comoros">Comoros</option>
+                                  <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
+                                  <option value="Costa Rica">Costa Rica</option>
+                                  <option value="Croatia">Croatia</option>
+                                  <option value="Cuba">Cuba</option>
+                                  <option value="Cyprus">Cyprus</option>
+                                  <option value="Czechia">Czechia</option>
+                                  <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                                  <option value="Denmark">Denmark</option>
+                                  <option value="Djibouti">Djibouti</option>
+                                  <option value="Dominica">Dominica</option>
+                                  <option value="Dominican Republic">Dominican Republic</option>
+                                  <option value="Ecuador">Ecuador</option>
+                                  <option value="Egypt">Egypt</option>
+                                  <option value="El Salvador">El Salvador</option>
+                                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                  <option value="Eritrea">Eritrea</option>
+                                  <option value="Estonia">Estonia</option>
+                                  <option value="Eswatini">Eswatini</option>
+                                  <option value="Ethiopia">Ethiopia</option>
+                                  <option value="Fiji">Fiji</option>
+                                  <option value="Finland">Finland</option>
+                                  <option value="France">France</option>
+                                  <option value="Gabon">Gabon</option>
+                                  <option value="Gambia">Gambia</option>
+                                  <option value="Georgia">Georgia</option>
+                                  <option value="Germany">Germany</option>
+                                  <option value="Ghana">Ghana</option>
+                                  <option value="Greece">Greece</option>
+                                  <option value="Grenada">Grenada</option>
+                                  <option value="Guatemala">Guatemala</option>
+                                  <option value="Guinea">Guinea</option>
+                                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                  <option value="Guyana">Guyana</option>
+                                  <option value="Haiti">Haiti</option>
+                                  <option value="Honduras">Honduras</option>
+                                  <option value="Hungary">Hungary</option>
+                                  <option value="Iceland">Iceland</option>
+                                  <option value="India">India</option>
+                                  <option value="Indonesia">Indonesia</option>
+                                  <option value="Iran">Iran</option>
+                                  <option value="Iraq">Iraq</option>
+                                  <option value="Ireland">Ireland</option>
+                                  <option value="Israel">Israel</option>
+                                  <option value="Italy">Italy</option>
+                                  <option value="Jamaica">Jamaica</option>
+                                  <option value="Japan">Japan</option>
+                                  <option value="Jordan">Jordan</option>
+                                  <option value="Kazakhstan">Kazakhstan</option>
+                                  <option value="Kenya">Kenya</option>
+                                  <option value="Kiribati">Kiribati</option>
+                                  <option value="Kuwait">Kuwait</option>
+                                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                  <option value="Laos">Laos</option>
+                                  <option value="Latvia">Latvia</option>
+                                  <option value="Lebanon">Lebanon</option>
+                                  <option value="Lesotho">Lesotho</option>
+                                  <option value="Liberia">Liberia</option>
+                                  <option value="Libya">Libya</option>
+                                  <option value="Liechtenstein">Liechtenstein</option>
+                                  <option value="Lithuania">Lithuania</option>
+                                  <option value="Luxembourg">Luxembourg</option>
+                                  <option value="Madagascar">Madagascar</option>
+                                  <option value="Malawi">Malawi</option>
+                                  <option value="Malaysia">Malaysia</option>
+                                  <option value="Maldives">Maldives</option>
+                                  <option value="Mali">Mali</option>
+                                  <option value="Malta">Malta</option>
+                                  <option value="Marshall Islands">Marshall Islands</option>
+                                  <option value="Mauritania">Mauritania</option>
+                                  <option value="Mauritius">Mauritius</option>
+                                  <option value="Mexico">Mexico</option>
+                                  <option value="Micronesia">Micronesia</option>
+                                  <option value="Moldova">Moldova</option>
+                                  <option value="Monaco">Monaco</option>
+                                  <option value="Mongolia">Mongolia</option>
+                                  <option value="Montenegro">Montenegro</option>
+                                  <option value="Morocco">Morocco</option>
+                                  <option value="Mozambique">Mozambique</option>
+                                  <option value="Myanmar">Myanmar</option>
+                                  <option value="Namibia">Namibia</option>
+                                  <option value="Nauru">Nauru</option>
+                                  <option value="Nepal">Nepal</option>
+                                  <option value="Netherlands">Netherlands</option>
+                                  <option value="New Zealand">New Zealand</option>
+                                  <option value="Nicaragua">Nicaragua</option>
+                                  <option value="Niger">Niger</option>
+                                  <option value="Nigeria">Nigeria</option>
+                                  <option value="North Korea">North Korea</option>
+                                  <option value="North Macedonia">North Macedonia</option>
+                                  <option value="Norway">Norway</option>
+                                  <option value="Oman">Oman</option>
+                                  <option value="Pakistan">Pakistan</option>
+                                  <option value="Palau">Palau</option>
+                                  <option value="Panama">Panama</option>
+                                  <option value="Papua New Guinea">Papua New Guinea</option>
+                                  <option value="Paraguay">Paraguay</option>
+                                  <option value="Peru">Peru</option>
+                                  <option value="Philippines">Philippines</option>
+                                  <option value="Poland">Poland</option>
+                                  <option value="Portugal">Portugal</option>
+                                  <option value="Qatar">Qatar</option>
+                                  <option value="Romania">Romania</option>
+                                  <option value="Russia">Russia</option>
+                                  <option value="Rwanda">Rwanda</option>
+                                  <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                  <option value="Saint Lucia">Saint Lucia</option>
+                                  <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                                  <option value="Samoa">Samoa</option>
+                                  <option value="San Marino">San Marino</option>
+                                  <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                                  <option value="Saudi Arabia">Saudi Arabia</option>
+                                  <option value="Senegal">Senegal</option>
+                                  <option value="Serbia">Serbia</option>
+                                  <option value="Seychelles">Seychelles</option>
+                                  <option value="Sierra Leone">Sierra Leone</option>
+                                  <option value="Singapore">Singapore</option>
+                                  <option value="Slovakia">Slovakia</option>
+                                  <option value="Slovenia">Slovenia</option>
+                                  <option value="Solomon Islands">Solomon Islands</option>
+                                  <option value="Somalia">Somalia</option>
+                                  <option value="South Africa">South Africa</option>
+                                  <option value="South Korea">South Korea</option>
+                                  <option value="South Sudan">South Sudan</option>
+                                  <option value="Spain">Spain</option>
+                                  <option value="Sri Lanka">Sri Lanka</option>
+                                  <option value="Sudan">Sudan</option>
+                                  <option value="Suriname">Suriname</option>
+                                  <option value="Sweden">Sweden</option>
+                                  <option value="Switzerland">Switzerland</option>
+                                  <option value="Syria">Syria</option>
+                                  <option value="Tajikistan">Tajikistan</option>
+                                  <option value="Tanzania">Tanzania</option>
+                                  <option value="Thailand">Thailand</option>
+                                  <option value="Timor-Leste">Timor-Leste</option>
+                                  <option value="Togo">Togo</option>
+                                  <option value="Tonga">Tonga</option>
+                                  <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                                  <option value="Tunisia">Tunisia</option>
+                                  <option value="Turkey">Turkey</option>
+                                  <option value="Turkmenistan">Turkmenistan</option>
+                                  <option value="Tuvalu">Tuvalu</option>
+                                  <option value="Uganda">Uganda</option>
+                                  <option value="Ukraine">Ukraine</option>
+                                  <option value="United Arab Emirates">United Arab Emirates</option>
+                                  <option value="United Kingdom">United Kingdom</option>
+                                  <option value="United States">United States</option>
+                                  <option value="Uruguay">Uruguay</option>
+                                  <option value="Uzbekistan">Uzbekistan</option>
+                                  <option value="Vanuatu">Vanuatu</option>
+                                  <option value="Vatican City">Vatican City</option>
+                                  <option value="Venezuela">Venezuela</option>
+                                  <option value="Vietnam">Vietnam</option>
+                                  <option value="Yemen">Yemen</option>
+                                  <option value="Zambia">Zambia</option>
+                                  <option value="Zimbabwe">Zimbabwe</option>
+                              </select> 
+                          </div>
+                      </div> -->
+                  </div> 
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Comments:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="comments" name="comments"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left mt-2">
+
+                        <button type="button" class="btn btn-primary btn-sm me-1 submits no-border sub-blue"
+                            style="padding: 0px 15px;" onclick="validate('#add_operation','add_operation')">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm ms-1 no-border sub-blue"
+                            data-bs-dismiss="modal" style="padding: 0px 15px;"
+                            onclick="get_operation()">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<div class="modal fade dialogbox" id="add_accounts" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style=" max-width: 400px !important;">
+
+                <div class="modal-body">
+                    <div class="col-12 pull-left text-center p-1 mt-1">
+                        <div class="divider card-title text-center"><span></span><span class="title"
+                                style="font-size: 15px;color: black;">Add Accounts</span><span></span></div>
+                    </div>
+                    <input type="hidden" class="id" name="id">
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Company Name:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="company_name" name="company_name"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Staff Name:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="agent_name" name="agent_name"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Email-ID:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="email" class="w-100  no-border p-0" id="email_id" name="email_id"
+                                 style="border-bottom: #283477 1px solid !important;"    autocomplete="off" 
+       data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+       data-validation-message="Not a valid email address" 
+       data-validation-required-message="This field is required" 
+       style="font-size: 15px !important;">
+                            </div>
+                        </div>
+                    </div>
+                      <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Phone Number:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <!-- <input type="number" class="w-100  no-border p-0" id="phone_no" name="phone_no"
+                                    style="border-bottom: #283477 1px solid !important;" data-pattern="^(\d)+$" data-required="yes" minlength="10" maxlength="12" data-validation-message="Only Numbers"
+                                    data-validation-required-message="This field is required"> -->
+                                    <input 
+    type="text" 
+    class="w-100 no-border p-0 only-digits" 
+    id="phone_no" 
+    name="phone_no"
+    autocomplete="off"
+    inputmode="numeric"
+    pattern="^\d{10,12}$"
+    minlength="10" 
+    maxlength="12"
+    data-required="yes"
+    data-validation-message="Only Numbers"
+    data-validation-required-message="This field is required"
+   
+    style="border-bottom: #283477 1px solid !important;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Comments:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" id="comments" name="comments"
+                                    style="border-bottom: #283477 1px solid !important;" data-required="yes"
+                                    data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pull-left mt-2">
+
+                        <button type="button" class="btn btn-primary btn-sm me-1 submits no-border sub-blue"
+                            onclick="validate('#add_accounts','add_accounts')"
+                            style="padding: 0px 15px;">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm ms-1 no-border sub-blue"
+                            data-bs-dismiss="modal" style="padding: 0px 15px;"
+                            onclick="get_accounts()">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 17px !important;
+    padding-right: 169px !important;
+    padding-left: 0px !important;
+    text-align: justify !important;
+}
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 2px solid #283477;
+    border-radius: 8px;
+    cursor: text;
+    position: relative;
+    padding: 0rem 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
+.phone-input-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #00000057;
+            border-radius: 5px;
+            padding: 5px;
+            /* width: 320px; */
+        }
+        .phone-input-container select {
+            border: none;
+            background: none;
+            font-size: 13px;
+            /* padding: 5px; */
+            outline: none;
+            width: 45%;
+        }
+        .phone-input-container input {
+            border: none;
+            border-left: 1px solid #283477;
+            /* padding: 5px; */
+            flex: 1;
+            outline: none;
+            font-size: 13px;
+        }
+    </style>
+    
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+    <link href="assets/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- Ionicons -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <!-- Ionicons -->
+    <script src="assets/js/base.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ <!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+
+<!-- Include jQuery and Select2 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+ <script>
+$(document).ready(function() {
+    // Ensure Select2 is available
+    if (!$.fn.select2) {
+        console.error("Select2 library is not loaded.");
+        return;
+    }
+
+    // Initialize Select2
+    // $('#countryDropdown').select2({
+    //     placeholder: "Select Country",
+    //     allowClear: true
+    // });
+
+    // Fetch country data
+    get_country();
+
+//     function get_country()
+// {
+//     $.ajax({
+//         type: "get",
+//         url: newbaseurl + 'GetData/get_list',
+//         async: true,
+//         data:'table=country&sort=name',
+//         success: function (html) 
+//         {
+//             $('#add_operation [name="country_id"]').html('')
+//             html=JSON.parse(html);
+//             option=`<option data-name="Whole World" value="0">Whole World</option>`
+//             for(x in html)
+//             {
+//                 option+=`<option data-name="${html[x]['name']}" value="${html[x]['id']}">${html[x]['name']}</option>`
+//             }
+//             $('#add_operation [name="country_id"]').html(option)
+//             $('#add_operation [name="country_id"]').select2({multiple: true,'placeholder':'Select Country'});
+          
+//         }
+        
+//     })
+    
+// }
+
+
+function get_country() {
+    $.ajax({
+        type: "get",
+        url: newbaseurl + 'GetData/get_list',
+        async: true,
+        data: 'table=country&sort=name',
+        success: function (html) {
+            $('#add_operation [name="country_id"]').html(''); // Clear existing options
+            
+            html = JSON.parse(html);
+            let option = `<option data-name="Whole World" value="0">Whole World</option>`;
+
+            for (let x in html) {
+                option += `<option data-name="${html[x]['name']}" value="${html[x]['id']}">${html[x]['name']}</option>`;
+            }
+
+            let countrySelect = $('#add_operation [name="country_id"]');
+            countrySelect.html(option); // Append new options
+
+            // Ensure select is set as multiple
+            // countrySelect.attr('multiple', 'multiple');
+
+            // Initialize or reinitialize Select2
+            countrySelect.select2({
+                placeholder: 'Select Country'
+            });
+        }
+    });
+}
+
+});
+</script>
+
+<script>
+    function get_country() {
+    $.ajax({
+        type: "GET",
+        url: newbaseurl + "GetData/get_list",
+        data: { table: "country", sort: "name" },
+        dataType: "json", // Ensures automatic JSON parsing
+        success: function(response) {
+            let dropdown = $('#countryDropdown11');
+            dropdown.empty(); // Clear previous options
+
+            console.log("API Response:", response); // Debugging Log
+
+            // Ensure the response is an array, if not, try to extract data
+            let countryList = [];
+
+            if (Array.isArray(response)) {
+                countryList = response;
+            } else if (response.data && Array.isArray(response.data)) {
+                countryList = response.data; // Extract from nested object
+            } else {
+                console.error("Invalid response format: Expected an array", response);
+                dropdown.html('<option value="">Error loading countries</option>');
+                return;
+            }
+
+            // Populate dropdown
+            dropdown.append('<option value="0">Whole World</option>');
+            countryList.forEach(country => {
+                dropdown.append(`<option value="${country.id}">${country.name}</option>`);
+            });
+
+            // Re-initialize Select2
+            dropdown.select2();
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX Error:", status, error);
+            $('#countryDropdown').html('<option value="">Error loading countries</option>');
+        }
+    });
+}
+$('#add_supplier_modal [name="product"]').select2({multiple: true,'placeholder':'Select Product'});
+$('#add_supplier_modal [name="type"]').val('')
+$('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+
+function apply_search(page = '') {
+    if (page === '' && $('.pagination').length > 0) {
+        page = $('.pagination .current button').html();
+    }
+
+    // Get search value and selected country
+    const value = (decodeURIComponent($("#find").val())).trim();
+    const selectedCountry = $('#countryDropdown').val()?.trim(); // Get selected country
+
+    // Hide table and clear data if both search and country selection are empty
+    if (value === '' && (!selectedCountry || selectedCountry === '')) {
+        $('.student_data').hide(); // Hide table
+        $('.details1').html(''); // Clear previous data
+        $('#count1').html(''); // Clear entry count
+        $('.page_ination').html(''); // Clear pagination
+        return;
+    }
+}
+</script>
+
+       
+
+</body>
+<script>
+
+var user_email_enquiry = localStorage.getItem("user_email_enquiry");
+if (typeof user_email_enquiry == 'undefined' || user_email_enquiry == null) {
+    window.location.href = 'login.html'
+}
+
+function add_reminder() 
+{
+    $user_id = localStorage.getItem("user_id_enquiry");
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $('#reminder .submits').attr('disabled', true).html('Please Wait')
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: baseurl + 'customer_detail.php',
+        data: 'req=3&' + $("#reminder").find('select, textarea, input').serialize() + '&remindby=' + $user_id + '&customer_id=' + $id,
+        success: function (html) 
+        {
+            console.log(html)
+            show_toast("Reminder added", "success", '', "top", "success");
+            $("#reminder").find('select, textarea, input').val('');
+            $('#reminder .submits').attr('disabled', false).html('Submit')
+            $('#reminder').modal('hide')
+            get_remind()
+        }
+
+    });
+}
+get_remind();
+
+function get_remind() 
+{
+    $user_id = localStorage.getItem("user_id_enquiry");
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: baseurl + 'customer_detail.php',
+        data: 'req=1&remindby=' + $user_id + '&customer_id=' + $id+'&type=supplier',
+        success: function (html) {
+            console.log(baseurl + 'customer_detail.php?'+'req=1&remindby=' + $user_id + '&customer_id=' + $id+'&type=supplier')
+            $('.timeline.reminder').html(html)
+        }
+
+    });
+}
+function add_remark(id) 
+{
+    $user_id = localStorage.getItem("user_id_enquiry");
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $(id+' .submits').attr('disabled', true).html('Please Wait')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'customer_detail.php',
+        async: true,
+        data: 'req=2&' + $(id).find('select, textarea, input').serialize() + '&remarkby=' + $user_id + '&customer_id=' + $id,
+        success: function (html) 
+        {
+            console.log(html)
+            show_toast("Feedback added", "success", '', "top", "success");
+            $("#remark").find('select, textarea, input').val('');
+            $('#remark .submits').attr('disabled', false).html('Submit')
+            $('#remark').modal('hide')
+            get_remind();
+        }
+    });
+}
+
+let searchParams = new URLSearchParams(window.location.search)
+supplier_id = searchParams.get('id')
+    
+set_id(supplier_id,'#add_supplier_modal [name=id]')
+set_datetime()
+setInterval(function(){
+    set_datetime()
+},1000)
+function set_datetime()
+{
+    date=new Date();
+    var day = date.getDate();
+    var month = ("0" + (date.getMonth() + 1)).slice(-2);
+    var year = date.getFullYear();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime =day+'-'+month+'-'+year+'  '+ hours + ':' + minutes + ' ' + ampm;
+    //$('#feedbacktime').val(strTime)
+}
+$('#remind_time').val('')
+function show_reminder(id)
+{
+    if($(id+':checked').length>0)
+    {
+        $('.reminder_time').removeClass('hidden')
+    }
+    else
+    {
+        $('.reminder_time').addClass('hidden')
+        $('#remind_time').val('')
+    }
+}
+
+get_supplier_data(supplier_id)
+function get_supplier_data(id)
+{
+    $.ajax({
+        type: "get",
+        url: newbaseurl + 'GetData/get_list',
+        async: true,
+        data:'table=supplier&id='+id+'&sort=id',
+        success: function (html) 
+        {
+            let data2=''
+            html=JSON.parse(html);
+            let supplierName = html[id]['name'] || '';
+            supplierName = supplierName.replace(/(&amp;|amp;)/g, '&');
+            data2=`<div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red col-3">Supplier Name :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${supplierName}</div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red col-3">Contact Person Name :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['name_poc']}</div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red col-3">Categories :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['categories']}</div>
+                </div>
+                
+                <div class="col-12 pull-left border-blue-bot">
+    <div class="col-4 pull-left p-0 font-red col-3">Supplier Status :</div>
+    <div class="col-8 pull-left p-0 font-blue">
+        ${html[id]['status'] === 'Preferable' ? 'Active' : html[id]['status'] === 'Non-Preferable' ? 'In-Active' : html[id]['status']}
+    </div>
+</div>
+                <div class="col-12 p-0 pull-left">
+                    <div class="col-12 pull-left border-blue-bot">
+                        <div class="col-4 pull-left p-0 font-red">Address :</div>
+                        <div class="col-8 pull-left p-0 font-blue">${html[id]['address']}</div>
+                    </div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red">Email :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['email']}</div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red">Contact Number :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['contact_no']}</div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red">Countries :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['country_name']}</div>
+                </div>`
+            // if(html[id]['person_name']!='')
+            // {
+            //     person_name=JSON.parse(html[id]['person_name'])
+            //     i=0;
+            //     for(x in person_name)
+            //     {      
+            //         const numbers = [person_name[x].number1, person_name[x].number2, person_name[x].number3]
+            //         .filter(n => n) // remove undefined, null, or empty values
+            //         .join(' - ');          
+            //         country_name=html[id]['country_name'].split(',')
+            //     data2+=`<div class="col-12 pull-left border-blue-bot">
+            //             <div class="col-4 pull-left p-0 font-red">${country_name[i]} :</div>
+            //             <div class="col-8 text-capitalize pull-left p-0 font-blue">${person_name[x]['name']+' - '+person_name[x]['product']} <br>${numbers}</div>
+                       
+            //         </div>`
+            //         i++
+            //     }
+            // }
+           
+            if (html[id] && html[id]['person_name'] && html[id]['person_name'] !== '') {
+    let person_name;
+    try {
+        person_name = JSON.parse(html[id]['person_name']);
+    } catch (e) {
+        person_name = null;
+    }
+ 
+    if (Array.isArray(person_name)) {
+        const country_name = html[id]['country_name'] ? html[id]['country_name'].split(',') : [];
+        let i = 0;
+ 
+        for (const x in person_name) {
+            if (
+                person_name[x] &&
+                person_name[x].name &&
+                person_name[x].product
+            ) {
+                const numbers = [
+                    person_name[x].number1,
+                    person_name[x].number2,
+                    person_name[x].number3
+                ]
+                    .filter(n => n) // Remove undefined, null, or empty strings
+                    .join(' - ');
+ 
+                data2 += `<div class="col-12 pull-left border-blue-bot">
+<div class="col-4 pull-left p-0 font-red">${country_name[i] || ''} :</div>
+<div class="col-8 text-capitalize pull-left p-0 font-blue">
+                        ${person_name[x].name} - ${person_name[x].product} <br>${numbers}
+</div>
+</div>`;
+                i++;
+            }
+        }
+    }
+}
+            
+            data2+=`<div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red">Operating From :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['operating_from']}</div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red">Categories :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['categories']}</div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red">Type :</div>
+                    <div class="col-8 pull-left p-0 font-blue">${html[id]['type']}</div>
+                </div>
+                <div class="col-12 pull-left border-blue-bot">
+                    <div class="col-4 pull-left p-0 font-red">Reference :</div>
+                    <div class="col-8 pull-left font-blue">${html[id]['reference']}</div>
+                </div>
+               `
+                $('#supplier_details').html(data2)
+
+                const data = html[id];
+            const $modal = $('#add_supplier_modal');
+
+            // STEP 1: Fill Static Fields
+            $modal.find('[name="id"]').val(data.id);
+            $modal.find('[name="name"]').val(data.name);
+            $modal.find('[name="status"]').val(data.status);
+            $modal.find('[name="name_poc"]').val(data.name_poc);
+            $modal.find('[name="designation"]').val(data.designation);
+            $modal.find('[name="contact_no"]').val(data.contact_no);
+            $modal.find('[name="landline_no"]').val(data.landline_no);
+            $modal.find('[name="email"]').val(data.email);
+            $modal.find('[name="address"]').val(data.address);
+            $modal.find('[name="operating_from"]').val(data.operating_from);
+            $modal.find('[name="country_name"]').val(data.country_name);
+
+            // Handle Categories (multi-select)
+            $modal.find('[name="categories"]').val(data.categories.split(',')).trigger('change');
+
+            // STEP 2: Select Countries and Trigger Change Event to Render Contact Blocks
+            const $countrySelect = $modal.find('[name="country_id"]');
+            const countryIds = data.country_id.split(',');
+
+            setSelect2ValueWhenReady($countrySelect, countryIds);
+            
+            // STEP 3: Delay to Ensure Dynamic Blocks are Rendered
+            setTimeout(function () {
+                if (data.person_name) {
+                    const personData = JSON.parse(data.person_name);
+                    let i = 0;
+                    for (let key in personData) {
+                        const person = personData[key];
+                        const countryId = countryIds[i];
+                        // const block = $modal.find(`.country-person[data-country="${countryId}"]`);
+                        const block = $modal.find(`.country-block[data-country="${countryId}"]`);
+                        if (block.length) {
+                            // Fill contact name
+                            block.find(`[name="person_contact_name_${countryId}"]`).val(person.name);
+
+                            // Fill numbers conditionally
+                            if (person.number1) block.find(`[name="person_contact_number_1_${countryId}"]`).val(person.number1);
+                            if (person.number2) block.find(`[name="person_contact_number_2_${countryId}"]`).val(person.number2);
+                            if (person.number3) block.find(`[name="person_contact_number_3_${countryId}"]`).val(person.number3);
+
+                            // Fill product(s)
+                            if (person.product) {
+                                block.find(`[name="person_contact_product_${countryId}"]`).val(person.product).trigger('change');
+                            }
+                        }
+
+                        i++;
+                    }
+                }
+            }, 3000);
+             // adjust delay as needed for UI render timing
+        }
+    });
+}
+
+// <div class="col-12 pull-left border-blue-bot">
+//                     <div class="col-4 pull-left p-0 font-red">Rating :</div>
+//                     <div class="col-8 pull-left font-blue">${html[id]['rating']}</div>
+//                 </div>
+//                 <div class="col-12 pull-left mb-0 border-blue-bot">
+//                     <div class="col-4 pull-left p-0 font-red">Rating Remark:</div>
+//                     <div class="col-8 pull-left font-blue">${html[id]['rating_remark']}</div>
+//                 </div>
+
+function setSelect2ValueWhenReady($select, values, retries = 10) {
+    const interval = setInterval(() => {
+        const allOptionsReady = values.every(val =>
+            $select.find('option[value="' + val + '"]').length > 0
+        );
+
+        if (allOptionsReady || retries <= 0) {
+            clearInterval(interval);
+            $select.val(values).trigger('change');
+        }
+
+        retries--;
+    }, 200);
+}
+
+
+function get_supplier_detail()
+{
+    console.log(newbaseurl + 'Supplier?'+'id=' + supplier_id)
+    $.ajax({
+        type: "get",
+        url: newbaseurl + 'Supplier',        
+        async: true,
+        data: 'id=' + supplier_id,
+        success: function (html) 
+        {
+            console.log(html)
+            obj = JSON.parse(html);
+            for($i=0;$i<Object.keys(obj[0]).length;$i++)
+            {
+                if(obj[0][Object.keys(obj[0])[$i]]=='0000-00-00')
+                {
+                    $('#add_supplier_modal [name='+Object.keys(obj[0])[$i]+']').val('');
+                }
+                else
+                {          
+                    $('#add_supplier_modal [name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])    
+                    if(Object.keys(obj[0])[$i]=='country_id')
+                    {
+                        if(obj[0][Object.keys(obj[0])[$i]]==0)
+                        {
+                            $('#add_supplier_modal [name="type"]').find('option').each(function(){
+                                if($(this).val()=='offline'){$(this).attr("disabled",true)}
+                            })
+                            $('#add_supplier_modal [name='+Object.keys(obj[0])[$i]+']').find('option').each(function(){
+                                if($(this).val()>0){$(this).attr("disabled",true)}else{$(this).attr("disabled",false)}
+                            })
+                        }
+                        else
+                        {
+                            
+                            $('#add_supplier_modal [name="type"]').find('option').each(function(){
+                                if($(this).val()=='offline'){$(this).attr("disabled",false)}
+                            })
+                            $('#add_supplier_modal [name='+Object.keys(obj[0])[$i]+']').find('option').each(function(){
+                                if($(this).val()<=0){$(this).attr("disabled",true)}else{$(this).attr("disabled",false)}
+                            })
+                        }
+                        
+                    }
+                    if($('#add_supplier_modal [name='+Object.keys(obj[0])[$i]+']').prop("tagName")=='SELECT')
+                    {
+                        if(obj[0][Object.keys(obj[0])[$i]].includes(','))
+                        {
+                            select_data=obj[0][Object.keys(obj[0])[$i]].split(',')
+                            $('#add_supplier_modal [name='+Object.keys(obj[0])[$i]+']').val(select_data)
+                        }
+                        else
+                        {
+                            $('#add_supplier_modal [name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])                            
+                        }
+                    }
+                    if(Object.keys(obj[0])[$i]=='person_name' && obj[0][Object.keys(obj[0])[$i]]!='')
+                    {
+                        person_name=JSON.parse(obj[0][Object.keys(obj[0])[$i]])
+                        input=''
+                        for(i=0;i<Object.keys(person_name).length-$('.contact_no .contact_no_name').length;i++)
+                        {
+                            e='[name="country_id"]';
+                            name=$(e).find('option:selected:eq('+i+')').attr('data-name')
+                            input+=`
+                                    <div class="divider card-title m-0 mt-1 text-center"><span></span><span class="country_name" style="font-size: 15px;color: black;">${name}</span><span></span></div>
+                                    <div class="col-lg-12 col-md-12 contact_no_product" style="float: left;padding: 0px; padding-left: 0px;">
+                                        <div class="form-group basic">
+                                            <div class="input-wrapper">
+                                                <label class="label" for="name">${name} Products ${$('.contact_no .contact_no_name').length+1} *</label>
+                                                <select  class="form-control input_style" multiple name="person_contact_product" style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required">
+                                                    <option value="hotel">Hotel</option>
+                                                    <option value="transfer">Transfer</option>
+                                                    <option value="apartments">Apartments</option>
+                                                    <option value="sightseeing">Sightseeing</option>
+                                                    <option value="sightseeing">Private Vehicle</option>
+                                                </select>`
+                                            if($(e).val().length>1)
+                                            {
+                                                input+=`<button onclick="$(this).siblings('[name=person_contact_product]').val($('.contact_no .contact_no_product:eq(0) [name=person_contact_product]').val());$('#add_supplier_modal [name=person_contact_product]').select2({multiple: true,'placeholder':'Select Product'});" type="button" class="btn btn-sm btn-primary no-border blue-back" style="background: #283477 !important;position: absolute;right: 0;top: 12px;bottom: 0;margin: auto;height: 38px;">Same as above</button>`
+                                            }
+                                            input+=`</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 contact_no_name" style="float: left;padding: 0px; padding-left: 0px;">
+                                        <div class="form-group basic">
+                                            <div class="input-wrapper">
+                                                <label class="label" for="name">${name} Person Name ${$('.contact_no .contact_no_name').length+1} *</label>
+                                                <input type="text" class="form-control input_style" name="person_contact_name" autocomplete="off" style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required" value="${person_name[i]['name']}">`
+                                            if($(e).val().length>1)
+                                            {
+                                                input+=`<button onclick="$(this).siblings('[name=person_contact_name]').val($('.contact_no .contact_no_name:eq(0) [name=person_contact_name]').val())" type="button" class="btn btn-sm btn-primary no-border blue-back" style="background: #283477 !important;position: absolute;right: 0;top: 12px;bottom: 0;margin: auto;height: 38px;">Same as above</button>`
+                                            }
+                                            input+=`
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 contact_no_number" style="float: left; padding-left: 0px;">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <div class="row" style="margin-top: 5px;">
+                                        ${[1, 2, 3].map(i => `
+                                            <div class="col-md-4">
+                                                <label class="label">${countryName} Person Number ${i}</label>
+                                                <div style="margin-bottom: 10px;">
+                                                    
+
+                                                    <input type="text" class="form-control input_style" name="person_contact_number_${i}_${countryId}" id="number" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                                    maxlength="12" style="font-size: 15px !important;" data-validation-required-message="This field is required" placeholder="Number ${i}">
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                    `
+                            
+                        }
+
+                        // <input type="number" class="form-control input_style" name="person_contact_number_${i}_${countryId}" autocomplete="off" data-pattern="^(\\d)+$" minlength="10" maxlength="12" data-validation-message="Only Numbers" style="font-size: 15px !important;" data-validation-required-message="This field is required" placeholder="Number ${i}">
+                        $('.contact_no').append(input)
+                        for(i=0;i<Object.keys(person_name).length;i++)
+                        {
+                            if(person_name[i]['product'].includes(','))
+                            {
+                                select_data=person_name[i]['product'].split(',')
+                                $('.contact_no_product:eq('+i+')').find('select').val(select_data)
+                            }
+                            else
+                            {
+                                $('.contact_no_product:eq('+i+')').find('select').val(person_name[i]['product'])
+                            }
+                            
+                        }
+                        $('#add_supplier_modal [name="person_contact_product"]').select2({multiple: true,'placeholder':'Select Product'});
+                        validate_onupdate()
+                    }
+                    
+                }
+            }
+            $('#add_supplier_modal [name="country_id"]').select2({multiple: true,'placeholder':'Select Country'});
+            $('#add_supplier_modal [name="product"]').select2({multiple: true,'placeholder':'Select Product'});
+            $('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+
+        }
+    }); 
+}
+
+function get_categories() {
+    $.ajax({
+        type: "GET",
+        url: newbaseurl + "GetData/get_list",
+        async: true,
+        data: { table: "categories", sort: "name" }, // Sending parameters as an object
+        success: function (response) {
+            var dropdown = $('[name="categories"]');
+            dropdown.empty(); // Clear previous options
+
+            try {
+                response = JSON.parse(response); // Parse JSON response
+
+                let options = ''; // Initialize options
+                for (let x in response) {
+                    options += `<option data-name="${response[x]['name']}" value="${response[x]['name']}">${response[x]['name']}</option>`;
+                }
+
+                dropdown.html(options); // Populate dropdown
+                dropdown.select2({ multiple: true, placeholder: "Select Categories" });
+            } catch (e) {
+                console.error("Error parsing categories JSON:", e);
+            }
+        },
+        error: function () {
+            console.log("Error loading categories.");
+        }
+    });
+}
+
+// Call function on page load
+$(document).ready(function () {
+    get_categories();
+});
+
+get_country()
+function get_country()
+{
+    $.ajax({
+        type: "get",
+        url: newbaseurl + 'GetData/get_list',
+        async: true,
+        data:'table=country&sort=name',
+        success: function (html) 
+        {
+            $('#add_supplier_modal [name="country_id"]').html('')
+            html=JSON.parse(html);
+            option=`<option data-name="Whole World" value="0">Whole World</option>`
+            for(x in html)
+            {
+                option+=`<option data-name="${html[x]['name']}" value="${html[x]['id']}">${html[x]['name']}</option>`
+            }
+            $('#add_supplier_modal [name="country_id"]').html(option)
+            $('#add_supplier_modal [name="country_id"]').select2({multiple: true,'placeholder':'Select Country'});
+        }
+    })
+}
+$('#add_supplier_modal [name="type"]').val('')
+$('#add_supplier_modal [name="product"]').select2({multiple: true,'placeholder':'Select Product'});
+$('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+
+
+function add_textfield(e)
+{
+    if($(e).val()=='')
+    {
+        $(e).find('option').attr("disabled",false)
+        
+        $('#add_supplier_modal [name="type"]').find('option').each(function(){
+            if($(this).val()=='offline'){$(this).attr("disabled",false)}
+        })
+        $('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+    }
+    else if($(e).val()==0)
+    {
+        $('#add_supplier_modal [name="type"]').find('option').each(function(){
+            if($(this).val()=='offline'){$(this).attr("disabled",true)}
+        })
+        $(e).find('option').each(function(){
+            if($(this).val()>0){$(this).attr("disabled",true)}else{$(this).attr("disabled",false)}
+        })
+        $('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+    }
+    else
+    {
+        
+        $('#add_supplier_modal [name="type"]').find('option').each(function(){
+            if($(this).val()=='offline'){$(this).attr("disabled",false)}
+        })
+        $(e).find('option').each(function(){
+            if($(this).val()<=0){$(this).attr("disabled",true)}else{$(this).attr("disabled",false)}
+        })
+        $('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+    }
+    for(i=0;i<$(e).val().length-$('.contact_no .contact_no_name').length;i++)
+    {
+        name=$(e).find('option:selected').attr('data-name')
+        data=`
+                    <div class="divider card-title m-0 mt-1 text-center"><span></span><span class="country_name" style="font-size: 15px;color: black;">${name}</span><span></span></div>
+                    <div class="col-lg-12 col-md-12 contact_no_product" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">${name} Products ${$('.contact_no .contact_no_name').length+1} *</label>
+                                <select  class="form-control input_style" multiple name="person_contact_product" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                                    <option value="hotel">Hotel</option>
+                                    <option value="transfer">Transfer</option>
+                                    <option value="apartments">Apartments</option>
+                                    <option value="sightseeing">Sightseeing</option>
+                                    <option value="sightseeing">Private Vehicle</option>
+                                </select>`
+                            if($(e).val().length>1)
+                            {
+                                data+=`<button onclick="$(this).siblings('[name=person_contact_product]').val($('.contact_no .contact_no_product:eq(0) [name=person_contact_product]').val());$('#add_supplier_modal [name=person_contact_product]').select2({multiple: true,'placeholder':'Select Product'});" type="button" class="btn btn-sm btn-primary no-border blue-back" style="background: #283477 !important;position: static;right: 0;top: 12px;bottom: 0;margin: auto;height: 24px; width: 200px;  justify-content: center; align-items: center; padding:15px 10px 15px 10px;">Same as above</button>`
+                            }
+                        data+=`</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 contact_no_name" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">${name} Person Name ${$('.contact_no .contact_no_name').length+1} *</label>
+                                <input type="text" class="form-control input_style" name="person_contact_name" autocomplete="off" style="font-size: 15px !important;"  data-validation-required-message="This field is required">`
+                            if($(e).val().length>1)
+                            {
+                                data+=`<button onclick="$(this).siblings('[name=person_contact_name]').val($('.contact_no .contact_no_name:eq(0) [name=person_contact_name]').val())" type="button" class="btn btn-sm btn-primary no-border blue-back" style="background: #283477 !important;position: static;right: 0;top: 12px;bottom: 0;margin: auto;height: 24px; width: 200px;  justify-content: center; align-items: center; padding:15px 10px 15px 10px;">Same as above</button>`
+                            }
+                        data+=`
+                            </div>
+                        </div>
+                    </div>
+              <div class="col-lg-12 col-md-12 contact_no_number" style="float: left; padding-left: 0px;">
+    <div class="form-group basic">
+        <div class="input-wrapper">
+            <label class="label" for="name">${name} Contact Numbers ${$('.contact_no .contact_no_name').length + 1} *</label>
+            <div class="row" style="margin-top: 5px;">`;
+
+for (let j = 1; j <= 3; j++) {
+    data += `
+        <div class="col-md-4">
+            <div style="margin-bottom: 10px;">
+                <input type="text" class="form-control input_style" name="person_contact_number_${j}" autocomplete="off"
+                    data-pattern="^(\\d)+$" minlength="10" maxlength="12"
+                    data-validation-message="Only Numbers"
+                    style="font-size: 15px !important;"
+                    data-validation-required-message="This field is required"
+                    placeholder="Number ${j}">`;
+
+    if ($(e).val().length > 1) {
+        data += `<button onclick="$(this).siblings('[name=person_contact_number_${j}]').val($('.contact_no .contact_no_number:eq(0) [name=person_contact_number_${j}]').val())"
+                    type="button" class="btn btn-sm btn-primary no-border blue-back mt-1"
+                    style="background: #283477 !important; width: 100%; font-size: 12px;">
+                    Same as above
+                </button>`;
+    }
+
+    data += `
+            </div>
+        </div>`;
+}
+
+data += `
+            </div>
+        </div>
+    </div>
+</div>`;
+        $('.contact_no').append(data)
+                    
+                    validate_onupdate()
+                    $('#add_supplier_modal [name="person_contact_product"]').select2({multiple: true,'placeholder':'Select Product'});
+    }
+    if($(e).val().length<$('.contact_no .contact_no_name').length)
+    {
+        $('.contact_no .country_name:last').remove()
+        $('.contact_no .contact_no_name:last').remove()
+        $('.contact_no .contact_no_product:last').remove()
+        $('.contact_no .contact_no_number:last').remove()
+    }
+    i=0;
+    country_name=[]
+    $('[name=country_id]').find('option:selected').each(function(){
+        name=$(this).attr('data-name')
+        country_name.push(name)
+        $('.contact_no .country_name:eq('+i+')').html(name)
+        $('.contact_no .contact_no_product:eq('+i+')').find('label').html(' Products '+(parseInt(i)+1))
+        $('.contact_no .contact_no_name:eq('+i+')').find('label').html(' Person Name '+(parseInt(i)+1))
+        $('.contact_no .contact_no_number:eq('+i+')').find('label').html(' Person Number '+(parseInt(i)+1))
+        i++
+    })
+    $('[name="country_name"]').val(country_name)
+    
+}
+
+var assigned_id = localStorage.getItem("user_id_enquiry"); 
+function add_supplier(json='')
+{
+    $('#add_supplier_modal button[type=button]').attr('disabled', true);
+    let person_name = [];
+let selectedCountryIds = $('select[name="country_id"]').val() || [];
+let i = 0;
+selectedCountryIds.forEach(function (countryId, i) {
+    const block = $(`.contact_no .country-block[data-country="${countryId}"]`);
+    if (block.length) {
+        person_name[i] = {}; // Initialize
+
+        // Name
+        const name = block.find(`[name="person_contact_name_${countryId}"]`).val();
+        person_name[i]["name"] = name;
+
+        // Numbers
+        for (let j = 1; j <= 3; j++) {
+            const number = block.find(`[name="person_contact_number_${j}_${countryId}"]`).val();
+            if (number) {
+                person_name[i][`number${j}`] = number;
+            }
+        }
+
+        // Products
+        const products = block.find(`[name="person_contact_product_${countryId}"]`).val() || [];
+        if (products.length) {
+            person_name[i]["product"] = products;
+        }
+    }
+});
+    
+json=JSON.parse(JSON.stringify(json))
+    data=divid=fun=param=''
+    if(Object.keys(json).length>0)
+    {
+        for(x in json)
+        {
+            if(x=='divid')
+            {
+                divid=json[x]
+            }
+            else if(x=='fun')
+            {
+                fun=json[x]
+            }
+            else if(x=='param')
+            {
+                param=json[x]
+            }
+            else if(data=='')
+            {
+                data+=x+'='+json[x]
+            }
+            else
+            {
+                data+='&'+x+'='+json[x]
+            }        
+        }
+    }
+
+  
+
+
+    //new add number function
+    $(divid).find('select, textarea, input[type=text], input[type=email], input[type=number], input[type=hidden], input[type=radio], input[type=checkbox]').each(function() {
+        if ($(this).attr('name') != 'json') {
+            let val = $(this).val();
+            let name = $(this).attr('name');
+
+            if (Object.prototype.toString.call(val) === '[object Array]') {
+                val = val.toString();
+            }
+
+            if (val !== '' && val != null) {
+                val = encodeURIComponent(val);
+            }
+
+            if (data === '') {
+                data += name + '=' + val;
+            } else {
+                data += '&' + name + '=' + val;
+            }
+        }
+    });
+
+    data+="&person_name="+JSON.stringify(person_name)+"&reminderassigned_id="+assigned_id
+    console.log(data);
+    $.ajax({
+        type: "post",
+        url: newbaseurl + 'GetData/insert_data',
+        async: false,
+        data:data,
+        success: function (html) 
+        {
+            $('#add_supplier_modal button[type=button]').attr('disabled',false)
+            i++
+            console.log(html)
+            html=JSON.parse(html);
+            if (html[0]['success']==true) {
+                show_toast(html[0]['message'], "success", '', 'top', 'success')
+            }
+            $(divid).modal('hide')
+            window[fun](param)
+            let data = {
+    contact_no: cleanedContactNumbers,
+    // ... other data fields
+};
+        }
+    })
+}
+
+// $('#supplier_name').on('blur keyup', function () {
+//     let supplierName = $(this).val().trim();
+//     let currentName = $('#current_supplier_name').val();  // assuming you have the current name saved somewhere
+
+//     if (supplierName !== '') {
+//         $.ajax({
+//             url: newbaseurl + 'GetData/check_supplier_name',
+//             method: 'POST',
+//             data: { name: supplierName, current_name: currentName }, // passing current name for comparison
+//             dataType: 'json',
+//             success: function (response) {
+//                 if (response.exists) {
+//                     $('#name_error').text('Supplier name already exists.');
+//                 } else {
+//                     $('#name_error').text('');
+//                 }
+//             },
+//             error: function () {
+//                 $('#name_error').text('Error checking name. Please try again.');
+//             }
+//         });
+//     } else {
+//         $('#name_error').text('');
+//     }
+// });
+$('#supplier_name').on('keyup', function () {
+    let supplierName = $(this).val().trim();
+    let supplierId = $('.getid').val(); // Get the current ID
+
+    if (supplierName !== '') {
+        $.ajax({
+            url: newbaseurl + 'GetData/check_edit_supplier_name',
+            method: 'POST',
+            data: { name: supplierName, id: supplierId }, // Pass both name and id
+            dataType: 'json',
+            success: function (response) {
+                if (response.exists) {
+                    $('#name_error').text('Supplier name already exists.');
+                } else {
+                    $('#name_error').text('');
+                }
+            },
+            error: function () {
+                $('#name_error').text('Error checking name. Please try again.');
+            }
+        });
+    } else {
+        $('#name_error').text('');
+    }
+});
+
+// <!-- 
+// person_detail()
+// function person_detail()
+// {
+//     id = searchParams.get('id')
+//     $.ajax({
+//         type: "get",
+//         url: baseurl + 'GetData/personDetail',
+//         async: true,
+//         data:'id='+id,
+//         success: function (html) {
+//           $('#person_detail').html(html)          
+//         }
+//     });
+// }
+
+// function addperson()
+// {
+//   data='';
+//   $('#person_form button[type=submit]').attr('disabled',true)
+//   $('#person_form').find('select, textarea, input[type=text], input[type=email], input[type=number], input[type=hidden], input[type=radio], input[type=checkbox]').each(function(){
+//       if(data=='')
+//       {
+//         val=''
+//         if($(this).val()!='' && $(this).val()!=null)
+//         {
+//           val=$(this).val().replace(/&/g,'amp;').replace(/\+/g,'plussss')
+//         }
+//         data+=$(this).attr('name')+'='+val
+//       }
+//       else
+//       {
+//         val=''
+//         if($(this).val()!='' && $(this).val()!=null)
+//         {
+//           val=$(this).val().replace(/&/g,'amp;').replace(/\+/g,'plussss')
+//         }
+//         data+='&'+$(this).attr('name')+'='+val  			
+//       }
+//   })
+//   user_id = localStorage.getItem("user_id_enquiry");
+//   console.log(baseurl + 'GetData/addperson?'+data+'&customer_id='+searchParams.get('id')+'&assigned_id='+user_id)
+//   $.ajax({
+//       type: "post",
+//       url: baseurl + 'GetData/addperson',
+//       async: true,
+//       data: data+'&customer_id='+searchParams.get('id')+'&assigned_id='+user_id,
+//       success: function (html) 
+//       {
+//           $('#person_form button[type=submit]').attr('disabled',false)
+//           if(html.trim()=='ok')
+//           {
+//               show_toast('Data updated successfully', "success", '', "top", "success");  
+//               $('#person_form').find('input[type=text]').val('')              
+//           }
+//           $('#person_form').modal('hide')
+//           person_detail()
+//       }
+//   }); 
+// }
+// function addpersonlist()
+// {
+//   $('#person_name_input .name').each(function(){
+//     console.log($(this).val())
+//     user_id = localStorage.getItem("user_id_enquiry");
+//     $.ajax({
+//       type: "POST",
+//       url: baseurl + 'GetData/addperson',
+//       async: false,
+//       data: "name="+$(this).val()+'&customer_id='+searchParams.get('id')+'&assigned_id='+user_id,
+//       success: function (html) 
+//       {
+//           $('#person_name button[type=submit]').attr('disabled',false)
+//           if(html.trim()=='ok')
+//           {
+//               show_toast('Data updated successfully', "success", '', "top", "success");  
+//               $('#person_name').find('input[type=text]').val('')              
+//           }
+//           $('#person_name').modal('hide')
+//           person_detail()
+//       }
+//   }); 
+//   })
+// }
+// function get_person_detail(id)
+// {
+//     $.ajax({
+//         type: "get",
+//         url: baseurl + 'GetData/getperson',
+//         async: true,
+//         data:'id='+id,
+//         success: function (html) {
+//           html=JSON.parse(html)
+//           obj = html;
+//           id='#person_form'
+//           for($i=0;$i<Object.keys(obj).length;$i++)
+//           {
+//               if(obj[Object.keys(obj)[$i]]=='0000-00-00' || obj[Object.keys(obj)[$i]]=='0000')
+//               {
+//                   $(id+' input[name='+Object.keys(obj)[$i]+']').val('');
+//               }
+//               else
+//               {
+//                   if(obj[Object.keys(obj)[$i]].hasOwnProperty('$numberDecimal'))
+//                   {
+//                       $(id+' input[name='+Object.keys(obj)[$i]+']').val(obj[Object.keys(obj)[$i]]['$numberDecimal'])            
+//                   }                
+//                   else
+//                   {
+//                       if($(id+' [name='+Object.keys(obj)[$i]+']').prop("tagName")!=undefined)
+//                       {
+//                           $(id+' '+$(id+' [name='+Object.keys(obj)[$i]+']').prop("tagName").toLowerCase()+'[name='+Object.keys(obj)[$i]+']').val(obj[Object.keys(obj)[$i]])
+//                           if($(id+' [name='+Object.keys(obj)[$i]+']').hasClass('select2'))
+//                           {
+//                             $(".select2").select2({ width: "100%",dropdownParent: $('#'+$(id+' [name='+Object.keys(obj)[$i]+']').parent().attr('id'))}); 
+//                           }
+//                           if($(id+' [name='+Object.keys(obj)[$i]+']').siblings('input[type=file]').length>0 && obj[Object.keys(obj)[$i]]!='')
+//                           {
+//                             $(id+' [name='+Object.keys(obj)[$i]+']').siblings('label').addClass('bg-success')
+//                           }
+//                       }            
+//                   }
+//               }
+//           }
+//         }
+//     });
+// }
+//  -->
+
+
+// if(html[id]['person_name']!='')
+//             {
+//                 person_name=JSON.parse(html[id]['person_name'])
+//                 i=0;
+//                 for(x in person_name)
+//                 {      
+//                     const numbers = [person_name[x].number1, person_name[x].number2, person_name[x].number3]
+//                     .filter(n => n) // remove undefined, null, or empty values
+//                     .join(' - ');          
+//                     country_name=html[id]['country_name'].split(',')
+//                 data2+=`<div class="col-12 pull-left border-blue-bot">
+//                         <div class="col-4 pull-left p-0 font-red">${country_name[i]} :</div>
+//                         <div class="col-8 text-capitalize pull-left p-0 font-blue">${person_name[x]['name']+' - '+person_name[x]['product']} <br>${numbers}</div>
+                       
+//                     </div>`
+//                     i++
+//                 }
+//             }
+
+function set_title(text, id) {
+        $(id + ' .card-title .title').html(text)
+        $(id).find('input').val('')
+        $(id).find('select').val('')
+        $(id).find('textarea').val('')
+    }
+
+ get_sales()
+
+    function get_sales() {
+        let searchParams = new URLSearchParams(window.location.search)
+        $id = searchParams.get('id')
+
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'sales.php',
+            async: true,
+            data: 'req=1' + '&id=' + $id,
+            success: function (html) {
+                html = html.split(',,$')
+                $('.sales_data').html(html[0])
+                sales = JSON.parse(html[1])
+                for (var $i in sales) {
+                    if ($i != 'Other') {
+                        $('#add_sales').attr('disabled', true)
+                    }
+                }
+            }
+        });
+    }
+
+ function add_sales() {
+
+        let searchParams = new URLSearchParams(window.location.search)
+        $id = searchParams.get('id')
+        $('#add_sales .submits').attr('disabled', true).html('Please Wait')
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'login.php',
+            async: true,
+             data: 'req=55&' + $("#add_sales").find('select, textarea, input').serialize() + '&candidate_id=' + $id,
+            success: function (html) {
+                if ($('#add_sales .id').val() != '') {
+                    show_toast("Sales updated", "success", '', "top", "success");
+                } else {
+                    show_toast("Sales added", "success", '', "top", "success"); 
+                }
+                $('#add_sales').modal('hide')
+                $('#add_sales .submits').attr('disabled', false).html('Submit')
+
+                get_sales()
+
+            }
+        });
+    }
+
+    function get_single_sales_data(id) {
+        $('#add_sales .input-danger').remove()
+        $('#add_sales input:visible,#add_sales textarea:visible,#add_sales select:visible').each(function () {
+            $(this).parent().parent().find('.input-danger').remove()
+        })
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'sales.php',
+            async: true,
+            data: 'req=2&id=' + id,
+            success: function (html) {
+                console.log(html)
+                $('#add_sales .card-title .title').html('Edit sales')
+                html = html.split(',,$');
+                $('#add_sales input[name=company_name]').val(html[1])
+                $('#add_sales input[name=agent_name]').val(html[2])
+                $('#add_sales input[name=email_id]').val(html[3])
+                $('#add_sales input[name=phone_no]').val(html[4])
+                $('#add_sales input[name=comments]').val(html[5])
+                other = html[5];
+            }
+        });
+    }
+
+
+    get_operation()
+
+    function get_operation() {
+        let searchParams = new URLSearchParams(window.location.search)
+        $id = searchParams.get('id')
+
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'operation.php',
+            async: true,
+            data: 'req=1' + '&id=' + $id,
+            success: function (html) {
+                html = html.split(',,$')
+                $('.operation_data').html(html[0])
+                operation = JSON.parse(html[1])
+                for (var $i in operation) {
+                    if ($i != 'Other') {
+                        $('#add_operation').attr('disabled', true)
+                    }
+                }
+            }
+        });
+    }
+
+ function add_operation() {
+
+        let searchParams = new URLSearchParams(window.location.search)
+        let selectedCountries = $('[name="country_name"]').val();
+        $id = searchParams.get('id')
+        $('#add_operation .submits').attr('disabled', true).html('Please Wait')
+    //     i=0;
+    // country_name=[]
+    // $('[name=country_id]').find('option:selected').each(function(){
+    //     name=$(this).attr('data-name')
+    //     country_name.push(name)
+    //     $('.contact_no .country_name:eq('+i+')').html(name)
+    //     $('.contact_no .contact_no_product:eq('+i+')').find('label').html(name+' Products '+(parseInt(i)+1))
+    //     $('.contact_no .contact_no_name:eq('+i+')').find('label').html(name+' Person Name '+(parseInt(i)+1))
+    //     $('.contact_no .contact_no_number:eq('+i+')').find('label').html(name+' Person Number '+(parseInt(i)+1))
+    //     i++
+    // })
+   // $('[name="country_name"]').val(country_name)
+        // alert(selectedCountries);
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'login.php',
+            async: true,
+             data: 'req=77&' + $("#add_operation").find('select, textarea, input').serialize() + '&candidate_id=' + $id,
+            success: function (html) {
+                if ($('#add_operation .id').val() != '') {
+                    show_toast("Operation updated", "success", '', "top", "success");
+                } else {
+                    show_toast("Operation added", "success", '', "top", "success"); 
+                }
+                $('#add_operation').modal('hide')
+                $('#add_operation .submits').attr('disabled', false).html('Submit')
+
+                get_operation()
+
+            }
+        });
+    }
+
+    function get_single_operation_data(id) {
+        $('#add_operation .input-danger').remove()
+        $('#add_operation input:visible,#add_operation textarea:visible,#add_operation select:visible').each(function () {
+            $(this).parent().parent().find('.input-danger').remove()
+        })
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'operation.php',
+            async: true,
+            data: 'req=2&id=' + id,
+            success: function (html) {
+                console.log(html)
+                $('#add_operation .card-title .title').html('Edit operation')
+                html = html.split(',,$');
+                $('#add_operation input[name=company_name]').val(html[1])
+                $('#add_operation input[name=agent_name]').val(html[2])
+                $('#add_operation input[name=email_id]').val(html[3])
+                $('#add_operation input[name=phone_no]').val(html[4])
+                $('#add_operation input[name=country_code]').val(html[5])
+                $('#add_operation input[name=country_id]').val(html[6])
+                $('#add_operation input[name=comments]').val(html[7])
+                other = html[7];
+            }
+        });
+    }
+
+    get_accounts()
+
+    function get_accounts() {
+        let searchParams = new URLSearchParams(window.location.search)
+        $id = searchParams.get('id')
+
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'accounts.php',
+            async: true,
+            data: 'req=1' + '&id=' + $id,
+            success: function (html) {
+                html = html.split(',,$')
+                $('.accounts_data').html(html[0])
+                accounts = JSON.parse(html[1])
+                for (var $i in accounts) {
+                    if ($i != 'Other') {
+                        $('#add_accounts').attr('disabled', true)
+                    }
+                }
+            }
+        });
+    }
+
+ function add_accounts() {
+
+        let searchParams = new URLSearchParams(window.location.search)
+        $id = searchParams.get('id')
+        $('#add_accounts .submits').attr('disabled', true).html('Please Wait')
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'login.php',
+            async: true,
+             data: 'req=78&' + $("#add_accounts").find('select, textarea, input').serialize() + '&candidate_id=' + $id,
+            success: function (html) {
+                if ($('#add_accounts .id').val() != '') {
+                    show_toast("Accounts updated", "success", '', "top", "success");
+                } else {
+                    show_toast("Accounts added", "success", '', "top", "success"); 
+                }
+                $('#add_accounts').modal('hide')
+                $('#add_accounts .submits').attr('disabled', false).html('Submit')
+
+                get_accounts()
+
+            }
+        });
+    }
+
+    function get_single_accounts_data(id) {
+        $('#add_accounts .input-danger').remove()
+        $('#add_accounts input:visible,#add_accounts textarea:visible,#add_accounts select:visible').each(function () {
+            $(this).parent().parent().find('.input-danger').remove()
+        })
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'accounts.php',
+            async: true,
+            data: 'req=2&id=' + id,
+            success: function (html) {
+                console.log(html)
+                $('#add_accounts .card-title .title').html('Edit accounts')
+                html = html.split(',,$');
+                $('#add_accounts input[name=company_name]').val(html[1])
+                $('#add_accounts input[name=agent_name]').val(html[2])
+                $('#add_accounts input[name=email_id]').val(html[3])
+                $('#add_accounts input[name=phone_no]').val(html[4])
+                $('#add_accounts input[name=comments]').val(html[5])
+                other = html[5];
+            }
+        });
+    }
+
+
+
+//     get_university()
+
+//     function get_university() {
+
+//         let searchParams = new URLSearchParams(window.location.search)
+//         $id = searchParams.get('id')
+
+//         // $flight_view = localStorage.getItem("flight_view")
+
+
+//         $.ajax({
+//             type: "POST",
+//             url: baseurl + 'university.php',
+//             async: true,
+//             data: 'req=1' + '&id=' + $id+'&user_type='+$user_type_crm,
+//             success: function (html) {
+
+//                 $('.university_data').html(html)
+//                 get_university_list()
+//             }
+//         });
+//     }
+
+//     get_student()
+
+//     function get_student() {
+//         let searchParams = new URLSearchParams(window.location.search)
+//         $id = searchParams.get('id')
+//         $user_type_crm = localStorage.getItem("user_type_crm")
+//         $.ajax({
+//             type: "POST",
+//             url: baseurl + 'login.php',
+//             data: 'req=50' + '&id=' + $id+'&user_type_crm='+$user_type_crm,
+//             async: true,
+//             success: function (html) {
+//                 html=html.split(',,$');
+//                 $('#student_details').html(html[0])
+//                 if(html[1]=='yes')
+//                 {
+//                     get_enroll()
+//                     $('.update-fund').attr('data-bs-target','#enroll_modal')
+//                 }
+//                 else
+//                 {
+//                     $('#enrolled_data').html(`<tr>
+//                         <td colspan="3" class="text-center">Yet Not Enrolled</td>
+//                     </tr>`)
+//                     $('.update-fund').removeAttr('data-bs-target')
+//                 }
+//             }
+//         });
+//     }
+//     get_work()
+
+//     function get_work() {
+
+//         let searchParams = new URLSearchParams(window.location.search)
+//         $id = searchParams.get('id')
+
+//         // $flight_view = localStorage.getItem("flight_view")
+
+
+//         $.ajax({
+//             type: "POST",
+//             url: baseurl + 'login.php',
+//             data: 'req=51' + '&id=' + $id+'&user_type='+$user_type_crm,
+//             async: true,
+//             success: function (html) {
+//                 html = html.split(',,$')
+//                 $('#experience_details').html(html[0])
+//                 $('#work_type option').attr('disabled', false)
+//                 if (html[1] > 0) {
+//                     $('#work_type option[value="Present"]').attr('disabled', true)
+//                 }
+//             }
+//         });
+//     }
+
+
+
+//     function add_document() {
+
+//         $user_id_crm = localStorage.getItem("user_id_crm");
+//         let searchParams = new URLSearchParams(window.location.search)
+//         $id = searchParams.get('id')
+//         $('#add_document .submits').attr('disabled', true).html('Please Wait')
+//         $.ajax({
+//             type: "POST",
+//             url: baseurl + 'login.php',
+//             async: true,
+//             data: 'req=52&' + $("#add_document").find('select, textarea, input').serialize() + '&user_id=' + $user_id_crm + '&candidate_id=' + $id,
+//             success: function (html) {
+//                 if ($('#add_document .id').val() != '') {
+//                     show_toast("Document updated", "success", '', "top", "success");
+//                 } else {
+//                     show_toast("Document added", "success", '', "top", "success");
+//                 }
+//                 $("#add_document").modal('hide')
+//                 $('#add_document .submits').attr('disabled', false).html('Submit')
+//                 if ($('#other_doc').val() != '') {
+//                     $('#other_doc_div').addClass('hidden')
+//                 }
+//                 get_doc()
+//                 $('#loader').addClass('hidden');
+//             }
+//         });
+//     }
+//     get_doc()
+
+//     function get_doc() {
+
+//         let searchParams = new URLSearchParams(window.location.search)
+//         $id = searchParams.get('id')
+
+//         // $flight_view = localStorage.getItem("flight_view")
+
+
+//         $.ajax({
+//             type: "POST",
+//             url: baseurl + 'login.php',
+//             data: 'req=53' + '&id=' + $id+'&user_type='+$user_type_crm,
+//             async: true,
+//             success: function (html) {
+//                 html = html.split(',,$')
+//                 $('#doc_show').html(html[0])
+//                 $('#add_document select[name=doc] option').attr('disabled', false)
+//                 doc = JSON.parse(html[1])
+//                 for (var $i in doc) {
+//                     if ($i != 'Other') {
+//                         $('#add_document select[name=doc] option[value="' + $i + '"]').attr('disabled', true)
+//                     }
+//                 }
+//             }
+//         });
+//     } -->
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        const container = $('.contact_no');
+    
+        // Keep track of form values before removing blocks
+        function getCurrentFormData() {
+            const data = {};
+    
+            container.find('.country-block').each(function () {
+                const countryId = $(this).data('country');
+                data[countryId] = {
+                    products: $(this).find(`[name="person_contact_product_${countryId}"]`).val() || [],
+                    name: $(this).find(`[name="person_contact_name_${countryId}"]`).val() || '',
+                    numbers: [
+                        $(this).find(`[name="person_contact_number_1_${countryId}"]`).val() || '',
+                        $(this).find(`[name="person_contact_number_2_${countryId}"]`).val() || '',
+                        $(this).find(`[name="person_contact_number_3_${countryId}"]`).val() || ''
+                    ]
+                };
+            });
+    
+            return data;
+        }
+    
+        // Re-fill form data after rendering new blocks
+        function fillFormData(data) {
+            Object.entries(data).forEach(([countryId, countryData]) => {
+                const block = container.find(`.country-block[data-country="${countryId}"]`);
+                if (block.length) {
+                    block.find(`[name="person_contact_product_${countryId}"]`).val(countryData.products);
+                    block.find(`[name="person_contact_name_${countryId}"]`).val(countryData.name);
+                    block.find(`[name="person_contact_number_1_${countryId}"]`).val(countryData.numbers[0]);
+                    block.find(`[name="person_contact_number_2_${countryId}"]`).val(countryData.numbers[1]);
+                    block.find(`[name="person_contact_number_3_${countryId}"]`).val(countryData.numbers[2]);
+                }
+            });
+        }
+    
+        $('select[name="country_id"]').on('change', function () {
+            // alert('called')
+            const selectedCountryIds = $(this).val() || [];
+            const existingData = getCurrentFormData();
+    
+            const renderedIds = [];
+            container.find('.country-block').each(function () {
+                renderedIds.push($(this).data('country').toString());
+            });
+    
+            // Add new blocks
+            selectedCountryIds.forEach(function (countryId) {
+                if (!renderedIds.includes(countryId)) {
+                    // const countryName = $(`select[name="country_id"] option[value="${countryId}"]`).text();
+                    const countryName = $(`select[name="country_id"] option[value="${countryId}"]`).data('name');
+    
+                    const countryBlock = `
+                    <div class="country-block" data-country="${countryId}">
+                        <div class="divider card-title m-0 mt-1 text-center">
+                            <span></span><span class="country_name" style="font-size: 15px;color: black;">${countryName}</span><span></span>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 contact_no_product" style="float: left; padding-left: 0px;">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label">Products</label>
+                                    <select class="form-control input_style" multiple name="person_contact_product_${countryId}" style="font-size: 15px !important;" data-validation-required-message="This field is required">
+                                        <option value="hotel">Hotel</option>
+                                        <option value="transfer">Transfer</option>
+                                        <option value="apartments">Apartments</option>
+                                        <option value="sightseeing">Sightseeing</option>
+                                        <option value="private_vehicle">Private Vehicle</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 contact_no_name" style="float: left; padding-left: 0px;">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label">Person Name</label>
+                                    <input type="text" class="form-control input_style" name="person_contact_name_${countryId}" autocomplete="off" style="font-size: 15px !important;" data-validation-required-message="This field is required">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 contact_no_number" style="float: left; padding-left: 0px;">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <div class="row" style="margin-top: 5px;">
+                                        ${[1, 2, 3].map(i => `
+                                            <div class="col-md-4">
+                                                <label class="label">${countryName} Person Number ${i}</label>
+                                                <div style="margin-bottom: 10px;">
+                                                    
+                                                   <input type="text" class="form-control input_style" name="person_contact_number_${i}_${countryId}" id="number" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                                    maxlength="12" style="font-size: 15px !important;" data-validation-required-message="This field is required" placeholder="Number ${i}">   
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="divider card-title m-0 mt-1 text-center"><span></span><span></span></div>
+                    </div>
+                    `;
+    // <input type="number" class="form-control input_style" name="person_contact_number_${i}_${countryId}" autocomplete="off" data-pattern="^(\\d)+$" minlength="10" maxlength="12" data-validation-message="Only Numbers" style="font-size: 15px !important;" data-validation-required-message="This field is required" placeholder="Number ${i}">
+                    container.append(countryBlock);
+
+                    $(`select[name="person_contact_product_${countryId}"]`).select2({
+                        multiple: true,
+                        placeholder: 'Select Product'
+                    });
+                }
+            });
+    
+            // Remove unselected
+            container.find('.country-block').each(function () {
+                const countryId = $(this).data('country').toString();
+                if (!selectedCountryIds.includes(countryId)) {
+                    $(this).remove();
+                }
+            });
+    
+            // Re-fill form data
+            fillFormData(existingData);
+
+            country_name=[]
+            $('[name=country_id]').find('option:selected').each(function(){
+                name=$(this).attr('data-name')
+                country_name.push(name)
+                
+            })
+            $('[name="country_name"]').val(country_name)
+        });
+    });
+
+
+    // <input type="number" class="form-control input_style" name="person_contact_number_${i}_${countryId}" autocomplete="off" data-pattern="^(\\d)+$" minlength="10" maxlength="12" data-validation-message="Only Numbers" style="font-size: 15px !important;" data-validation-required-message="This field is required" placeholder="Number ${i}">
+</script>
+
+
+ <script>
+function validateContactForm() {
+    const number = document.getElementById("number").value.trim();
+    const altNumber = document.getElementById("alternatenumber").value.trim();
+
+    if (number.length < 10 || number.length > 12) {
+        alert("Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    if (altNumber && (altNumber.length < 10 || altNumber.length > 12)) {
+        alert("Alternate Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    return true;
+}
+
+function validateContactForm() {
+    const number = document.getElementById("contact_no").value.trim();
+    const altNumber = document.getElementById("alternatenumber")?.value.trim(); // optional check if exists
+
+    if (number.length < 10 || number.length > 12) {
+        document.getElementById("contactError").style.display = "block";
+        return false;
+    } else {
+        document.getElementById("contactError").style.display = "none";
+    }
+
+    if (altNumber && (altNumber.length < 10 || altNumber.length > 12)) {
+        alert("Alternate Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    return true;
+}
+
+document.querySelectorAll('.only-digits').forEach(function(input) {
+    // Block any non-digit keys
+    input.addEventListener('keypress', function (e) {
+        if (!/[0-9]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    // Block non-digit paste
+    input.addEventListener('paste', function (e) {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        if (!/^\d+$/.test(paste)) {
+            e.preventDefault();
+        }
+    });
+
+    // Ensure field only keeps digits if injected or autofilled
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
+});
+
+
+document.querySelectorAll('.only-digits').forEach(function(input) {
+    // Block non-digit keys
+    input.addEventListener('keypress', function (e) {
+        if (!/[0-9]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    // Block non-digit paste
+    input.addEventListener('paste', function (e) {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        if (!/^\d+$/.test(paste)) {
+            e.preventDefault();
+        }
+    });
+
+    // Auto-clean non-digits if injected
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
+});
+
+
+
+document.querySelectorAll('.only-digits').forEach(function(input) {
+    // Allow only digits during keypress
+    input.addEventListener('keypress', function (e) {
+        if (!/[0-9]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    // Prevent pasting non-digits
+    input.addEventListener('paste', function (e) {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        if (!/^\d+$/.test(paste)) {
+            e.preventDefault();
+        }
+    });
+
+    // Remove non-digit characters on input (fallback)
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
+});
+</script>  
+
+</html>

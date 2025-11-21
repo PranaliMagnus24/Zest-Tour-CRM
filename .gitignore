@@ -1,0 +1,10 @@
+# Sensitive configuration files
+api/db.php
+newapi/application/config/database.php
+newapi/application/config/config.php
+
+# Common ignores
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

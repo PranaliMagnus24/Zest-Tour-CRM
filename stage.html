@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <link rel="stylesheet" href="assets/css/faraaz.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="manifest" href="__manifest.json">
+</head>
+<div class="modal-header" style="background: white;border-radius: 0px;">
+    <span class="" style="font-size: 21px;color: red;cursor: pointer;" onclick="history.back()">
+        <ion-icon name="chevron-back-outline"></ion-icon><span
+            style="font-size: 16px; vertical-align: bottom;">Back</span>
+    </span>
+</div>
+
+<body>
+
+    <div class="col-12 container mt-3">
+        <div class="col-4 pull-right text-right">
+            <div class="card" style="background-color: #bdc5f1 !important;border: 1px solid black;">
+                <div class="col-12 card-body p-1">
+                    <div class="col-2 p-0 pull-left font-blue bold text-left ps-1">
+                        Date :
+                    </div>
+                    <div class="col-4 pull-left position-relative">
+                        <input type="text" id="travel_date1" value="" name="to" class="hasDatepicker readonly pull-left"
+                            style="z-index:2;position:absolute;opacity:0;height: 30px;width: 100%;left: 0;"
+                            readonly="readonly">
+                        <input type="text" id="travel_from"
+                            class="form-control bg-white box-shadow-1 no-border travel_from_date1"
+                            style="background-color: white; height: 28px; font-size: 11px;padding-left: 14px; "
+                            placeholder="From :">
+                    </div>
+                    <div class="col-4 pull-left position-relative">
+                        <input type="text" id="travel_date2" value="" name="to" class="hasDatepicker readonly"
+                            style="z-index:2;position:absolute;opacity:0;height: 30px;width: 100%;left: 0;"
+                            readonly="readonly">
+                        <input type="text" id="travel_to"
+                            class="form-control bg-white box-shadow-1 no-border travel_to_date2"
+                            style="background-color: white; height: 28px; font-size: 11px;padding-left: 14px; "
+                            placeholder="To :">
+                    </div>
+                    <div class="col-2 pull-left">
+                        <button type="button" class="btn btn-primary btn-sm " onclick="stageing_filter()"
+                            style="float: right;margin-top: 2px !important;height: 25px;padding: 0px 6px;font-size: 11px;width: 47px;">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pull-left w-100 border_8px font-blue border-blue bold overflow-hidden mt-2 stage_details">
+            <div class="col-12 pull-left text-center table_radiius blue-back p-0 remove">
+                <div class="col-4 pull-left text-left border-right">
+                    Stage
+                </div>
+                <div class="col-4 pull-left border-right">
+                    Counsellor
+                    <input type="hidden" id="ass_drop_id" value="">
+                    <select id="assigned_dropmenu" class="assigned_options_menu" onchange="get_id_drop(this)"
+                        style="width: 80px;">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-4 pull-left">
+                    All
+                </div>
+            </div>
+            <div id="stage_details" class=" pull-left col-12 p-0">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+    <!-- Ionicons -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <!-- Base Js File -->
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.datetimepicker.min.css" />
+    <script src="assets/js/jquery.datetimepicker.js"></script>
+    <script src="assets/js/base.js"></script>
+
+    <script type="text/javascript" src="assets/dataTables.js"></script>
+    <!-- date picker -->
+
+
+</body>
+<script>
+    remove_hidden()
+    var user_email_crm = localStorage.getItem("user_email_crm");
+    if (typeof user_email_crm == 'undefined' || user_email_crm == null) {
+        window.location.href = 'login.html'
+    }
+
+    dropdown_menu_data('.assigned_options_menu', 'assigned');
+
+    function get_staging() {
+        dropdown_menu_data('.assigned_options_menu', 'assigned');
+        stageing_filter()
+        $user_type_crm = localStorage.getItem("user_type_crm")
+        $user_name_crm = localStorage.getItem("user_name_crm");
+        $user_id = localStorage.getItem("user_id_crm");
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: baseurl + 'login.php',
+            data: 'req=67' + '&usertype=' + $user_type_crm,
+            success: function (html) {
+                dropdown_menu_data('.assigned_options_menu', 'assigned');
+                $('#stage_details').html(html);
+                stageing_filter();
+            }
+        });
+    }
+
+    function dropdown_menu_data(area, para) {
+        $user_type = localStorage.getItem("user_type_crm");
+        $user_name = localStorage.getItem("user_name_crm");
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'login.php',
+            data: 'req=64' + '&para=' + para,
+            success: function (html) {
+                // console.log(html)
+                $(area).html('');
+                arrayValues = html.split(',')
+                //console.log(arrayValues)
+                if ($user_type == 'assigned') {
+                    $(area).append('<option disabled="disabled" value="All">All</option>');
+                } else {
+                    $(area).append('<option value="All">All</option>');
+                }
+
+                $.each(arrayValues, function (i, val) {
+                    arrayValues1 = val.split('//');
+                    val = arrayValues1[0].replace('\n', '')
+                    if (val.trim() != '') {
+                        if ($user_type == 'assigned') {
+                            if (val.trim() == $user_name) {
+                                $(area).append('<option id="' + arrayValues1[1] + '" selected value="' + val.trim() + '">' + val.trim() + '</option>');
+                            } else {
+                                $(area).append('<option id="' + arrayValues1[1] + '" disabled="disabled" value="' + val.trim() + '">' + val.trim() + '</option>');
+                            }
+                        }
+                        //  console.log(val)
+                        else {
+                            $(area).append('<option id="' + arrayValues1[1] + '" value="' + val.trim() + '">' + val.trim() + '</option>');
+                        }
+
+                    }
+                });
+            }
+        });
+    }
+    get_first_date()
+    
+
+    function get_id_drop(e) {
+        var as_id = e[e.selectedIndex].id;
+        $('#ass_drop_id').val(as_id)
+        stageing_filter();
+    }
+
+    function stageing_filter() {
+        $user_type_crm = localStorage.getItem("user_type_crm")
+        $user_name_crm = localStorage.getItem("user_name_crm");
+        $user_id = localStorage.getItem("user_id_crm");
+
+        if ($user_type_crm == 'assigned') {
+            ass_coun = $user_id;
+        } else {
+            if ($('#ass_drop_id').val() != '') {
+                ass_coun = $('#ass_drop_id').val()
+            } else {
+                ass_coun = '';
+            }
+        }
+
+        if ($('#travel_date1').val() != '') {
+            from = $('#travel_date1').val();
+        } else {
+            from = '';
+        }
+        if ($('#travel_date2').val() != '') {
+            to = $('#travel_date2').val();
+        } else {
+            to = '';
+        }
+        console.log('&usertype=' + $user_type_crm + '&ass_coun=' + ass_coun + '&from=' + from + '&to=' + to);
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: baseurl + 'login.php',
+            data: 'req=68' + '&usertype=' + $user_type_crm + '&ass_coun=' + ass_coun + '&from=' + from + '&to=' + to,
+            success: function (html) {
+                $('#stage_details').html(html);
+                remove_hidden()
+            }
+        });
+    }
+    function redirectstage(assid, from, to, stage, status, value) {
+        if (status == 'na') {
+            window.location.href = value + '.html?id=' + assid + '&from=' + from + '&to=' + to + '&stage=' + stage;
+        }
+        else {
+            window.location.href = value + '.html?id=' + assid + '&from=' + from + '&to=' + to + '&status=' + status;
+        }
+    }
+
+
+</script>
+
+</html>

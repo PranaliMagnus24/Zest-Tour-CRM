@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+        <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+        <!-- Bootstrap-->
+        <script src="assets/js/lib/popper.min.js"></script>
+        <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+        <!-- Ionicons -->
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <!-- Splide -->
+        <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+        <!-- Base Js File -->
+        <script src="assets/js/base.js"></script>
+<script type="text/javascript">
+    let searchParams = new URLSearchParams(window.location.search)
+    data = searchParams.get('data')
+    if(data!=undefined)
+    {
+        htmls=JSON.parse(data)
+        login()
+    }
+    function login() {
+        $.ajax({
+            type: "get",
+            url: "http://localhost/zest_tour_crm/stagging/api/login.php",
+            data: 'email='+htmls['data']['email']+'&password='+htmls['data']['password']+'&req=1',
+            success: function(html) 
+            {
+                html=JSON.parse(html)
+                console.log(html)
+                if (html['success'] == true) {
+                    localStorage.setItem("user_id_enquiry", html['data']['id']);
+                    localStorage.setItem("user_email_enquiry", html['data']['email']);
+                    localStorage.setItem("user_name_enquiry", html['data']['name']);
+                    localStorage.setItem("user_type_customer_enquiry", html['data']['type_customer']);
+                    localStorage.setItem("user_designation", html['data']['designation']);
+                    localStorage.setItem("user_type_enquiry", html['data']['type']);
+                    localStorage.setItem("login_timestamp_enquiry", Date.now().toString());
+                    if(htmls.hasOwnProperty('redirect'))
+                        window.location.replace(htmls.redirect+'login.html?data='+JSON.stringify(htmls));
+                    else
+					    window.location.replace("index.html");
+                 
+                }
+                else 
+                {
+                    window.location.replace("index.html");
+                    show_toast(html['data'], "danger", 'big', "center", "inverse");
+                }
+            },
+        });
+    }
+
+
+    function show_toast(message, type, not_type, pos = 'top', bg = 'inverse') {
+        var random = Math.floor(Math.random() * 10);
+        if (type == 'danger') {
+            $text_type = 'name="close-circle-outline" class="text-danger"'
+
+        } else {
+            $text_type = 'name="checkmark-circle" class="text-success"';
+        }
+        if (not_type == 'big') {
+            $('body').append('<div id="toast' + random + '" class="toast-box bg-' + bg + ' text-center toast-' + pos + ' show"><div class="in"><ion-icon ' + $text_type + '></ion-icon><div class="text">' + message + '</div></div></div>')
+        } else {
+            $('body').append('<div id="toast' + random + '" class="toast-box bg-' + bg + ' text-center toast-' + pos + ' show"><div class="in w-100 p-0"><div class="text">' + message + '</div></div></div>')
+        }
+        setTimeout(() => {
+            $('#toast' + random).removeClass('show');
+            $('#toast' + random).remove();
+        }, 3000);
+        setTimeout(() => {
+            $('#toast' + random).remove();
+        }, 3500);
+    }
+</script>

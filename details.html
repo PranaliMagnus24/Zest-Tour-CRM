@@ -1,0 +1,1551 @@
+<html class="hydrated">
+
+<head>
+    <style data-styles="">
+        ion-icon {
+            visibility: hidden
+        }
+        
+        .hydrated {
+            visibility: inherit
+        }
+    </style>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="assets/dataTables.css" />
+    <link rel="stylesheet" href="assets/css/fstdropdown.css">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js" data-stencil-namespace="ionicons"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js" data-stencil-namespace="ionicons"></script>
+</head>
+
+<body>
+
+    <div id="loader" class="hidden">
+        Please do not reload page untill data gets added
+    </div>
+
+
+
+
+    <div class="col-lg-12 col-md-12">
+
+
+        <div class="section mt-2" style="width: 100%;">
+            <div class="col-12" style="width: 100%;  ">
+                <div id="filter" class="col-10" style="float: right;text-align: right;">
+                    <div class="col-12" style="width: 100%;float: right;text-align: right;">
+
+
+                        <!-- Dialog Form -->
+                    </div>
+                </div>
+
+
+                <div class="col-12 pull-left p-0">
+
+                    <div class="col-4 pull-left">
+                        <span class="" style="font-size: 21px;color: red;cursor: pointer;" onclick="history.back()">
+                            <ion-icon name="chevron-back-outline" role="img" class="md hydrated" aria-label="chevron back outline"></ion-icon><span style="font-size: 16px; vertical-align: bottom;">Back</span>
+                        </span>
+                    </div>
+
+                    <div class="col-2 pull-left text-center"><img src="assets/logo.png" style="height: 67px;"></div>
+             
+                </div>
+            </div>
+            <div class="col-12 pull-left">
+                <div class="col-4 pull-left p-0">
+                    <div class="col-12 pull-left text-center p-0">
+                        <div class="pull-left p-0" style=" margin-top: 5px;">
+                            <h5 class="m-0">
+                                <div id="count1"></div>
+                            </h5>
+                        </div>
+                        <div class="ms-2 pull-left p-0" style=" margin-top: 5px;">
+                            <h5 class="m-0">
+                                <div id="entries"></div>
+                            </h5>
+                        </div>
+                        <div class="ms-2 pull-left p-0 hidden">
+                            <div class="text-center unssign" id="toggles" style="float: right;display: block;border-radius: 10px;border: 0;">
+                                <div class="form-check p-0 pull-left">
+                                    <input class="form-check-input" type="checkbox" name="assigned" onclick="apply_search()" value="assigned" id="assigneds">
+                                    <label class="form-check-label" for="assigneds">
+                                        Unassigned Student
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 pull-left">
+                    <div class="col-6 pull-left p-0 w-100">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <input type="text" id="find" class="form-control bg-white box-shadow-1 no-border" onkeyup="clear_btn_hide(),onenter('apply_search') style="background-color: white; height: 37px; font-size: 10px;padding-left: 37px; " placeholder="Universal Search :">
+                                <ion-icon name="search-outline" style="right: 0px;position: absolute;top: 6px;font-size: 25px;padding-right: 5px;" onclick="apply_search()"></ion-icon>
+
+                                <div id="clear_in" class="hidden" style="font-size: 29px;position: absolute;top: 4px;color: #283477;" onclick="clear_input()">
+                                    <ion-icon name="close-circle-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6 pull-right p-0">
+                    <div class="page_ination"></div>
+                </div>
+            </div>
+
+            <div class="col-12 p-0 student_data" style="float: left;">
+                <div class="section mt-1 p-0 pull-left" style="width: 100%;">
+
+                    <div class="col-12 p-0 pull-left font-blue" style="background: #bdc5f1;position: sticky;top: 0;position: -webkit-sticky;font-weight: bold !important;z-index: 1;    display: flex;align-items: initial;">
+                        <div class="pull-left Flex-item font-blue" style="width: 5%;padding-left: 8px;">No</div>
+                        <div class="col-1 pull-left Flex-item font-blue abc position-relative">Date <span class="tooltiptext">Date of enquiry</span></div>
+                        <div class="col-2 pull-left Flex-item font-blue">Student<br></div>
+                        <div class="col-1 pull-left Flex-item font-blue hidden">Contact</div>
+                        <div class="col-1 pull-left Flex-item font-blue hidden">Email</div>
+                        <div class="col-1 pull-left Flex-item font-blue" style="width: 10%;"><span class="w-100 pull-left">Country</span>
+                            <select id="country_dropmenu" class="country_options_menu" onchange="apply_search()" style="width: 80px;">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-1 pull-left Flex-item font-blue">Course</div>
+                        <div class="col-1 pull-left Flex-item font-blue">Intake
+                            <select id="intake_dropmenu" class="year_menu" onchange="apply_search()" style="width: 80px;">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-1 pull-left Flex-item font-blue">Assigned
+                            <input type="hidden" id="ass_drop_id" value="">
+                            <select id="assigned_dropmenu" class="assigned_options_menu" onchange="get_id_drop(this)" style="width: 80px;">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-1 pull-left Flex-item font-blue">Status
+                            <select value="" name="status" placeholder="status" id="status_filter" onchange="apply_search()" style="width: 80px;">
+                                <option value="All">All</option>
+                                <option value="HOT">Hot</option>
+                                <option value="Warm">Warm</option>
+                                <option value="Cold">Cold</option>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-1 pull-left Flex-item font-blue">Stage
+                            <select value="" name="stage" placeholder="stage" id="stage_filter" onchange="apply_search()" style="width: 80px;">
+                                <option value="All">All</option>
+                                <option value="Enquiry">Enquiry</option>
+                                <option value="Application">Application</option>
+                                <option value="Deposit Paid">Deposit Paid</option>
+                                <option value="Visa">Visa</option>
+                                <option value="Visa approved">Visa Approved</option>
+                                <option value="Visa disapproved">Visa disapproved</option>
+                                <option value="Offer Accepted">Offer Accepted</option>
+                            </select>
+                        </div>
+                        <div class="col-2 pull-left Flex-item font-blue" style="width: 12%;">
+                            <span class="w-100 pull-left">Pri. Source of Lead</span>
+                            <select id="source_of_lead_dropdown" class="source_of_lead_dropdown" onchange="apply_search()" style="width: 80px;">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-2 pull-left Flex-item font-blue" style="width: 6%;">
+                            <span class="w-100 pull-left">Sec. Lead</span>
+                        </div>
+                    </div>
+                    <div class="pull-left details1 p-0 w-100">
+
+                    </div>
+                    <div class="mt-3 pt-0 hidden" style="text-align: center; width: 50%; margin-left: 308px;">
+                        <button type="button" class="btn btn-primary btn-sm me-1 btn-blue no-border" style="width: 40%;margin-top: 5px;" data-bs-target="#sure" data-bs-toggle="modal">Schedule
+                            Interviews</button>
+
+                    </div>
+                </div>
+                <!-- Modal Basic -->
+                <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+                <!-- Bootstrap-->
+                <script src="assets/js/lib/popper.min.js"></script>
+                <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+                <!-- Ionicons -->
+                <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
+                <!-- Owl Carousel -->
+                <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+                <!-- Bootstrap-->
+                <script src="assets/js/lib/popper.min.js"></script>
+                <script src="assets/js/lib/moment.min.js"></script>
+                <script src="assets/js/daterangepicker.js"></script>
+                <!-- Base Js File -->
+                <script src="assets/js/base.js"></script>
+                <script src="assets/js/fstdropdown.js"></script>
+
+                <script type="text/javascript" src="assets/dataTables.js"></script>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
+                <link rel="stylesheet" type="text/css" href="assets/css/jquery.datetimepicker.min.css" />
+                <script src="assets/js/jquery.datetimepicker.js"></script>
+
+                <!-- Ionicons -->
+
+
+
+
+
+                <!-- filter date -->
+                <script>
+                    var user_email_crm = localStorage.getItem("user_email_crm");
+                    if (typeof user_email_crm == 'undefined' || user_email_crm == null) {
+                        window.location.href = 'login.html'
+                    }
+
+                    function url_id() {
+                        let searchParams = new URLSearchParams(window.location.search)
+                        id = searchParams.get('id')
+                        from_date = searchParams.get('from')
+                        to_date = searchParams.get('to')
+                    }
+                    var currentDate = new Date();
+
+                    var nextDay = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+                    var day = nextDay.getDate()
+                    var month = nextDay.getMonth() + 1
+                    var year = nextDay.getFullYear()
+                    next_date = month + '/' + day + '/' + year;
+                    get_country_list()
+                    setTimeout(function() {
+
+                        $('#invoice_from_date').val('');
+                        $('#invoice_to_date').val('');
+
+
+                        $('#travel_from').val('');
+                        $('#travel_to').val('');
+
+
+                        $('#flt_from').val('');
+                        $('#flt_to').val('');
+
+                    }, 2000);
+                    dropdown_data_lead();
+                    function dropdown_data_lead() {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=85',
+                            success: function(html) {
+                                $('.source_of_lead_dropdown,.source_of_lead_option').html('');
+                                arrayValues = html.split(',')
+                                    // console.log(arrayValues)
+                                $('.source_of_lead_dropdown').append('<option id="All" value="All">All</option>');
+                                $('.source_of_lead_option').append('<option data-id="All" value="NA">NA</option>');
+                                $.each(arrayValues, function(i, val) {
+                                    arrayValues1 = val.split('//');
+                                    val = arrayValues1[0].replace('\n', '')
+                                    if (val.trim() != '') {
+                                        $('.source_of_lead_dropdown').append('<option value="' + arrayValues1[1] + '">' + val.trim() + '</option>');
+                                        $('.source_of_lead_option').append('<option data-id="' + arrayValues1[1] + '" value="' + val.trim() + '">' + val.trim() + '</option>');
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    function get_pageination(page = '', func = '', req = '', para = '') {
+                        $user_type_crm = localStorage.getItem("user_type_crm")
+                        $user_name_crm = localStorage.getItem("user_name_crm");
+                        $user_id = localStorage.getItem("user_id_crm");
+
+                        // console.log('page=' + page + '&func=' + func + '&req=' + req + '&' + para + '&userid=' + $user_id + '&usertype=' + $user_type_crm)
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'page=' + page + '&func=' + func + '&req=' + req + '&' + para + '&userid=' + $user_id + '&usertype=' + $user_type_crm,
+                            async: true,
+                            success: function(html) {
+                                html = html.split(',,$')
+                                $('.page_ination').html(html[2])
+
+
+
+                                $('#count1').html('Entries = ' + html[1])
+                                $('#entries').html('Total Entries = ' + html[0])
+                                $user_name_crm = localStorage.getItem("user_name_crm");
+
+                                $('#user_name_crm').html($user_name_crm)
+
+
+
+                                // alert(html[0])
+
+                            }
+                        });
+
+                    }
+                    get_post();
+
+
+                    function get_post($page = '') {
+                        input_para = $('#status_filter').val();
+                       
+                        $user_type_crm = localStorage.getItem("user_type_crm")
+                        $user_name_crm = localStorage.getItem("user_name_crm");
+                        $user_id_crm = localStorage.getItem("user_id_crm");
+                        let searchParams = new URLSearchParams(window.location.search)
+                        id = searchParams.get('id')
+                        from = searchParams.get('from')
+                        to = searchParams.get('to')
+                        status = searchParams.get('status')
+                        stage = searchParams.get('stage')
+                        para = '&status_input=' + input_para + '&id=' + id + '&from=' + from + '&to=' + to+ '&status=' + status+ '&stage=' + stage;
+                        get_pageination($page, 'get_post', '71', para)
+                            // $flight_view = localStorage.getItem("flight_view")
+
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=69' + '&page=' + $page + '&user=' + $user_name_crm + '&userid=' + $user_id_crm + '&usertype=' + $user_type_crm + '&status_input=' + input_para + '&id=' + id + '&from=' + from + '&to=' + to+ '&status=' + status+ '&stage=' + stage,
+                            success: function(html) {
+                                dropdown_data_country()
+                                console.log(html)
+                                $('.details1').html(html)
+                                remove_hidden()
+                                box_check('stage1')
+                                dropdown_data_source('.source_options', 'add_source_of_inq');
+                                dropdown_data('.as_options', 'assigned');
+                                dropdown_data('.coun_options', 'primary');
+                                intake_date()
+                                log_name()
+                                dropdown_menu_data_country()
+                                intake_menu_date()
+                                dropdown_menu_data('.assigned_options_menu', 'assigned');
+                                $('.select_value').each(function() {
+
+                                    var data_selected = $(this).attr("data-selected-value")
+                                    $(this).val(data_selected)
+                                })
+                                if ($user_type_crm == 'assigned') {
+                                    $("#regis").remove();
+                                    $("#add_pri_coun").remove();
+                                    $("#edit_pri_coun").remove();
+                                    $("#add_as_c").remove();
+                                    $("#edit_as_cou").remove();
+                                    $("#upload_table").remove();
+                                    $("#removethisas").remove();
+                                }
+                                setTimeout(function() {
+                                    $(".to_com").each(function() {
+                                        new_val = $(this).attr("id");
+                                        eval($('#' + new_val).attr('onchange'))
+                                            //this.id
+                                    });
+                                }, 500)
+                                click_hilight();
+                            }
+                        });
+
+
+                    }
+
+
+
+
+                    function dat(datepic, e, cla) {
+                        // console.log(cla)
+
+                        // alert('#' + datepic)
+
+                        //$name = $('.' + date).attr('data-name');
+
+                        $(cla + '_date' + datepic).focus();
+
+
+
+                        $(cla + '_date' + datepic).datepicker({
+                            minDate: 0,
+                            onClose: function(dateText, inst) {
+                                $(cla + datepic).text(
+                                    inst.selectedDay + "-" +
+                                    (inst.selectedMonth + 1) + "-" +
+                                    inst.selectedYear);
+
+                                savedata(e)
+                            }
+                        });
+
+
+
+                    }
+
+
+                    $("#find").on('keyup', function(e) {
+                        if (e.key === 'Enter' || e.keyCode === 13) {
+
+
+                            apply_search()
+
+
+                        }
+                    });
+
+
+                    function uni_search() {
+
+
+                        value = (decodeURIComponent($("#find").val())).trim();;
+
+                        $user_type_crm = localStorage.getItem("user_type_crm")
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: '&value=' + value + '&req=9' + '&user_type_crm=' + $user_type_crm,
+                            success: function(html) {
+                                //  console.log(html)
+                                $('.details1').html(html)
+
+
+                            }
+                        });
+                    }
+
+
+
+
+                    function clear_btn_hide() {
+
+                        if ($('#find').val().length > 0) {
+                            $('#clear_in').removeClass('hidden')
+                        } else {
+                            if ($('#filter_inner').hasClass('hidden')) {
+                                get_post();
+                            } else {
+                                apply_search()
+                            }
+                            $('#clear_in').addClass('hidden')
+                                // $('#filter_inner').addClass('hidden')
+
+                        }
+
+                    }
+
+
+                    function get_id_drop(e) {
+                        var as_id = e[e.selectedIndex].id;
+                        $('#ass_drop_id').val(as_id)
+                        apply_search()
+                    }
+
+
+                    function apply_search($page = '') {
+
+                        if ($('#assigneds:checked').length > 0) {
+                            $('#ass_drop_id').val(0)
+                        } else {
+                            $('#ass_drop_id').val($('.assigned_options_menu option:selected').attr('id'))
+                        }
+                        $user_type_crm = localStorage.getItem("user_type_crm")
+                        $user_name_crm = localStorage.getItem("user_name_crm");
+                        $user_id_crm = localStorage.getItem("user_id_crm");
+                        $value = (decodeURIComponent($("#find").val())).trim();
+                        let searchParams = new URLSearchParams(window.location.search)
+                        id = searchParams.get('id')
+                        from = searchParams.get('from')
+                        to = searchParams.get('to')
+                        status = searchParams.get('status')
+                        stage = searchParams.get('stage')
+                        //  console.log(airline_name)
+                        if ($('#status_filter').val() != '') {
+                            status_input = $('#status_filter').val()
+                        } else {
+                            status_input = ''
+                        }
+                        if ($('#country_dropmenu').val() != '') {
+                            country_menu = $('#country_dropmenu').val()
+                        } else {
+                            country_menu = '';
+                        }
+                        if ($('#intake_dropmenu').val() != '') {
+                            intake_menu = $('#intake_dropmenu').val()
+                        } else {
+                            intake_menu = '';
+                        }
+
+                        if ($('#ass_drop_id').val() != '') {
+                            ass_coun = $('#ass_drop_id').val()
+                        } else {
+                            ass_coun = '';
+                        }
+                        if ($('#filter_inner').hasClass('hidden')) {
+                            reminder = ''
+                        } else {
+                            reminder = 'yes'
+                        }
+                        stage_filter
+                        if ($('#stage_filter').val() != '') {
+                            stage_filter = $('#stage_filter').val()
+                        } else {
+                            stage_filter = ''
+                        }
+                        if ($('#source_of_lead_dropdown').val() != '') {
+                            source_of_lead = $('#source_of_lead_dropdown').val()
+                        } else {
+                            stage_filter = ''
+                        }
+                        // console.log('req=2' + '&value=' + $value + '&userid=' + $user_id_crm + '&usertype=' + $user_type_crm + '&user=' + $user_name_crm + '&reminder=' + reminder)
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=70' + '&value=' + $value + '&userid=' + $user_id_crm + '&usertype=' + $user_type_crm + '&user=' + $user_name_crm + '&reminder=' + reminder + '&status_input=' + status_input + '&country_menu=' + country_menu + '&intake_menu=' + intake_menu + '&ass_coun=' + ass_coun + '&stage_filter=' + stage_filter + '&id=' + id + '&from=' + from + '&to=' + to+ '&status=' + status+ '&stage=' + stage+'&source_of_lead='+source_of_lead,
+                            success: function(html) {                 
+                                intake_date()
+                                dropdown_data_source('.source_options', 'add_source_of_inq');
+                                dropdown_data('.as_options', 'assigned');
+                                dropdown_data('.coun_options', 'primary');
+                                dropdown_data_country()
+                                setTimeout(function() {
+                                    intake_date()
+                                }, 1000);
+                                para = '&value=' + $value + '&userid=' + $user_id_crm + '&usertype=' + $user_type_crm + '&user=' + $user_name_crm + '&reminder=' + reminder + '&status_input=' + status_input + '&country_menu=' + country_menu + '&intake_menu=' + intake_menu + '&ass_coun=' + ass_coun + '&stage_filter=' + stage_filter + '&id=' + id + '&from=' + from + '&to=' + to+ '&status=' + status+ '&stage=' + stage+'&source_of_lead='+source_of_lead;
+
+                                //  alert($page)
+                                get_pageination($page, 'apply_search', '72', para)
+                                $('.details1').html(html)
+                                setTimeout(function() {
+
+
+                                    $(".to_com").each(function() {
+                                        new_val = $(this).attr("id");
+
+                                        eval($('#' + new_val).attr('onchange'))
+
+                                        //this.id
+                                    });
+
+
+
+                                }, 500)
+                                click_hilight();
+remove_hidden();
+                            }
+                        });
+                    }
+
+
+
+
+                    function clear_input() {
+
+                        $('#find').val('');
+                        $('#clear_in').addClass('hidden')
+                        if ($('#filter_inner').hasClass('hidden')) {
+                            apply_search()
+                        } else {
+                            apply_search()
+
+                        }
+
+
+                    }
+                </script>
+
+
+
+
+                <script type="text/javascript">
+                    function convertToBase64() {
+
+
+
+                        var selectedFile = document.getElementById("inputFile").files;
+
+                        fsize = document.getElementById("inputFile").files[0].size
+                            //Check File is not Empty
+
+                        const file = Math.round((fsize / 1024));
+                        // The size of the file.
+                        if (file >= 4096) {
+                            show_toast('Please select a file less than 4mb', "danger", 'big', "center", "inverse");
+                        } else {
+                            if (selectedFile.length > 0) {
+                                // alert('upload')
+                                // Select the very first file from list
+                                var fileToLoad = selectedFile[0];
+                                // FileReader function for read the file.
+                                var fileReader = new FileReader();
+                                var base64;
+                                // Onload of file read the file content
+                                fileReader.onload = function(fileLoadedEvent) {
+                                    base64 = fileLoadedEvent.target.result;
+                                    // Print data in console
+                                    //console.log(base64);
+
+
+
+
+                                    exe_check = base64.split(';');
+                                    // console.log(exe_check);
+                                    // echo $resume[0];
+                                    exe_check1 = exe_check[0].split('/');
+                                    // console.log(exe_check1);
+                                    i = 0;
+                                    if (exe_check1[1] == 'vnd.ms-excel' || exe_check1[1] == 'vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+                                        i++;
+                                        base64 = base64.replace(/\+/g, 'plusss')
+                                            // console.log(base64);
+                                        $('.resume').val(base64)
+                                        var fileName = document.getElementById('inputFile').files[0].name;
+                                        // alert(fileName);
+                                        $('#filename').html(fileName);
+
+                                        //show_toast('File uploded', "succes", 'big', "center", "inverse");
+                                    } else {
+                                        show_toast('Please Upload xls File', "danger", 'big', "center", "inverse");
+                                    }
+                                    $('#inputFile').val('');
+
+
+                                };
+                                // Convert data to base64
+                                fileReader.readAsDataURL(fileToLoad);
+                            }
+                        }
+
+
+                    }
+
+
+                    function clear_filter() {
+
+
+
+
+                        get_post()
+                        $('#filter_inner').addClass('hidden');
+
+
+
+                    }
+
+                    // function check_checked(value)
+                    // {
+                    //     if($('input[type=radio][name=flexRadioDefault][value='+value+']:checked').length>0)
+                    //     {
+                    //         $('input[type=radio][name=flexRadioDefault]:checked').prop('checked',false)
+                    //     }
+                    // }
+
+
+                    function formData() {
+
+
+
+
+
+                        $('#loader').removeClass('hidden');
+                        $user_id_crm = localStorage.getItem("user_id_crm");
+
+
+                        // console.log(decodeURIComponent($("#upload_data").find('select, textarea, input').serialize()) + '&req=3');
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=3&' + $("#upload_data").find('select, textarea, input').serialize() + '&user_id=' + $user_id_crm,
+                            success: function(html) {
+                                get_post()
+                                console.log(html)
+                                $('#loader').addClass('hidden');
+
+                                // if (html.trim() == 'ok') {
+
+                                //     $('#filename').html('');
+                                //     get_post();
+
+
+
+                                //     show_toast("Data Added", "success", 'big', "center", "inverse");
+
+                                // } else {
+
+                                //     show_toast("No New Data Added", "danger", 'big', "center", "inverse");
+                                // }
+
+
+                            }
+
+                        });
+                    }
+
+
+                    function user_name_crm() {
+
+
+
+                    }
+
+
+                    function showdiv(e, id) {
+                        if ($(id).hasClass('hidden')) {
+                            $(e).parent().parent().parent().find('.Flex-item').removeClass('text-ellipsis')
+                            $(e).html('-less')
+                            $(id).removeClass('hidden')
+                        } else {
+                            $(e).parent().parent().parent().find('.Flex-item').addClass('text-ellipsis')
+                            $(e).html('+More')
+                            $(id).addClass('hidden')
+                        }
+                    }
+
+
+
+                    function add_counseller(area, id, type) {
+
+                        splited = area.split(',')
+                        area = splited[0];
+                        id = splited[1];
+                        type = splited[2];
+                        $user_id_crm = localStorage.getItem("user_id_crm");
+                        // console.log($("#" + id).find('select, textarea, input').serialize() + '&area=' + area + '&type=' + type);
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=24&' + $("#" + id).find('select, textarea, input').serialize() + '&area=' + area + '&type=' + type + '&user_id=' + $user_id_crm,
+                            success: function(html) {
+                                // console.log(html)
+                                if (html.trim() == 'ok') {
+                                    //  console.log(('#' + area).modal('hide'))
+                                    $('#' + id).modal('hide');
+
+                                    $("#" + id).find('select, textarea, input').val('');
+
+                                    $('#coun').val('');
+                                    $('#coun_name_update').val('');
+                                    $('#inquiryid').val('');
+                                    $('#coun_name').val('');
+                                    $('#source_name').val('');
+                                    dropdown_data_source('.source_options', 'add_source_of_inq')
+                                    dropdown_data('.coun_options', 'primary');;
+                                    dropdown_data_country()
+                                    dropdown_data('.as_options', 'assigned');
+                                    show_toast("Added", "success", 'big', "center", "inverse");
+
+                                } else {
+
+                                    show_toast("Not Added", "danger", 'big', "center", "inverse");
+                                }
+
+
+                            }
+
+                        });
+                    }
+
+
+
+
+                    function dropdown_data(area, para) {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=25' + '&para=' + para,
+                            success: function(html) {
+                                // console.log(html)
+                                $(area).html('');
+                                arrayValues = html.split(',')
+                                    //console.log(arrayValues)
+                                $(area).append('<option value="NA">');
+                                $.each(arrayValues, function(i, val) {
+                                    val = val.replace('\n', '')
+                                    if (val.trim() != '') {
+                                        //  console.log(val)
+                                        $(area).append('<option value="' + val.trim() + '">');
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+                    function dropdown_menu_data(area, para) {
+                        $user_type = localStorage.getItem("user_type_crm");
+                        $user_name = localStorage.getItem("user_name_crm");
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=64' + '&para=' + para,
+                            success: function(html) {
+                                // console.log(html)
+                                $(area).html('');
+                                arrayValues = html.split(',')
+                                    //console.log(arrayValues)
+                                if ($user_type == 'assigned') {
+                                    $(area).append('<option disabled="disabled" value="All">All</option>');
+                                } else {
+                                    $(area).append('<option value="All">All</option>');
+                                }
+
+                                $.each(arrayValues, function(i, val) {
+                                    arrayValues1 = val.split('//');
+                                    val = arrayValues1[0].replace('\n', '')
+                                    if (val.trim() != '') {
+                                        if ($user_type == 'assigned') {
+                                            if (val.trim() == $user_name) {
+                                                $(area).append('<option id="' + arrayValues1[1] + '" selected value="' + val.trim() + '">' + val.trim() + '</option>');
+                                            } else {
+                                                $(area).append('<option id="' + arrayValues1[1] + '" disabled="disabled" value="' + val.trim() + '">' + val.trim() + '</option>');
+                                            }
+                                        }
+                                        //  console.log(val)
+                                        else {
+                                            $(area).append('<option id="' + arrayValues1[1] + '" value="' + val.trim() + '">' + val.trim() + '</option>');
+                                        }
+
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+
+                    function dropdown_data_country() {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=41',
+                            success: function(html) {
+                                $('.country_options').html('');
+                                arrayValues = html.split(',')
+                                    // console.log(arrayValues)
+                                $('.country_options').append('<option value="NA">');
+                                $.each(arrayValues, function(i, val) {
+                                    arrayValues1 = val.split('//');
+                                    val = arrayValues1[0].replace('\n', '')
+                                    if (val.trim() != '') {
+                                        $('.country_options').append('<option id="' + arrayValues1[1] + '" value="' + val.trim() + '">');
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+
+                    function dropdown_menu_data_country() {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=41',
+                            success: function(html) {
+                                $('.country_options_menu').html('');
+                                arrayValues = html.split(',')
+                                    // console.log(arrayValues)
+                                $('.country_options_menu').append('<option id="All" value="All">All</option>');
+                                $.each(arrayValues, function(i, val) {
+                                    arrayValues1 = val.split('//');
+                                    val = arrayValues1[0].replace('\n', '')
+                                    if (val.trim() != '') {
+                                        $('.country_options_menu').append('<option id="' + arrayValues1[1] + '" value="' + val.trim() + '">' + val.trim() + '</option>');
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+
+                    function dropdown_data_source(area, para) {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=32' + '&para=' + para,
+                            success: function(html) {
+                                $(area).html('');
+                                //console.log(html)
+                                arrayValues = html.split(',')
+                                    // console.log(arrayValues)
+                                $(area).append('<option value="NA">');
+                                $.each(arrayValues, function(i, val) {
+                                    if (val.trim() != '') {
+                                        $(area).append('<option value="' + val.trim() + '">');
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+
+
+                    function intake_date() {
+                        $('.year_options').html('');
+                        var d = new Date();
+                        var year = d.getFullYear();
+                        var month = d.getMonth();
+                        var day = d.getDate();
+                        var c = new Date(year + 3, month, day);
+                        //console.log(c);
+                        var resultList = [];
+                        var date = new Date();
+                        var endDate = new Date(c);
+                        var monthNameList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                        while (date <= endDate) {
+                            var stringDate = monthNameList[date.getMonth()] + " " + date.getFullYear();
+                            resultList.push(stringDate);
+                            date.setMonth(date.getMonth() + 1);
+                        }
+                        //  console.log(resultList);
+                        $(".year_options").append('<option value="NA">NA</option>');
+                        $.each(resultList, function(i, val) {
+                            if (val != '') {
+                                // $('<option value="' + i + '">' + val + '</option>');
+                                $(".year_options").append('<option value="' + val + '">' + val + '</option>');
+                            }
+                        });
+                        $('.select_value').each(function() {
+                            var data_selected = $(this).attr("data-selected-value")
+                            $(this).val(data_selected)
+                        })
+                    }
+
+                    function intake_menu_date() {
+                        $('.year_menu').html('');
+                        var d = new Date();
+                        var year = d.getFullYear();
+                        var month = d.getMonth();
+                        var day = d.getDate();
+                        var c = new Date(year + 3, month, day);
+                        //console.log(c);
+                        var resultList = [];
+                        var date = new Date();
+                        var endDate = new Date(c);
+                        var monthNameList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                        while (date <= endDate) {
+                            var stringDate = monthNameList[date.getMonth()] + " " + date.getFullYear();
+                            resultList.push(stringDate);
+                            date.setMonth(date.getMonth() + 1);
+                        }
+                        //  console.log(resultList);
+                        $(".year_menu").append('<option value="All">All</option>');
+                        $.each(resultList, function(i, val) {
+                            if (val != '') {
+                                // $('<option value="' + i + '">' + val + '</option>');
+                                $(".year_menu").append('<option value="' + val + '">' + val + '</option>');
+                            }
+                        });
+                    }
+
+
+                    function edit_counseller() {
+                        $('#coun_pass_update').addClass('hidden')
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=28',
+                            success: function(html) {
+
+                                //console.log(html)
+                                $('#edittt_coun').html(html)
+
+
+
+
+                            }
+
+                        });
+
+
+
+                    }
+
+                    function edit_sourceof() {
+
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=29',
+                            success: function(html) {
+
+                                //console.log(html)
+                                $('#sourcetable').html(html)
+
+
+
+                            }
+
+                        });
+
+
+
+                    }
+
+
+
+                    function edit_as() {
+
+                        $('#coun_password').addClass('hidden')
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=30',
+                            success: function(html) {
+                                //console.log(html)
+                                $('#as_coun_table').html(html)
+                            }
+                        });
+                    }
+
+                    function getDateTime() {
+
+                        var now = new Date();
+                        var year = now.getFullYear();
+                        var month = now.getMonth() + 1;
+                        var day = now.getDate();
+                        var hour = now.getHours();
+                        var minute = now.getMinutes();
+                        var second = now.getSeconds();
+                        if (month.toString().length == 1) {
+                            month = '0' + month;
+                        }
+                        if (day.toString().length == 1) {
+                            day = '0' + day;
+                        }
+                        if (hour.toString().length == 1) {
+                            hour = '0' + hour;
+                        }
+                        if (minute.toString().length == 1) {
+                            minute = '0' + minute;
+                        }
+                        if (second.toString().length == 1) {
+                            second = '0' + second;
+                        }
+                        var dateTime = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
+                        return dateTime;
+
+                    }
+
+                    // example usage: realtime clock
+                    setInterval(function() {
+                        currentTime = getDateTime();
+
+                        $('#remark_time').val(currentTime)
+                    }, 1000);
+                </script>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        var d = new Date();
+
+                        // $('#datetimepicker').datetimepicker({
+                        //     defaultDate: moment(),
+                        //     format: 'Y-m-d H:i',
+
+                        //     timepicker: false,
+                        //     //yesterday is minimum date
+                        //     maxDate: d //tomorrow is maximum date
+                        // });
+
+                        $('#datetimepicker_reminder').datetimepicker({
+                            format: 'Y-m-d H:i',
+                            timepicker: true,
+                            //yesterday is minimum date
+                            minDate: d //tomorrow is maximum date
+                        });
+                        $('#datetimepicker_enquiry').datetimepicker({
+                            format: 'Y-m-d',
+                            timepicker: false,
+                            //yesterday is minimum date
+                            minDate: d //tomorrow is maximum date
+                        });
+                    });
+
+                    function unhidediv(id) {
+                        $(id).removeClass('hidden')
+
+                    }
+
+                    function add_sour() {
+                        // console.log($("#add_inq").find('select, textarea, input').serialize());
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=31&' + $("#add_inq").find('select, textarea, input').serialize(),
+                            success: function(html) {
+                                //  console.log(html)
+                                if (html.trim() == 'ok') {
+                                    $('#add_inq').modal('hide');
+                                    $("#add_inq").find('select, textarea, input').val('');
+                                    dropdown_data_source('.source_options', 'add_source_of_inq')
+                                    dropdown_data('.coun_options', 'primary');
+                                    dropdown_data_country()
+                                    show_toast("Added", "success", 'big', "center", "inverse");
+                                } else {
+                                    show_toast("Not Added", "danger", 'big', "center", "inverse");
+                                }
+                            }
+                        });
+                    }
+
+
+
+
+                    function add_remark() {
+
+
+
+                        $user_id = localStorage.getItem("user_id_crm");
+
+
+
+                        // console.log($("#remark").find('select, textarea, input').serialize() + '&remarkby=' + $user_id);
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=33&' + $("#remark").find('select, textarea, input').serialize() + '&remarkby=' + $user_id,
+                            success: function(html) {
+
+                                //  console.log(html)
+                                $("#remark").find('select, textarea, input').val('');
+
+                                if (html.trim() == 'ok') {
+                                    edit_remark($('#view_remark_id').val())
+                                    $('#remark').modal('hide')
+
+
+
+
+                                    dropdown_data('.coun_options', 'primary');;
+
+
+
+
+
+                                    //show_toast("Added", "success", 'big', "center", "inverse");
+
+                                } else {
+
+                                    // show_toast("Not Added", "danger", 'big', "center", "inverse");
+                                }
+
+
+                            }
+
+                        });
+                    }
+
+
+
+                    function edit_remark(id) {
+                        // alert(id)
+                        $user_id = localStorage.getItem("user_id_crm");
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=34' + '&remarkby=' + $user_id + '&person_id=' + id,
+                            success: function(html) {
+
+                                // console.log(html)
+                                $('#remark_table').html(html)
+
+
+
+                            }
+
+                        });
+
+
+
+                    }
+
+
+
+
+
+                    function add_reminder() {
+
+
+
+                        $user_id = localStorage.getItem("user_id_crm");
+
+
+
+                        //console.log($("#reminder").find('select, textarea, input').serialize() + '&remindby=' + $user_id);
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=35&' + $("#reminder").find('select, textarea, input').serialize() + '&remindby=' + $user_id,
+
+                            success: function(html) {
+
+                                //console.log(html)
+                                $("#reminder").find('select, textarea, input').val('');
+
+                                if (html.trim() == 'ok') {
+
+                                    edit_remind($('#view_reminder_id').val())
+
+                                    $('#reminder').modal('hide')
+
+
+                                    dropdown_data('.coun_options', 'primary');;
+
+
+
+
+
+                                    //show_toast("Added", "success", 'big', "center", "inverse");
+
+                                } else {
+
+                                    // show_toast("Not Added", "danger", 'big', "center", "inverse");
+                                }
+
+
+                            }
+
+                        });
+                    }
+
+
+                    function edit_remind(id) {
+                        // alert(id)
+                        $user_id = localStorage.getItem("user_id_crm");
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=36' + '&remindby=' + $user_id + '&person_id=' + id,
+                            success: function(html) {
+
+                                // console.log(html)
+                                $('#reminder_table').html(html)
+
+
+
+                            }
+
+                        });
+
+
+
+                    }
+
+
+
+
+                    function new_candinate() {
+
+                        $("#add_can_btn").attr("disabled", true);
+                        primary_co = localStorage.getItem("user_id_crm");
+                        user_type = localStorage.getItem("user_type_crm");
+
+
+                        console.log($("#add_candidiate_modal").find('select, textarea, input').serialize());
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=37&' + $("#add_candidiate_modal").find('select, textarea, input').serialize() + '&primary_id=' + primary_co + '&user_type=' + user_type+'&user_id='+primary_co,
+                            success: function(html) {
+                                if (html.trim() == 'ok') {
+                                    $("#add_can_btn").attr("disabled", false);
+                                    $('#add_candidiate_modal input').val('');
+
+                                    $('#add_candidiate_modal input[type=checkbox]').prop('checked', false);
+                                    // console.log(html)
+                                    $('#add_candidiate_modal').modal('hide');
+                                    get_post()
+                                    show_toast("Candidate Added", "success", 'big', "center", "inverse");
+                                } else {
+                                    show_toast("error", "danger", 'big', "center", "inverse");
+                                }
+                            }
+
+                        });
+                    }
+
+                    function filter_reminder($page = '') {
+                        $('#filter_inner').removeClass('hidden');
+                        $user_type_crm = localStorage.getItem("user_type_crm")
+                        $user_name_crm = localStorage.getItem("user_name_crm");
+                        $user_id_crm = localStorage.getItem("user_id_crm");
+                        apply_search()
+
+
+
+
+                    }
+
+                    function cancel_clr(area) {
+
+
+                        $(area).val('');
+                    }
+
+                    $(document).on('show.bs.modal.show', '.modal', function(event) {
+                        if ($('.modal.show').length > 1) {
+                            var zIndex = 1060 + (10 * $('.modal.show').length);
+                            $(this).css('z-index', zIndex);
+                            setTimeout(function() {
+                                $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+                            }, 0);
+                        } else if ($('.modal.show').length == 1) {
+                            var zIndex = 1060 + (10 * $('.modal.show').length);
+                            $(this).css('z-index', zIndex);
+                            setTimeout(function() {
+                                $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+                            }, 0);
+                        } else {
+                            var zIndex = 1060 - (10 * $('.modal.show').length);
+
+                            $('.modal.show').css('z-index', zIndex);
+                            setTimeout(function() {
+                                $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+                            }, 0);
+                        }
+                    });
+
+                    function add_parent() {
+                        $user_id = localStorage.getItem("user_id_crm");
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=46&' + $("#add_parent").find('select, textarea, input').serialize() + '&remindby=' + $user_id + '&parent_type=' + $('input[type=radio][name=parent_type]:checked').val(),
+                            success: function(html) {
+
+                                console.log(html)
+                                $("#add_parent").find('select, textarea, input').val('');
+
+                                if (html.trim() == 'ok') {
+                                    show_toast("Added", "success", 'big', "center", "inverse");
+                                } else {
+
+                                    show_toast("Not Added", "danger", 'big', "center", "inverse");
+                                }
+
+
+                            }
+
+                        });
+                    }
+
+                    function clear_form(id, header) {
+                        $(id).find('input[type=text]').val('')
+                        $(id).find('.modal-title').html(header)
+                    }
+
+                    function get_parent_details(id) {
+                        $('#add_parent .modal-title').html('Edit Parent')
+                        $user_id = localStorage.getItem("user_id_crm");
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=48&id=' + id,
+                            success: function(html) {
+                                html = html.split(',,$');
+                                $('#Name').val(html[0])
+                                $('#cantact').val(html[2])
+                                $('#email').val(html[1])
+                                $('#add_parent input[type=radio][value=' + html[3] + ']').prop('checked', true)
+                            }
+
+                        });
+                    }
+
+
+                    function candidate_primary() {
+                        usertype = localStorage.getItem("user_type_crm")
+                        userid = localStorage.getItem("user_id_crm")
+                        if (usertype == 'primary') {
+                            user_name = localStorage.getItem("user_name_crm");
+                            $('#pri_candidate_name').val(user_name);
+                        } else if (usertype == 'assigned') {
+                            user_name = localStorage.getItem("user_name_crm");
+                            $('#ass_candidate_name').val(user_name);
+                            $.ajax({
+                                type: "POST",
+                                url: baseurl + 'login.php',
+                                data: 'req=62&id=' + userid,
+                                success: function(html) {
+                                    $('#pri_candidate_name').val(html);
+                                }
+                            });
+                        }
+
+                        add_id('#ass_candidate_name', '#assign_check')
+                        add_id('#pri_candidate_name', '#pri_check')
+                        add_id('#checking_source', '#source_check')
+                    }
+
+                    function status_filter($page = '') {
+                        input = $('#status_filter').val();
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=58&' + 'input=' + input,
+                            success: function(html) {
+                                $('.details1').html(html)
+
+                            }
+                        });
+                    }
+
+                    function log_name() {
+                        username = localStorage.getItem("user_name_crm")
+                        $('#log_name').html(' (' + username + ')');
+                    }
+
+                    function add_id(id, value) {
+                        val = $(id).val();
+                        list = $(id).attr('list'),
+                            options = document.getElementById(list).childNodes;
+                        for (var i = 0; i < options.length; i++) {
+                            if (options[i].value === val) {
+                                $(value).val(val)
+                                break;
+                            }
+                        }
+                    }
+
+                    function check_dropdown(e, check, empty = '') {
+                        if ($(e).val() != $(check).val()) {
+                            $(e).val('')
+                            $(empty).val('')
+                            $(check).val('')
+                        }
+
+                    }
+                    country_lists()
+
+                    function country_lists() {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'university.php',
+                            data: 'req=6',
+                            success: function(html) {
+                                $('.country_lists').html(html)
+
+                            }
+                        });
+                    }
+
+                    function get_single_country(id) {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'university.php',
+                            data: 'req=7&id=' + id,
+                            success: function(html) {
+                                $('#add_country .id').val(id)
+                                $('#add_country input[name=country]').val(html)
+                            }
+                        });
+                    }
+
+                    function add_country() {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'university.php',
+                            data: 'req=8&' + $("#add_country").find('select, textarea, input').serialize(),
+                            success: function(html) {
+                                if (html.trim() == 'ok') {
+                                    country_lists();
+                                    if ($("#add_country .id").val() == '') {
+                                        show_toast("Country Added", "success", '', "top", "success");
+                                    } else {
+                                        show_toast("Country Updated", "success", '', "top", "success");
+                                    }
+                                    $("#add_country").find('select, textarea, input').val('')
+
+                                } else {
+                                    show_toast(html, "danger", '', "top", "danger");
+                                }
+                            }
+                        });
+                    }
+
+                    function add_university() {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'university.php',
+                            data: 'req=9&' + $("#add_university").find('select, textarea, input').serialize(),
+                            success: function(html) {
+                                if (html.trim() == 'ok') {
+                                    if ($("#add_university .id").val() == '') {
+                                        show_toast("University Added", "success", '', "top", "success");
+                                    } else {
+                                        show_toast("University Updated", "success", '', "top", "success");
+                                    }
+                                    $("#add_university").find('select, textarea, input').val('')
+                                    get_all_university_list()
+                                } else {
+                                    show_toast(html, "danger", '', "top", "danger");
+                                }
+                            }
+                        });
+                    }
+                    get_all_university_list()
+
+                    function get_all_university_list() {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'university.php',
+                            data: 'req=10',
+                            success: function(html) {
+                                $('#add_university .countrywise_uiniversity_lists').html(html)
+                            }
+                        });
+                    }
+
+                    function show_university_list() {
+                        id = $('#add_university .country_options_menu option:selected').attr('id');
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'university.php',
+                            data: 'req=11&country_id=' + id,
+                            success: function(html) {
+                                $('#add_university .countrywise_uiniversity_lists').html(html)
+                            }
+                        });
+                    }
+
+                    function get_single_university(id) {
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'university.php',
+                            data: 'req=12&id=' + id,
+                            success: function(html) {
+                                html = html.split(',,$');
+                                $('#add_university .id').val(id)
+                                $('#add_university input[name=country_id]').val(html[0])
+                                $('#add_university input[name=country]').val(html[1])
+                                $('#add_university input[name=country_name]').val(html[1])
+                                $('#add_university input[name=university]').val(html[2])
+                            }
+                        });
+                    }
+
+                    function click_hilight() {
+                        $(".Flex").click(function() {
+                            $('.Flex').removeClass('highlight');
+                            if ($(this).hasClass("highlight")) {
+                                $(this).removeClass('highlight');
+                            } else {
+                                $(this).addClass('highlight').siblings().removeClass('highlight');
+                            }
+                        })
+                    }
+                </script>
+</body>
+
+</html>

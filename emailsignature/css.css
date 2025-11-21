@@ -1,0 +1,15 @@
+@font-face {
+            font-family: kindregards;
+            src: url(https://zestonline.in/emailsignature/fonts/Angelyta.otf) format('opentype');
+        }
+        
+        @font-face {
+            font-family: name;
+            src: url(https://zestonline.in/emailsignature/fonts/poppins.regular.ttf) format('truetype');
+        }
+        
+        @font-face {
+            font-family: name_main;
+            src: url(https://zestonline.in/emailsignature/fonts/poppins.extralight.ttf) format('truetype');
+        }
+        
