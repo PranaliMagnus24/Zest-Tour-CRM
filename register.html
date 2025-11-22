@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from www.finapp.bragherstudio.com/view3/app-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Jul 2021 11:20:47 GMT -->
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="manifest" href="__manifest.json">
+</head>
+
+<body>
+
+    <!-- loader -->
+
+    <!-- * loader -->
+
+    <!-- App Header -->
+    <div class="appHeader no-border transparent position-absolute">
+        <div class="pageTitle"></div>
+        <div class="right"></div>
+    </div>
+    <!-- * App Header -->
+
+    <!-- App Capsule -->
+    <div id="appCapsule">
+
+        <div class="section mt-2 text-center">
+            <img src="assets/zestlogo.png" width="100px">
+            <h1>Register</h1>
+        </div>
+        <div class="section mb-5 p-2 col-lg-5 col-md-5 me-auto ms-auto text-center">
+            <div class="col-lg-12 p-0">
+                <div class="form-check mt-2 col-lg-4  col-md-6  col-sm-6 col-xs-4 pull-left ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" checked="" id="admin" value="admin">
+                    <label class="form-check-label" for="admin">
+                        Admin
+                    </label>
+                </div>
+                <div class="form-check mt-2 col-lg-4  col-md-6  col-sm-4 col-xs-4 pull-left ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Primary" value="primary">
+                    <label class="form-check-label" for="Primary">
+                        Primary Counsellor
+                    </label>
+                </div>
+                <div class="form-check mt-2 col-lg-4  col-md-6  col-sm-4 col-xs-4 pull-left ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="assigned" value="assigned">
+                    <label class="form-check-label" for="assigned">
+                        Assigned Counsellor
+                    </label>
+                </div>
+                <!-- <div class="form-check mt-2 col-lg-4   col-md-4  col-sm-4 col-xs-4 pull-left">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Viewer" value="viewer">
+                    <label class="form-check-label" for="Viewer">
+                        Viewer
+                    </label>
+                </div> -->
+            </div>
+            <div class=" pull-left w-100 mt-2" id="register_class">
+
+                <div class="card">
+                    <div class="card-body pb-1">
+                        <div class="form-group basic position-relative">
+                            <div class="input-wrapper">
+                                <label class="label" for="email1">Name</label>
+                                <input type="email" class="form-control login-ui" name="name" autocomplete="off" placeholder="Your name" data-required="yes" data-validation-required-message="This field is required">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="form-group basic position-relative">
+                            <div class="input-wrapper">
+                                <label class="label" for="email1">E-mail</label>
+
+                                <input type="email" class="form-control login-ui" name="email" autocomplete="off" data-request="14" data-unique-fun="check_email_exist" placeholder="Your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                                    data-required="yes" data-validation-message="Not valid email" data-validation-required-message="This field is required">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+
+                        <div class="form-group basic position-relative">
+                            <div class="input-wrapper">
+                                <label class="label" for="password1">Password</label>
+                                <input type="password" class="form-control login-ui" name="password" autocomplete="off" minlength="4" placeholder="Your password" data-required="yes" data-validation-required-message="This field is required">
+                                <i class="clear-input">
+                                    <ion-icon name="close-circle"></ion-icon>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-links mt-2">
+                    <div>
+                        <a href="login.html" style="color: #0071cd;">Login</a>
+                    </div>
+                    <div><a href="forgot_password.html" class="text-muted">Forgot Password?</a></div>
+                </div>
+
+                <div class="mt-3 me-auto ms-auto transparent">
+                    <button type="button" class="btn btn-primary btn-block btn-lg" onclick="validate('#register_class','register')" style="background: #0071cd !important;border-color: #0071cd !important;" onclick="validate('#login','login')"><svg class="checkmark hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+  <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>Sign Up</button>
+                </div>
+
+                </form>
+            </div>
+
+        </div>
+        <!-- * App Capsule -->
+
+
+
+        <!-- ========= JS Files =========  -->
+        <!-- Bootstrap -->
+        <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+        <!-- Bootstrap-->
+        <script src="assets/js/lib/popper.min.js"></script>
+        <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+        <!-- Ionicons -->
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <!-- Splide -->
+        <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+        <!-- Base Js File -->
+        <script src="assets/js/base.js"></script>
+
+
+</body>
+
+</html>
+<script type="text/javascript">
+    function register() {
+
+
+        user_type_crm = $('input[type=radio][name=flexRadioDefault]:checked').val();
+
+        $.ajax({
+
+            type: "POST",
+            url: baseurl + 'login.php',
+            data: decodeURIComponent($("#register_class").find('select, textarea, input').serialize()) + '&req=8&user_type_crm=' + user_type_crm,
+            success: function(html) {
+
+
+
+                if (html.trim() == 'ok') {
+                    // $('#register_class').val('')
+                    show_toast("Registration Succesfull", "succes", 'big', "center", "inverse");
+
+                    //  window.location.replace("login.html");
+
+
+
+
+
+                } else {
+                    show_toast(html, "danger", 'big', "center", "inverse");
+                }
+            },
+
+        });
+    }
+
+
+    function show_toast(message, type, not_type, pos = 'top', bg = 'inverse') {
+        var random = Math.floor(Math.random() * 10);
+        if (type == 'danger') {
+            $text_type = 'name="close-circle-outline" class="text-danger"'
+
+        } else {
+            $text_type = 'name="checkmark-circle" class="text-success"';
+        }
+        if (not_type == 'big') {
+            $('body').append('<div id="toast' + random + '" class="toast-box bg-' + bg + ' text-center toast-' + pos + ' show"><div class="in"><ion-icon ' + $text_type + '></ion-icon><div class="text">' + message + '</div></div></div>')
+        } else {
+            $('body').append('<div id="toast' + random + '" class="toast-box bg-' + bg + ' text-center toast-' + pos + ' show"><div class="in w-100 p-0"><div class="text">' + message + '</div></div></div>')
+        }
+        setTimeout(() => {
+            $('#toast' + random).removeClass('show');
+            $('#toast' + random).remove();
+        }, 3000);
+        setTimeout(() => {
+            $('#toast' + random).remove();
+        }, 3500);
+    }
+</script>

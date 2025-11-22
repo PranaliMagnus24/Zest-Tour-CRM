@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <link rel="stylesheet" href="assets/css/faraaz.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="manifest" href="__manifest.json">
+</head>
+<div class="modal-header" style="background: white;border-radius: 0px;">
+    <span class="" style="font-size: 21px;color: red;cursor: pointer;" onclick="history.back()">
+        <ion-icon name="chevron-back-outline"></ion-icon><span
+            style="font-size: 16px; vertical-align: bottom;">Back</span>
+    </span>
+</div>
+
+<body>
+
+    <div class="col-12 container mt-3">
+        <div class="col-4 pull-left p-0">
+            <button type="button" class="btn btn-primary btn-sm " onclick="generate_backup()"
+            style="margin-top: 2px !important;height: 27px;padding: 0px 6px;font-size: 11px;width: 117px;">Genrate Backup</button>
+        </div>
+        <div class="pull-left w-100 border_8px font-blue border-blue bold overflow-hidden mt-2 stage_details">
+            <div class="col-12 pull-left text-center table_radiius blue-back p-0 remove">
+                <div class="col-6 pull-left text-center border-right">
+                    Date
+                </div>
+                <div class="col-6 pull-left">
+                    Download
+                </div>
+            </div>
+            <div id="backup_details" class=" pull-left col-12 p-0">    
+                <div class="col-12 pull-left text-center p-0 tab-color remove">
+                <div class="col-6 pull-left text-center border_table  border-right border_top">
+                    26-3-2020
+                </div>             
+                <div class="pull-left border_table  border_top col-6">
+                    <button type="button" class="btn btn-primary btn-sm " style="/* margin-top: 2px !important; */height: 21px;padding: 0px 6px;font-size: 11px;width: 64px;">View</button>
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+    <!-- Ionicons -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <!-- Base Js File -->
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.datetimepicker.min.css" />
+    <script src="assets/js/jquery.datetimepicker.js"></script>
+    <script src="assets/js/base.js"></script>
+
+    <script type="text/javascript" src="assets/dataTables.js"></script>
+    <!-- date picker -->
+
+
+</body>
+<script>
+    var user_email_crm = localStorage.getItem("user_email_crm");
+    if (typeof user_email_crm == 'undefined' || user_email_crm == null) {
+        window.location.href = 'login.html'
+    }
+    function generate_backup(){
+        $user_id = localStorage.getItem("user_id_crm");
+        show_toast("Please Wait till Backup get generated", "success", '', "top", "success");
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: baseurl + 'back_up.php',
+            data: 'user_id=' + $user_id,
+            success: function (html) {
+                get_backup();
+                show_toast("Backup Successfully Done", "success", '', "top", "success");
+            }
+        });
+    }
+    get_backup()
+    function get_backup() {
+        $user_type_crm = localStorage.getItem("user_type_crm")
+        $user_name_crm = localStorage.getItem("user_name_crm");
+        $user_id = localStorage.getItem("user_id_crm");
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: baseurl + 'login.php',
+            data: 'req=87' + '&usertype=' + $user_type_crm,
+            success: function (html) {
+                $('#backup_details').html(html);
+            }
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,1300 @@
+<html class="hydrated">
+
+<head>
+    <style data-styles="">
+        ion-icon {
+            visibility: hidden
+        }
+        
+        .hydrated {
+            visibility: inherit
+        }
+    </style>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="assets/dataTables.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js" data-stencil-namespace="ionicons"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js" data-stencil-namespace="ionicons"></script>
+</head>
+
+<body>
+
+    <div id="loader" class="hidden">
+        Please do not reload page untill data gets added
+    </div>
+    <!-- <div class="section" style="width: 100%;">
+        <div class="col-12" style="width: 100%;  ">
+            <div class="">
+                <div class="">
+
+                    <div class="col-4" style="width: 100%;float: right;text-align: right;">
+                        <div class="" style="float: right">
+                            <h4 style="line-height: 50px;float: left;margin-bottom: 0px;padding-right: 5px;">
+                                <div id="user_name_crm"></div>
+                            </h4>
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" style=" background-color: #eb1616 !important;" onclick="logout()">Log Out</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+    <div class="col-lg-12 col-md-12">
+
+
+
+        <div class="section mt-2" style="width: 100%;">
+            <div class="col-12" style="width: 100%;  ">
+                <div id="filter" class="col-10" style="float: right;text-align: right;">
+                    <div class="col-12" style="width: 100%;float: right;text-align: right;">
+                        <!-- <div class="" style="float: right">
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" style=" background-color: #eb1616 !important;" onclick="logout()">Log Out</button>
+    
+                        </div> -->
+                        <div class="pull-right text-center text-black" onclick="logout()">
+                            <!-- <h4 style="line-height: 50px;float: left;margin-bottom: 0px;padding-right: 5px;">
+                                <div id="user_name_crm"></div>
+                            </h4> -->
+                            <!-- <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" style=" background-color: #eb1616 !important;" onclick="logout()">Log Out</button> -->
+                            <ion-icon name="log-out-outline" class="feature_icons"></ion-icon>
+                            <h4 style="line-height: 24px;;margin-bottom: 0px;padding-right: 5px;">
+                                <div id="user_name_crm"></div>
+                            </h4>
+                            <!-- <div class="" style="float: right">
+                                <h4 style="line-height: 44px;float: left;margin-bottom: 0px;padding-right: 5px;">
+                                    <div id="user_name_crm"></div>
+                                </h4>
+                                 <div class="">
+                                    logout
+                                </div>
+
+                            </div> -->
+
+
+                        </div>
+
+                        <div id="regist" class="hidden" style="float: right">
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" style=" background-color: #eb1616 !important;" onclick="window.location.href='forgot_password.html'">Register</button>
+
+                        </div>
+                        <div class="pull-right text-center text-black" data-bs-toggle="modal" id="upload_table" data-bs-target="#upload_data">
+                            <!-- <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" style=" background-color: #eb1616 !important;" data-bs-toggle="modal" id="upload_table" data-bs-target="#upload_data">Upload Data</button> -->
+                            <ion-icon name="cloud-upload-outline" class="feature_icons" data-bs-toggle="modal" id="upload_table" data-bs-target="#upload_data"></ion-icon>
+                            <div class="">
+                                Upload
+                            </div>
+
+                        </div>
+                        <div class="pull-right hidden text-center text-black" onclick="show_clear()" data-bs-target="#PanelRight" data-bs-toggle="modal">
+                            <ion-icon name="funnel-outline" class="feature_icons" onclick="show_clear()" data-bs-target="#PanelRight" data-bs-toggle="modal"></ion-icon>
+                            <div class="">
+                                Filters
+                            </div>
+
+
+                        </div>
+                        <div class=" " style="float: right">
+                            <h4 style="line-height: 50px;float: left;margin-bottom: 0px;padding-right: 5px;">
+                                <div id="user_name_crm"></div>
+                            </h4>
+
+                        </div>
+                        <div class="pull-right text-center text-black hidden" onclick="clear_filter()" id="filter_inner" style="float: right">
+                            <!-- <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" style="background-color: #00000029 !important;color: black !important;font-weight: bold;" onclick="clear_filter()"> Clear Filter<ion-icon name="close-circle-outline"></ion-icon>
+                            </button> -->
+                            <ion-icon class="feature_icons" name="close-circle-outline"></ion-icon>
+                            <div class="">
+                                Clear Filter
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div id="enquiry" class="" style="float: left">
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" onclick="window.location.href='/zest_crm/index.html'" style=" background-color: #eb1616 !important;">Stage 1<br>Enquiry</button>
+
+                        </div>
+
+                        <div id="counselling" class="" style="float: left">
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" style=" background-color: #eb1616 !important;" onclick="window.location.href='/zest_crm/counselling.html'">Stage 2<br>Counselling</button>
+
+                        </div>
+                        <div id="application" class="" style="float: left">
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" onclick="window.location.href='/zest_crm/application.html'" style=" background-color: #eb1616 !important;">Stage 3<br>Application</button>
+
+                        </div>
+
+
+                        <div id="university" class="" style="float: left">
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" onclick="window.location.href='/zest_crm/university.html'" style=" background-color: #eb1616 !important;">Stage 4<br>University</button>
+
+                        </div>
+
+                        <div id="visa" class="" style="float: left">
+                            <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" onclick="window.location.href='/zest_crm/visa.html'" style=" background-color: #eb1616 !important;">Stage 5<br>Visa</button>
+
+                        </div>
+
+                        <div class="col-3 mt-1 pull-right p-0 pr-20">
+                            <div class="page_ination"></div>
+                        </div>
+
+
+
+
+                        <div class="col-2  pull-left pt-2 text-center">
+
+                            <h4>
+                                <div id="count" style="font-size: 16px;"></div>
+                            </h4>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-2" style="float: left;">
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <div style="top: 0px;position: absolute;right: 0px;">
+
+
+                                <!-- <label class="label" for="title">Search</label> -->
+                                <!-- <button type="button" class="btn btn-primary btn-sm  btn-blue no-border" style="background-color: #eb1616 !important;width: 108px;border-radius: 0px 14px 14px 0;height: 37px;" onclick="apply_search()">Search</button> -->
+                            </div>
+
+                            <input type="text" id="find" class="form-control bg-white box-shadow-1 no-border" onkeyup="clear_btn_hide(),onenter('apply_search') style="background-color: white; height: 37px; font-size: 10px;padding-left: 37px; " placeholder="Universal Search :">
+                            <ion-icon name="search-outline" style="right: 0px;position: absolute;top: 6px;font-size: 25px;padding-right: 5px;" onclick="apply_search()"></ion-icon>
+
+                            <div id="clear_in" class="hidden" style="font-size: 29px;position: absolute;top: 4px;color: red;" onclick="clear_input()">
+                                <ion-icon name="close-circle-outline"></ion-icon>
+                            </div>
+
+
+
+
+                            <!-- onkeyup="search_function('search_tab','#table tr')" -->
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div id="clr_checkbox" class="" style="float: left">
+                <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" onclick="clr_check('stage3')" style=" background-color: #eb1616 !important;">Uncheck All</button>
+
+            </div>
+            <div id="next_stage" class="" style="float: left">
+                <button type="button" class="btn btn-primary btn-sm me-1  no-border red-btn" data-bs-toggle="modal" data-bs-target="#stage" style=" background-color: #eb1616 !important;">Move to stage4</button>
+
+            </div>
+
+
+
+            <div class="col-12 p-0" style="float: left;">
+                <div class="section mt-1 p-0 pull-left" style="width: 100%;">
+                    <div class="col-6 pull-left pt-1">
+
+                        <h4>
+                            <div id="count"></div>
+                        </h4>
+                    </div>
+                    <!-- <div class="col-6 pb-2 pull-left">
+                        <div class="page_ination"></div>
+                    </div> -->
+
+                    <div class="col-12 p-0 pull-left" style="background: #ffc0c0;position: sticky;top: 0;position: -webkit-sticky;font-weight: bold !important;z-index: 1;">
+                        <div class="col-1 pull-left Flex-item">No</div>
+                        <div class="col-1 pull-left Flex-item">Name</div>
+                        <div class="col-1 pull-left Flex-item">Date</div>
+                        <div class="col-1 pull-left Flex-item">Contact</div>
+                        <div class="col-2 pull-left Flex-item">Email</div>
+                        <div class="col-1 pull-left Flex-item">source of</div>
+                        <div class="col-1 pull-left Flex-item">country</div>
+                        <div class="col-1 pull-left Flex-item">course</div>
+                        <div class="col-2 pull-left Flex-item">Status</div>
+                        <div class="col-1 pull-left Flex-item">Intake</div>
+
+                    </div>
+                    <div class="pull-left details1 p-0 w-100">
+
+                    </div>
+                    <div class="table-responsive hidden border-r" style="overflow: unset;">
+                        <table class="table no-border" id="table_search">
+                            <div class="card pull-left width-100">
+
+                                <thead style="
+                                background: #e4e3fa;
+                                position: sticky;
+                                /* opacity: 1; */
+                                top: 0; /* Don't forget this, required for the stickiness */
+                                position: -webkit-sticky;
+                                /* box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); */
+                                font-weight: bold !important;
+                                z-index: 1;
+                                ">
+                                    <tr>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important; text-align: center;width: 120px !important; font-weight: bold !important; font-size: 15px;" ;="">AIRLINE</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">INVOICE DATE</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">INVOICE NO</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">TICKET NO</th>
+
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">CLIENT</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;width: 120px !important; font-size: 15px;  font-weight: bold !important" ;="">PASSANGER</th>
+                                        <th scope="col" style="border-color: #ffff; font-size: 15px; border-right: 1px solid #dddd !important;  text-align: center ;width: 120px !important; font-weight: bold !important" ;="">NARRATION</th>
+
+                                        <!-- <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;" ;="">Flight No</th> -->
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center; width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">SECTOR</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center; width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">EMPLOYEE</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center; width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">FLT DATE</th>
+                                        <!-- <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;" ;="">Flt Date2</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;" ;="">Flt Date3</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center;" ;="">Flt Date4</th> -->
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center; width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">BILL AMOUNT</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center; width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">EMAIL</th>
+                                        <th scope="col" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: center; width: 120px !important; font-size: 15px; font-weight: bold !important" ;="">PHONE</th>
+                                        <!-- <th scope="col" id="action" style="border-color: #ffff; border-right: 1px solid #dddd !important;  text-align: right;" ;="">Action</th> -->
+
+
+
+                                    </tr>
+                                </thead>
+
+                                <tbody class="details" id="table" style="background: white;">
+
+
+
+                                </tbody>
+
+                        </table>
+
+                        </div>
+
+                    </div>
+                    <div class="mt-3 pt-0 hidden" style="text-align: center; width: 50%; margin-left: 308px;">
+                        <button type="button" class="btn btn-primary btn-sm me-1 btn-blue no-border" style="width: 40%;margin-top: 5px;" data-bs-target="#sure" data-bs-toggle="modal">Schedule
+                        Interviews</button>
+
+                    </div>
+                </div>
+                <div class="modal fade panelbox panelbox-right" id="PanelRight" tabindex="-1" aria-modal="true" role="dialog" style="z-index: 1070; display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header border-bottom-grey p-0 h-55">
+                                <div class="p-absolute bottom-0 w-100 z-index11 ">
+                                    <button class="btn col-4 btn-55" href="javascript:;" data-bs-dismiss="modal" style="float: left;border-radius: 0px !important;">Close</button>
+                                    <button class="btn col-4 btn-55 pull-left no-border-radius" data-ma-theme="orange" onclick="clear_filter()" style="background-color: #ededf5;">Clear</button>
+
+
+                                    <button class="btn col-4 btn-55 pull-right" style="background-color: #f9392e;
+                                    color: #ffff;border-radius: 0px;" data-ma-theme="orange" data-bs-dismiss="modal" onclick="apply_search()">Apply</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-body p-0">
+                                <div class="left-panal col-4 p-0 pull-left" style="height: 100%;background: #EDEDF5;">
+                                    <ul class="nav nav-tabs no-lined" role="tablist">
+                                        <li class="nav-item w-100 hidden"><a class="nav-link no-line " data-bs-toggle="tab" href="#flt_date" role="tab" aria-selected="false">Flt Date </a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line active" data-bs-toggle="tab" href="#client" role="tab" aria-selected="false">Client Name</a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#email" role="tab" aria-selected="true">Email</a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#ticket_no" role="tab" aria-selected="false">ticket No</a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#passanger" role="tab" aria-selected="false">Passanger Name</a></li>
+
+                                        <li class="nav-item w-100"><a class="nav-link no-line " data-bs-toggle="tab" href="#airline" role="tab" aria-selected="true">Airline</a></li>
+                                        <!-- <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#flight_no" role="tab" aria-selected="true">Flight No</a></li> -->
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#invoice_date" role="tab" aria-selected="false">Invoice Date</a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#invoice_no" role="tab" aria-selected="false">Invoice No</a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#sector" role="tab" aria-selected="false">Sector</a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#travel" role="tab" aria-selected="false">Travel Date</a></li>
+                                        <li class="nav-item w-100"><a class="nav-link no-line" data-bs-toggle="tab" href="#bill" role="tab" aria-selected="false">Bill Amount</a></li>
+
+                                        <!-- <li class="nav-item w-100" style="text-align: center;"><a class="nav-link no-line" data-bs-toggle="tab" href="#visa_validity" role="tab" aria-selected="false">Visa Validity</a></li> -->
+                                    </ul>
+
+                                </div>
+                                <div class="right-panal col-8 pull-right ">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade panel_font " id="airline" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Airline</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Enter Airline" id="" autocomplete="off" data-required="yes" data-validation-required-message="This field is required">
+                                                    <div class="scrollbar" id="airline_filter">
+                                                        <div class="searching_data checkbox mb-2">
+                                                            <label>
+                                                                <input type="checkbox" value="SG">
+                                                                <i class="input-helper"></i>
+                                                                SG</label>
+                                                        </div>
+
+
+                                                        <div class="searching_data checkbox mb-2">
+                                                            <label>
+                                                                <input type="checkbox" value="AD">
+                                                                <i class="input-helper"></i>
+                                                                AD</label>
+                                                        </div>
+
+
+                                                        <div class="searching_data checkbox mb-2">
+                                                            <label>
+                                                                <input type="checkbox" value="6E">
+                                                                <i class="input-helper"></i>
+                                                                6E</label>
+                                                        </div>
+
+
+                                                        <div class="searching_data checkbox mb-2">
+                                                            <label>
+                                                                <input type="checkbox" value="AK">
+                                                                <i class="input-helper"></i>
+                                                                AK</label>
+                                                        </div>
+
+
+                                                        <div class="searching_data checkbox mb-2">
+                                                            <label>
+                                                                <input type="checkbox" value="G8">
+                                                                <i class="input-helper"></i>
+                                                                G8</label>
+                                                        </div>
+
+
+                                                        <div class="searching_data checkbox mb-2">
+                                                            <label>
+                                                                <input type="checkbox" value="UK">
+                                                                <i class="input-helper"></i>
+                                                                UK</label>
+                                                        </div>
+
+
+                                                        <div class="searching_data checkbox mb-2">
+                                                            <label>
+                                                                <input type="checkbox" value="TR">
+                                                                <i class="input-helper"></i>
+                                                                TR</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade panel_font " id="email" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Email</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Enter Email" id="email_val" autocomplete="off" data-required="yes" data-validation-required-message="This field is required">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade panel_font" id="flight_no" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Flight No</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Enter Flight No" id="flight_val" autocomplete="off">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade " id="invoice_date" role="tabpanel">
+                                            <div class="text-center">
+                                                <p class="bold mt-1">Set Duration</p>
+                                            </div>
+                                            <div class="form-group basic animated">
+                                                <div class="input-wrapper ">
+                                                    <input type="text" id="travel_date" value="" name="from" class="input hasDatepicker readonly" style="z-index:2;position:absolute;opacity:0;height: 125px;width: 100%;top: 8px;" readonly="readonly">
+
+                                                    <label class="label">Date</label>
+                                                    <input type="text" id="invoice_from_date" class="form-control bg-white box-shadow-1 no-border travel_from_date readonly" placeholder="From Date" readonly="readonly">
+                                                    <i class="extra-icon" style="left:12px;">
+                                                    <img src="assets/calender-grey.png" class="w-100">
+                                                </i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group basic animated">
+                                                <div class="input-wrapper">
+
+                                                    <label class="label">Date</label>
+                                                    <input type="text" id="invoice_to_date" class="form-control bg-white box-shadow-1 no-border travel_to_date readonly" placeholder="To Date" readonly="readonly">
+                                                    <i class="extra-icon" style="left:12px;">
+                                                    <img src="assets/calender-grey.png" class="w-100">
+                                                </i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade panel_font" id="invoice_no" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Invoice No</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Invoice No" id="invoice" autocomplete="off">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane fade panel_font" id="ticket_no" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Ticket No</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Ticket No" id="ticket" autocomplete="off">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane fade panel_font show active" id="client" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Client Name</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Client Name" id="client_name" autocomplete="off">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade panel_font" id="passanger" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Passanger Name</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Passanger Name" id="pass_name" autocomplete="off">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade panel_font" id="sector" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Sector</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Enter Sector" id="sector_val" autocomplete="off">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade " id="travel" role="tabpanel">
+                                            <div class="text-center">
+                                                <p class="bold mt-1">Set Duration</p>
+                                            </div>
+                                            <div class="form-group basic animated">
+                                                <div class="input-wrapper ">
+                                                    <input type="text" id="travel_date1" value="" name="from" class="input hasDatepicker readonly" style="z-index:2;position:absolute;opacity:0;height: 125px;width: 100%;top: 8px;" readonly="readonly">
+
+                                                    <label class="label">Date</label>
+                                                    <input type="text" id="travel_from" class="form-control bg-white box-shadow-1 no-border travel_from_date1 readonly" placeholder="From Date" readonly="readonly">
+                                                    <i class="extra-icon" style="left:12px;">
+                                                    <img src="assets/calender-grey.png" class="w-100">
+                                                </i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group basic animated">
+                                                <div class="input-wrapper">
+
+                                                    <label class="label">Date</label>
+                                                    <input type="text" id="travel_to" class="form-control bg-white box-shadow-1 no-border travel_to_date1 readonly" placeholder="To Date" readonly="readonly">
+                                                    <i class="extra-icon" style="left:12px;">
+                                                    <img src="assets/calender-grey.png" class="w-100">
+                                                </i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade hidden" id="flt_date" role="tabpanel">
+                                            <div class="text-center">
+                                                <p class="bold mt-1">Set Duration</p>
+                                            </div>
+                                            <div class="form-group basic animated">
+                                                <div class="input-wrapper ">
+                                                    <input type="text" id="travel_date2" value="" name="from" class="input hasDatepicker readonly" style="z-index:2;position:absolute;opacity:0;height: 125px;width: 100%;top: 8px;" readonly="readonly">
+
+                                                    <label class="label">Date</label>
+                                                    <input type="text" id="flt_from" class="form-control bg-white box-shadow-1 no-border travel_from_date2 readonly" placeholder="From Date" readonly="readonly">
+                                                    <i class="extra-icon" style="left:12px;">
+                                                    <img src="assets/calender-grey.png" class="w-100">
+                                                </i>
+                                                </div>
+                                            </div>
+                                            <div class="form-group basic animated">
+                                                <div class="input-wrapper">
+
+                                                    <label class="label">Date</label>
+                                                    <input type="text" id="flt_to" class="form-control bg-white box-shadow-1 no-border travel_to_date2 readonly" placeholder="To Date" readonly="readonly">
+                                                    <i class="extra-icon" style="left:12px;">
+                                                    <img src="assets/calender-grey.png" class="w-100">
+                                                </i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane fade panel_font" id="bill" role="tabpanel">
+                                            <div class="form-group basic animated mt-0 position-relative p-12">
+
+                                                <div class="input-wrapper">
+                                                    <label class="label">Bill Amount</label>
+                                                    <input type="text" class="form-control bg-white ps-4 box-shadow-1 no-border" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="Bill Amount" id="bill_amount" autocomplete="off">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- end -->
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- apply and cancel btn -->
+                            <div class="modal-header border-bottom-grey p-0 h-55">
+                                <div class="p-absolute bottom-0 w-100 z-index11 hidden">
+                                    <button class="btn col-12 btn-55" style="background-color: #f9392e;
+                                    color: #ffff;border-radius: 0px;" data-ma-theme="orange" onclick="clear_filter()">Clear</button>
+                                </div>
+                            </div>
+                            <!-- ends -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade dialogbox" id="upload_data" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-modal="true" style="display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Upload Data</h5>
+                            </div>
+                            <input type="hidden" class="resume" name="resume" value="">
+                            <div class="modal-body p-0 m-0">
+
+                                <label for="inputFile" class="btn btn-sm  btn-blue no-border mt-0 w-100" style="background-color: #ddd!important;/* width: 100%; *//* height: 31px; */line-height: 90px;border-radius: 0;height: auto;font-size: 22px;">Click
+                                Here to Select File
+
+                            </label>
+                                <label for="inputFile" class="btn btn-sm  btn-blue no-border mt-0 w-100 bold" id="filename" style="background-color: #ddd!important;/* width: 100%; *//* height: 31px; */line-height: 23px;border-radius: 0;height: auto;padding-bottom: 10px;bottom: 10px;font-size: 13px;"></label>
+                                <input id="inputFile" type="file" onchange="convertToBase64();" style="width:0;height:0;opacity:0" />
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="btn-inline">
+                                    <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                                    <a href="#" class="btn btn-text-primary" data-bs-dismiss="modal" onclick="formData()" style="color: #eb1616 !important;">Upload</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade dialogbox" id="delete_pop" data-bs-backdrop="static" tabindex="-1" aria-modal="true" role="dialog" style="display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Are you sure about that?</h5>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="btn-inline">
+                                    <input type="hidden" id="delete" name="delete" value="">
+                                    <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                                    <a href="#" class="btn btn-text-primary" data-bs-dismiss="modal" style="color: red !important; " onclick="delete_it($('#delete').val())">Delete </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade dialogbox" id="stage" data-bs-backdrop="static" tabindex="-1" aria-modal="true" role="dialog" style="display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Are you sure?</h5>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="btn-inline">
+                                    <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">CANCEL</a>
+                                    <a href="#" class="btn btn-text-primary" data-bs-dismiss="modal" style="color: red !important;" onclick="checkbox('stage3'),window.location.href='/zest_crm/university.html'">Yes </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- * App Sidebar -->
+
+                <!-- ///////////// Js Files ////////////////////  -->
+                <!-- Jquery -->
+                <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+                <!-- Bootstrap-->
+                <script src="assets/js/lib/popper.min.js"></script>
+                <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+                <!-- Ionicons -->
+                <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
+                <!-- Owl Carousel -->
+                <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+                <!-- Bootstrap-->
+                <script src="assets/js/lib/popper.min.js"></script>
+                <script src="assets/js/lib/moment.min.js"></script>
+                <script src="assets/js/daterangepicker.js"></script>
+                <!-- Base Js File -->
+                <script src="assets/js/base.js"></script>
+
+                <script type="text/javascript" src="assets/dataTables.js"></script>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
+                <!-- date picker -->
+                <!-- Ionicons -->
+
+
+
+                <!-- filter date -->
+                <script>
+                    var user_email_crm = localStorage.getItem("user_email_crm");
+                    if (typeof user_email_crm == 'undefined' || user_email_crm == null) {
+                        window.location.href = 'login.html'
+                    }
+
+                    var currentDate = new Date();
+
+                    var nextDay = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+                    var day = nextDay.getDate()
+                    var month = nextDay.getMonth() + 1
+                    var year = nextDay.getFullYear()
+                    next_date = month + '/' + day + '/' + year;
+
+                    $('#travel_date').daterangepicker({
+                            singleDatePicker: false,
+                            // minDate: moment(),
+                            autoUpdateInput: true,
+                            startDate: currentDate,
+                            endDate: next_date,
+                            linkedCalendars: false
+                        },
+                        function(start, end, label) {
+                            setTimeout(function() {
+                                data('', 'date')
+                            }, 500)
+                        });
+                    data('', 'date')
+                    $('#travel_date1').daterangepicker({
+                            singleDatePicker: false,
+                            // minDate: moment(),
+                            autoUpdateInput: true,
+                            startDate: currentDate,
+                            endDate: next_date,
+                            linkedCalendars: false
+                        },
+                        function(start, end, label) {
+                            setTimeout(function() {
+                                data('hotel', 'date1')
+                            }, 500)
+                        });
+                    data('hotel', 'date1')
+                    $('#travel_date2').daterangepicker({
+                            singleDatePicker: false,
+                            autoUpdateInput: true,
+                            // drops: "up",
+                            startDate: currentDate,
+                            endDate: next_date,
+                            linkedCalendars: false,
+                            locale: {
+                                applyLabel: 'Apply',
+                                cancelLabel: 'Cancel'
+                            }
+                        },
+                        function(start, end, label) {
+                            setTimeout(function() {
+                                data('hotel', 'date2')
+                            }, 500)
+                        });
+                    data('hotel', 'date2')
+
+                    //data('flight')
+                    function data(type, cls) {
+                        var val = $('#travel_' + cls).val();
+                        date = val.split('-');
+                        from = date[0];
+                        const dates = new Date(from); // 2009-11-10
+                        const month = dates.toLocaleString('default', {
+                            month: 'short'
+                        });
+                        const week = dates.toLocaleDateString('default', {
+                            weekday: 'short'
+                        });
+                        $('.travel_from_' + cls).val(dates.getDate() + ' ' + month + ' ' + dates.getFullYear());
+                        to = date[1];
+                        const to_dates = new Date(to); // 2009-11-10
+                        const to_month = to_dates.toLocaleString('default', {
+                            month: 'short'
+                        });
+                        const to_week = to_dates.toLocaleDateString('default', {
+                            weekday: 'short'
+                        });
+                        $('.travel_to_' + cls).val(to_dates.getDate() + ' ' + to_month + ' ' + to_dates.getFullYear());
+
+                    }
+
+                    setTimeout(function() {
+
+                        $('#invoice_from_date').val('');
+                        $('#invoice_to_date').val('');
+
+
+                        $('#travel_from').val('');
+                        $('#travel_to').val('');
+
+
+                        $('#flt_from').val('');
+                        $('#flt_to').val('');
+
+                    }, 2000);
+                </script>
+                <!-- ends -->
+
+
+
+
+
+
+                <script>
+                    get_pageination('', 'get_post', '15')
+
+                    function get_pageination(page = '', func = '', req = '', para = '') {
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'page=' + page + '&func=' + func + '&req=' + req + '&' + para,
+                            async: true,
+                            success: function(html) {
+                                //  console.log(html)
+                                html = html.split(',,$')
+                                $('.page_ination').html(html[1])
+
+
+
+                                $('#count').html('Total Entries = ' + html[0])
+                                $user_name_crm = localStorage.getItem("user_name_crm");
+
+                                $('#user_name_crm').html($user_name_crm)
+
+
+
+                                // alert(html[0])
+
+                            }
+                        });
+
+                    }
+                    get_post();
+
+                    function get_post($page = '') {
+                        get_pageination($page, 'get_post', '15')
+
+                        // $user_type_crm = localStorage.getItem("user_type_crm")
+                        // $flight_view = localStorage.getItem("flight_view")
+
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=20' + '&page=' + $page,
+                            success: function(html) {
+                                //  console.log(html)
+                                $('.details1').html(html)
+                                box_check('stage3')
+                                    //  box_check()
+
+                            }
+                        });
+                    }
+
+
+                    $("#find").on('keyup', function(e) {
+                        if (e.key === 'Enter' || e.keyCode === 13) {
+
+
+                            apply_search()
+
+
+                        }
+                    });
+
+
+
+                    function search_function(input, target) {
+
+                        var input = document.getElementById(input);
+                        var filter = input.value.toLowerCase();
+                        var nodes = $(target);
+
+                        for (i = 0; i < nodes.length; i++) {
+                            if (nodes[i].innerText.toLowerCase().includes(filter)) {
+                                nodes[i].style = "";
+                            } else {
+                                nodes[i].style.display = "none";
+                            }
+                        }
+                    }
+
+
+
+                    function uni_search() {
+
+
+                        value = (decodeURIComponent($("#find").val())).trim();;
+
+                        $user_type_crm = localStorage.getItem("user_type_crm")
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: '&value=' + value + '&req=9' + '&user_type_crm=' + $user_type_crm,
+                            success: function(html) {
+                                //  console.log(html)
+                                $('.details1').html(html)
+
+
+                            }
+                        });
+                    }
+
+
+                    function select_value(name, value, name_id, value_id, type = "single") {
+
+                        $(name_id).html(name)
+                        name_ids = value_id.replace('#', '.');
+                        name_ids = name_ids.replace('_id', '');
+                        name_idss = name_ids.replace('language', '');
+                        if (type != 'multiple') {
+                            $(name_ids + 's_id .selected').removeClass('selected')
+                        }
+                        if (type == 'multiple' && $(name_ids + 's_id ' + name_idss + value).hasClass('selected')) {
+                            $(name_ids + 's_id ' + name_idss + value).removeClass('selected')
+                        } else {
+                            $(name_ids + 's_id ' + name_idss + value).addClass('selected')
+                        }
+
+                        if (type != 'multiple') {
+                            $(name_ids + 's_id ' + name_idss + value).addClass('selected')
+                        }
+                        $(name_id).parent().find('.input-danger').remove()
+                        $(name_id).parent().removeClass('text-danger')
+                        $(name_id).parent().removeClass('input-info');
+                        if (type == 'multiple') {
+
+                            value = name = '';
+                            $(name_ids + 's_id .selected').each(function() {
+                                if (value == '') {
+
+                                    value = $(this).find('.text').attr('data-text');
+                                    name = $(this).find('.text').attr('data-id');
+                                } else {
+
+                                    value += ',' + $(this).find('.text').attr('data-text');
+                                    name += ',' + $(this).find('.text').attr('data-id');
+                                }
+                            })
+                            $(name_id).html(name)
+
+                            $(value_id).val(value)
+                        } else {
+                            $(value_id).val(value)
+                        }
+                    }
+
+
+                    function clear_btn_hide() {
+
+                        if ($('#find').val().length > 0) {
+                            $('#clear_in').removeClass('hidden')
+                        } else {
+                            apply_search()
+                            $('#clear_in').addClass('hidden')
+                                // $('#filter_inner').addClass('hidden')
+
+                        }
+                    }
+
+
+
+
+
+                    function apply_search($page = '') {
+
+
+
+                        invoice_from_date = $('#invoice_from_date').val().trim()
+                        invoice_to_date = $('#invoice_to_date').val().trim()
+
+                        invoice_no = $('#invoice').val().trim()
+                        ticket_no = $('#ticket').val().trim()
+                        client_name = $('#client_name').val().trim()
+                        passanger_name = $('#pass_name').val().trim()
+                        sector = $('#sector_val').val().trim()
+
+                        travel_from_date = $('#travel_from').val().trim()
+                        travel_to_date = $('#travel_to').val().trim()
+
+                        flt_from_date = $('#flt_from').val().trim()
+                        flt_to_date = $('#flt_to').val().trim()
+
+                        bill_amount = $('#bill_amount').val().trim()
+
+
+                        email = $('#email_val').val().trim()
+                        flight_no = $('#flight_val').val().trim()
+
+
+                        $user_type_crm = localStorage.getItem("user_type_crm");
+
+
+
+
+
+                        $flight_type = $('input[type=checkbox][name=flexRadioDefault]:checked').map(function() {
+                            return $(this).val();
+                        }).get();
+
+                        airline_name = $('#airline_filter input[type=checkbox]:checked').map(function() {
+                            return $(this).val();
+                        }).get();
+                        if (passanger_name != '' || invoice_from_date != '' || invoice_no != '' || ticket_no != '' || client_name != '' || sector != '' || travel_from_date != '' || flt_from_date != '' || bill_amount != '' || email != '' || flight_no != '') {
+                            $('#filter_inner').removeClass('hidden')
+                        }
+
+
+
+
+                        $value = (decodeURIComponent($("#find").val())).trim();;
+
+
+
+                        //  console.log(airline_name)
+
+
+                        // console.log('req=2&airline_name=' + airline_name + '&invoice_from_date=' + invoice_from_date + '&invoice_to_date=' + invoice_to_date + '&invoice_no=' + invoice_no + '&ticket_no=' + ticket_no + '&client_name=' + client_name + '&passanger_name=' + passanger_name + '&sector=' + sector + '&travel_from_date=' + travel_from_date + '&travel_to_date=' + travel_to_date + '&flt_from_date=' + flt_from_date + '&flt_to_date=' + flt_to_date + '&bill_amount=' + bill_amount + '&email=' + email + '&fight_no=' + flight_no + '&page=' + $page + '&user_type_crm=' + $user_type_crm + '&flight_type=' + $flight_type + '&value=' + $value);
+
+
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=2&airline_name=' + airline_name + '&invoice_from_date=' + invoice_from_date + '&invoice_to_date=' + invoice_to_date + '&invoice_no=' + invoice_no + '&ticket_no=' + ticket_no + '&client_name=' + client_name + '&passanger_name=' + passanger_name + '&sector=' + sector + '&travel_from_date=' + travel_from_date + '&travel_to_date=' + travel_to_date + '&flt_from_date=' + flt_from_date + '&flt_to_date=' + flt_to_date + '&bill_amount=' + bill_amount + '&email=' + email + '&fight_no=' + flight_no + '&page=' + $page + '&user_type_crm=' + $user_type_crm + '&flight_type=' + $flight_type + '&value=' + $value,
+                            success: function(html) {
+                                //  console.log(html)
+                                para = 'airline_name=' + airline_name + '&invoice_from_date=' + invoice_from_date + '&invoice_to_date=' + invoice_to_date + '&invoice_no=' + invoice_no + '&ticket_no=' + ticket_no + '&client_name=' + client_name + '&passanger_name=' + passanger_name + '&sector=' + sector + '&travel_from_date=' + travel_from_date + '&travel_to_date=' + travel_to_date + '&flt_from_date=' + flt_from_date + '&flt_to_date=' + flt_to_date + '&bill_amount=' + bill_amount + '&email=' + email + '&fight_no=' + flight_no + '&page=' + $user_type_crm + '&flight_type=' + $flight_type + '&value=' + $value;
+
+                                //  alert($page)
+                                get_pageination($page, 'apply_search', '16', para)
+                                $('.details1').html(html)
+
+                            }
+                        });
+                    }
+
+
+
+
+                    function clear_input() {
+                        $('#find').val('');
+                        $('#clear_in').addClass('hidden')
+                        get_post();
+                    }
+                </script>
+                <script type="text/javascript">
+                    function convertToBase64() {
+                        var selectedFile = document.getElementById("inputFile").files;
+
+                        fsize = document.getElementById("inputFile").files[0].size
+                            //Check File is not Empty
+
+                        const file = Math.round((fsize / 1024));
+                        // The size of the file.
+                        if (file >= 4096) {
+                            show_toast('Please select a file less than 4mb', "danger", 'big', "center", "inverse");
+                        } else {
+                            if (selectedFile.length > 0) {
+                                // alert('upload')
+                                // Select the very first file from list
+                                var fileToLoad = selectedFile[0];
+                                // FileReader function for read the file.
+                                var fileReader = new FileReader();
+                                var base64;
+                                // Onload of file read the file content
+                                fileReader.onload = function(fileLoadedEvent) {
+                                    base64 = fileLoadedEvent.target.result;
+                                    // Print data in console
+                                    //console.log(base64);
+
+
+
+
+                                    exe_check = base64.split(';');
+                                    // console.log(exe_check);
+                                    // echo $resume[0];
+                                    exe_check1 = exe_check[0].split('/');
+                                    // console.log(exe_check1);
+                                    i = 0;
+                                    if (exe_check1[1] == 'vnd.ms-excel') {
+                                        i++;
+                                        base64 = base64.replace(/\+/g, 'plusss')
+                                            // console.log(base64);
+                                        $('.resume').val(base64)
+                                        var fileName = document.getElementById('inputFile').files[0].name;
+                                        // alert(fileName);
+                                        $('#filename').html(fileName);
+
+                                        //show_toast('File uploded', "succes", 'big', "center", "inverse");
+                                    } else {
+                                        show_toast('Please Upload xls File', "danger", 'big', "center", "inverse");
+                                    }
+                                    $('#inputFile').val('');
+
+
+                                };
+                                // Convert data to base64
+                                fileReader.readAsDataURL(fileToLoad);
+                            }
+                        }
+
+
+                    }
+
+
+                    function clear_filter() {
+
+
+
+                        $('#invoice_from_date').val('')
+                        $('#invoice_to_date').val('')
+
+                        $('#invoice').val('')
+                        $('#ticket').val('')
+                        $('#client_name').val('')
+                        $('#pass_name').val('')
+                        $('#sector_val').val('')
+
+                        $('#travel_from').val('')
+                        $('#travel_to').val('')
+
+                        $('#flt_from').val('')
+                        $('#flt_to').val('')
+
+                        $('#bill_amount').val('')
+
+
+                        $('#email_val').val('')
+                        $('#airline_val').val('')
+
+                        $('#flight_val').val('')
+                        $('#airline_filter input[type=checkbox]').prop('checked', false);
+                        $('#filter_inner').addClass('hidden');
+                        $('input[type=radio][name=flexRadioDefault]:checked').prop('checked', false)
+                        get_post()
+
+
+
+                    }
+
+                    // function check_checked(value)
+                    // {
+                    //     if($('input[type=radio][name=flexRadioDefault][value='+value+']:checked').length>0)
+                    //     {
+                    //         $('input[type=radio][name=flexRadioDefault]:checked').prop('checked',false)
+                    //     }
+                    // }
+
+
+                    function formData() {
+
+
+
+
+
+                        $('#loader').removeClass('hidden');
+
+                        // console.log(decodeURIComponent($("#upload_data").find('select, textarea, input').serialize()) + '&req=3');
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl + 'login.php',
+                            data: 'req=3&' + $("#upload_data").find('select, textarea, input').serialize(),
+                            success: function(html) {
+
+                                console.log(html)
+                                $('#loader').addClass('hidden');
+
+                                // if (html.trim() == 'ok') {
+
+                                //     $('#filename').html('');
+                                //     get_post();
+
+
+
+                                //     show_toast("Data Added", "success", 'big', "center", "inverse");
+
+                                // } else {
+
+                                //     show_toast("No New Data Added", "danger", 'big', "center", "inverse");
+                                // }
+
+
+                            }
+
+                        });
+                    }
+
+
+                    function user_name_crm() {
+
+
+
+                    }
+
+
+                    function showdiv(e, id) {
+                        if ($(id).hasClass('hidden')) {
+                            $(e).parent().parent().parent().find('.Flex-item').removeClass('text-ellipsis')
+                            $(e).html('-less')
+                            $(id).removeClass('hidden')
+                        } else {
+                            $(e).parent().parent().parent().find('.Flex-item').addClass('text-ellipsis')
+                            $(e).html('+More')
+                            $(id).addClass('hidden')
+                        }
+                    }
+
+
+
+
+
+                    function dat(datepic, e, cla) {
+                        // console.log(cla)
+
+                        // alert('#' + datepic)
+
+                        //$name = $('.' + date).attr('data-name');
+                        console.log($(cla + '_date' + datepic))
+
+                        $(cla + '_date' + datepic).focus();
+
+
+
+                        $(cla + '_date' + datepic).datepicker({
+                            minDate: 0,
+                            onClose: function(dateText, inst) {
+                                $(cla + datepic).text(
+                                    inst.selectedDay + "-" +
+                                    (inst.selectedMonth + 1) + "-" +
+                                    inst.selectedYear);
+
+                                savedata(e)
+                            }
+                        });
+
+
+
+                    }
+
+
+
+
+                    // function box_check(place) {
+                    //     $.ajax({
+                    //         type: "POST",
+                    //         url: baseurl + 'login.php',
+                    //         data: 'req=19&place=' + place,
+                    //         success: function(html) {
+                    //             console.log(html)
+                    //             arrayValues = html.split(',')
+
+                    //             $.each(arrayValues, function(i, val) {
+
+                    //                 if (val != '') {
+
+                    //                     $("input[value=" + val + "]").prop('checked', true);
+                    //                 }
+                    //                 //<input type="checkbox" value="<?php echo $rs['id']; ?>">
+
+                    //             });
+
+                    //             //console.log(value)
+                    //             //uncheckbox()
+                    //             //  redirect_acc(id, 'app-accepted')
+                    //         }
+                    //     });
+                    // }
+                  
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

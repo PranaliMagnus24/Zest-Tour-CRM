@@ -1,0 +1,2732 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/faraaz.css">
+</head>
+
+<body>
+    <div class="appHeader no-border transparent position-absolute hidden">
+        <div class="pageTitle"></div>
+        <div class="right "></div>
+    </div>
+    <div>
+        <div class="col-12 p-0 pull-left pt-2">
+            <div class="col-12 upper_div pull-left scrollbar" style=" line-height: 21px;overflow: auto;">
+                <div class="col-12 pull-left ">
+                    <div class="card border-blue">
+                        <div class="card-body p-0">
+                            <ul class="nav nav-tabs lined" role="tablist" style="border-radius: 8px 8px  0px 0px;overflow: hidden;">
+                                <li class="nav-item d-none">
+                                    <a id="visa_tab" class="nav-link" data-bs-toggle="tab" href="#visa" role="tab">
+                                        Visa
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#itinerary" role="tab">
+                                        Itinerary
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#timeline" role="tab">
+                                        Timeline
+                                    </a>
+                                </li>
+                                <li class="nav-item d-none">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#history" role="tab">
+                                        Booking History
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="col-12 pull-left border-top-blue"></div>
+                            <div class="tab-content mt-2">
+                                <div class="tab-pane fade show p-1 pull-left w-100" id="visa" role="tabpanel">
+                                    <div class="pull-left border_8px w-100 font-blue border-blue overflow-hidden ">
+                                        <div class="col-12 pull-left text-center table_radiius blue-back bold p-0 flex-info">
+                                            <div class="col-4 pull-left text-left border-right">
+                                                Place
+                                            </div>
+                                            <div class="col-2 pull-left text-left border-right" style="min-height: 21px;">
+                                                Visa
+                                            </div>
+                                            <div class="col-1 p-0 pull-left border-right">
+                                                Expiry
+                                            </div>
+                                            <div class="col-2 pull-left text-left border-right">
+                                                Entry Type
+                                            </div>
+                                            <div class="col-2 pull-left text-left border-right">
+                                                Duration
+                                            </div>
+                                            <div class="col-1 pull-left">
+                                                Action
+                                            </div>
+                                        </div>
+                                        <div class="visa_data pull-left w-100">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active fade show p-1 pull-left w-100" id="itinerary" role="tabpanel">
+                                    <div class="col-12 pull-left">
+                                        <h2 class="pull-left" id="enquiry_number"></h2>
+                                        <div data-bs-target="#confirm_update_enquiry" data-bs-toggle="modal" class="pull-right btn  blue-back font-blue in-btn border-0 ms-1" data-bs-target="#add_enquiry_modal" data-bs-toggle="modal" style="border: #283477 solid 1px !important;"><ion-icon name="checkmark-outline" role="img" class="md hydrated" aria-label="add outline"></ion-icon> Confirm Itinerary</div>
+                                        <div onclick="cancel_clr('#add_itinerary_modal select'),cancel_clr('#add_itinerary_modal input[type=text]'),cancel_clr('#add_itinerary_modal input[name=id]')" class="pull-right btn bold blue-back font-blue in-btn border-0" data-bs-target="#add_itinerary_modal" data-bs-toggle="modal" style="border: #283477 solid 1px !important;"><ion-icon name="add-outline" role="img" class="md hydrated" aria-label="add outline"></ion-icon> Add Itinerary</div>
+                                        
+                                    </div>
+                                    <div class="itinerary_data w-100 pull-left">
+
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade show p-1 pull-left w-100" id="timeline" role="tabpanel">
+                                    <div class="pull-left border_8px w-100 font-blue  overflow-hidden">                                        
+                                        <div class="col-12 pull-left pb-2 pe-2">
+                                            <!-- <button type="button" data-bs-target="#reminder" data-bs-toggle="modal" class="btn  blue-back font-blue in-btn ms-1 rounded" style="border: #283477 solid 1px !important;">Add Reminder</button> -->
+                                            <button type="button" class="btn btn-primary  pink-back font-blue in-btn-pink rounded" style="border: #d1202d solid 1px !important;" data-bs-toggle="modal" data-bs-target="#remark">Add Feedback / Reminder</button>
+                                        </div>
+                                        <div class="col-12 pull-left" id="reminder_div">
+                                            <div class="col-12 scrollbar pull-left" style="overflow: auto;">
+                                                <div class="timeline reminder ms-3" style="margin-left: 53px !important; ">            
+                                                    <div class="item">
+                                                        <button type="button" class="btn btn-primary me-1 time-center-btn light_pink_back2 no-border font-blue">17 May 2022</button>
+                                                        <div class="content">
+                                                            <div class="col-1 pull-left pe-0 text-center font-blue centerline-pink" style="padding-left: 75px!important;"></div>
+                                                            <div class="col-10 pull-left p-0" style="line-height: 35px;">
+                                                                <div class="col-10 pull-left pink_border pe-0">
+                                                                    <div class="col-10 pull-left ">
+                                                                        <div class="pull-left w-100 text-black ">received a mail for deferment to Jan. </div>
+                                                                    </div>
+                                                                    <div class="col-2 pull-left p-0">
+                                                                        <button type="button" class="btn btn-primary time-center-btn light_pink_back no-border font-blue in-btn-pink">Sufiya</button>
+                                                                    </div>
+                                        
+                                                                </div>
+                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>                                        
+                                                    <div class="item datetimeline" style=" margin-bottom: 50px; ">
+                                                        <button type="button" class="btn btn-primary btn-sm me-1 time-center-small light_pink_back2 no-border font-blue blue-back" style=" margin-top: 25px;">03:00 pm</button>
+                                                        <div class="content"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <button type="button" class="btn btn-primary me-1 time-center-btn light_pink_back2 no-border font-blue">13 May 2022</button>
+                                                        <div class="content">
+                                                            <div class="col-1 pull-left pe-0 text-center font-blue centerline-pink" style="padding-left: 75px!important;"></div>
+                                                            <div class="col-10 pull-left p-0" style="line-height: 35px;">
+                                                                <div class="col-10 pull-left pink_border pe-0">
+                                                                    <div class="col-10 pull-left ">
+                                                                        <div class="pull-left w-100 text-black ">Overall 6.5</div>
+                                                                    </div>
+                                                                    <div class="col-2 pull-left p-0">
+                                                                        <button type="button" class="btn btn-primary time-center-btn light_pink_back no-border font-blue in-btn-pink">Sufiya</button>
+                                                                    </div>
+                                        
+                                                                </div>
+                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        
+                                                    <div class="item datetimeline" style=" margin-bottom: 50px; ">
+                                                        <button type="button" class="btn btn-primary btn-sm me-1 time-center-small light_pink_back2 no-border font-blue blue-back" style=" margin-top: 25px;">03:12 pm</button>
+                                                        <div class="content"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <button type="button" class="btn btn-primary me-1 time-center-btn blue-back no-border font-blue">13 May 2022</button>
+                                                        <div class="content">
+                                                            <div class="col-1 pull-left pe-0 text-center font-blue centerline" style="padding-left: 75px!important;"></div>
+                                                            <div class="col-10 pull-left p-0" style="line-height: 35px;">
+                                                                <div class="col-10 pull-left border-blue pe-0">
+                                                                    <div class="col-10 pull-left ">
+                                                                        <div class="pull-left w-100 font-blue">IELTS score</div>
+                                                                    </div>
+                                                                    <div class="col-2 pull-left p-0">
+                                                                        <button type="button" class="btn btn-primary time-center-btn blue-back no-border font-blue in-btn">Sufiya</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        
+                                                    <div class="item datetimeline" style=" margin-bottom: 50px; ">
+                                                        <button type="button" class="btn btn-primary btn-sm me-1 time-center-small font-blue blue-back no-border" style=" margin-top: 25px;">02:45 pm</button>
+                                                        <div class="content"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <button type="button" class="btn btn-primary me-1 time-center-btn light_pink_back2 no-border font-blue">30 Apr 2022</button>
+                                                        <div class="content">
+                                                            <div class="col-1 pull-left pe-0 text-center font-blue centerline-pink" style="padding-left: 75px!important;"></div>
+                                                            <div class="col-10 pull-left p-0" style="line-height: 35px;">
+                                                                <div class="col-10 pull-left pink_border pe-0">
+                                                                    <div class="col-10 pull-left ">
+                                                                        <div class="pull-left w-100 text-black ">awaiting IELTS result</div>
+                                                                    </div>
+                                                                    <div class="col-2 pull-left p-0">
+                                                                        <button type="button" class="btn btn-primary time-center-btn light_pink_back no-border font-blue in-btn-pink">Sufiya</button>
+                                                                    </div>
+                                        
+                                                                </div>
+                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        
+                                                    <div class="item datetimeline" style=" margin-bottom: 50px; ">
+                                                        <button type="button" class="btn btn-primary btn-sm me-1 time-center-small light_pink_back2 no-border font-blue blue-back" style=" margin-top: 25px;">03:22 pm</button>
+                                                        <div class="content"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <button type="button" class="btn btn-primary me-1 time-center-btn light_pink_back2 no-border font-blue">27 Apr 2022</button>
+                                                        <div class="content">
+                                                            <div class="col-1 pull-left pe-0 text-center font-blue centerline-pink" style="padding-left: 75px!important;"></div>
+                                                            <div class="col-10 pull-left p-0" style="line-height: 35px;">
+                                                                <div class="col-10 pull-left pink_border pe-0">
+                                                                    <div class="col-10 pull-left ">
+                                                                        <div class="pull-left w-100 text-black ">IELTS on 30.04.2022</div>
+                                                                    </div>
+                                                                    <div class="col-2 pull-left p-0">
+                                                                        <button type="button" class="btn btn-primary time-center-btn light_pink_back no-border font-blue in-btn-pink">Sufiya</button>
+                                                                    </div>
+                                        
+                                                                </div>
+                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        
+                                                    <div class="item datetimeline" style=" margin-bottom: 50px; ">
+                                                        <button type="button" class="btn btn-primary btn-sm me-1 time-center-small light_pink_back2 no-border font-blue blue-back" style=" margin-top: 25px;">04:15 pm</button>
+                                                        <div class="content"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade p-2" role="tabpanel" id="history">
+                                    <div class="pull-left border_8px mb-2 w-100 font-blue border-blue overflow-hidden">
+                                        <div class="col-12 pull-left text-left table_radiius bold blue-back p-0 ">
+                                            <div class="col-2 pull-left p-1">
+                                                Date
+                                            </div>
+                                            <div class="col-5 pull-left border-right border-left p-1">
+                                                Location
+                                            </div>
+                                            <div class="col-2 pull-left border-right p-1">
+                                                Total Days
+                                            </div>
+                                            <div class="col-3 pull-left p-1">
+                                                Action
+                                            </div>
+                                        </div>
+                                        <div class="border-top pull-left w-100">
+                                            <div class="col-2 pull-left p-1">
+                                                20  May  2022
+                                            </div>
+                                            <div class="col-5 pull-left border-right border-left p-1">
+                                                Singapore
+                                            </div>
+                                            <div class="col-2 pull-left border-right p-1">
+                                                Days
+                                            </div>
+                                            <div class="col-3 pull-left p-1">
+                                                View
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="tab-pane fade p-2 text-center" role="tabpanel" id="documents">
+
+                                    <div class="col-2 pull-left p-1"></div>
+                                    <div class="col-8 pull-left">
+                                        <div
+                                            class="pull-left w-100 border_8px font-blue border-blue bold overflow-hidden">
+                                            <div class="col-12 pull-left text-center table_radiius blue-back p-0 ">
+                                                <div class="col-4 pull-left border-right">
+                                                    Name
+                                                </div>
+                                                <div class="col-5 pull-left border-right">
+                                                    Link
+                                                </div>
+                                                <div class="col-3 pull-left">
+                                                    Action
+                                                </div>
+                                            </div>
+                                            <div id="doc_show" class=" pull-left col-12 p-0">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-3 pull-left p-1"></div>
+                                    </div>
+                                    <div class="col-12 pull-left p-2"> <button type="button"
+                                            class="btn btn-primary time-center-btn pink-back-btn no-border font-blue in-btn"
+                                            data-bs-toggle="modal" data-bs-target="#add_document"
+                                            onclick="set_title('Add Document','#add_document')">Add Documents</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade p-2 text-center" role="tabpanel" id="tests">
+                                    <div class="pull-left w-100 all_test">
+                                    </div>
+                                    <div class="col-1 pull-left p-1"></div>
+                                    <div class="col-12 pull-left p-2"> <button type="button"
+                                            class="btn btn-primary time-center-btn pink-back-btn no-border font-blue in-btn"
+                                            data-bs-target="#add_test" data-bs-toggle="modal"
+                                            onclick="set_title('Add Test','#add_test')">Add Test</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 pull-left text-black mt-2 three_box" style="line-height: 21px; position: fixed;bottom:0;z-index: 100;">
+                <div class="col-4 pull-left">
+                    <div class="col-12 p-0 pull-left border-blue blue-back">
+                        <div class="col-12 pull-left text-center pt-2 pb-2 font-17 font-blue ">
+                            Customer Info
+                            <div class="pull-right pe-1 edit_customer" onclick="check_type('#add_customer_modal','etype','.etype_customer','etype_customer')" data-bs-target="#add_customer_modal" data-bs-toggle="modal">                        
+                                <ion-icon name="create-outline"></ion-icon>
+                                <span class="font-blue" style="font-size: 13px;">Edit </span>
+                            </div>
+                        </div>
+                        <div class="p-0 col-12 pull-left border-top-blue font12" style=" background: white; ">
+                            <div class=" col-12 pull-left pt-1" id="customer_details">
+                                <div class="col-12 pull-left border-blue-bot">
+
+                                    <div class=" pull-left p-0 font-red col-3">Full Name :</div>
+                                    <div class="col-9 pull-left p-0 font-blue"></div>
+
+                                </div>
+                                <div class="col-12 p-0 pull-left">
+                                    <div class="col-12 pull-left border-blue-bot">
+                                        <div class="col-2 pull-left p-0 font-red">Address :</div>
+                                        <div class="col-10 pull-left font-blue"></div>
+                                    </div>
+
+                                    <div class="col-12 pull-left border-blue-bot">
+                                        <div class="col-6 pull-left p-0">
+                                            <div class="col-5 pull-left p-0 font-red">Contact1 :</div>
+                                            <div class="col-7 pull-left p-0 font-blue">1234567890</div>
+                                        </div>
+                                        <div class="col-6 pull-left p-0">
+                                            <div class="col-5 pull-left p-0 font-red">Contact2 :</div>
+                                            <div class="col-7 pull-left p-0 font-blue">1234567890</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class="col-2 pull-left p-0 font-red">Email :</div>
+                                    <div class="col-10 pull-left p-0 font-blue">devendrakarnalkar46@gmail.com</div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class="col-2 pull-left p-0 font-red">Email :</div>
+                                    <div class="col-10 pull-left p-0 font-blue">devendrakarnalkar46@gmail.com</div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class="col-4 pull-left p-0 font-red">Corporate Name :</div>
+                                    <div class="col-8 pull-left font-blue"></div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class="col-2 pull-left p-0 font-red">DOB :</div>
+                                    <div class="col-10 pull-left font-blue"></div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class="col-3 pull-left p-0 font-red">Anniversary :</div>
+                                    <div class="col-9 pull-left font-blue"></div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot mb-1">
+                                    <div class="col-3 pull-left p-0 font-red">Reference :</div>
+                                    <div class="col-9 pull-left font-blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 pull-left">
+                    <div class="col-12 pull-left border-blue blue-back p-0">
+                        <div class="col-12 pull-left text-left pt-2 pb-2 font-17 font-blue" style="display: flex;align-items: center;justify-content: space-around;">
+                            <span class="pull-left">Enquiry Details</span>
+                            <div class="pull-left" style="cursor: pointer;" data-bs-target="#add_enquiry_status_modal" data-bs-toggle="modal">                        
+                                <ion-icon name="create-outline"></ion-icon>
+                                <span class="font-blue" style="font-size: 13px;">Update Status </span>
+                            </div>
+                            <div class="pull-right pe-1 edit_customer" style="cursor: pointer;" onclick="get_customer_detail_input(),check_type('#add_customer_modal','etype','.etype_customer','etype_customer')" data-bs-target="#add_customer_modal" data-bs-toggle="modal">                        
+                                <ion-icon name="create-outline"></ion-icon>
+                                <span class="font-blue" style="font-size: 13px;">Edit </span>
+                            </div>
+                        </div>
+                        <div class="p-0 col-12 pull-left border-top-blue font12" style=" background: white; ">
+                            <div class=" col-12 pull-left pt-1" id="enquiry_details">
+                                <div class="col-12 pull-left text-left border-blue-bot">
+                                    <div class=" pull-left p-0 font-red col-3">Destination : </div>
+                                    <div class="col-9 pull-left p-0 font-blue"></div>
+                                </div>
+                                <div class="col-12 pull-left text-left border-blue-bot">
+                                    <div class=" pull-left p-0 font-red col-3">Type :</div>
+                                    <div class="col-9 pull-left p-0 font-blue"></div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class="col-6 p-0 pull-left">
+                                        <div class=" pull-left p-0 font-red col-4">Days :</div>
+                                        <div class="col-8 pull-left p-0 font-blue"></div>
+                                    </div>
+                                    <div class="col-6 pull-left">
+                                        <div class=" pull-left p-0 font-red col-6">No of pax :</div>
+                                        <div class="col-6 pull-left p-0 font-blue"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12 pull-left">
+                                    <div class="col-3 pull-left p-0 font-red">Start Date :</div>
+                                    <div class="col-9 pull-left font-blue"></div>
+                                </div>                                                                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 pull-left">
+                    <div class="col-12 pull-left border-blue blue-back p-0">
+                        <div class="col-12 pull-left text-left pt-2 pb-2 font-17 font-blue ">
+                            Document
+                            <div class="pull-right pe-1" data-bs-target="#add_document_modal" data-bs-toggle="modal">                        
+                                <ion-icon name="create-outline"></ion-icon>
+                                <span class="font-blue" style="font-size: 13px;">Edit </span>
+                            </div>
+                        </div>
+                        <div class="p-0 col-12 pull-left border-top-blue font12" style=" background: white; ">
+                            <div class=" col-12 pull-left pt-1" id="document_details">
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class=" pull-left p-0 font-red col-3">Aadhar No. :</div>
+                                    <div class="col-9 pull-left p-0 font-blue"></div>
+                                </div>
+                                <div class="col-12 p-0 pull-left">
+                                    <div class="col-12 pull-left border-blue-bot">
+                                        <div class="col-2 pull-left p-0 font-red">Pan :</div>
+                                        <div class="col-10 pull-left font-blue"></div>
+                                    </div>
+
+                                    <div class="col-12 pull-left border-blue-bot">
+                                        <div class="col-6 pull-left p-0">
+                                            <div class="col-5 pull-left p-0 font-red">Passport :</div>
+                                            <div class="col-7 pull-left p-0 font-blue"></div>
+                                        </div>
+                                        <div class="col-6 pull-left p-0">
+                                            <div class="col-12 pull-left p-0 font-red"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 pull-left border-blue-bot">
+                                    <div class="col-3 pull-left p-0 font-red">Nationality :</div>
+                                    <div class="col-9 pull-left font-blue"></div>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 p-0 pull-left border-blue d-none blue-back mt-2">
+                    <div class="col-12 pull-left text-left pt-2 pb-2 font-17 font-blue ">
+                        Visa
+                        <div class="pull-right pe-1" data-bs-target="#add_visa_modal" data-bs-toggle="modal" onclick="cancel_clr('#add_visa_modal input')">                        
+                            <ion-icon name="add-circle-outline" class="pull-left"></ion-icon>
+                            <span class="font-blue pull-left" style="font-size: 13px;">Add New Visa</span>
+                        </div>
+                    </div>
+                    <div class="p-0 col-12 pull-left border-top-blue font12" style=" background: white; ">
+                        <div class=" col-12 pull-left pt-1 ps-0 pe-0" id="visa_details">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>        
+    </div>
+
+    </div>
+    <div class="modal fade dialog" id="add_visa_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <input type="hidden" class="id">
+                    <div class="bg-white no-shadow no-border">
+                        <input type="hidden" name="id">
+                        <div class="card-body pe-5 ps-5">
+                            <div class="divider card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Visa</span><span></span></div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <input type="hidden" name="id" class="id">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Place of Issue</label>
+                                        <input type="text" class="form-control input_style" name="place" data-required='yes' data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 pe-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Visa No.</label>
+                                        <input type="text" class="form-control input_style" name="visa" data-required='yes' data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 ps-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Expiry</label>
+                                        <input type="text" class="form-control datepicker input_style" name="expiry" autocomplete="off" data-required="yes" data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Duration :</label>
+                                        <input type="text" class="form-control input_style" name="duration" autocomplete="off" data-required="yes" data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Entry Type :</label>
+                                        <input type="text" class="form-control input_style" name="entry_type" autocomplete="off" data-required="yes" data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Stay. :</label>
+                                        <input type="text" class="form-control input_style" name="stay" autocomplete="off" data-required='yes' data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 pull-left text-center mt-1">
+                                <button type="button" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;" onclick="validate('#add_visa_modal','add_visa')">Submit</button>
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade dialog" id="add_customer_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <input type="hidden" class="id" name="id">
+                    <div class="bg-white no-shadow no-border" id="contactForm" onsubmit="return validateContactForm()">
+                        <div class="card-body pe-5 ps-5" id="jobForm">
+                            <div class="divider card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Pax Info</span><span></span></div>
+                            <div class="col-lg-12 p-0 text-center">
+                                <div class="form-check mb-2 mt-2 col-lg-6  col-md-6  col-sm-6 col-xs-6 pull-left">
+                                    <input class="form-check-input" onclick="check_type('#add_customer_modal','etype','.etype_customer','etype_customer'),removeClas('#add_customer_modal .corporate','hidden'),addClas('#add_customer_modal .agent','hidden')" type="radio" name="etype" value="domestic" id="domestic">
+                                    <label class="form-check-label" for="domestic">
+                                        Domestic
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2 mt-2 col-lg-6  col-md-6  col-sm-6 col-xs-6 pull-left">
+                                    <input class="form-check-input" onclick="check_type('#add_customer_modal','etype','.etype_customer','etype_customer')" type="radio" name="etype" value="international" id="international">
+                                    <label class="form-check-label" for="international">
+                                        International
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 p-0 text-center etype_customer">
+                                <div class="form-check mb-2 mt-2 col-lg-6  col-md-6  col-sm-6 col-xs-6 pull-left">
+                                    <input class="form-check-input" type="radio" name="etype_customer" value="B2B" id="eB2B">
+                                    <label class="form-check-label" onclick="removeClas('#add_customer_modal .etype_customer .form-check-label','text-danger'),removeClas('#add_customer_modal .agent','hidden'),addClas('#add_customer_modal .corporate','hidden')" for="eB2B">
+                                        B2B
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2 mt-2 col-lg-6  col-md-6  col-sm-6 col-xs-6 pull-left">
+                                    <input class="form-check-input" type="radio" name="etype_customer" value="B2C" id="eB2C">
+                                    <label class="form-check-label" onclick="removeClas('#add_customer_modal .etype_customer .form-check-label','text-danger'),removeClas('#add_customer_modal .corporate','hidden'),addClas('#add_customer_modal .agent','hidden')" for="eB2C">
+                                        B2C
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 agent hidden" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Agency/branch :</label>
+                                        <select class="form-control bg-white w-100 select2 corporates" onchange="set_agent_detail(this)" name="corporate" id="agent_id">
+                                                    
+                                        </select>
+                                        <input type="hidden" name="agent_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Pax Name</label>
+                                        <input type="text" class="form-control input_style" name="name" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Address</label>
+                                        <input type="text" class="form-control input_style" name="address" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 pe-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Email :</label>
+                                        <input type="text" class="form-control input_style" name="email" autocomplete="off" data-pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" data-validation-message="Not valid email" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 ps-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Alternate Email :</label>
+                                        <input type="text" class="form-control input_style" name="alternateemail" autocomplete="off" data-pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" data-validation-message="Not valid email" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 pe-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Contact No. :</label>
+                                        <input type="text" class="form-control input_style" name="number" id="number"
+                       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                       maxlength="12" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                             
+                            <div class="col-lg-6 col-md-6 ps-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Alternate Contact No. :</label>
+                                        <input type="text" class="form-control input_style" name="alternatenumber" id="alternatenumber"
+                       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                       maxlength="12" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+
+   
+                            <div class="col-lg-12 col-md-12 corporate" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label " for="name">Corporate :</label>
+                                        <input type="text" class="form-control input_style corporates" name="corporate" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 pe-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">DOB. :</label>
+                                        <input type="text" class="form-control input_style dropup datepickermax" data-pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" data-validation-message="Invalid Date" name="dob" autocomplete="off" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 ps-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Anniversary :</label>
+                                        <input type="text" class="form-control input_style dropup datepickermax" data-pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" data-validation-message="Invalid Date" name="anniversary" autocomplete="off" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Reference :</label>
+                                        <input type="text" class="form-control input_style" name="reference" autocomplete="off" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="divider mt-2 pull-left w-100 card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Enquiry</span><span></span></div>
+                            <div class="w-100 pull-left mt-2">
+                                <div class="col-12 p-0 pull-left">
+                                    <div class="col-7 pull-left ps-0">
+                                        <span class="bold font16 text-black">Adults</span>
+                                        <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">12 yrs &amp; above on the day of travel</span>
+                                    </div>
+                                    <div class="col-5 pull-left">
+                                        <div class="btn-group" role="group">                        
+                                            <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','eadult','minus','yes','int')">-</label>                                
+                                            <label class="btn btn-outline-primary p-0  bl-0  br-0">
+                                                <input type="number" max="99" min="0" data-type="number" class="form-control eadult p-0 border-radius-0 bg-white text-center" name="eadult"  max-value="99" data-max="99" min-value="0" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                            </label>                                
+                                            <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','eadult','plus','yes','int')">+</label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-12 p-0 mt-2 pull-left">
+                                    <div class="col-7 pull-left ps-0">
+                                        <span class="bold font16 text-black">Childrens</span>
+                                        <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">2-12 yrs on the day of travel</span>
+                                    </div>
+                                    <div class="col-5 pull-left">
+                                        <div class="btn-group" role="group">                        
+                                            <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','echildren','minus','yes','int')">-</label>                                
+                                            <label class="btn btn-outline-primary p-0  bl-0  br-0">
+                                                <input type="number" max="99" min="0" data-type="number" class="form-control echildren p-0 border-radius-0 bg-white text-center"  data-max="4" max-value="4" min-value="0" name="echildren" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                            </label>                                
+                                            <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','echildren','plus','yes','int')">+</label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12 p-0 mt-2 pull-left">
+                                <div class="col-7 pull-left ps-0">
+                                    <span class="bold font16 text-black">Infants</span>
+                                    <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">Under 2 yrs on the day of travel</span>
+                                </div>
+                                <div class="col-5 pull-left">
+                                    <div class="btn-group" role="group">                        
+                                        <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','einfant','minus','yes','int')">-</label>                                
+                                        <label class="btn btn-outline-primary p-0  bl-0  br-0">
+                                            <input type="number" max="99" min="0" data-type="number" class="form-control einfant p-0 border-radius-0 bg-white text-center"  data-max="10" max-value="10" min-value="0" name="einfant" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                        </label>                                
+                                        <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','einfant','plus','yes','int')">+</label>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="divider mt-2 pull-left w-100 card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Enquiry</span><span></span></div>
+                                        <div class="w-100 pull-left mt-2">
+                                            <div class="col-12 p-0 pull-left">
+                                                <div class="col-7 pull-left ps-0">
+                                                    <span class="bold font16 text-black">Adults</span>
+                                                    <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">12 yrs &amp; above on the day of travel</span>
+                                                </div>
+                                                <div class="col-5 pull-left">
+                                                    <div class="btn-group" role="group">                        
+                                                        <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','eadult','minus','yes','int')">-</label>                                
+                                                       
+
+                                                        <label class="btn btn-outline-primary p-0 bl-0 br-0">
+                                                            <input type="number" data-type="number" class="form-control eadult p-0 border-radius-0 bg-white text-center" 
+                                                            name="eadult" max="99" min="0" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                                        </label>
+                                                        <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','eadult','plus','yes','int')">+</label>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-12 p-0 mt-2 pull-left">
+                                                <div class="col-7 pull-left ps-0">
+                                                    <span class="bold font16 text-black">Childrens</span>
+                                                    <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">2-12 yrs on the day of travel</span>
+                                                </div>
+                                                <div class="col-5 pull-left">
+                                                    <div class="btn-group" role="group">                        
+                                                        <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','echildren','minus','yes','int')">-</label>                                
+                                                       
+                                                        <label class="btn btn-outline-primary p-0 bl-0 br-0">
+                                                            <input type="number" data-type="number" class="form-control echildren p-0 border-radius-0 bg-white text-center"  
+                                                                name="echildren" max="99" min="0" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                                        </label> 
+
+                                                        <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','echildren','plus','yes','int')">+</label>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-12 p-0 mt-2 pull-left">
+                                            <div class="col-7 pull-left ps-0">
+                                                <span class="bold font16 text-black">Infants</span>
+                                                <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">Under 2 yrs on the day of travel</span>
+                                            </div>
+                                            <div class="col-5 pull-left">
+                                                <div class="btn-group" role="group">                        
+                                                    <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','einfant','minus','yes','int')">-</label>                                
+                                                  
+                                                    <label class="btn btn-outline-primary p-0 bl-0 br-0">
+                                                        <input type="number" data-type="number" class="form-control einfant p-0 border-radius-0 bg-white text-center"  
+                                                            name="einfant" max="99" min="0" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                                    </label>
+                                                    <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','einfant','plus','yes','int')">+</label>
+                                                   
+
+                                                </div>
+                                            </div>
+                                        </div>
+                            <div class="col-lg-6 col-md-6 pe-1 mt-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Start Date :</label>
+                                        <input type="text" class="form-control input_style dropup datepicker" id="enquiryfrom_date" name="estart_date" autocomplete="off" style="font-size: 15px !important;" autocomplete="off" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 ps-1 mt-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">End Date :</label>
+                                        <input type="text" class="form-control input_style dropup datepicker" autocomplete="off" style="font-size: 15px !important;" id="enquiryto_date" name="eend_date" autocomplete="off" style="font-size: 15px !important;" >
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Destination :</label>
+                                        <input type="text" class="form-control input_style" name="edestination" autocomplete="off" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="row">
+                                <span class="bold font16 text-black">Destination</span>
+                                
+                                <div class="col-md-6">
+                                    <label class="label" for="name" id="my_city">Country:</label>
+                                  
+                                    <select id="countryDropdown" name="ecountry_id" data-selected="2" class="form-control input_style" >
+                                        <option value="">Select Country</option>
+                                      </select>
+                                </div>
+                            
+                                <div class="col-md-6">
+                                    <label class="label" for="name">City:</label>
+                                  
+                                    <select id="cityDropdown" name="ecity_id" data-selected="5" class="form-control input_style" >
+                                        <option value="">Select City</option>
+                                      </select>
+                                </div>
+                            </div> -->
+
+                            <div class="row">
+                                <span class="bold font16 text-black">Destination</span>
+                                
+                                <div class="col-md-6">
+                                    <label class="label" for="name"  for="countryDropdown">Country:</label>
+                                    <select id="countryDropdown" name="ecountry_id[]" multiple  data-selected="2" class="form-control input_style select2">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </div>
+                            <div class="col-md-6">
+                                   <label class="label" for="name" id="my_city">City:</label>
+                                 <select id="cityDropdown" name="ecity_id[]" multiple class="form-control input_style select2"
+                                  style="height:150px !important;">
+                                  <option value="">Select City</option>
+                                </select>
+                            </div>
+
+                                <!-- <div class="col-md-6">
+                                   <label class="label" for="name" id="my_city">City:</label>
+                                   <select id="cityDropdown" name="ecity_id[]" multiple class="form-control input_style select2" style="height:150px !important;">
+                                     <option value="">Select City</option>
+                                   </select>
+                                </div> -->
+                            </div>
+
+                            
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Remark :</label>
+                                        <input type="text" class="form-control input_style" name="eremark" autocomplete="off" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 pull-left text-center mt-1">
+                                <button type="button" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;" onclick="validate('#add_customer_modal','add_customer')">Update</button>
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade dialogbox" id="remark" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0 text-start mb-2">
+                    <input type="hidden" name="edit_to_remark" id="edit_to_remark" value="">
+                    <input type="hidden" name="remark_id" id="remark_id" value="">
+                    <ul class="nav nav-tabs hidden lined" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#feedback" role="tab">
+                                Feedback
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#remainder" role="tab">
+                                Reminder
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-2" style="padding: 0 20px;">
+                        <!-- <div class="tab-pane fade show" id="feedback" role="tabpanel">
+                            <div class="col-12 pull-left text-center p-1 mt-1">
+                                <div class="divider card-title text-center"><span></span><span class="title" style="font-size: 15px;color: black;">Add Feedback</span><span></span></div>
+                            </div>
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label" for="text1">Enter Feedback text</label>
+                                    <input type="text" class="form-control" maxlength="150" id="remark_note" data-required="yes" data-validation-required-message="This field is required" name="remark" value="" style="padding: 0 25px 0 25px !important;">
+                                    <i class="clear-input">
+                                        <ion-icon name="close-circle"></ion-icon>
+                                    </i>
+                                </div>
+                            </div>                                    
+                            <div class="col-12 pull-left text-center mt-2">
+                                <button type="button" onclick="validate('#feedback','add_remark','#feedback')" class="btn btn-primary submits btn-sm me-1 no-border sub-blue" style="padding: 0px 15px;">Add Feedback</button>
+                                <button type="button" onclick="cancel_clr('#remark input')" class="btn btn-primary btn-sm ms-1 no-border sub-blue" data-bs-dismiss="modal" style="padding: 0px 15px;">Cancel</button>
+                            </div>
+                        </div> -->
+                        <div class="tab-pane fade show active" id="remainder" role="tabpanel">
+                            <div class="col-12 pull-left text-center p-1 mt-1">
+                                <div class="divider card-title text-center"><span></span><span class="title" style="font-size: 15px;color: black;">Add Reminder/Feedback</span><span></span></div>
+                            </div>
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label" for="text1">Enter text</label>
+                                    <input type="text" class="form-control" id="reminder_note" data-required="yes" data-validation-required-message="This field is required" name="reminder" value="" style="padding: 0 25px 0 25px !important;">
+                                    <i class="clear-input">
+                                        <ion-icon name="close-circle"></ion-icon>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="form-group basic hidden reminder_time">
+                                <div class="input-wrapper">
+                                    <label class="label" for="text1">Reminder Time & Date</label>
+                                    <input type="text" data-required="yes" data-validation-required-message="This field is required" class="form-control datetimepicker dropup" id="remind_time" name="remind_time" value="" style="padding: 0 25px 0 25px !important;">
+                                    <i class="clear-input">
+                                        <ion-icon name="close-circle"></ion-icon>
+                                    </i>
+                                </div>
+                            </div>                            
+                            <div class="form-check mb-2 mt-2 col-lg-6  col-md-6  col-sm-6 col-xs-6 pull-left">
+                                <input class="form-check-input" type="checkbox" onclick="show_reminder('#remindme')" name="remindme" value="yes" id="remindme">
+                                <label class="form-check-label" for="remindme">
+                                    Remind me
+                                </label>
+                            </div>
+                            <div class="col-12 pull-left text-center mt-2">
+                                <button type="button" onclick="validate('#remainder','add_remark','#remainder')" class="btn btn-primary submits btn-sm me-1 no-border sub-blue" style="padding: 0px 15px;">Submit</button>
+                                <button type="button" onclick="cancel_clr('#remark input')" class="btn btn-primary btn-sm ms-1 no-border sub-blue" data-bs-dismiss="modal" style="padding: 0px 15px;">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade dialogbox" id="add_itinerary_modal" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style=" max-width: 500px !important;">
+                <div class="modal-body" style=" max-width: 500px !important;">
+                    <div class="col-12 pull-left text-center p-1 mt-1">
+                        <div class="divider card-title text-center"><span></span><span class="title"
+                                style="font-size: 15px;color: black;">Add Itinerary</span><span></span></div>
+                    </div>
+                    <input type="hidden" name="id" class="id">
+                    <input type="hidden" name="enquiry_id" class="enquiry_id">
+
+                    <div class="col-lg-12 col-sm-6 col-12 col-md-4 pull-left text-black  position-relative">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Booking Date*:
+                        </div>
+                        <!-- <div class="col-6 pull-left p-0 animated" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100 no-border p-0 datepickernomax" min="2022" max="2025" name="booking_date" data-required="yes" data-validation-required-message="field is required" autocomplete="off" style="border-bottom: #283477 1px solid !important;outline: 0;">                                
+                            </div>
+                        </div> -->
+                        <div class="col-6 pull-left p-0 animated" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100 no-border p-0 datepickernomax" name="booking_date" 
+                                       data-required="yes" data-validation-required-message="Field is required" 
+                                       autocomplete="off" style="border-bottom: #283477 1px solid !important;outline: 0;">                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-sm-6 col-12 col-md-4 mt-2 pull-left text-black  position-relative">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Check In Date*:
+                        </div>
+                        <div class="col-6 pull-left p-0 animated" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100  no-border p-0 datepickernomax" name="checkin" data-required="yes" data-validation-required-message="field is required" autocomplete="off" style="border-bottom: #283477 1px solid !important;outline: 0;">                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-sm-6 col-12 col-md-4 mt-2 pull-left text-black  position-relative">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Check Out Date*:
+                        </div>
+                        <div class="col-6 pull-left p-0 animated" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100  no-border p-0 datepickernomax" name="checkout" autocomplete="off" data-required="yes" data-validation-required-message="field is required" style="border-bottom: #283477 1px solid !important;outline: 0;">                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-sm-6 col-12 col-md-4 mt-2 pull-left text-black  position-relative">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Cancellation Deadline*:
+                        </div>
+                        <div class="col-6 pull-left p-0 animated" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100  no-border p-0 datepickernomax" name="cancellation" autocomplete="off" data-required="yes" data-validation-required-message="field is required" style="border-bottom: #283477 1px solid !important;outline: 0;">                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-sm-6 col-12 col-md-4 mt-2 pull-left text-black  position-relative">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Product :
+                        </div>
+                        <div class="col-6 pull-left p-0 animated" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <select class="w-100 p-0" name="product" onchange="if($(this).val()!=''){$('#add_itinerary_modal [name=product_name],#add_itinerary_modal [name=product_amount]').attr('data-required','yes');$('#add_itinerary_modal [name=product_name],#add_itinerary_modal [name=product_amount]').attr('data-validation-required-message','field is required');$('.product_name').html($(this).val())}else{$('#add_itinerary_modal [name=product_name],#add_itinerary_modal [name=product_amount]').removeAttr('data-required');$('#add_itinerary_modal [name=product_name],#add_itinerary_modal [name=product_amount]').removeAttr('data-validation-required-message');$('.product_name').html('Product')}">
+                                    <option value="">Select Product</option>
+                                    <option value="Hotel">Hotel</option>
+                                    <option value="Package">Package</option>
+                                    <option value="Sightseeing">Sightseeing</option>
+                                    <option value="Transfers">Transfers</option>
+                                    <option value="Rail">Rail</option>
+                                    <option value="Cruises">Cruises</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-lg-12 col-sm-6 col-12 col-md-4 mt-2 pull-left text-black  position-relative">
+                        <div class="col-6 pull-left p-0 text-left">
+                            <span class="product_name">Product</span> Name* :
+                        </div>
+                        <div class="col-6 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100  no-border p-0" name="product_name" style="border-bottom: #283477 1px solid !important;outline: 0;"
+                                 data-required="yes" data-validation-required-message="field is required">
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-lg-12 col-sm-6 col-12 col-md-4 mt-2 pull-left text-black  position-relative">
+                        <div class="col-6 pull-left p-0 text-left">
+                            <span class="product_name">Product</span> Amount :
+                        </div>
+                        <div class="col-6 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100  no-border p-0" name="product_amount" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-12 pull-left text-black mt-2 ">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Supplier name*
+                        </div>
+                        <div class="col-6 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input autocomplete="off" role="combobox" list="supplier_name" id="input" type="text" class="w-100  no-border p-0" name="supplier_name" placeholder="Type Supplier Name" style="border-bottom: #283477 1px solid !important;outline: 0;"
+                                 data-required="yes" data-validation-required-message="field is required">
+                                <datalist id="supplier_name" role="listbox"></datalist>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-12 pull-left text-black mt-2 ">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Booking Reference
+                        </div>
+                        <div class="col-6 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100  no-border p-0" name="booking_reference" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-12 pull-left text-black mt-2 ">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Pax Name*
+                        </div>
+                        <div class="col-6 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100 no-border p-0" name="pax_name" style="border-bottom: #283477 1px solid !important;outline: 0;"
+                                data-required="yes" data-validation-required-message="field is required">
+                            </div>
+                        </div>
+                    </div>                    
+                    <!-- <div class="col-12 pull-left text-black mt-2 ">
+                        <div class="col-6 pull-left p-0 text-left">
+                            No. of Pax*
+                        </div>
+                        <div class="col-6 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100 no-border p-0" name="no_of_pax" style="border-bottom: #283477 1px solid !important;outline: 0;"
+                                data-required="yes" data-validation-required-message="field is required">
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- <div class="col-12 p-0 pull-left mt-2">
+                        <div class="col-6 pull-left ps-0">
+                            
+                            <div class="col-6 pull-left text-left text-black">
+                                No. of Pax*
+                            </div>
+                          
+                        </div>
+                        <div class="col-6 pull-left">
+                            <div class="btn-group" role="group" style=" background: #283477 !important; border-color: #283477 !important; color: #FFFFFF !important; height: 36px;padding: 3px 18px;font-size: 13px;line-height: 1.2em;font-weight: 500; box-shadow: none !important;display: inline-flex;align-items: center;justify-content: center;transition: 0.2s all;text-decoration: none !important;border-radius: 10px;border-width: 2px;">                        
+                                <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_itinerary_modal','no_of_pax','minus','yes','int')">-</label>
+                                    <input type="text" data-type="number" class="form-control eadult p-0 border-radius-0 bg-white text-center" 
+                                    name="no_of_pax" max="99" min="0" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                </label>
+                                <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_itinerary_modal','no_of_pax','plus','yes','int')">+</label>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <div class="col-12 p-0 pull-left mt-2">
+                        <div class="col-6 pull-left ps-0">
+                            <div class="col-6 pull-left text-left text-black">
+                                No. of Pax*
+                            </div>
+                        </div>
+                        <div class="col-6 pull-left">
+                            <div class="btn-group" role="group" 
+                                style="background: #283477 !important; border-color: #283477 !important; 
+                                color: #FFFFFF !important; height: 36px; padding: 3px 18px; 
+                                font-size: 13px; line-height: 1.2em; font-weight: 500; 
+                                box-shadow: none !important; display: inline-flex; align-items: center; 
+                                justify-content: center; transition: 0.2s all; text-decoration: none !important;
+                                border-radius: 10px; border-width: 2px;">
+                                
+                                <label class="btn btn-primary br-0 pl-10 pr-10 font25" 
+                                    onclick="updatePax(-1)">-</label>
+                                
+                                <input type="text" class="form-control eadult p-0 border-radius-0 bg-white text-center" 
+                                    name="no_of_pax" id="no_of_pax" value="0" 
+                                    autocomplete="off" style="border:0; height: 32px;" 
+                                    oninput="validatePax(this)" 
+                                    onkeydown="return isNumberKey(event)">
+                    
+                                <label class="btn btn-primary pl-10 pr-10 bl-0 font22" 
+                                    onclick="updatePax(1)">+</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!-- <div class="w-100 pull-left mt-2">
+                        <div class="col-12 p-0 pull-left">
+                            <div class="col-6 pull-left ps-0">
+                               
+                                <div class="col-6 pull-left text-left text-black">
+                                    Adults
+                                    <span class="text-muted pull-left w-200" style="font-size: 9px;line-height: .5rem;">12 yrs &amp; above on the day of travel</span>
+                                </div>
+                               
+                            </div>
+                            <div class="col-6 pull-left">
+                                <div class="btn-group" role="group">                        
+                                    <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','eadult','minus','yes','int')">-</label>                                
+                                    <label class="btn btn-outline-primary p-0  bl-0  br-0">
+                                        <input type="number" max="99" min="0" data-type="number" class="form-control eadult p-0 border-radius-0 bg-white text-center" name="eadult"  max-value="99" data-max="99" min-value="0" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                    </label>                                
+                                    <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','eadult','plus','yes','int')">+</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-12 p-0 mt-2 pull-left">
+                         
+                            <div class="col-6 pull-left text-left text-black">
+                                Childrens
+                                <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">2-12 yrs on the day of travel</span>
+                            </div>
+                            <div class="col-6 pull-left">
+                                <div class="btn-group" role="group">                        
+                                    <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','echildren','minus','yes','int')">-</label>                                
+                                    <label class="btn btn-outline-primary p-0  bl-0  br-0">
+                                        <input type="number" max="99" min="0" data-type="number" class="form-control echildren p-0 border-radius-0 bg-white text-center"  data-max="4" max-value="4" min-value="0" name="echildren" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                    </label>                                
+                                    <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','echildren','plus','yes','int')">+</label>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 p-0 mt-2 pull-left">
+                        <div class="col-6 pull-left text-left text-black">
+                            Infants
+                            <span class="text-muted pull-left w-100" style="font-size: 9px;line-height: .5rem;">Under 2 yrs on the day of travel</span>
+                        </div>
+                   
+                        <div class="col-6 pull-left">
+                            <div class="btn-group" role="group">                        
+                                <label class="btn btn-primary br-0 pl-10 pr-10 font25" onclick="set_balance('#add_customer_modal','einfant','minus','yes','int')">-</label>                                
+                                <label class="btn btn-outline-primary p-0  bl-0  br-0">
+                                    <input type="number" max="99" min="0" data-type="number" class="form-control einfant p-0 border-radius-0 bg-white text-center"  data-max="10" max-value="10" min-value="0" name="einfant" value="0" autocomplete="off" style="border:0;height: 32px;">
+                                </label>                                
+                                <label class="btn btn-primary pl-10 pr-10 bl-0 font22" onclick="set_balance('#add_customer_modal','einfant','plus','yes','int')">+</label>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="col-12 pull-left text-black mt-2 ">
+                        <div class="col-6 pull-left p-0 text-left">
+                            Remarks
+                        </div>
+                        <div class="col-6 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="w-100 no-border p-0" name="remark" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left mt-2">
+                        <button type="button" onclick="validate('#add_itinerary_modal','add_itinerary')" class="btn btn-primary submits btn-sm me-1 submits no-border sub-blue" style="padding: 0px 15px;">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm ms-1 no-border sub-blue" data-bs-dismiss="modal" style="padding: 0px 15px;">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade dialogbox" id="add_document_modal" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style=" max-width: 400px !important;">
+                <div class="modal-header bb-0">
+                    <div class="col-12 pull-left text-center p-1 mt-1">
+                        <div class="divider card-title text-center"><span></span><span class="title"
+                                style="font-size: 25px;color: black;">Add Documents</span><span></span></div>
+                    </div>
+                    
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" class="id" name="id">
+                    <div class="col-12 pull-left text-black font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Aadhar card No.
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" name="aadhar" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Pan Card:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="w-100 pull-left">
+                                <input type="text" class="w-100  no-border p-0" name="pan" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-center p-1 mt-2">
+                        <div class="divider card-title text-center"><span></span><span class="title" style="font-size: 25px;color: black;">Passport</span><span></span></div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Passport no:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="pull-left w-100">
+                                <input type="text" class="w-100  no-border p-0" name="passport_no" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Expiry:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="pull-left w-100">
+                                <input type="text" class="w-100  no-border p-0 datepicker" name="passport_expiry" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Name on Passport:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="pull-left w-100">
+                                <input type="text" class="w-100  no-border p-0" name="passport_name" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Place of Issue:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="pull-left w-100">
+                                <input type="text" class="w-100  no-border p-0" name="passport_place" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Nationality
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="pull-left w-100">
+                                <input type="text" class="w-100  no-border p-0" name="nationality" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-black mt-2 font11">
+                        <div class="col-4 pull-left p-0 text-left">
+                            Date of Birth:
+                        </div>
+                        <div class="col-8 pull-left p-0 position-relative" style="line-height: 20px;">
+                            <div class="pull-left w-100">
+                                <input type="text" class="w-100  no-border p-0 datepickermax dropup" name="passport_dob" style="border-bottom: #283477 1px solid !important;outline: 0;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bt-0 text-center">
+                    <button type="button" class="btn btn-primary btn-sm me-1 submits no-border sub-blue" onclick="validate('#add_document','add_document')" style="padding: 0px 15px;">Submit</button>
+                    <button type="button" class="btn btn-primary btn-sm ms-1 no-border sub-blue" data-bs-dismiss="modal" style="padding: 0px 15px;">Cancel</button>                
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!-- * App Capsule -->
+    <div class="modal fade dialogbox" id="delete_data" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Are you sure?</h5>
+                </div>
+
+                <div class="modal-footer">
+                    <input type="hidden" class="id" name="id">
+                    <input type="hidden" class="table" name="table">
+                    <input type="hidden" class="func" name="func">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-primary submits"
+                            onclick="validate('#delete_data','delete_record')">Yes</a>
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade dialogbox" id="delete_candidate" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Are you sure?</h5>
+                </div>
+
+                <div class="modal-footer">
+                    <input type="hidden" class="canid" name="id">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-primary submits"
+                            onclick="validate('#delete_candidate','delete_candidate')">Yes</a>
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade dialogbox" id="reminder" data-bs-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-start mb-2">
+                    <input type="hidden" name="edit_to_remind" id="edit_to_remind" value="">
+                    <input type="hidden" name="reminder" id="reminder_id" value="">
+                    <div class="col-12 pull-left text-center p-1 mt-1">
+                        <div class="divider card-title text-center"><span></span><span class="title"
+                                style="font-size: 15px;color: black;">Reminder</span><span></span></div>
+                    </div>
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+
+                            <label class="label" for="text1">Enter Note</label>
+                            <input type="text" class="form-control" maxlength="150" id="remind_note" data-required="yes"
+                                data-validation-required-message="This field is required" name="remind" value=""
+                                style="padding: 0 25px 0 25px !important;">
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group basic">
+                        <div class="input-wrapper">
+                            <label class="label" for="text1">Time & Date</label>
+                            <input type="text" data-required="yes" data-validation-required-message="This field is required" class="form-control datetimepicker dropup" id="remind_time" name="remind_time" value="" style="padding: 0 25px 0 25px !important;">
+                            <i class="clear-input">
+                                <ion-icon name="close-circle"></ion-icon>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="col-12 pull-left text-center mt-2">
+                        <button type="button" onclick="validate('#reminder','add_reminder')"
+                            class="btn btn-primary submits btn-sm me-1 no-border sub-blue"
+                            style="padding: 0px 15px;">Submit</button>
+                        <button type="button" onclick="cancel_clr('#reminder input')"
+                            class="btn btn-primary btn-sm ms-1 no-border sub-blue" data-bs-dismiss="modal"
+                            style="padding: 0px 15px;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade dialogbox" id="add_enquiry_status_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="bg-white no-shadow no-border">
+                        <input type="hidden" class="customer_id" name="customer_id">
+                        <div class="">
+                            <input type="hidden" class="id" name="id">
+                            <div class="divider mt-2 pull-left w-100 card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Status</span><span></span></div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Status :</label>
+                                        <select name="estatus" class="form-control input_style" style="font-size: 15px !important;" data-required='yes' data-validation-required-message="This field is required">
+                                            <option value="">Select Status</option>
+                                            <option value="Follow Up">Follow Up</option>
+                                            <option value="Confirmed">Confirmed</option>
+                                            <option value="Travelled">Travelled</option>
+                                            <option value="DropOut">Drop Out</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 pull-left text-center mt-1">
+                                <button type="button" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;" onclick="validate('#add_enquiry_status_modal','update_enquiry','#add_enquiry_status_modal')">Submit</button>
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade dialogbox" id="transfer_lead" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="bg-white no-shadow no-border">
+                        <input type="hidden" class="customer_id" name="customer_id">
+                        <div class="">
+                            <input type="hidden" class="id" name="id">
+                            <div class="divider mt-2 pull-left w-100 card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Transfer Lead</span><span></span></div>
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <label class="label" for="name">Staff :</label>
+                                        <select class="form-control bg-white box-shadow-1 no-border" style="padding: 0.375rem 0.75rem;" name="assigned_id" id="staff_list" data-required="yes" data-validation-required-message="Required">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 pull-left text-center mt-1">
+                                <button type="button" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;" onclick="validate('#transfer_lead','confirm_transfer','#confirm_transfer_enquiry')">Tranfer</button>
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-link me-1 no-border">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade dialogbox" id="confirm_transfer_enquiry" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Are You sure you want to transfer this lead?</h5>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-primary submits" data-bs-dismiss="modal" onclick="validate('#confirm_update_enquiry','update_transfer','#transfer_lead')">Yes</a>
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade dialogbox" id="no_itinerary" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">To confirm enquiry add atleast one itinerary</h5>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-primary submits" data-bs-dismiss="modal">OK</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade dialogbox" id="confirm_update_enquiry" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="hidden" class="customer_id" name="customer_id">
+                    <h5 class="modal-title">Are You sure you want to move this lead to confirmed itinerary?</h5>
+                </div>
+                <input name="estatus" type="hidden" value="Confirmed">
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-primary submits" data-bs-dismiss="modal" onclick="validate('#confirm_update_enquiry','update_enquiry','#confirm_update_enquiry')">Yes</a>
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    
+    <div class="modal fade dialogbox" id="delete_itinerary" data-bs-backdrop="static" tabindex="-1" role="dialog"
+        aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Are you sure?</h5>
+                </div>
+
+                <div class="modal-footer">
+                    <input type="hidden" class="id" name="id">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-primary submits" onclick="delete_enquiry()">Yes</a>
+                        <a href="#" class="btn btn-text-secondary" data-bs-dismiss="modal">No</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Ensure the field always starts at 0
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("no_of_pax").value = "0";
+        });
+    
+        function validatePax(input) {
+            let value = input.value.replace(/\D/g, ""); // Remove non-numeric characters
+            value = value === "" ? "0" : parseInt(value, 10); // Convert to integer
+            if (value > 99) value = 99; // Limit to 99
+            if (value < 0) value = 0; // Ensure minimum is 0
+            input.value = value;
+        }
+    
+        function isNumberKey(evt) {
+            let key = evt.key;
+            // Allow only numbers, backspace, delete, tab, arrow keys
+            if (!/^[0-9]$/.test(key) && 
+                !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(key)) {
+                return false;
+            }
+            return true;
+        }
+    
+        function updatePax(change) {
+            let input = document.getElementById("no_of_pax");
+            let value = parseInt(input.value, 10) || 0; // Get current value, default to 0
+            value += change; // Increase or decrease
+            if (value > 99) value = 99; // Ensure max limit
+            if (value < 0) value = 0; // Ensure min limit
+            input.value = value;
+        }
+    </script>
+
+<script>
+function validateContactForm() {
+    const number = document.getElementById("number").value.trim();
+    const altNumber = document.getElementById("alternatenumber").value.trim();
+
+    if (number.length < 10 || number.length > 12) {
+        alert("Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    if (altNumber && (altNumber.length < 10 || altNumber.length > 12)) {
+        alert("Alternate Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+    <link href="assets/css/select2.min.css" rel="stylesheet" />
+    <script src="assets/js/select2.min.js"></script>
+    <!-- Ionicons -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- Owl Carousel -->
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <!-- Ionicons -->
+    <script src="assets/js/base.js"></script>
+
+    
+
+    
+
+</body>
+<script>
+var user_email_enquiry = localStorage.getItem("user_email_enquiry");
+if (typeof user_email_enquiry == 'undefined' || user_email_enquiry == null) {
+    window.location.href = 'login.html'
+}
+if(localStorage.getItem("user_type_enquiry").trim()=='admin')
+{
+    $('#toggles').removeClass('d-none')
+    $('#user_type_customer').removeClass('d-none')
+    $('input[type=radio][name=etype]').attr('disabled',false)
+    $('input[type=radio][name=etype_customer]').attr('disabled',false)
+}    
+if(localStorage.getItem("user_type_enquiry").trim()=='domestic' || localStorage.getItem("user_type_enquiry").trim()=='international' )
+{
+    $('input[type=radio][name=etype][value='+localStorage.getItem("user_type_enquiry").trim()+']').prop('checked',true)
+    $('input[type=radio][name=etype][value='+localStorage.getItem("user_type_enquiry").trim()+']').attr('disabled',false)
+    if(localStorage.getItem("user_type_enquiry").trim()=='international')
+    {
+        $('input[type=radio][name=etype_customer][value='+localStorage.getItem("user_type_customer_enquiry").trim()+']').attr('disabled',false).prop('checked',true)
+    }
+}
+$('.supplier_name').select2()
+// if(localStorage.getItem("user_type_enquiry").trim()=='domestic')
+// {
+//     $('#user_type_customer').addClass('d-none')
+//     $('input[type=radio][name=etype_customer]').attr('disabled',false)
+// }
+var user_type_enquiry = localStorage.getItem("user_type_enquiry");
+if(localStorage.getItem("user_designation").trim()!='ex')
+{
+    get_staff_list()    
+}
+if(localStorage.getItem("user_designation").trim()!='ex')
+{
+    $('.edit_customer,.transfer-lead').removeClass('d-none')
+}
+
+
+function add_reminder() 
+{
+    $user_id = localStorage.getItem("user_id_enquiry");
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $('#reminder .submits').attr('disabled', true).html('Please Wait')
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: baseurl + 'customer_detail.php',
+        data: 'req=3&' + $("#reminder").find('select, textarea, input').serialize() + '&remindby=' + $user_id + '&customer_id=' + $id,
+        success: function (html) 
+        {
+            console.log(html)
+            show_toast("Reminder added", "success", '', "top", "success");
+            $("#reminder").find('select, textarea, input').val('');
+            $('#reminder .submits').attr('disabled', false).html('Submit')
+            $('#reminder').modal('hide')
+            get_remind()
+        }
+
+    });
+}
+get_remind();
+let mySelectedCoutries = '';      
+function get_remind() 
+{
+    $user_id = localStorage.getItem("user_id_enquiry");
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        async: true,
+        url: baseurl + 'customer_detail.php',
+        data: 'req=1' + '&remindby=' + $user_id + '&customer_id=' + $id+'&type=',
+        success: function (html) {
+            $('.timeline.reminder').html(html)
+        }
+
+    });
+}
+function add_remark(id) 
+{
+    $user_id = localStorage.getItem("user_id_enquiry");
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $(id+' .submits').attr('disabled', true).html('Please Wait')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'customer_detail.php',
+        async: true,
+        data: 'req=2&' + $(id).find('select, textarea, input').serialize() + '&remarkby=' + $user_id + '&customer_id=' + $id,
+        success: function (html) 
+        {
+            console.log(html)
+            show_toast("Feedback added", "success", '', "top", "success");
+            $("#remark").find('select, textarea, input').val('');
+            $('#remark .submits').attr('disabled', false).html('Submit')
+            $('#remark').modal('hide')
+            get_remind();
+        }
+    });
+}
+get_customer_detail();
+
+function get_customer_detail()
+{
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'customer_detail.php',
+        async: true,
+        data: 'req=5&id=' + $id,
+        success: function (html) 
+        {
+            html=html.split(',,$')
+            $('#customer_details').html(html[0])
+            $('#document_details').html(html[1])
+        }
+    }); 
+}
+
+
+function loadCities(countryIds) {
+  if (!countryIds || countryIds.length === 0) {
+    $('#cityDropdown').html('<option value="">Select City</option>');
+    return;
+  }
+
+  $.ajax({
+    url: newbaseurl + 'Enquiry/get_cities_by_countryy',
+    type: 'POST',
+    data: { country_ids: countryIds },
+    dataType: 'json',
+    success: function (cities) {
+      $('#cityDropdown').html('');
+      $.each(cities, function (_, city) {
+        $('#cityDropdown').append(
+          $('<option>').val(city.city_id).text(city.country_name) // or `city.city_name`
+        );
+      });
+
+      setTimeout(function () {
+        // alert(countryIds);
+        if(newCities != '') {
+            let selected = newCities.split(','); // → ["1", "2", "3"]
+            $('#cityDropdown').val(selected).trigger('change');
+
+            newCities = '';
+        }
+        
+        // newCities = mySelectedCities;
+        // $('#countryDropdown').val(selected_countries).trigger('change');
+    }, 3000); 
+    },
+    error: function (xhr) {
+      console.error(xhr.responseText);
+    }
+  });
+}
+
+$(document).ready(function() {
+  $('#countryDropdown').select2({
+    placeholder: "Select Country",
+    allowClear: true
+  });
+
+  $('#cityDropdown').select2({
+    placeholder: "Select City"
+  });
+
+  $('#countryDropdown').on('change', function () {
+    const selectedCountries = $(this).val(); // array
+    loadCities(selectedCountries);
+  });
+});
+
+var newCities = '';
+
+function loadCountries_new(selected_countries, mySelectedCities, type, callback) {
+    
+     $('#countryDropdown').html('<option value="">Select Country</option>');
+            if(type == 'domestic') {
+                $('#cityDropdown').html('<option value="">Select State</option>');
+                $('#my_city').html('State: ');
+            } else {
+                $('#cityDropdown').html('<option value="">Select City</option>');
+                $('#my_city').html('City: ');
+            }
+    $.ajax({
+      url: newbaseurl + 'Enquiry/get_countrieslistt',
+      type: 'GET', 
+      data: { type: type },
+      dataType: 'json',
+      success: function (countries) {
+        $.each(countries, function (_, c) {
+          $('#countryDropdown').append(
+            $('<option>').val(c.country_id).text(c.country_name)
+          );
+        });
+
+        if (typeof callback === 'function') callback();
+        // alert(selected_countries);
+        setTimeout(function () {
+            // alert(selected_countries);
+            let selected = selected_countries.split(','); // → ["1", "2", "3"]
+            $('#countryDropdown').val(selected).trigger('change');
+            newCities = mySelectedCities;
+            // $('#countryDropdown').val(selected_countries).trigger('change');
+        }, 3000); // 100ms is usually enough
+        // $('#countryDropdown').val(selected_countries).trigger('change');
+      },
+      error: function (xhr) {
+        console.error(xhr.responseText);
+      }
+    });
+  }
+
+get_agent_list()
+      
+get_customer_detail_input()
+function get_customer_detail_input()
+{
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'customer_detail.php',
+        async: true,
+        data: 'req=4&id=' + $id,
+        success: function (html) 
+        {
+            console.log(html)
+
+            obj = JSON.parse(html);
+            
+            for($i=0;$i<Object.keys(obj[0]).length;$i++)
+            {
+                if(obj[0][Object.keys(obj[0])[$i]]=='0000-00-00')
+                {
+                    $('#add_customer_modal input[name='+Object.keys(obj[0])[$i]+']').val('');
+                    $('#add_document_modal input[name='+Object.keys(obj[0])[$i]+']').val('');
+                }
+                else
+                {
+                    
+                    if(Object.keys(obj[0])[$i]=='edays')
+                    {
+                        console.log(obj[0][Object.keys(obj[0])[$i]])
+                        get_days(obj[0][Object.keys(obj[0])[$i]])
+                    }
+                    else if(Object.keys(obj[0])[$i]=='estatus')
+                    {
+                        $('#add_enquiry_status_modal select[name=estatus]').val(obj[0][Object.keys(obj[0])[$i]])
+                    }
+                    else if(Object.keys(obj[0])[$i]=='etype')
+                    {
+                        if(obj[0][Object.keys(obj[0])[$i]]!='')
+                        {
+                            $('#add_customer_modal input[name='+Object.keys(obj[0])[$i]+'][value='+obj[0][Object.keys(obj[0])[$i]]+']').prop('checked',true)    
+                            $('#add_customer_modal input[name=etype]').attr('disabled',true)   
+                            $('#add_customer_modal input[name=etype]').siblings('label').attr('disabled',true)    
+                        }
+                    }
+                    else if(Object.keys(obj[0])[$i]=='etype_customer')
+                    {
+                        if(obj[0][Object.keys(obj[0])[$i]]!='')
+                        {
+                            $('#add_customer_modal input[name='+Object.keys(obj[0])[$i]+'][value='+obj[0][Object.keys(obj[0])[$i]]+']').prop('checked',true)
+                            $('#add_customer_modal input[name=etype_customer]').attr('disabled',true) 
+                            $('#add_customer_modal input[name=etype_customer]').siblings('label').attr('disabled',true) 
+                            if(obj[0][Object.keys(obj[0])[$i]]=='B2C')
+                            {
+                                removeClas('#add_customer_modal .corporate','hidden');
+                                addClas('#add_customer_modal .agent','hidden')
+                            }   
+                            else
+                            {
+                                removeClas('#add_customer_modal .agent','hidden');
+                                addClas('#add_customer_modal .corporate','hidden')
+                            }
+                        }
+                    }
+                    else if(Object.keys(obj[0])[$i]=='agent_id')
+                    {
+                        if(obj[0][Object.keys(obj[0])[$i]]>0)
+                        {
+                            get_agent_list(obj[0][Object.keys(obj[0])[$i]])
+                            removeClas('#add_customer_modal .agent','hidden');
+                            addClas('#add_customer_modal .corporate','hidden')
+                        }
+                    }
+                    else
+                    {
+                        $('#add_customer_modal input[name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])            
+                        $('#add_document_modal input[name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])            
+                    }
+                }
+            }
+            // loadCities(obj[0]['ecountry_id'])
+
+            // $('#countryDropdown').val(obj[0]['ecountry_id'])
+            // setTimeout(function() {
+            // $('#cityDropdown').val(obj[0]['ecity_id']);
+            // }, 500 )
+
+            mySelectedCities = obj[0]['ecity_id'];
+            loadCountries_new(obj[0]['ecountry_id'], mySelectedCities, obj[0]['type']);
+            
+            loadCities(obj[0]['ecountry_id'], function () {
+                alert('2: '+obj[0]['ecountry_id']);
+        //    $('#cityDropdown').val(obj[0]['ecity_id']);
+        });
+        }
+    }); 
+}
+function add_document()
+{
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    console.log(baseurl + 'customer.php?req=5&'+$("#add_document_modal").find('select, textarea, input').serialize()+'&id=' + $id)
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'customer.php',
+        async: true,
+        data: 'req=5&'+$("#add_document_modal").find('select, textarea, input').serialize()+'&id=' + $id,
+        success: function (html) 
+        {
+            console.log(html)
+            show_toast("Document Updated", "success", '', "top", "success");
+            $("#add_document_modal").modal('hide')
+            get_customer_detail()
+        }
+    }); 
+}
+
+get_customer_visa();
+function get_customer_visa()
+{
+    let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'visa.php',
+        async: true,
+        data: 'req=2&id=' + $id,
+        success: function (html) 
+        {
+            html=html.split(',,$')
+            $('#visa_details').html(html[0])            
+            $('.visa_data').html(html[1])            
+        }
+    }); 
+}
+function get_visa_detail_input(id)
+{
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'visa.php',
+        async: true,
+        data: 'req=3&id=' + id,
+        success: function (html) 
+        {
+            console.log(html)
+            obj = JSON.parse(html);
+            for($i=0;$i<Object.keys(obj[0]).length;$i++)
+            {
+                if(obj[0][Object.keys(obj[0])[$i]]=='0000-00-00')
+                {
+                    $('#add_visa_modal input[name='+Object.keys(obj[0])[$i]+']').val('');
+                }
+                else
+                {
+                    $('#add_visa_modal input[name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])            
+                }
+            }
+        }
+    }); 
+}
+function add_visa()
+{
+    let searchParams = new URLSearchParams(window.location.search)
+    customer_id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'visa.php',
+        async: true,
+        data: 'req=1&'+$("#add_visa_modal").find('select, textarea, input').serialize()+'&customer_id=' + customer_id+'&assigned_id='+localStorage.getItem("user_id_enquiry"),
+        success: function (html) 
+        {
+            if($("#add_visa_modal input[name=id]").val()=='')
+            {
+                show_toast("Visa Added", "success", '', "top", "success");
+            }
+            else
+            {
+                show_toast("Visa Updated", "success", '', "top", "success");
+            }
+            
+            $("#add_visa_modal").modal('hide')
+            get_customer_visa();
+        }
+    }); 
+}
+get_customer_itinerary();
+function get_customer_itinerary()
+
+{
+    let searchParams = new URLSearchParams(window.location.search)
+ 
+    $id = searchParams.get('id')
+
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'itinerary.php',
+        async: true,
+        data: 'req=1&customer_id=' + $id,
+        
+        success: function (html) 
+        {
+            html=html.split(',,$')
+            $('.itinerary_data').html(html[0])            
+            $('#enquiry_details').html(html[1])
+            $('#enquiry_number').html(html[2])
+            if(localStorage.getItem("user_designation").trim()!='ex')
+            {
+                $('.edit_customer,.transfer-lead').removeClass('d-none')
+            }
+        }
+        
+    }); 
+        //   alert($id);
+}
+function get_enquiry_detail_input(id)
+{
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'itinerary.php',
+        async: true,
+        data: 'req=2&id=' + id,
+        success: function (html) 
+        {
+            console.log(html)
+            obj = JSON.parse(html);
+            for($i=0;$i<Object.keys(obj[0]).length;$i++)
+            {
+                if(obj[0][Object.keys(obj[0])[$i]]=='0000-00-00')
+                {
+                    $('#add_enquiry_modal input[name=e'+Object.keys(obj[0])[$i]+']').val('');
+                }
+                else
+                {
+                    if(Object.keys(obj[0])[$i]=='id' || Object.keys(obj[0])[$i]=='customer_id')
+                    {
+                        $('#add_enquiry_modal input[name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])            
+                    }
+                    else if($('#add_enquiry_modal input[name=e'+Object.keys(obj[0])[$i]+']').attr('type')=='radio')
+                    {
+                        $('#add_enquiry_modal input[name=e'+Object.keys(obj[0])[$i]+'][value='+obj[0][Object.keys(obj[0])[$i]]+']').prop('checked',true);
+                    }
+                    else if(Object.keys(obj[0])[$i]=='status')
+                    {
+                        $('#add_enquiry_modal select[name=e'+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]]);
+                    }
+                    else
+                    {
+                        $('#add_enquiry_modal input[name=e'+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])            
+                    }
+                }
+            }
+        }
+    }); 
+    
+}
+function delete_enquiry()
+{
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'itinerary.php',
+        async: true,
+        data: 'req=3&'+$("#delete_itinerary").find('select, textarea, input').serialize(),
+        success: function (html) 
+        {
+            show_toast("Enquiry Deleted Successfully", "success", '', "top", "success");
+            $("#delete_itinerary").modal('hide')
+            get_customer_itinerary();     
+        }
+    }); 
+}
+
+
+function get_itinerary_detail_input(id)
+{
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'itinerary.php',
+        async: true,
+        data: 'req=4&id=' + id,
+        success: function (html) 
+        {
+            console.log(html)
+            obj = JSON.parse(html);
+            for($i=0;$i<Object.keys(obj[0]).length;$i++)
+            {
+                if(Object.keys(obj[0])[$i]=='product')
+                {
+                    $('#add_itinerary_modal select[name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]]);
+                }
+                else if(obj[0][Object.keys(obj[0])[$i]]=='0000-00-00')
+                {
+                    $('#add_itinerary_modal input[name='+Object.keys(obj[0])[$i]+']').val('');
+                }
+                else
+                {
+                    if($('#add_itinerary_modal input[name=e'+Object.keys(obj[0])[$i]+']').attr('type')=='radio')
+                    {
+                        $('#add_itinerary_modal input[name='+Object.keys(obj[0])[$i]+'][value='+obj[0][Object.keys(obj[0])[$i]]+']').prop('checked',true);
+                    }
+                    else
+                    {
+                        $('#add_itinerary_modal input[name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]])            
+                    }
+                    if(Object.keys(obj[0])[$i]=='day')
+                    {
+                        $('#add_itinerary_modal select[name='+Object.keys(obj[0])[$i]+']').val(obj[0][Object.keys(obj[0])[$i]]);
+                    }
+                }
+            }
+          
+        }
+    }); 
+}
+
+
+function add_itinerary()
+{
+    let searchParams = new URLSearchParams(window.location.search)
+    customer_id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'itinerary.php',
+        async: true,
+        data: 'req=5&'+$("#add_itinerary_modal").find('select, textarea, input').serialize()+'&customer_id=' + customer_id+'&added_by_id='+localStorage.getItem("user_id_enquiry"),
+        success: function (html) 
+        {
+            if(html.trim()=='ok')
+            {
+                if($("#add_itinerary_modal input[name=id]").val()=='')
+                {
+                    show_toast("Itinerary Added", "success", '', "top", "success");
+                }
+                else
+                {
+                    show_toast("Itinerary Updated", "success", '', "top", "success");
+                }
+                $("#add_itinerary_modal").modal('hide')
+                get_customer_itinerary();     
+            }
+            else
+            {
+                show_toast(html, "success", '', "top", "danger");
+            }
+            get_customer_enquiry()
+            get_suppliers()
+        }
+    }); 
+}
+
+function get_days(days)
+{
+    days=parseInt(days)
+    for(a=1;a<=days;a++)
+    {
+        $('#add_itinerary_modal select[name=day]').append('<option value="'+a+'">Day '+a+'</option>');        
+    }   
+}
+let searchParams = new URLSearchParams(window.location.search)
+customer_id = searchParams.get('id')
+    
+set_id(customer_id,'#add_enquiry_modal .customer_id')
+set_id(customer_id,'#add_enquiry_status_modal .customer_id')
+set_id(customer_id,'#confirm_update_enquiry .customer_id')
+set_id(customer_id,'#transfer_lead .customer_id')
+set_id(customer_id,'#add_itinerary_modal .enquiry_id')
+function update_enquiry(id)
+{
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'customer.php',
+        data: $(id).find('select, textarea, input').serialize() + '&req=9&assigned_id='+localStorage.getItem("user_id_enquiry"),
+        async: false,
+        success: function(html) 
+        {
+            console.log(html)
+            if(html.trim()=='no itinerary')
+            {
+                $('#no_itinerary').modal('show')        
+            }
+            else
+            {
+                show_toast('Enquiry Status Updated', "success", '', "top", "success");
+                get_customer_itinerary()
+            }
+            $(id).modal('hide')
+        }
+    });
+}
+function confirm_transfer(id)
+{
+    $(id).modal('show')
+}
+set_datetime()
+setInterval(function(){
+    set_datetime()
+},1000)
+function set_datetime()
+{
+    date=new Date();
+    var day = date.getDate();
+    var month = ("0" + (date.getMonth() + 1)).slice(-2);
+    var year = date.getFullYear();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime =day+'-'+month+'-'+year+'  '+ hours + ':' + minutes + ' ' + ampm;
+    //$('#feedbacktime').val(strTime)
+}
+function update_transfer(id)
+{
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'customer.php',
+        data: $(id).find('select, textarea, input').serialize() + '&req=10',
+        async: false,
+        success: function(html) 
+        {
+            console.log(html)
+            $(id).modal('hide')
+            show_toast('Lead Transferred successfully', "success", '', "top", "success");
+            get_customer_itinerary()
+        }
+    });
+}
+$('#remind_time').val('')
+$('.upper_div').css('max-height',$(window).height()-$('.three_box').height())
+function show_reminder(id)
+{
+    if($(id+':checked').length>0)
+    {
+        $('.reminder_time').removeClass('hidden')
+    }
+    else
+    {
+        $('.reminder_time').addClass('hidden')
+        $('#remind_time').val('')
+    }
+}
+get_customer_enquiry();
+function get_customer_enquiry()
+{
+  	let searchParams = new URLSearchParams(window.location.search)
+    $id = searchParams.get('id')
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'itinerary.php',
+        async: true,
+        data: 'req=10&customer_id=' + $id,
+        success: function (html) 
+        {
+	  		set_id(html,'#add_itinerary_modal .enquiry_id')                                                         
+        }
+    });
+}
+get_suppliers()
+function get_suppliers()
+{
+    $.ajax({
+        type: "POST",
+        url: newbaseurl + 'Agent/get_suppliers',
+        async: true,
+        data: 'req=10&customer_id=' + $id,
+        success: function (html) 
+        {
+	  		html=JSON.parse(html)
+            option="<option>Select Supplier</option>"
+            $.each(html, function (k, v) 
+            {
+                option+='<option value="'+v['supplier_name'].trim()+'">'+v['supplier_name'].trim()+'</option>'
+            })
+            $('#add_itinerary_modal #supplier_name').html(option)
+        }
+    });
+}
+
+</script>
+
+<!-- 
+<script>
+$(document).on("click", ".delete-itinerary", function () {
+    let id = $(this).data("id");
+    console.log("Deleting Itinerary ID:", id); // Check if ID is captured
+    if (id) {
+        delete_itinerary(id);
+    } else {
+        show_toast("Itinerary ID is missing!", "error", '', "top", "danger");
+    }
+});
+
+
+function delete_itinerary(id) {
+    if (!confirm("Are you sure you want to delete this itinerary?")) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: baseurl + 'itinerary.php',
+        async: true,
+        data: { req: 3, id: id },
+        success: function (response) {
+    console.log("Server Response:", response); // Check what the server is returning
+    if (response.trim() === 'ok') {
+        show_toast("Itinerary Deleted Successfully", "success", '', "top", "success");
+        get_customer_itinerary(); // Refresh itinerary list
+    } else {
+        show_toast("Failed to delete itinerary: " + response, "error", '', "top", "danger");
+    }
+}
+      
+    });
+}
+</script> -->
+
+<script>
+    $(document).ready(function () {
+        $(document).off("click", ".delete-itinerary").on("click", ".delete-itinerary", function () {
+            let id = $(this).data("id");
+            console.log("Deleting Itinerary ID:", id); // Debugging
+    
+            if (id) {
+                delete_itinerary(id);
+            } else {
+                show_toast("Itinerary ID is missing!", "error", '', "top", "danger");
+            }
+        });
+    });
+   
+    function delete_itinerary(id) {
+    if (!confirm("Are you sure you want to delete this itinerary?")) {
+        alert(id)
+    }
+    // alert("Itinerary ID: " + id);
+   
+
+    
+        
+        // $.ajax({
+            
+        //     type: "POST",
+        //     url: baseurl + 'itinerary.php',
+        //     async: true,
+
+        //     data: { req: 3, id: id },
+        //     success: function (response) {
+        //         console.log("Server Response:", response); // Debugging
+        //         if ($.trim(response) === 'ok') {
+        //             show_toast("Itinerary Deleted Successfully", "success", '', "top", "success");
+        //             get_customer_itinerary(); 
+
+        //         } else {
+        //             show_toast("Failed to delete itinerary: " + response, "error", '', "top", "danger");
+        //         }
+        //     }
+        // });
+
+        $.ajax({
+    type: "POST",
+    url: baseurl + 'itinerary.php',
+    async: true,
+    data: { req: 11, id: id },
+    beforeSend: function () {
+        console.log("Deleting Itinerary ID:", id); // Print ID before sending request
+    },
+    success: function (response) {
+        console.log("Server Response:", response); // Print server response
+        if ($.trim(response) === 'ok') {
+            show_toast("Itinerary Deleted Successfully", "success", '', "top", "success");
+            get_customer_itinerary();
+        } else {
+            show_toast("Failed to delete itinerary: " + response, "error", '', "top", "danger");
+        }
+    },
+    error: function (xhr, status, error) {
+        console.error("AJAX Error:", error);
+        alert("Error deleting itinerary. Please try again.");
+    }
+});
+
+    }
+    </script>
+
+
+<script>
+      document.querySelectorAll("input[type='number']").forEach(input => {
+    input.addEventListener("input", function () {
+        let value = parseInt(this.value) || 0;
+        let max = parseInt(this.getAttribute("max")) || 99;
+        let min = parseInt(this.getAttribute("min")) || 0;
+
+        // Enforce min and max limits
+        if (value > max) {
+            this.value = max; // Set to max if above
+        } else if (value < min) {
+            this.value = min; // Set to min if below
+        }
+
+        // Enforce the 2-digit length (i.e., the value shouldn't exceed 99)
+        if (this.value.length > 2) {
+            this.value = this.value.slice(0, 2);
+        }
+    });
+});
+
+</script>
+
+
+<!-- Include jQuery and jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
+
+<!-- <script>
+$(document).ready(function () {
+    $(".datepickernomax").datepicker({
+        changeMonth: true, // Enable month selection
+        changeYear: true,  // Enable year selection
+        dateFormat: "yy-mm-dd", // Keep your preferred format
+        minDate: new Date(2022, 0, 1), // Restrict start date
+        maxDate: new Date(2025, 11, 31), // Restrict end date
+        yearRange: "2022:2025", // Show only required years
+        beforeShow: function (input, inst) {
+            setTimeout(function () {
+                let yearSelect = $(inst.dpDiv).find('.ui-datepicker-year');
+                if (yearSelect.length) {
+                    let allowedYears = [2022, 2023, 2024, 2025];
+                    yearSelect.find("option").each(function () {
+                        if (!allowedYears.includes(parseInt($(this).val()))) {
+                            $(this).remove(); // Remove unwanted years
+                        }
+                    });
+                }
+            }, 10);
+        }
+    });
+});
+</script> -->
+
+<script>
+    $(document).ready(function () {
+        $(".datepickernomax").datepicker({
+            changeMonth: true, // Enable month selection
+            changeYear: true,  // Enable year selection
+            dateFormat: "yy-mm-dd", // Keep your preferred format
+            minDate: new Date(2022, 0, 1), // Restrict start date
+            maxDate: new Date(2025, 11, 31), // Restrict end date
+            yearRange: "2022:2025", // Show only required years
+    
+            beforeShow: function (input, inst) {
+                setTimeout(function () {
+                    let yearSelect = $(inst.dpDiv).find('.ui-datepicker-year');
+                    if (yearSelect.length) {
+                        let allowedYears = [2022, 2023, 2024, 2025];
+                        yearSelect.find("option").each(function () {
+                            if (!allowedYears.includes(parseInt($(this).val()))) {
+                                $(this).remove(); // Remove unwanted years
+                            }
+                        });
+                    }
+                }, 10);
+            },
+    
+            // Automatically select June if 2022 is chosen
+            onChangeMonthYear: function (year, month, inst) {
+                if (year == 2022 && month < 6) { 
+                    
+                    $(this).datepicker("setDate", new Date(2022, 5, 1)); 
+                }
+            }
+        });
+    });
+    </script>
+    
+    <script>
+        
+// function loadCities(countryId, callback) {
+//     $('#cityDropdown').html('<option value="">Select City</option>');
+//     if (!countryId) return;
+
+//     $.ajax({
+//       url: newbaseurl + 'Enquiry/get_cities_by_countryy',
+//       type: 'POST',
+//       data: { country_id: countryId },
+//       dataType: 'json',
+//       success: function(cities) {
+//         $.each(cities, function(_, r) {
+//           $('#cityDropdown').append(
+//             $('<option>').val(r.city_id).text(r.country_name)
+//           );
+//         });
+
+//         if (typeof callback === 'function') callback();
+//       },
+//       error: function(xhr) { console.error(xhr.responseText); }
+//     });
+//   }
+  
+
+ $(function () {
+ 
+  function loadCountries(type, callback) {
+
+
+     $('#countryDropdown').html('<option value="">Select Country</option>');
+            if(type == 'domestic') {
+                $('#cityDropdown').html('<option value="">Select State</option>');
+                $('#my_city').html('State: ');
+            } else {
+                $('#cityDropdown').html('<option value="">Select City</option>');
+                $('#my_city').html('City: ');
+            }
+    $.ajax({
+      url: newbaseurl + 'Enquiry/get_countrieslistt',
+      type: 'GET', 
+      data: { type: type },
+      dataType: 'json',
+      success: function (countries) {
+        $.each(countries, function (_, c) {
+          $('#countryDropdown').append(
+            $('<option>').val(c.country_id).text(c.country_name)
+          );
+        });
+
+        if (typeof callback === 'function') callback();
+      },
+      error: function (xhr) {
+        console.error(xhr.responseText);
+      }
+    });
+  }
+
+  
+
+
+
+$(document).ready(function () {
+    $('#cityDropdown').select2({
+        placeholder: "Select City"
+    });
+});
+
+// $('#countryDropdown').on('change', function () {
+//     // alert('called')
+//     const countryId = $(this).val();
+//     loadCities(countryId);
+// });
+// $('#countryDropdown').on('change', function () {
+//   const selectedCountries = $(this).val(); // this is an array for multiple select
+//   loadCities(selectedCountries);
+// });
+
+  const selectedValue = $('input[name="etype"]:checked').val();
+
+if (selectedValue === 'domestic') {
+    $('#my_city').text('State:'); // label
+    $('#cityDropdown').html('<option value="">Select State</option>'); // placeholder
+} else {
+    $('#my_city').text('City:'); 
+    $('#cityDropdown').html('<option value="">Select City</option>');
+}
+
+
+  setTimeout(function () {
+
+    
+  const selectedType = $('input[name="etype"]:checked').val();
+  const selectedCountry = $('#countryDropdown').data('selected');
+  const selectedCity = $('#cityDropdown').data('selected');
+   var selectedValue = $('input[name="etype"]:checked').val();
+
+    if(selectedValue == 'domestic') {
+        $('#cityDropdown').html('<option value="">Select State</option>');
+    } else {
+        $('#cityDropdown').html('<option value="">Select City</option>');
+    }
+
+  if (selectedType) {
+
+    loadCountries(selectedType, function () {
+    //   if (selectedCountry) {
+    //     $('#countryDropdown').val(selectedCountry);
+    //     alert('3: '+selectedCountry);
+    //     loadCities(selectedCountry, function () {
+            
+    //       if (selectedCity) {
+    //         $('#cityDropdown').val(selectedCity);
+    //       }
+    //     });
+    //   }
+    });
+  }
+}, 3000); 
+
+
+
+
+$(document).on('change', 'input[name="etype"]', function () {
+  const selectedType = $('input[name="etype"]:checked').val(); // <-- always get the latest selected
+  loadCountries(selectedType);
+  console.log('Selected Type:', selectedType);
+});
+
+});
+
+
+
+
+
+
+
+      </script>
+
+
+
+
+<style>
+    .form-control {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #283477;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* border-radius: 7px; */
+    border-radius: 0.50rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 2px solid #3f4a85 !important;
+    border-radius: 7px !important;
+    cursor: text;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    position: relative;
+}
+.select2-container .select2-selection--multiple {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    min-height: 38px !important;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 36px !important;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="assets/js/daterangepicker.js"></script>
+
+<!-- Include Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    // Initialize Select2
+    $('#cityDropdown').select2({
+        placeholder: "Select City"
+    });
+
+    
+    let selectedCities = $('#cityDropdown').data('selected');
+    if (typeof selectedCities === 'string') {
+        selectedCities = JSON.parse(selectedCities);
+    }
+// alert(selectedCities);
+    // Populate options and mark selected
+    // cityList.forEach(function (city) {
+    //     const isSelected = selectedCities.includes(city_id);
+    //     const newOption = new Option(city.text, city_id, isSelected, isSelected);
+    //     $('#cityDropdown').append(newOption);
+    // });
+
+    // Refresh Select2 to show selected values
+    // $('#cityDropdown').trigger('change');
+    // $('#cityDropdown').val([city_id]).trigger('change');
+});
+</script>
+</html>

@@ -1,0 +1,2806 @@
+<html class="hydrated">
+  <meta charset="UTF-8">
+<head>
+    <style data-styles="">
+        ion-icon {
+            visibility: hidden
+        }
+        
+        .hydrated {
+            visibility: inherit
+        }
+
+        .custom-checkbox {
+      width: 20px;
+      height: 20px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid #ccc;
+      background-color: white;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .custom-checkbox:checked {
+      background-color: red;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M6.173 12.727L1.646 8.2a.9.9 0 0 1 1.273-1.272l3.254 3.254 6.909-6.909a.9.9 0 1 1 1.273 1.273L6.173 12.727z"/></svg>');
+      background-size: 14px 14px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js" data-stencil-namespace="ionicons"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js" data-stencil-namespace="ionicons"></script>
+</head>
+<body>
+    <div id="loader" class="hidden">
+        Please do not reload page untill data gets added
+    </div>
+    
+   
+        <div class="dashboard-container">
+            <!-- Top Menu Bar -->
+            <div class="topbar">
+              <div class="col-12 d-flex justify-content-between align-items-center pull-left p-0">
+                    <div  onclick="javascript:window.location.href='index.html'" class="col-2 pull-left text-left"><img src="assets/logo.png" style="height: 67px;"></div>
+                    <div class="col-8 pull-right p-0" id="menu">
+                        <div class="w-100 pull-left text-center p-0 d-flex justify-content-end align-items-center">                                
+                            <div onclick="javascript:window.location.href='index.html'" class="pull-left text-center text-black">
+                                <i style="color: #283477;"><svg width="25px"  style="display: inline;" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M336 64h32a48 48 0 0148 48v320a48 48 0 01-48 48H144a48 48 0 01-48-48V112a48 48 0 0148-48h32" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><rect x="176" y="32" width="160" height="64" rx="26.13" ry="26.13" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg></i>
+                                <div class="">
+                                    Followup
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='missing_reminder.html'" class="pull-left text-center text-black me-0" style="cursor: pointer;">
+                                <!-- <svg width="25px"   style="display: inline;" style="color:#384381;fill:#384381" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" x="48" y="80" width="416" height="384" rx="48"/><circle cx="296" cy="232" r="24"/><circle cx="376" cy="232" r="24"/><circle cx="296" cy="312" r="24"/><circle cx="376" cy="312" r="24"/><circle cx="136" cy="312" r="24"/><circle cx="216" cy="312" r="24"/><circle cx="136" cy="392" r="24"/><circle cx="216" cy="392" r="24"/><circle cx="296" cy="392" r="24"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" stroke-linecap="round" d="M128 48v32M384 48v32"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M464 160H48"/></svg> -->
+                                 <svg width="25px" style="color:#384381;fill:#384381; display: inline;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" x="48" y="80" width="416" height="384" rx="48"></rect><circle cx="296" cy="232" r="24"></circle><circle cx="376" cy="232" r="24"></circle><circle cx="296" cy="312" r="24"></circle><circle cx="376" cy="312" r="24"></circle><circle cx="136" cy="312" r="24"></circle><circle cx="216" cy="312" r="24"></circle><circle cx="136" cy="392" r="24"></circle><circle cx="216" cy="392" r="24"></circle><circle cx="296" cy="392" r="24"></circle><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" stroke-linecap="round" d="M128 48v32M384 48v32"></path><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M464 160H48"></path></svg>
+                                <div class="">
+                                    Missing Rem.
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='confirmed.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <svg fill="#283477"   style="display: inline;" width="25px" enable-background="new 0 0 64 64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="m43 23c-.718 0-1.425.042-2.124.116.074-.702.124-1.408.124-2.116 0-11.028-8.972-20-20-20s-20 8.972-20 20 8.972 20 20 20c.708 0 1.414-.049 2.116-.123-.074.698-.116 1.406-.116 2.123 0 11.028 8.972 20 20 20s20-8.972 20-20-8.972-20-20-20zm-22 16c-9.925 0-18-8.075-18-18s8.075-18 18-18 18 8.075 18 18c0 .821-.072 1.639-.182 2.447-.722.154-1.426.355-2.117.585.191-.995.299-2.008.299-3.032 0-8.822-7.178-16-16-16s-16 7.178-16 16 7.178 16 16 16c1.024 0 2.036-.108 3.032-.299-.23.691-.43 1.395-.585 2.116-.809.11-1.626.183-2.447.183zm3.959-4.575c-1.281.377-2.61.575-3.959.575-3.891 0-7.413-1.598-9.952-4.168.182-1.243 1.103-2.246 2.358-2.5l3.693-.749c.23-.066.448-.158.659-.261l3.242 4.352 3.249-4.361c.231.114.471.216.729.289l3.616.73c.219.044.426.119.627.209-1.758 1.676-3.204 3.668-4.262 5.884zm-8.959-13.425c-.551 0-1-.449-1-1s.449-1 1-1zm.78-4h-.78c-.263 0-.514.045-.757.109-.154-.468-.243-.957-.243-1.452 0-2.568 2.089-4.657 4.657-4.657h2.687c2.567 0 4.656 2.089 4.656 4.657 0 .495-.089.984-.243 1.452-.243-.064-.494-.109-.757-.109h-1-1.764c-1.308 0-2.618-.309-3.789-.895l-.211-.105h-.236c-.883 0-1.67.391-2.22 1zm9.22 2c.551 0 1 .449 1 1s-.449 1-1 1zm-2 2c0 1.654-1.346 3-3 3s-3-1.346-3-3v-2c0-.486.349-.893.809-.982 1.38.643 2.905.982 4.427.982h.764zm-4.539 4.732c.488.16.999.268 1.539.268.541 0 1.052-.108 1.54-.268.056.097.116.192.181.284l-1.721 2.31-1.72-2.308c.064-.093.124-.188.181-.286zm11.37 1.432c-.552-.382-1.173-.658-1.842-.792l-3.54-.712c-.502-.143-.914-.479-1.17-.917.548-.481.999-1.067 1.296-1.743h.425c1.654 0 3-1.346 3-3 0-.64-.205-1.23-.547-1.718.355-.827.547-1.721.547-2.625 0-3.671-2.986-6.657-6.657-6.657h-2.687c-3.67 0-6.656 2.986-6.656 6.657 0 .905.192 1.798.547 2.626-.342.487-.547 1.077-.547 1.717 0 1.654 1.346 3 3 3h.424c.297.677.749 1.263 1.297 1.744-.252.436-.648.768-1.095.897l-3.616.73c-1.553.313-2.792 1.319-3.461 2.658-1.6-2.276-2.549-5.041-2.549-8.029 0-7.72 6.28-14 14-14s14 6.28 14 14c0 1.351-.201 2.68-.578 3.961-1.278.61-2.479 1.348-3.591 2.203zm12.169 33.836c-9.925 0-18-8.075-18-18s8.075-18 18-18 18 8.075 18 18-8.075 18-18 18z"/><path d="m57.562 27.223 1.967-.364c-.132-.709-.293-1.422-.479-2.118l-1.932.518c.173.645.322 1.306.444 1.964z"/><path d="m42 10c.866 0 1.641-.374 2.19-.964 5.708 3.041 10.178 8.204 12.331 14.297l1.886-.666c-2.337-6.614-7.21-12.21-13.426-15.473.004-.065.019-.128.019-.194 0-1.654-1.346-3-3-3s-3 1.346-3 3 1.346 3 3 3zm0-4c.551 0 1 .449 1 1s-.449 1-1 1-1-.449-1-1 .449-1 1-1z"/><path d="m6.438 36.777-1.967.364c.132.709.293 1.422.479 2.118l1.932-.518c-.173-.645-.322-1.306-.444-1.964z"/><path d="m22 54c-.866 0-1.641.374-2.19.964-5.707-3.041-10.177-8.204-12.331-14.297l-1.886.666c2.337 6.614 7.21 12.21 13.426 15.473-.004.065-.019.128-.019.194 0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3zm0 4c-.551 0-1-.449-1-1s.449-1 1-1 1 .449 1 1-.449 1-1 1z"/><path d="m54.829 34.172c-.001 0-.001 0 0 0-.941-.941-2.241-1.343-3.567-1.105-.786.142-1.535.551-2.167 1.183l-11.095 11.093-3.095-3.096c-.633-.631-1.382-1.04-2.166-1.181-1.327-.24-2.626.163-3.567 1.104s-1.344 2.241-1.105 3.567c.142.786.551 1.535 1.183 2.167l5.922 5.923c.755.757 1.759 1.173 2.828 1.173s2.073-.416 2.828-1.172l13.923-13.923c.632-.632 1.041-1.381 1.183-2.167.238-1.325-.164-2.625-1.105-3.566zm-.864 3.212c-.087.483-.39.869-.628 1.107l-13.923 13.923c-.755.756-2.072.756-2.828 0l-5.923-5.923c-.238-.239-.541-.625-.628-1.108-.121-.671.08-1.326.552-1.797.38-.381.882-.586 1.415-.586.125 0 .253.011.382.034.482.087.869.39 1.107.628l4.509 4.509 12.509-12.508c.239-.238.625-.541 1.108-.628.671-.121 1.326.08 1.797.551.471.471.672 1.126.551 1.798z"/></svg>
+                                <div class="">
+                                    Confirmed
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='travelled.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <svg fill="#283477"  width="25px"   style="display: inline;" enable-background="new 0 0 392.362 392.362" version="1.1" viewBox="0 0 392.36 392.36" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m74.832 334.42c-0.125-0.112-0.254-0.219-0.388-0.321-4-3.32-8-6.88-11.68-10.56-2.338-2.313-6.102-2.313-8.44 0-2.34 2.343-2.34 6.137 0 8.48 4 4 8 7.72 12.48 11.32 2.463 2.217 6.257 2.017 8.474-0.446 2.216-2.463 2.017-6.256-0.446-8.473z"/>		<path d="m12.038 156.53c-3.128-1.093-6.55 0.558-7.643 3.686-0.162 0.464-0.267 0.947-0.311 1.436-1.2 5.48-2.12 11.04-2.8 16.6-0.428 3.252 1.834 6.245 5.08 6.72h0.76c3.037 2e-3 5.596-2.265 5.96-5.28 0.64-5.2 1.52-10.44 2.64-15.52 1.093-3.128-0.558-6.55-3.686-7.642z"/>		<path d="m45.004 302.62c-3.08-4.24-6-8.64-8.68-13.12-1.694-2.848-5.376-3.784-8.224-2.09-5e-3 3e-3 -0.011 6e-3 -0.016 0.01-2.848 1.694-3.784 5.376-2.09 8.224 3e-3 5e-3 6e-3 0.011 0.01 0.016 2.88 4.8 6 9.52 9.32 14.04 2.047 2.606 5.819 3.058 8.425 1.011 2.479-1.948 3.028-5.483 1.255-8.091z"/>		<path d="m24.084 264.78c-1.92-4.84-3.68-9.84-5.16-14.88-0.923-3.182-4.252-5.014-7.434-4.091-0.056 0.016-0.111 0.033-0.166 0.051-3.149 0.962-4.934 4.283-4 7.44 1.6 5.36 3.44 10.72 5.52 16 1.248 3.104 4.776 4.608 7.88 3.36s4.608-4.776 3.36-7.88z"/>		<path d="m27.664 115.4c-2.96-1.491-6.569-0.3-8.06 2.66-2.52 5-4.84 10.16-6.88 15.4-1.203 3.07 0.298 6.536 3.36 7.76 3.081 1.22 6.568-0.288 7.788-3.369 4e-3 -0.01 8e-3 -0.021 0.012-0.031 1.92-4.88 4-9.72 6.44-14.36 1.491-2.96 0.3-6.568-2.66-8.06z"/>		<path d="m13.286 223.03c-1e-3 -5e-3 -1e-3 -0.011-2e-3 -0.016-0.64-5.2-1.08-10.48-1.28-15.68-0.121-3.314-2.906-5.901-6.22-5.78s-5.901 2.906-5.78 6.22c0 5.6 0.64 11.24 1.36 16.8 0.41 2.908 2.865 5.091 5.8 5.16h0.92c3.288-0.415 5.617-3.417 5.202-6.704z"/>		<path d="m172.46 22.876c-0.32-3.314-3.266-5.74-6.58-5.42-5.56 0.56-11.16 1.36-16.68 2.44-3.314 0.309-5.749 3.246-5.44 6.56s3.246 5.749 6.56 5.44l-0.04-0.16h1.16c5.16-1 10.4-1.76 15.6-2.28 3.314-0.32 5.74-3.266 5.42-6.58z"/>		<path d="m53.724 79.096c-2.496-2.209-6.311-1.976-8.52 0.52-3.68 4.2-7.2 8.64-10.48 13.2-1.944 2.683-1.345 6.435 1.339 8.379 1.019 0.738 2.243 1.137 3.501 1.141v0.08c1.931 7e-3 3.747-0.916 4.88-2.48 3.08-4.24 6.36-8.4 9.8-12.32 2.209-2.496 1.976-6.31-0.52-8.52z"/>		<path d="m212 18.456c-5.52-0.84-11.16-1.44-16.76-1.76-3.314-0.199-6.161 2.326-6.36 5.64s2.326 6.161 5.64 6.36c5.28 0.4 10.52 0.96 15.68 1.76h0.92c3.314 0.243 6.197-2.246 6.44-5.56 0.243-3.313-2.246-6.197-5.56-6.44z"/>		<path d="m87.799 50.507c-1.877-2.549-5.411-3.202-8.075-1.491-4.6 3.16-9.12 6.6-13.44 10.16-2.552 2.121-2.901 5.908-0.78 8.46s5.908 2.901 8.46 0.78c4-3.36 8.24-6.56 12.56-9.52 2.669-1.964 3.239-5.72 1.275-8.389z"/><path d="m107.92 45.656c-0.02 0-0.039-4e-3 -0.059-4e-3 -0.021 0-0.041 4e-3 -0.061 4e-3h0.12z"/><path d="m129.08 31.602c-0.877-3.195-4.179-5.075-7.375-4.197-0.281 0.077-0.556 0.175-0.823 0.292-5.24 1.92-10.48 4-15.52 6.52-3.005 1.398-4.307 4.967-2.909 7.971 0.98 2.107 3.09 3.453 5.41 3.465 0.866-0.017 1.719-0.218 2.499-0.596 4.72-2.24 9.6-4.28 14.52-6.08 3.197-0.878 5.076-4.18 4.198-7.375z"/><path d="m201.62 378.68c-0.21-3.314-3.066-5.83-6.38-5.62-5.24 0.4-10.52 0.52-15.76 0.36-3.314-0.088-6.072 2.526-6.16 5.84s2.526 6.072 5.84 6.16h5.08c4 0 8 0 11.76-0.36 3.314-0.209 5.83-3.066 5.62-6.38z"/>		<path d="m358.66 239.68c-3.214-0.817-6.483 1.126-7.3 4.34-1.28 5.08-2.84 10.12-4.6 15.04-1.043 3.09 0.573 6.448 3.64 7.56 3.119 1.119 6.555-0.503 7.674-3.622l6e-3 -0.018c1.88-5.28 3.52-10.68 4.92-16 0.818-3.214-1.126-6.482-4.34-7.3z"/>		<path d="m366.32 170.98c-0.92-5.52-2.08-11.08-3.48-16.48-0.958-3.172-4.307-4.967-7.479-4.008-3.007 0.908-4.804 3.982-4.121 7.048 1.32 5.04 2.4 10.24 3.28 15.4 0.517 2.827 2.966 4.89 5.84 4.92h1c3.269-0.531 5.489-3.61 4.96-6.88z"/>		<path d="m391.82 102.11c-0.282-0.613-0.668-1.172-1.141-1.652l-10.6-11.04c-1.518-1.516-3.749-2.07-5.8-1.44l-19.12 5.8-22.4-23.76 50.28-28c2.93-1.349 4.211-4.818 2.861-7.747-0.282-0.613-0.668-1.172-1.141-1.652l-14.12-14.12c-1.539-1.479-3.763-2.001-5.8-1.36l-63.72 19.28-21.44-22.76c-5.464-6.318-14.359-8.429-22.08-5.24h-0.36c-5.821 2.396-10.444 7.019-12.84 12.84-0.604 1.52-1.033 3.103-1.28 4.72l-2.44-0.84c-3.159-1.016-6.544 0.721-7.56 3.88s0.721 6.544 3.88 7.56c3.08 1 6.16 2.12 9.24 3.28 0.927 1.45 2.014 2.792 3.24 4l22.6 21.44-6.48 21.4c-63.378-45.209-151.4-30.48-196.61 32.898s-30.48 151.4 32.898 196.61 151.4 30.48 196.61-32.898c36.052-50.541 34.794-118.72-3.098-167.89l10.24-18.48 23.76 22.4-5.72 18.92c-0.689 2.079-0.147 4.369 1.4 5.92 0 0 11.72 11.6 12 12 2.771 1.606 6.32 0.662 7.927-2.109 0.025-0.043 0.05-0.087 0.073-0.131l15.64-28.68 28.24-15.4c2.93-1.35 4.211-4.819 2.861-7.748zm-298.66 7.907c24.115-24.104 56.824-37.631 90.92-37.6 2.667 0 5.333 0.08 8 0.24 22.68 20.92 16 40 0.8 57.2-8.97 9.513-18.593 18.388-28.8 26.56-14.76 12.56-28.52 24.28-33.72 36-6.16 13.92-1.64 26.52 23.24 37.52 12.44 5.52 19.2 9.8 21.84 13.04 0.039 0.047 0.077 0.08 0.116 0.109-0.082 0.025-0.165 0.052-0.276 0.091-6.024 2.294-12.436 3.394-18.88 3.24-30.16 1.28-51.64-18-68.32-32.92-12-10.68-21.96-19.56-32.32-19.64 1.712-31.599 15.031-61.455 37.4-83.84zm219.96 91.12h0.04c-0.018 55.75-35.857 105.18-88.84 122.52-1.488-9.375 0.246-18.978 4.92-27.24 6.338-10.179 14.47-19.123 24-26.4 36.92-30.8 39-48 40.6-61.24 1-8.36 1.76-14.6 18.28-23.68 0.663 5.321 0.997 10.678 1 16.04zm-7.44-43.28c1.788 5.036 3.257 10.18 4.4 15.4-25.16 12.8-26.28 21.92-27.8 34.36-1.36 11.2-3.12 25.84-36.48 53.68-10.685 8.175-19.77 18.25-26.8 29.72-6.129 10.834-8.253 23.478-6 35.72-69.389 15.862-138.5-27.53-154.36-96.918-1.814-7.936-2.872-16.026-3.16-24.162 6.36 0 14.6 7.56 24.72 16.56 18.32 16.36 41.76 37.24 76.68 36 8.228 0.142 16.397-1.41 24-4.56 3.205-1.417 5.631-4.164 6.64-7.52 0.852-3.743-0.229-7.664-2.88-10.44-3.76-4.6-12-10.04-26.16-16.36-16.92-7.48-20.6-14.76-17.28-22.2 4-9.36 16.88-20 30.56-32 10.66-8.615 20.698-17.971 30.04-28 16.72-19.04 25.32-39.8 8.32-62.52 18.893 3.862 36.669 11.944 52 23.64l-9.2 30.36c-0.679 2.08-0.139 4.365 1.4 5.92 0 0 14.92 14.8 15.4 15.08 2.771 1.606 6.32 0.662 7.927-2.109 0.025-0.043 0.049-0.087 0.073-0.131l11.64-21.04c6.871 9.702 12.363 20.31 16.32 31.52zm53.64-44.68-5.16 2.56c-1.155 0.573-2.085 1.516-2.64 2.68l-2.56 5.2-9.96 18-2.92-3.2 5.8-19.16c0.676-2.245-0.066-4.675-1.88-6.16l-31.56-29.72c-2.285-2.245-5.957-2.212-8.202 0.073-0.054 0.055-0.106 0.11-0.158 0.167-0.4 0.44-28.8 51.6-28.8 51.6l-6.2-6.2 19.36-63.8c0.694-2.257-0.05-4.709-1.88-6.2l-25.12-23.64c-2.78-2.355-3.704-6.246-2.28-9.6 1.276-2.906 3.606-5.221 6.52-6.48h0.2c3.313-1.279 7.072-0.315 9.36 2.4l24 25.36c1.507 1.618 3.803 2.239 5.92 1.6l64-19.32 6.2 6.2-50.8 27.92c-2.812 1.534-3.848 5.058-2.313 7.869 0.024 0.044 0.048 0.087 0.073 0.131 0.24 0.44 30.84 33 30.84 33 1.516 1.604 3.811 2.209 5.92 1.56l19.24-5.8 3 3-18 9.96z"/>		<path d="m343.87 281.84c-0.087-0.051-0.176-0.101-0.266-0.147-2.867-1.499-6.406-0.455-8 2.36-2.52 4.6-5.28 9.12-8.24 13.44-1.911 2.717-1.257 6.469 1.46 8.38s6.469 1.257 8.38-1.46c3.12-4.64 6.08-9.48 8.8-14.36 1.679-2.858 0.723-6.535-2.134-8.213z"/>		<path d="m362.84 194.26c-3.313-0.045-6.036 2.604-6.082 5.917-1e-3 0.081-1e-3 0.162 2e-3 0.243v0.68c0 5.24-0.24 10.52-0.72 15.76-0.3 3.3 2.131 6.219 5.431 6.519 3e-3 0 6e-3 1e-3 9e-3 1e-3h0.56c3.165 0.03 5.808-2.404 6.04-5.56 0.52-5.56 0.76-11.2 0.76-16.8v-0.8c-0.022-3.298-2.702-5.96-6-5.96z"/>		<path d="m152.16 370.42c-5.2-0.88-10.36-2-15.36-3.52-3.126-1.099-6.551 0.544-7.651 3.67s0.544 6.551 3.67 7.651c0.229 0.081 0.464 0.147 0.701 0.2 5.36 1.52 10.88 2.84 16.4 4h1.12c3.314 0.309 6.251-2.126 6.56-5.44s-2.126-6.251-5.44-6.561z"/>		<path d="m245 368.59c-1.085-2.946-4.258-4.558-7.277-3.696v0.16c-4.96 1.64-10.08 3.04-15.16 4-3.236 0.729-5.269 3.944-4.54 7.18s3.944 5.269 7.18 4.54c5.44-1.24 10.92-2.76 16.24-4.48 3.11-1.146 4.702-4.595 3.557-7.704z"/>		<path d="m111 357.34c-4.76-2.36-9.44-4.92-13.96-7.48-2.861-1.679-6.541-0.721-8.22 2.14s-0.721 6.541 2.14 8.22c4.84 2.84 9.84 5.48 14.92 8 3.004 1.414 6.586 0.124 8-2.88s0.125-6.586-2.88-8z"/>		<path d="m318.38 318.74c-2.404-2.195-6.121-2.073-8.375 0.277h0.04c-3.6 4-7.4 7.52-11.28 11-2.474 2.209-2.689 6.006-0.48 8.48s6.006 2.689 8.48 0.48c4-3.72 8.24-7.68 12-11.76 2.235-2.448 2.062-6.243-0.385-8.477z"/><path d="m285.28 348.67c-1.7-2.844-5.384-3.771-8.229-2.071-0.096 0.057-0.19 0.117-0.282 0.18v-0.16c-4.4 2.8-9 5.44-13.64 8-2.949 1.513-4.113 5.131-2.6 8.08s5.131 4.113 8.08 2.6c4.96-2.56 9.88-5.4 14.6-8.4 2.844-1.701 3.772-5.385 2.071-8.229z"/></svg>
+                                <div class="">
+                                    Travelled
+                                </div>
+                            </div>
+                            <!---For Dummy Data-->
+                            <div onclick="javascript:window.location.href='dropout.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <i style="color: #283477;"><svg fill="#283477" width="25px" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"></path><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path></svg></i>
+                                <div class="">
+                                    Dummy
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='dropout.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <i style="color: #283477;"><svg fill="#283477" width="25px"   style="display: inline;" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"></path><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path></svg></i>
+                                <div class="">
+                                    Drop Out
+                                </div>
+                            </div>
+                            <!-- <div onclick="javascript:window.location.href='dashboard.html'" class="pull-left  text-center text-black" style="cursor: pointer;background: #f7b2156e;border-radius: 13px;padding: 2px 8px;">
+                                <span class="position-relative">
+                                    <svg  width="25px" style="color:#283477" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M344 280l88-88M232 216l64 64M80 320l104-104"/><circle cx="456" cy="168" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="320" cy="304" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="208" cy="192" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="56" cy="344" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                </span>
+                                <div class="bold">
+                                    Dashboard
+                                </div>
+                            </div> -->
+
+<div class="dropdown-container" style="position: relative; display: inline-block;">
+  <div class="dropdown-header text-center" onclick="toggleDashboardDropdown()" style="cursor: pointer;     background: #f7b2156e; border-radius: 13px; padding: 10px 15px; display: flex; flex-direction: column; align-items: center; margin-bottom: 24px;
+">
+    
+    <!-- SVG Icon on top -->
+    <span class="position-relative" style="margin-bottom: 4px; " >
+      <svg width="25px" style="color:#283477; display: masonry !important;" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M344 280l88-88M232 216l64 64M80 320l104-104"/>
+        <circle cx="456" cy="168" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+        <circle cx="320" cy="304" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+        <circle cx="208" cy="192" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+        <circle cx="56" cy="344" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+      </svg>
+    </span>
+
+    <!-- Dashboard Text -->
+    <div class="bold text-black" style="font-size: 14px;">Dashboard</div>
+  </div>
+
+  <!-- Dropdown Content -->
+  <div class="dropdown-list" id="dashboardDropdown" style="display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 1000; min-width: 195px;">
+    <div class="dropdown-item text-black" onclick="window.location.href='#'" style="padding: 10px 15px; cursor: pointer; text-align: left;">Staff Sales Report</div>
+    <div class="dropdown-item text-black" onclick="window.location.href='#'" style="padding: 10px 15px; cursor: pointer; text-align: left;">Company Sales Report</div>
+    <div class="dropdown-item text-black" onclick="window.location.href='#'" style="padding: 10px 15px; cursor: pointer; text-align: left;">Supplier Sales Report</div>
+  </div>
+
+
+
+  <div class="dropdown-list" id="dashboardDropdown" style="display: none; position: absolute; top: 100%; left: 0; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 1000; min-width: 180px;">
+    <div class="dropdown-item text-black"  style="padding: 10px 15px; cursor: pointer;">Staff Sales Report</div>
+    <div class="dropdown-item text-black"  style="padding: 10px 15px; cursor: pointer;">Company Sales Report</div>
+    <div class="dropdown-item text-black" style="padding: 10px 15px; cursor: pointer;">Supplier Sales Report</div>
+  </div>
+</div>
+
+
+
+                            <!-- <div  onclick="cancel_clr('#add_agent_modal input[type=text]')" data-bs-toggle="modal" data-bs-target="#add_agent_modal" id="add_agent_btn"></div>
+                            <div  onclick="cancel_clr('#add_supplier_modal input[type=text]')" class="d-none" data-bs-toggle="modal" data-bs-target="#add_supplier_modal" id="add_supplier_btn"></div>
+                            <div onclick="cancel_clr('#add_customer_modal input[type=text]'),check_type('#add_customer_modal','etype','.etype_customer','etype_customer')" class="pull-left  text-center text-black" data-bs-toggle="modal" data-bs-target="#add_customer_modal" id="add_customer_btn">
+                                <svg fill="#283477" width="25px"   style="display: inline;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M256,0C114.833,0,0,114.833,0,256s114.833,256,256,256s256-114.853,256-256S397.167,0,256,0z M256,472.341    c-119.275,0-216.341-97.046-216.341-216.341S136.725,39.659,256,39.659S472.341,136.705,472.341,256S375.295,472.341,256,472.341z    "/></g></g><g><g><path d="M355.148,234.386H275.83v-79.318c0-10.946-8.864-19.83-19.83-19.83s-19.83,8.884-19.83,19.83v79.318h-79.318    c-10.966,0-19.83,8.884-19.83,19.83s8.864,19.83,19.83,19.83h79.318v79.318c0,10.946,8.864,19.83,19.83,19.83    s19.83-8.884,19.83-19.83v-79.318h79.318c10.966,0,19.83-8.884,19.83-19.83S366.114,234.386,355.148,234.386z"/></g></g></svg>
+                                <div class="">
+                                    Add Enquiry
+                                </div>
+                            </div> -->
+                            <div  onclick="cancel_clr('#add_agent_modal input[type=text]')" data-bs-toggle="modal" data-bs-target="#add_agent_modal" id="add_agent_btn"></div>
+                            <div  onclick="cancel_clr('#add_supplier_modal input[type=text]')" class="d-none" data-bs-toggle="modal" data-bs-target="#add_supplier_modal" id="add_supplier_btn"></div>
+
+                            <div onclick="cancel_clr('#add_customer_modal input[type=text]'),check_type('#add_customer_modal','etype','.etype_customer','etype_customer')" class="pull-left  text-center text-black" data-bs-toggle="modal" data-bs-target="#add_customer_modal" id="add_customer_btn">
+                              <div onclick="javascript:window.location.href='index.html#add_customer_btn'" class="pull-left  text-center text-black">
+                                <svg fill="#283477" width="25px"   style="display: inline;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M256,0C114.833,0,0,114.833,0,256s114.833,256,256,256s256-114.853,256-256S397.167,0,256,0z M256,472.341    c-119.275,0-216.341-97.046-216.341-216.341S136.725,39.659,256,39.659S472.341,136.705,472.341,256S375.295,472.341,256,472.341z    "/></g></g><g><g><path d="M355.148,234.386H275.83v-79.318c0-10.946-8.864-19.83-19.83-19.83s-19.83,8.884-19.83,19.83v79.318h-79.318    c-10.966,0-19.83,8.884-19.83,19.83s8.864,19.83,19.83,19.83h79.318v79.318c0,10.946,8.864,19.83,19.83,19.83    s19.83-8.884,19.83-19.83v-79.318h79.318c10.966,0,19.83-8.884,19.83-19.83S366.114,234.386,355.148,234.386z"/></g></g></svg>
+                                <div class="">
+                                    Add Enquiry
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="pull-left  text-center text-black" type="button">
+                                <svg data-bs-toggle="dropdown"   style="display: inline;" aria-expanded="true" fill="#283477" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M176.792,0H59.208C26.561,0,0,26.561,0,59.208v117.584C0,209.439,26.561,236,59.208,236h117.584    C209.439,236,236,209.439,236,176.792V59.208C236,26.561,209.439,0,176.792,0z M196,176.792c0,10.591-8.617,19.208-19.208,19.208    H59.208C48.617,196,40,187.383,40,176.792V59.208C40,48.617,48.617,40,59.208,40h117.584C187.383,40,196,48.617,196,59.208    V176.792z"></path></g></g><g><g><path d="M452,0H336c-33.084,0-60,26.916-60,60v116c0,33.084,26.916,60,60,60h116c33.084,0,60-26.916,60-60V60    C512,26.916,485.084,0,452,0z M472,176c0,11.028-8.972,20-20,20H336c-11.028,0-20-8.972-20-20V60c0-11.028,8.972-20,20-20h116    c11.028,0,20,8.972,20,20V176z"></path></g></g><g><g><path d="M176.792,276H59.208C26.561,276,0,302.561,0,335.208v117.584C0,485.439,26.561,512,59.208,512h117.584    C209.439,512,236,485.439,236,452.792V335.208C236,302.561,209.439,276,176.792,276z M196,452.792    c0,10.591-8.617,19.208-19.208,19.208H59.208C48.617,472,40,463.383,40,452.792V335.208C40,324.617,48.617,316,59.208,316h117.584    c10.591,0,19.208,8.617,19.208,19.208V452.792z"></path></g></g><g><g><path d="M452,276H336c-33.084,0-60,26.916-60,60v116c0,33.084,26.916,60,60,60h116c33.084,0,60-26.916,60-60V336    C512,302.916,485.084,276,452,276z M472,452c0,11.028-8.972,20-20,20H336c-11.028,0-20-8.972-20-20V336c0-11.028,8.972-20,20-20    h116c11.028,0,20,8.972,20,20V452z"></path></g></g></svg>
+                                <div class=" pt-0" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Menu
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item remove_admin d-none" href="#">
+                                        Holiday To TravelReport 
+                                        <div class="float-end form-check form-switch  ms-2">
+                                            <input class="form-check-input dark-mode-switch" type="checkbox" id="switch">
+                                            <label class="form-check-label" for="switch"></label>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item"  onclick="cancel_clr('#add_agent_modal input[type=text]')" data-bs-toggle="modal" data-bs-target="#add_agent_modal" href="javascript:void(0)">Add Agent</a>
+                                    <a class="dropdown-item"  onclick="cancel_clr('#add_supplier_modal input[type=text]')" data-bs-toggle="modal" data-bs-target="#add_supplier_modal" href="javascript:void(0)">Add Supplier</a>
+                                    <a class="dropdown-item" href="supplier.html">View Supplier</a>
+                                    <a class="dropdown-item" href="birthday_reminder.html">Birthday & Anniversary</a>
+                                    
+                                    <a class="dropdown-item" href="weblead.html">Website Lead</a>
+                                    <a class="dropdown-item" onclick="logout()" href="#">Logout <span class="pull-right bold" id="welcome"></span></a>
+                                </div>
+                            </div>                                                                                                                
+                        </div>
+                    </div>                
+                </div>
+              </div>
+              
+          
+        
+            <div class="main-area">
+           
+              <aside class="sidebar">
+               
+                
+                <!-- <nav>
+                    <div class="dropdown-container">
+  <div class="dropdown-header" onclick="toggleDropdown()" style="display: flex; align-items: center; cursor: pointer;">
+    <img src="assets/img/icons/world.png" alt="globe" style="width: 30px; height: 30px; margin-right: 10px;">
+    <span 
+      class="text-black" 
+      style="font-size: larger;"
+      name="flexRadioDefault" onclick="if($('.toggles [type=checkbox]:checked').length>0){$('#staff_list').val('')};apply_search()" id="fInternational" value="international"
+      id="selectedText"
+      data-value="international"
+    >
+      International
+    </span>
+    <img src="assets/img/icons/Chevron down.png" alt="chevron" style="margin-left: 33; width: 20px; height: 20px;">
+  </div>
+
+  <div class="dropdown-list" id="dropdown">
+    <div 
+      class="dropdown-item text-black" 
+      name="type_customer" 
+      onclick="if ($('.toggles [type=checkbox]:checked').length > 0) { $('#staff_list').val('') }; apply_search(); selectItem(this);" 
+      id="B2B" 
+      data-value="B2B"
+    >
+      B2B
+    </div>
+    <div 
+      class="dropdown-item text-black" 
+      name="type_customer" 
+      onclick="if ($('.toggles [type=checkbox]:checked').length > 0) { $('#staff_list').val('') }; apply_search(); selectItem(this);" 
+      id="B2C" 
+      data-value="B2C"
+    >
+      B2C
+    </div>
+  </div>
+</div> -->
+
+<div class="sidebar-section">
+
+  <!-- Dropdown Toggle -->
+  <div class="sidebar-toggle d-flex align-items-center justify-content-between"
+       onclick="$('#user_type_customer').toggleClass('d-none'); this.querySelector('img:last-child').classList.toggle('rotate-down');"
+       style="cursor: pointer;">
+
+    <div class="d-flex align-items-center">
+      <img src="assets/img/icons/world.png" alt="globe" style="width: 30px; height: 30px; margin-right: 10px;">
+      <span class="d-flex align-items-center">
+        <i class="icon me-1"></i> International
+      </span>
+    </div>
+
+    <img src="assets/img/icons/Chevron down.png" alt="chevron" style="width: 20px; height: 20px;">
+  </div>
+
+  <!-- Hidden controlling checkbox -->
+  
+
+  <!-- Dropdown Content -->
+  <div id="user_type_customer" class="sub-options d-none">
+
+  <div class="form-check customer-type">
+    <label for="B2B">
+      <span class="icon"></span> B2B
+    </label>
+    <input class="form-check-input" type="checkbox" name="type_customer" id="B2B" value="B2B"
+           onclick="handleCustomerSelect(this); if($('.toggles [type=checkbox]:checked').length>0){$('#staff_list').val('')};apply_search()">
+  </div>
+
+  <div class="form-check customer-type">
+    <label for="B2C">
+      <span class="icon"></span> B2C
+    </label>
+    <input class="form-check-input" type="checkbox" name="type_customer" id="B2C" value="B2C"
+           onclick="handleCustomerSelect(this); if($('.toggles [type=checkbox]:checked').length>0){$('#staff_list').val('')};apply_search()">
+  </div>
+
+</div>
+
+                      
+                      
+                  <ul>
+                    <li class="dropdown">
+                        
+                      </li>
+                     
+                      <li id="toggles" class="custom-checkbox-item d-flex align-items-center justify-content-between">
+  <div class="d-flex align-items-center">
+    <img src="assets/img/icons/domestic.png" style="width: 32px; height: 32px;" alt="icon" class="me-2">
+    <span>Domestic</span>
+  </div>
+  <input class="custom-checkbox ms-3" type="checkbox" name="flexRadioDefault" onclick="apply_search()" id="fdomestic" value="domestic">
+
+        <div class="form-check d-none">
+    <label for="fInternational">
+      <input class="form-check-input" name="flexRadioDefault" type="checkbox" id="fInternational" value="international"
+             onclick="$('#user_type_customer').toggleClass('d-none'); if($('.toggles [type=checkbox]:checked').length>0){$('#staff_list').val('')};apply_search()">
+    </label>
+  </div>
+                                  
+</li>
+
+
+     </ul>
+
+     <!-- Trigger Toggle Button -->
+     
+<div class="sidebar-toggle d-flex align-items-center justify-content-between"
+     onclick="$('#staff_dropdown').toggleClass('d-none'); this.querySelector('img:last-child').classList.toggle('rotate-down');"
+     style="cursor: pointer;">
+  <div class="d-flex align-items-center">
+    <img src="assets/img/icons/gmail_groups.png" alt="globe" style="width: 30px; height: 30px; margin-right: 10px;">
+    <span id="selected_staff" class="d-flex align-items-center">
+      <i class="icon me-1"></i> Staff
+    </span>
+  </div>
+  <img src="assets/img/icons/Chevron down.png" alt="chevron" style="width: 20px; height: 20px;">
+</div>
+
+<!-- Dropdown Container -->
+  <div id="staff_dropdown" class="dropdown-menu-custom2 sub-options d-none"></div>
+
+<nav>
+
+<!-- <div class="dropdown-container1" id="assigned_staff" >
+    <div class="dropdown-header1" onclick="toggleStaffDropdown()">
+      <img src="assets/img/icons/gmail_groups.png" alt="user" style="width: 30px; height: 30px; margin-right: 18px; margin-left: -14px;">
+      <span id="staffSelectedText" class="text-black" style="font-size: medium;">Staff</span>
+      <img src="assets/img/icons/Chevron down.png" alt="chevron" style="margin-left:108px; width: 20px; height: 20px;">
+    </div>
+ <div class="dropdown-list" id="staffDropdown" name="assigned_id" id="staff_list" onchange="if($('#staff_list').val()!=''){$('.toggles [type=checkbox]:checked').prop('checked',false);}apply_search()">
+    
+  </div>
+   
+
+    <input type="hidden" name="assigned" id="assigned_id">
+    <input type="hidden" name="assigned_id" id="staff_list">
+</div> -->
+
+ 
+
+<!-- <div class="col-2 text-center pull-left " id="assigned_staff" style="float: right; border-radius: 10px;border: 0;">
+  <div class="form-group basic p-0">
+    <div class="input-wrapper">
+      <div class="dropdown-header1" onclick="toggleStaffDropdown()">
+        <img src="assets/img/icons/gmail_groups.png" alt="user" style="width: 30px; height: 30px; margin-right: 18px; margin-left: -14px;">
+        <span id="staffSelectedText" class="text-black" style="font-size: medium;">Staff</span>
+        <img src="assets/img/icons/Chevron down.png" alt="chevron" style="margin-left:108px; width: 20px; height: 20px;">
+      </div>
+
+      <div id="staffDropdown" class="dropdown-container1"
+           style="display: none; position: absolute; background: #fff; border: 1px solid #ccc; z-index: 999; width: 100%; max-height: 200px; overflow-y: auto;">
+       
+      </div>
+
+      <select style="border-radius: .25rem; display: none;" class="form-control bg-white box-shadow-1 no-border"
+              name="assigned_id" id="staff_list"
+              onchange="if($('#staff_list').val()!=''){$('.toggles [type=checkbox]:checked').prop('checked',false);}apply_search()">
+      </select>
+
+      <input type="hidden" name="assigned" id="assigned_id">
+    </div>
+  </div>
+</div> -->
+
+
+  
+
+
+
+ <!-- <div class="w-100">
+ 
+  <div class="d-flex align-items-center" style="gap: 8px; cursor: pointer;" onclick="toggleStaffDropdown()">
+    <img src="assets/img/icons/gmail_groups.png" alt="icon" style="width: 32px; height: 32px; margin-right: 10px;">
+    <span id="staffSelectedText" class="text-black" style="font-size: medium; margin-right: 98px;">Staff</span>
+    <img src="assets/img/icons/Chevron down.png" alt="chevron" style="width: 20px; height: 20px;">
+  </div>
+
+  
+  <div id="staffDropdown" class="dropdown-container1"
+       style="display: none; position: absolute; background: #fff; border: 1px solid #ccc; z-index: 999; width: 100%; max-height: 200px; overflow-y: auto;">
+  </div>
+
+ 
+  <select class="form-control bg-white box-shadow-1 no-border mt-2" style="border-radius: .25rem;"
+          name="assigned_id" id="staff_list"
+          onchange="if($('#staff_list').val()!=''){$('.toggles [type=checkbox]:checked').prop('checked',false);}apply_search()">
+  </select>
+</div>  -->
+
+
+
+</nav>
+
+  
+
+
+      
+     <ul>
+         <li class="dropdown">
+                        
+                      </li>
+                    
+
+
+<li class="custom-checkbox-item d-flex align-items-center justify-content-between" id="mycheck">
+  <div class="d-flex align-items-center">
+    <img src="assets/img/icons/icons8-confirm.png" style="width: 30px; height: 30px;" alt="icon" class="me-2">
+    <span>Confirmed</span>
+  </div>
+  <input class="custom-checkbox ms-3" type="checkbox" id="confirm" value="confirm" onchange="toggleSpanVisibility()">
+</li>
+
+
+<li class="custom-checkbox-item d-flex align-items-center justify-content-between mt-2">
+  <div class="d-flex align-items-center">
+    <img src="assets/img/icons/domes.png" style="width: 30px; height: 30px;" alt="icon" class="me-2">
+    <span>Travelled</span>
+  </div>
+  <input class="custom-checkbox ms-3" type="checkbox" id="travelled" value="travelled" onchange="toggleSpanVisibility()">
+</li>
+
+
+                  </ul>
+                </nav>
+              </aside>
+          
+             
+              <div class="main-content">
+                <div class="col-12 p-0" style="float: left;">
+                    <div class="section">
+  <div class="row mt-4 mb-5">
+    <div class="col-md-4 mb-3 d-flex align-items-center">
+      <span class="fw-bold text-black" style="font-size: 24px;">Welcome, Admin</span>
+    </div>
+
+    <!-- <div class="col-md-2 mb-3">
+      <div class="border px-3 py-2 rounded text-center" style="font-size: 16px; cursor: pointer; font-weight: 400; color: #000;">
+         Last 6 months
+      </div>
+    </div> -->
+<!-- <div class="col-md-2 mb-3">
+  <div id="last6MonthsBtn" class="border px-3 py-2 rounded text-center"
+       style="font-size: 16px; cursor: pointer; font-weight: 400; color: #000;">
+    Last 6 months
+  </div>
+</div>
+
+
+    <div class="col-md-2 mb-3">
+      <div class="border px-3 py-2 rounded text-center" style="font-size: 16px; cursor: pointer; font-weight: 400; color: #000;">
+          Last 12 months
+      </div>
+    </div> -->
+
+    <div class="col-md-2 mb-3">
+  <div id="last6MonthsBtn" class="border px-3 py-2 rounded text-center"
+       style="font-size: 16px; cursor: pointer; font-weight: 400; color: #000;">
+    Last 6 months
+  </div>
+</div>
+
+<div class="col-md-2 mb-3">
+  <div id="last12MonthsBtn" class="border px-3 py-2 rounded text-center"
+       style="font-size: 16px; cursor: pointer; font-weight: 400; color: #000;">
+    Last 12 months
+  </div>
+</div>
+
+
+   <div class="col-md-3 mb-3">
+  <div id="dateRangePicker" class="form-control d-flex align-items-center justify-content-between position-relative" style="cursor: pointer; height: 40px; width: 254px;">
+    <img src="assets/img/icons/Group.png" style="width: 16px;">
+    <span id="dateRangeText" style="font-weight: 400; color: #000;">Select Date</span>
+    <img src="assets/img/icons/Chevron down.png" style="width: 20px;">
+    <input type="text" id="travel_date1" class="d-none">
+    <input type="text" id="travel_date2" class="d-none">
+    <i class="clear-input text-danger position-absolute" style="right: 10px; cursor: pointer;" onclick="clearDateRange()"></i>
+  </div>
+</div>
+
+
+<!-- <div class="col-md-3 mb-3">
+  <div id="dateRangePicker" class="form-control d-flex align-items-center justify-content-between position-relative" style="cursor: pointer; height: 40px; width: 254px;">
+    <img src="assets/img/icons/Group.png" style="width: 16px;">
+    <span id="dateRangeText" style="font-weight: 400; color: #000;">Select Date</span>
+    <img src="assets/img/icons/Chevron down.png" style="width: 20px;">
+    
+   
+    <input type="text" id="travel_date1" class="d-none">
+    <input type="text" id="travel_date2" class="d-none">
+
+    
+    <i class="clear-input text-danger position-absolute" style="right: 10px; cursor: pointer;" onclick="clearDateRange()">
+     
+    </i>
+  </div>
+</div> -->
+
+
+
+           <!-- <div class="col-3 pull-right text-right">
+                            <div class="col-6 pull-left position-relative">
+                                <div class="form-group basic p-0 m-0">
+                                    <div class="input-wrapper">
+                                        <input type="text" id="travel_date1" class="form-control bg-white box-shadow-1 no-border travel_from_date1" style="background-color: white; height: 40px; font-size: 11px;padding-left: 14px;border-radius: 0.25rem " placeholder="From :" autocomplete="off">
+                                        <i class="clear-input text-danger" onclick="$('#travel_date1').val('');$('#travel_date2').val('');$('#travel_date2').siblings('i').click();apply_search()">
+                                            <svg width="20" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M320 320L192 192M192 320l128-128"></path></svg>
+                                        </i>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 pull-left position-relative">
+                                <div class="form-group basic p-0 m-0">
+                                    <div class="input-wrapper">
+                                        <input type="text" id="travel_date2" class="form-control bg-white box-shadow-1 no-border travel_from_date1 testdate" style="background-color: white; height: 40px; font-size: 11px;padding-left: 14px;border-radius: 0.25rem " placeholder="To :" autocomplete="off">
+                                        <i class="clear-input text-danger" onclick="$('#travel_date2').val('');apply_search()">
+                                            <svg width="20" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"></path><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M320 320L192 192M192 320l128-128"></path></svg>
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>                                       
+              </div> -->
+
+    <div class="section mb-3">
+  <div class="row mt-2">
+    <div class="col-md-3 mb-3 me-2">
+      <div class="stat-box text-center">
+        <div class="title">Total Bookings</div>
+    
+       <img src="assets/img/icons/noun-booking-6434718 1.png" alt="Passengers" class="stat-icon mx-auto d-block" style="width: 70px;">
+        <div class="value total">0</div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3 me-2" style="width: 315px !important;">
+      <div class="stat-box text-center" >
+        <div class="title">Total No. of Passengers</div>
+        <img src="assets/img/icons/noun-passenger-6795111 1.png" alt="Passengers" class="stat-icon mx-auto d-block" style="width: 70px;">
+        
+        <!-- <div class="value tttravelled">0</div> -->
+          <div class="value tttravelled">0</div>
+      </div>
+    </div>
+    
+
+    <div class="col-md-4 mb-3 me-2" style="width: 315px !important;">
+      <div class="stat-box text-center">
+        <div class="title">Total Amt. of Sales</div>
+
+         <img src="assets/img/icons/noun-graph-7753155 1.png" alt="Passengers" class="stat-icon mx-auto d-block" style="width: 70px;">
+        <div class="value total_sale">0</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="col-12 p-0" style="float: left;">
+                 <div class="section">
+        <div class="row mt-2">
+            <div class="col-12">
+                <div class="">
+                    <!-- <div class="title bold" style="font-size: 17px;">Contribution</div> -->
+                    <ul class="nav nav-tabs d-none contribute lined" role="tablist" style="border-radius: 8px 8px  0px 0px;overflow: hidden;">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#total" onclick="change_chart('total')" role="tab">
+                                Total
+                            </a>
+                        </li>
+                        <li class="nav-item d-none">
+                            <a class="nav-link" data-bs-toggle="tab" href="#missed" onclick="change_chart('missed')" role="tab">
+                                Reminder
+                            </a>
+                        </li>
+                        <li class="nav-item d-none">
+                            <a class="nav-link" data-bs-toggle="tab" href="#followup" onclick="change_chart('followup')" role="tab">
+                                Followup
+                            </a>
+                        </li>
+                        <li class="nav-item d-none">
+                            <a class="nav-link" data-bs-toggle="tab" href="#sale" onclick="change_chart('sale')" role="tab">
+                                Sale
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#travelled" onclick="change_chart('travelled')" role="tab">
+                                Travelled
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#confirmed" onclick="change_chart('confirmed')" role="tab">
+                                Confirmed
+                            </a>
+                        </li>
+                    </ul>
+
+                    
+                    <div class="tab-content mt-2" id="total">
+                        <div class="tab-pane active fade show p-1 w-100" id="total" role="tabpanel">  
+                          
+                          <div class="table-container">
+                            <!-- Header -->
+                            <!-- <div class="table-header">
+                              <span class="table-cell col-20 text-black">Name</span>
+                              <span class="table-cell col-10 text-black">Entries</span>
+                              <span class="table-cell col-10 text-black">No. of Pax</span>
+                              <span class="table-cell col-15 text-black" id="confirm-label">No.of Cnfmd. Pax</span>
+                              <span class="table-cell col-15 text-black" id="travelled-label">Cnfmd Amt.</span>
+                              <span class="table-cell col-15 text-black" id="confirm-amount">No.of Travelled Pax</span>
+                              <span class="table-cell col-15 text-black" id="travelled-amount1">Travelled Amt</span>
+                              <span class="table-cell col-15 text-black" id="total-sales">Total Sales</span>
+                            </div> -->
+                          
+
+                           <!-- <div class="table-header d-flex align-items-center py-2 border-bottom text-black fw-bold small">
+  <span class="table-cell col-2 text-start">Name</span>
+  <span class="table-cell col-1 text-start">Entries</span>
+  <span class="table-cell col-1 text-start">No. of Pax</span>
+ <span class="table-cell col-2 text-start" id="confirm-label">No. of Cnfmd. Pax</span>
+  <span class="table-cell col-2 text-start" id="travelled-label">No. of Travelled Pax</span>
+  <span class="table-cell col-2 text-start" id="confirm-amount">Cnfmd Amt.</span>
+  <span class="table-cell col-2 text-start" id="travelled-amount">Travelled Amt</span>
+  <span class="table-cell col-2 text-start" id="total-sales">Total Sales</span>
+</div> -->
+
+
+ <div class="table-header d-flex align-items-center py-2 border-bottom text-black fw-bold small">
+  <span class="table-cell col-2 text-start text-bold" style="font-weight: bold !important;">Name</span>
+  <span class="table-cell col-1 text-start" style="font-weight: bold !important;">Entries</span>
+  <span class="table-cell col-1 text-start" style="font-weight: bold !important;">No. of Pax</span>
+  <span class="table-cell col-2 text-start" id="confirm-label" style="font-weight: bold !important;">No. of Cnfmd. Pax</span>
+  <span class="table-cell col-2 text-start" id="travelled-label" style="font-weight: bold !important;">No. of Travelled Pax</span>
+  <span class="table-cell col-2 text-start" id="confirm-amount" style="font-weight: bold !important;">Cnfmd Amt.</span>
+  <span class="table-cell col-2 text-start" id="travelled-amount" style="font-weight: bold !important;">Travelled Amt</span>
+  <span class="table-cell col-2 text-start" id="total-sales" style="font-weight: bold !important;">Total Sales</span>
+</div>
+ <div class="users"></div>
+ <div class="d-flex bold totall" style="color: #000000; background-color: #ffecec;">
+     
+ </div>   
+ </div>        
+ </div>
+
+                            <!-- <div class="d-flex bold justify-content-between" style="color: #000000;">
+                                <span class="col-2 p-0">Name</span>
+                                <span class="col-1 text-right">Entries</span>
+                                <span class="col-1 text-right">No of Pax</span>
+                               
+                                  <span class="col-2 text-right" id="confirm-label">Confirm</span>
+                               
+                                <span class="col-2 text-right" id="travelled-label">Travelled</span>
+                               
+                                <span class="col-2 text-right" id="confirm-amount">Confirm Amount</span>
+                               
+                                <span class="col-2 text-right" id="travelled-amount">Travelled Amount</span>
+                            </div>          
+                            <div class="users"></div>
+                            <div class="d-flex bold justify-content-between total" style="color: #000000;">
+                                
+                            </div>          
+                        </div> -->
+                        <div class="tab-pane fade show p-1 w-100" id="missed" role="tabpanel">                                      
+                            <div class="d-flex bold justify-content-between" style="color: #000000;">
+                                <span class="col-3">Name</span>
+                                <span class="col-3 text-right">No. of Entries</span>
+                                <span class="col-3 text-right">No. of Pax</span>
+                                <span class="col-3 text-right">Amount</span>
+                            </div>          
+                            <div class="users"></div>
+                            <div class="d-flex bold justify-content-between total" style="color: #000000;">
+                                
+                            </div>          
+                        </div>
+                        <div class="tab-pane fade show p-1 w-100" id="followup" role="tabpanel">                                      
+                            <div class="d-flex bold justify-content-between" style="color: #000000;">
+                                <span class="col-3">Name</span>
+                                <span class="col-3 text-right">No. of Entries</span>
+                                <span class="col-3 text-right">No. of Pax</span>
+                                <span class="col-3 text-right">Amount</span>
+                            </div>          
+                            <div class="users"></div>
+                            <div class="d-flex bold justify-content-between total" style="color: #000000;">
+                                
+                            </div>          
+                        </div>
+                        <div class="tab-pane fade show p-1 w-100" id="sale" role="tabpanel">                                      
+                            <div class="d-flex bold justify-content-between" style="color: #000000;">
+                                <span class="col-3">Name</span>
+                                <span class="col-3 text-right">No. of Entries</span>
+                                <span class="col-3 text-right">No. of Pax</span>
+                                <span class="col-3 text-right">Amount</span>
+                            </div>          
+                            <div class="users"></div>
+                            <div class="d-flex bold justify-content-between total" style="color: #000000;">
+                                
+                            </div>          
+                        </div>
+                        <div class="tab-pane fade show p-1 w-100" id="travelled" role="tabpanel">                                      
+                            <div class="d-flex bold justify-content-between" style="color: #000000;">
+                                <span class="col-3">Name</span>
+                                <span class="col-3 text-right">No. of Entries</span>
+                                <span class="col-3 text-right">No. of Pax</span>
+                                <span class="col-3 text-right">Amount</span>
+                            </div>          
+                            <div class="users"></div>
+                            <div class="d-flex bold justify-content-between total" style="color: #000000;">
+                                
+                            </div>          
+                        </div>
+                        <div class="tab-pane fade show p-1 w-100" id="confirmed" role="tabpanel">                                      
+                            <div class="d-flex bold justify-content-between" style="color: #000000;">
+                                <span class="col-3">Name</span>
+                                <span class="col-3 text-right">No. of Entries</span>
+                                <span class="col-3 text-right">No. of Pax</span>
+                                <span class="col-3 text-right">Amount</span>
+                            </div>          
+                            <div class="users"></div>
+                            <div class="d-flex bold justify-content-between total" style="color: #000000;">
+                                
+                            </div>          
+                        </div>
+                    </div>
+                </div>
+            </div>                        
+            <div class="col-6 d-none">
+                <div class="stat-box">
+                    <div class="title bold d-flex justify-content-between align-items-center text-black" style="font-size: 17px;">
+                        <span>Stats</span> 
+                        <span><select id="statyear" class="d-none" onchange="change_chart($('.contribute .active').attr('href').replace('#','').toLowerCase())"></select></span> 
+                    </div>
+                    <div id="chart"></div>
+                    <div id="charts" class="d-none"></div>
+                </div>
+            </div>                        
+        </div>
+    </div>
+            </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>   
+
+<!-- <script>
+    flatpickr("#rangePicker", {
+  mode: "range",
+  dateFormat: "d M y",
+  defaultDate: ["2022-12-28", "2023-01-10"]
+});
+</script> -->
+<script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap-->
+<script src="assets/js/lib/popper.min.js"></script>
+<script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+<link href="assets/css/select2.min.css" rel="stylesheet" />
+<script src="assets/js/select2.min.js"></script>
+
+<!-- Bootstrap-->
+<script src="assets/js/lib/popper.min.js"></script>
+<script src="assets/js/lib/moment.min.js"></script>
+<script src="assets/js/daterangepicker.js"></script>
+
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="assets/js/base.js"></script>
+<!-- Bootstrap (Optional, for styling) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<!-- Daterangepicker CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- Moment.js -->
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+
+<!-- Daterangepicker CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
+
+  <script>
+  
+
+// $(function () {
+//     const currentYear = new Date().getFullYear();
+//     const maxDate = `${currentYear}-12-31`;
+
+//     $('#dateRangePicker').daterangepicker({
+//         opens: 'right',
+//         autoUpdateInput: false,
+//         showDropdowns: true,
+//         minDate: '2022-01-01',
+//         maxDate: maxDate,
+//         locale: {
+//             format: 'YYYY-MM-DD',
+//             cancelLabel: 'Clear'
+//         }
+//     }, function (start, end) {
+//         $('#travel_date1').val(start.format('YYYY-MM-DD'));
+//         $('#travel_date2').val(end.format('YYYY-MM-DD'));
+//         $('#dateRangeText').text(`${start.format('YYYY-MM-DD')} to ${end.format('YYYY-MM-DD')}`);
+//         $('#last6MonthsBtn').removeClass('active'); 
+//         apply_search();
+//     });
+
+//     $('#dateRangePicker').on('cancel.daterangepicker', function () {
+//         clearDateRange();
+//     });
+
+   
+//     $('#last6MonthsBtn').on('click', function () {
+//         const isActive = $(this).hasClass('active');
+
+//         if (!isActive) {
+            
+//             const endDate = moment();
+//             const startDate = moment().subtract(6, 'months');
+//             const picker = $('#dateRangePicker').data('daterangepicker');
+//             picker.setStartDate(startDate);
+//             picker.setEndDate(endDate);
+
+//             $('#travel_date1').val(startDate.format('YYYY-MM-DD'));
+//             $('#travel_date2').val(endDate.format('YYYY-MM-DD'));
+//             $('#dateRangeText').text(`${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')}`);
+//             $(this).addClass('active');
+//         } else {
+//             // Clear filter
+//             clearDateRange();
+//             $(this).removeClass('active');
+//         }
+
+//         apply_search();
+//     });
+// });
+
+// function clearDateRange() {
+//     $('#travel_date1').val('');
+//     $('#travel_date2').val('');
+//     $('#dateRangeText').text('Select Date');
+//     $('#last6MonthsBtn').removeClass('active'); // remove highlight if cleared
+//     apply_search();
+// }
+
+
+
+$(function () {
+    $('#dateRangePicker').daterangepicker({
+        opens: 'right',
+        autoUpdateInput: false,
+        showDropdowns: true,
+        minDate: '2022-01-01', // ✅ Allow past dates from 2022
+        maxDate: moment().add(1, 'years'),
+        maxDate: moment().add(7, 'month'),
+        locale: {
+            format: 'YYYY-MM-DD',
+            cancelLabel: 'Clear'
+        }
+        // Removed maxDate and isInvalidDate
+    }, function (start, end) {
+    const startDate = start.format('YYYY-MM-DD');
+    const endDate = end.format('YYYY-MM-DD');
+
+    $('#travel_date1').val(startDate);
+    $('#travel_date2').val(endDate);
+    $('#dateRangeText').text(`${startDate} to ${endDate}`);
+    $('.active-filter').removeClass('active-filter');
+
+    // 🔽 Save to localStorage
+    localStorage.setItem('selectedStartDate', startDate);
+    localStorage.setItem('selectedEndDate', endDate);
+
+    apply_search();
+}
+    )
+
+    $('#dateRangePicker').on('cancel.daterangepicker', function () {
+        clearDateRange();
+    });
+
+    function handleFilterClick(btnId, monthsBack) {
+        const $btn = $(`#${btnId}`);
+        const isActive = $btn.hasClass('active-filter');
+
+        if (!isActive) {
+            const endDate = moment(); // today's date
+            const startDate = moment().subtract(monthsBack, 'months');
+            const picker = $('#dateRangePicker').data('daterangepicker');
+            picker.setStartDate(startDate);
+            picker.setEndDate(endDate);
+
+            $('#travel_date1').val(startDate.format('YYYY-MM-DD'));
+            $('#travel_date2').val(endDate.format('YYYY-MM-DD'));
+            $('#dateRangeText').text(`${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')}`);
+
+            $('.active-filter').removeClass('active-filter');
+            $btn.addClass('active-filter');
+        } else {
+            clearDateRange();
+            $btn.removeClass('active-filter');
+        }
+
+        apply_search();
+    }
+
+    $('#last6MonthsBtn').on('click', function () {
+        handleFilterClick('last6MonthsBtn', 6);
+    });
+
+    $('#last12MonthsBtn').on('click', function () {
+        handleFilterClick('last12MonthsBtn', 12);
+    });
+});
+function initializeDateRangeFromStorage() {
+    const savedStart = localStorage.getItem('selectedStartDate');
+    const savedEnd = localStorage.getItem('selectedEndDate');
+
+    if (savedStart && savedEnd) {
+        const picker = $('#dateRangePicker').data('daterangepicker');
+        picker.setStartDate(savedStart);
+        picker.setEndDate(savedEnd);
+
+        $('#travel_date1').val(savedStart);
+        $('#travel_date2').val(savedEnd);
+        $('#dateRangeText').text(`${savedStart} to ${savedEnd}`);
+    }
+}
+
+$(document).ready(function () {
+    initializeDateRangeFromStorage();
+});
+
+function clearDateRange() {
+    $('#travel_date1').val('');
+    $('#travel_date2').val('');
+    $('#dateRangeText').text('Select Date');
+    $('.active-filter').removeClass('active-filter');
+
+    // 🔽 Clear localStorage
+    localStorage.removeItem('selectedStartDate');
+    localStorage.removeItem('selectedEndDate');
+
+    apply_search();
+}
+
+
+// $(function () {
+//     const today = moment().format('YYYY-MM-DD'); // current date
+//     const currentYear = moment().year();
+//     const maxDate = moment().format('YYYY-MM-DD'); // disallow future
+
+//     $('#dateRangePicker').daterangepicker({
+//         opens: 'right',
+//         autoUpdateInput: false,
+//         showDropdowns: true,
+//         minDate: '2022-01-01',
+//         maxDate: maxDate, // ⛔️ no future dates allowed
+//         locale: {
+//             format: 'YYYY-MM-DD',
+//             cancelLabel: 'Clear'
+//         },
+//         isInvalidDate: function (date) {
+//             // Disable all future dates (after today)
+//             return date.isAfter(moment(), 'day');
+//         }
+//     }, function (start, end) {
+//         $('#travel_date1').val(start.format('YYYY-MM-DD'));
+//         $('#travel_date2').val(end.format('YYYY-MM-DD'));
+//         $('#dateRangeText').text(`${start.format('YYYY-MM-DD')} to ${end.format('YYYY-MM-DD')}`);
+//         $('.active-filter').removeClass('active-filter'); // remove red from buttons
+//         apply_search();
+//     });
+
+//     $('#dateRangePicker').on('cancel.daterangepicker', function () {
+//         clearDateRange();
+//     });
+
+//     function handleFilterClick(btnId, monthsBack) {
+//         const $btn = $(`#${btnId}`);
+//         const isActive = $btn.hasClass('active-filter');
+
+//         if (!isActive) {
+//             const endDate = moment();
+//             const startDate = moment().subtract(monthsBack, 'months');
+//             const picker = $('#dateRangePicker').data('daterangepicker');
+//             picker.setStartDate(startDate);
+//             picker.setEndDate(endDate);
+
+//             $('#travel_date1').val(startDate.format('YYYY-MM-DD'));
+//             $('#travel_date2').val(endDate.format('YYYY-MM-DD'));
+//             $('#dateRangeText').text(`${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')}`);
+
+//             $('.active-filter').removeClass('active-filter');
+//             $btn.addClass('active-filter');
+//         } else {
+//             clearDateRange();
+//             $btn.removeClass('active-filter');
+//         }
+
+//         apply_search();
+//     }
+
+//     $('#last6MonthsBtn').on('click', function () {
+//         handleFilterClick('last6MonthsBtn', 6);
+//     });
+
+//     $('#last12MonthsBtn').on('click', function () {
+//         handleFilterClick('last12MonthsBtn', 12);
+//     });
+// });
+
+// function clearDateRange() {
+//     $('#travel_date1').val('');
+//     $('#travel_date2').val('');
+//     $('#dateRangeText').text('Select Date');
+//     $('.active-filter').removeClass('active-filter');
+//     apply_search();
+// }
+
+
+
+
+
+
+  
+</script>
+
+
+<script>
+
+var user_email_enquiry = localStorage.getItem("user_email_enquiry");
+if (typeof user_email_enquiry == 'undefined' || user_email_enquiry == null) {
+    window.location.href = 'login.html'
+}
+if(localStorage.getItem("user_designation").trim()!='ex')
+{
+    get_staff_list()  
+    $('#assigned_staff').removeClass('d-none')  
+}
+if(localStorage.getItem("user_type_enquiry").trim()=='admin' || localStorage.getItem("user_type_enquiry").trim()=='sales' || localStorage.getItem("user_type_enquiry").trim()=='account')
+{
+    $('#toggles').removeClass('d-none')
+    // $('#user_type_customer').removeClass('d-none')
+    $('input[type=radio][name=etype]').attr('disabled',false)
+    $('input[type=radio][name=etype_customer]').attr('disabled',false)
+}    
+
+
+
+
+
+$('#travel_date1').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    autoUpdateInput: true,
+    endDate: false,
+    minDate:new Date('2022/06/01'),
+    maxDate:new Date(),
+    linkedCalendars: true ,
+    locale: {
+    format: 'DD-MM-YYYY'
+    }   
+},
+
+function (start, end, label) {
+    $('#travel_date1').parent().addClass('not-empty')
+    $('#travel_date2').siblings('i').click();
+    setTimeout(function () 
+    {
+    var nextDay = new Date(new Date(start).getTime() + 24 * 60 * 60 * 1000);
+    var day = nextDay.getDate()
+    var month = nextDay.getMonth() + 1
+    
+    var year = nextDay.getFullYear()
+    next_date = day + '-' + month + '-' + year;
+    
+    
+    if($('#travel_date2').length>0)
+    {
+        $('#travel_date2').daterangepicker({
+        singleDatePicker: true,
+        minDate:next_date,
+        showDropdowns: true,
+        autoUpdateInput: true,
+        startDate: next_date,
+        endDate: false,
+        maxDate:new Date(),
+        linkedCalendars: true  ,
+        locale: {
+            format: 'DD-MM-YYYY'
+        }
+        },
+        function (start, end, label) {
+            $('#travel_date2').parent().addClass('not-empty')        
+            setTimeout(function () 
+            {  
+                apply_search()
+            },500)
+        
+        });
+    }
+    $('#travel_date2').val('')
+    apply_search()
+    }, 500)
+});
+// $('#travel_date1').val('')
+$('#travel_date1').val('01-01-2025');//remove the date 01-01-2025
+
+// datepicker(date = '',type='travel_')
+var options = {
+    chart: {
+        type: 'donut'
+    },
+    series:[0]
+}
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
+
+var options = {
+    series: [{
+        name: "Customers",
+        data: [0,0,0,0,0,0,0,0,0,0,0,0]
+    }],
+    chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+            enabled: false
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'straight'
+    },
+    title: {
+        text: 'Sales by Month',
+        align: 'left'
+    },
+    grid: {
+        row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+        },
+    },
+    xaxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec'],
+    }
+};
+
+
+// var charts = new ApexCharts(document.querySelector("#charts"), options);
+// charts.render();
+// var statdata=''
+// apply_search()
+// function apply_search($page='',param)
+// {
+//     $user_type_enquiry = localStorage.getItem("user_type_enquiry")
+//     $user_name_enquiry = localStorage.getItem("user_name_enquiry");
+//     $user_id = localStorage.getItem("user_id_enquiry");     
+//     assigned_id = localStorage.getItem("user_id_enquiry");
+//     if($('#toggles input[name=flexRadioDefault]:checked').length<=0)
+//     {
+//         $('#user_type_customer').addClass('d-none');            
+//     }
+      
+//     type=$('#toggles input[name=flexRadioDefault]:checked').map(function(){
+//         if($('#toggles input[name=flexRadioDefault][value="international"]:checked').length>0)
+//         {
+//             $('#user_type_customer').removeClass('d-none');
+            
+//         }
+        
+//         else if($(this).val()=='domestic')
+//         {
+//             $('#user_type_customer').addClass('d-none');
+//             $('#user_type_customer input[name=type_customer]:checked').prop('checked',false);
+//         }
+        
+//         return $(this).val()
+//     }).get();
+//     type_customer=$('#user_type_customer input[name=type_customer]:checked').map(function(){
+//         return $(this).val()
+//     }).get();
+//     if($('#toggles input[name=flexRadioDefault][value="domestic"]:checked').length>0 && type_customer!='')
+//     {
+//         type_customer+=','
+//     }
+   
+//     if($user_type_enquiry=='international')
+//     {
+//         type_customer = localStorage.getItem("user_type_customer_enquiry");
+//     }
+//     user_designation=localStorage.getItem("user_designation").trim();
+//     select_staff_id=$('#staff_list').val()
+    
+//     if(select_staff_id==null)
+//     {
+//         select_staff_id=''
+//     } 
+//     if($('#assigned_staff').hasClass('d-none'))
+//     {
+//         select_staff_id=assigned_id
+//     }
+
+var charts = new ApexCharts(document.querySelector("#charts"), options);
+charts.render();
+var statdata=''
+apply_search()
+function apply_search($page='',param)
+{
+    $user_type_enquiry = localStorage.getItem("user_type_enquiry")
+    $user_name_enquiry = localStorage.getItem("user_name_enquiry");
+    $user_id = localStorage.getItem("user_id_enquiry");     
+    assigned_id = localStorage.getItem("user_id_enquiry");
+    if($('#toggles input[name=flexRadioDefault]:checked').length<=0)
+    {
+        $('#user_type_customer').addClass('d-none');            
+    }
+        
+     type=$('#toggles input[name=flexRadioDefault]:checked').map(function(){
+        if($('#toggles input[name=flexRadioDefault][value="international"]:checked').length>0)
+        {
+            $('#user_type_customer').removeClass('d-none');
+        }
+        else if($(this).val()=='domestic')
+        {
+            $('#user_type_customer').addClass('d-none');
+            $('#user_type_customer input[name=type_customer]:checked').prop('checked',false);
+        }
+        return $(this).val()
+    }).get();
+    type_customer=$('#user_type_customer input[name=type_customer]:checked').map(function(){
+        return $(this).val()
+    }).get();
+    
+    if($('#toggles input[name=flexRadioDefault][value="domestic"]:checked').length>0 && type_customer!='')
+    {
+        type_customer+=','
+    }
+    if($user_type_enquiry=='international')
+    {
+        type_customer = localStorage.getItem("user_type_customer_enquiry");
+    }
+    user_designation=localStorage.getItem("user_designation").trim();
+    select_staff_id=document.getElementById('selected_staff').dataset.value || '';
+    
+    if(select_staff_id==null)
+    {
+        select_staff_id=''
+    } 
+    if($('#assigned_staff').hasClass('d-none'))
+    {
+        select_staff_id=assigned_id
+    }
+
+
+  //  alert(type)
+    
+    start_date=$('#travel_date1').val()
+    end_date=$('#travel_date2').val()
+   
+   console.log('type='+type+'&user_type=' + $user_type_enquiry + '&user=' + $user_name_enquiry+'&type_customer='+type_customer+'&assigned_id='+assigned_id+"&user_designation="+user_designation+"&select_staff_id="+select_staff_id+'&status=&start_date='+start_date+'&end_date='+end_date)
+    
+    $.ajax({
+        type: "get",
+        url: newbaseurl + 'Dashboard',        
+        async: true,
+        data: 'type='+type+'&user_type=' + $user_type_enquiry + '&user=' + $user_name_enquiry+'&type_customer='+type_customer+'&assigned_id='+assigned_id+"&user_designation="+user_designation+"&select_staff_id="+select_staff_id+'&status=&start_date='+start_date+'&end_date='+end_date,
+        success: function (html) 
+        {
+
+         
+            
+            statdata=html
+            if(select_staff_id!='')
+            {
+                $('#chart').addClass('d-none')                    
+                $('#charts,#statyear').removeClass('d-none')                    
+            }
+            else
+            {
+                $('#charts,#statyear').addClass('d-none')                    
+                $('#chart').removeClass('d-none')                    
+            }
+            console.log(html)
+            html=JSON.parse(html)
+            // $('.total').html(html['total'].toLocaleString())
+            $('.book_date_count').html(html['book_date_count'].toLocaleString())
+            // $('.tttravelled').html(html['travelled'].toLocaleString())
+            //  $('.tttravelled').html(html['travelled'].toLocaleString())
+           $('.total_sale').html( '₹' + ' ' + html['total_sale'].toLocaleString())
+            assigneds=''
+            total_label=[] 
+            total=[]
+            total_color=[]
+            $('.contribute li:first-child a').click()
+            $('.contribute li a').removeClass('active')
+            $('.contribute li:first-child a').addClass('active')
+            $('.tab-content .tab-pane').removeClass('active show')
+            $('.tab-content .tab-pane:first-child').addClass('active show')
+            $('.users').html('')
+            total_no_of_entries=total_no_of_pax=total_amount=0;
+           
+
+            $.each(html.contribiution, function (index, value) {
+            $.each(value, function (index1, value1) {
+        if (index1 != 'total' && index1 != 'monthly' && index1 != 'totalPAX') {
+            eval(index1.toLowerCase().trim() + "totalamounts=[]");
+            eval(index1.toLowerCase().trim() + "=[]");
+            eval(index1.toLowerCase().trim() + "_label=[]");
+            eval(index1.toLowerCase().trim() + "_color=[]");
+
+            let totalpax = 0,
+                totalamount = 0;
+
+            if (value.hasOwnProperty('totalPAX') && value.totalPAX.hasOwnProperty(index1)) {
+                totalpax = value['totalPAX'][index1];
+            }
+
+            if (value['total'].hasOwnProperty(index1)) {
+                totalamount = value['total'][index1];
+            }
+
+            let data = `
+                <tr>
+                    <td class="col-3 p-0">${index}</td>
+                    <td class="col-1 text-right entries">${value1}</td>
+                    <td class="col-2 text-right pax">${totalpax}</td>
+                    <td class="col-2 text-right amount">${totalamount}</td>
+                </tr>
+            `;
+
+            let targetElement = $('#' + index1.toLowerCase().trim() + ' .users');
+
+            if (targetElement.length) {
+                targetElement.append(data);
+            } else {
+                console.warn(`Target element #${index1.toLowerCase().trim()} not found!`);
+            }
+
+            let totalRow = `
+                <tr class="total-row">
+                    <td class="col-3 text-start p-0">Total</td>
+                    <td class="col-3 text-right total_entries"></td>
+                    <td class="col-3 text-right total_pax">${totalpax}</td>
+                    <td class="col-3 text-right total_amount">${totalamount}</td>
+                </tr>
+            `;
+
+            $('#' + index1.toLowerCase().trim() + ' .totall').html(totalRow);
+        }
+    });
+});
+
+            $.each(html.contribiution, function(index, value) {
+                $.each(value, function(index1, value1) {
+                    if(index1!='total' && index1!='monthly' && index1!='totalPAX')
+                    {
+                        eval(index1.toLowerCase().trim()+"totalamounts.push("+value['total'][index1]+")")
+                        eval(index1.toLowerCase().toLowerCase().trim()+".push("+value1+")")
+                        eval(index1.toLowerCase().trim()+"_label.push('"+index.trim()+"')")
+                        color=setBackgroundColor()
+                        console.log(color)
+                        if(color.includes(eval(index1.toLowerCase().trim()+"_color")))
+                            color=setBackgroundColor()
+                        eval(index1.toLowerCase().trim()+"_color.push('"+color.trim()+"')")
+                    }    
+                })
+            });   
+            let final_travelled_total = 0;
+            $.each(html.assigned, function(index, value) {
+                // data=`<div class="d-flex bold justify-content-between text-black">
+                //     <span class="col-2 p-1">${index}</span>
+                //     <span class="col-1 text-right entries">${value.toLocaleString()}</span>`
+                // totalpax=totalamount=totalTravelled=totalConfirmed=totalConfirmedAmount=totalTravelledAmount=0;
+                // $.each(html.contribiution[index]['totalPAX'], function(index1, value1) {totalpax+=value1})
+                // console.log(html.contribiution[index]['totalPAX'])
+                // if(html.contribiution[index].hasOwnProperty('totalPAX') && html.contribiution[index]['totalPAX'].hasOwnProperty('Travelled')){
+                //     totalTravelled+=html.contribiution[index]['totalPAX']['Travelled']
+                // }
+                // if(html.contribiution[index].hasOwnProperty('totalPAX') && html.contribiution[index]['totalPAX'].hasOwnProperty('Confirmed')){
+                //     totalConfirmed+=html.contribiution[index]['totalPAX']['Confirmed']
+                // }
+                // data+=`<span class="col-1 text-right pax">${totalpax}</span>`
+                // data+=`<span class="col-2 text-right confirmed">${totalConfirmed}</span>`
+                // data+=`<span class="col-2 text-right travelled">${totalTravelled}</span>`
+                // if(html.contribiution[index].hasOwnProperty('total') && html.contribiution[index]['total'].hasOwnProperty('Confirmed')){
+                //     totalConfirmedAmount+=html.contribiution[index]['total']['Confirmed']
+                // }
+                // if(html.contribiution[index].hasOwnProperty('total') && html.contribiution[index]['total'].hasOwnProperty('Confirmed')){
+                //     totalTravelledAmount+=html.contribiution[index]['total']['Travelled']
+                // }
+
+//                let data = '';
+// let totalpax = 0,
+//     totalConfirmed = 0,
+//     totalTravelled = 0,
+//     totalConfirmedAmount = 0,
+//     totalTravelledAmount = 0;
+
+// $.each(html.contribiution, function(index, value) {
+//     totalpax = totalConfirmed = totalTravelled = totalConfirmedAmount = totalTravelledAmount = 0;
+
+//     // Sum totalPAX
+//     if (value.hasOwnProperty('totalPAX')) {
+//         $.each(value.totalPAX, function(i, val) {
+//             if (typeof val === 'number') totalpax += val;
+//         });
+
+//         totalConfirmed = value.totalPAX.Confirmed || 0;
+//         totalTravelled = value.totalPAX.Travelled || 0;
+//     }
+
+//     // Sum total amounts
+//     if (value.total) {
+//         totalConfirmedAmount = value.total.Confirmed || 0;
+//         totalTravelledAmount = value.total.Travelled || 0;
+//     }
+//     const total = totalConfirmedAmount + totalTravelledAmount;
+//     // Entry count fallback
+//     let entryCount = value.entryCount || 0;
+
+//    data += `
+// <div class="table-row d-flex align-items-center py-2 border-bottom text-muted small">
+//     <span class="table-cell text-black col-2 text-start">${index}</span>
+//     <span class="table-cell text-black col-1 text-start entries">${entryCount.toLocaleString()}</span>
+//     <span class="table-cell text-black col-1 text-start pax">${totalpax}</span>
+//     <span class="table-cell text-black col-2 text-start confirmed">${totalConfirmed}</span>
+//     <span class="table-cell text-black col-2 text-start travelled">${totalTravelled}</span>
+//     <span class="table-cell text-black col-2 text-start confirmed-amount">${totalConfirmedAmount.toLocaleString()}</span>
+//     <span class="table-cell text-black col-2 text-start travelled-amount">${totalTravelledAmount.toLocaleString()}</span>
+    
+//     <span class="table-cell col-2 text-start total-sales" style="color: green;">${total.toLocaleString()}</span>
+// </div>`;
+
+// });
+
+// // Inject into DOM
+// $('.users').html(data);
+
+
+
+let data = '';
+let rowIndex = 0;
+
+let totalEntries = 0;
+let totalPaxAll = 0;
+let totalConfirmedAll = 0;
+let totalTravelledAll = 0;
+let totalConfirmedAmountAll = 0;
+let totalTravelledAmountAll = 0;
+let totalSalesAll = 0;
+
+$.each(html.contribiution, function(agent, value) {
+  let confirmedAmount = Number(value.total?.Confirmed || 0);
+    let travelledAmount = Number(value.total?.Travelled || 0);
+  if (confirmedAmount !== 0 || travelledAmount !== 0) {
+    let confirmed = Number(value.totalPAX?.Confirmed || 0);
+    let travelled = Number(value.totalPAX?.Travelled || 0);
+    let totalpax = confirmed + travelled;
+
+    
+    let totalSales = confirmedAmount + travelledAmount;
+
+    let entries = Number(html.assigned?.[agent] || 0);
+
+    // accumulate grand totals
+    totalEntries += entries;
+    totalPaxAll += totalpax;
+    totalConfirmedAll += confirmed;
+    totalTravelledAll += travelled;
+    totalConfirmedAmountAll += confirmedAmount;
+    totalTravelledAmountAll += travelledAmount;
+    totalSalesAll += totalSales;
+
+    const rowBg = (rowIndex % 2 !== 0) ? 'background-color: #E9EAEB;' : '';
+
+    
+        data += `
+        <div class="table-row d-flex align-items-center py-2 border-bottom text-muted small" style="${rowBg}">
+            <span class="table-cell text-black col-2 text-start" style="font-weight: bold !important;">${agent}</span>
+            <span class="table-cell text-black col-1 text-start entries">${entries.toLocaleString()}</span>
+            <span class="table-cell text-black col-1 text-start pax">${totalpax}</span>
+            <span class="table-cell text-black col-2 text-start confirmed">${confirmed}</span>
+            <span class="table-cell text-black col-2 text-start travelled">${travelled}</span>
+            <span class="table-cell text-black col-2 text-start confirmed-amount">₹ ${confirmedAmount.toLocaleString()}</span>
+            <span class="table-cell text-black col-2 text-start travelled-amount">₹ ${travelledAmount.toLocaleString()}</span>
+            <span class="table-cell col-2 text-start total-sales" style="color: green;">₹ ${totalSales.toLocaleString('en-IN')}</span>
+        </div>`;
+        rowIndex++;
+    }
+});
+
+
+
+// let data = '';
+// let rowIndex = 0;
+
+// let totalEntries = 0;
+// let totalPaxAll = 0;
+// let totalConfirmedAll = 0;
+// let totalTravelledAll = 0;
+// let totalConfirmedAmountAll = 0;
+// let totalTravelledAmountAll = 0;
+// let totalSalesAll = 0;
+
+// $.each(html.contribiution, function(index, value) {
+//     let totalpax = 0,
+//         totalConfirmed = 0,
+//         totalTravelled = 0,
+//         totalConfirmedAmount = 0,
+//         totalTravelledAmount = 0;
+
+//     // Sum totalPAX
+//     if (value.hasOwnProperty('totalPAX')) {
+//         $.each(value.totalPAX, function(i, val) {
+//             if (typeof val === 'number') totalpax += val;
+//         });
+
+//         totalConfirmed = value.totalPAX.Confirmed || 0;
+//         totalTravelled = value.totalPAX.Travelled || 0;
+//     }
+
+    
+//     if (value.total) {
+//         totalConfirmedAmount = value.total.Confirmed || 0;
+//         totalTravelledAmount = value.total.Travelled || 0;
+//     }
+
+//     const totalSales = totalConfirmedAmount + totalTravelledAmount;
+//     const entryCount = html.assigned[index] || 0;
+
+//     // Accumulate totals
+//     totalEntries += entryCount;
+//     totalPaxAll += totalpax;
+//     totalConfirmedAll += totalConfirmed;
+//     totalTravelledAll += totalTravelled;
+//     totalConfirmedAmountAll += totalConfirmedAmount;
+//     totalTravelledAmountAll += totalTravelledAmount;
+//     totalSalesAll += totalSales;
+
+//     const rowBg = (rowIndex % 2 !== 0) ? 'background-color: #E9EAEB;' : '';
+//     if (totalConfirmedAmount !== 0 || totalTravelledAmount !== 0) {
+//         data += `
+//         <div class="table-row d-flex align-items-center py-2 border-bottom text-muted small" style="${rowBg}">
+//             <span class="table-cell text-black col-2 text-start" style="font-weight: bold !important;">${index}</span>
+//             <span class="table-cell text-black col-1 text-start entries">${entryCount.toLocaleString()}</span>
+//             <span class="table-cell text-black col-1 text-start pax">${totalpax}</span>
+//             <span class="table-cell text-black col-2 text-start confirmed">${totalConfirmed}</span>
+//             <span class="table-cell text-black col-2 text-start travelled">${totalTravelled}</span>
+//             <span class="table-cell text-black col-2 text-start confirmed-amount">₹ ${totalConfirmedAmount.toLocaleString()}</span>
+//             <span class="table-cell text-black col-2 text-start travelled-amount">₹ ${totalTravelledAmount.toLocaleString()}</span>
+//             <span class="table-cell col-2 text-start total-sales" style="color: green;">₹ ${totalSales.toLocaleString('en-IN')}</span>
+//         </div>`;
+
+//             rowIndex++;
+//     }
+    
+// });
+
+$('.users').html(data);
+
+
+let totalsRow = `
+
+<span class="table-cell col-2 text-start" style="font-weight: bold !important; font-size: 13px; margin-left: 17px; padding: 4px 0px !important;">Total</span>
+<span class="table-cell text-black col-1 text-left entries" style="font-size: 13px; font-weight: bold !important; padding: 4px 0px !important;">${totalEntries.toLocaleString()}</span>
+<span class="table-cell text-black col-1 text-left pax" style="font-size: 13px; font-weight: bold !important; padding: 4px 0px !important;">${totalPaxAll.toLocaleString()}</span>
+<span class="table-cell text-black col-2 text-left confirmed" style="font-size: 13px; font-weight: bold !important; padding: 4px 0px !important;">${totalConfirmedAll.toLocaleString()}</span>
+<span class="table-cell text-black col-2 text-left travelled" style="font-size: 13px; font-weight: bold !important; padding: 4px 0px !important;">${totalTravelledAll.toLocaleString()}</span>
+<span class="table-cell text-black col-2 text-left confirmed-amount" style="font-size: 13px; font-weight: bold !important; padding: 4px 0px !important;">₹ ${totalConfirmedAmountAll.toLocaleString()}</span>
+<span class="table-cell text-black col-2 text-left travelled-amount" style="font-size: 13px; font-weight: bold !important; padding: 4px 0px !important;">₹ ${totalTravelledAmountAll.toLocaleString()}</span>
+<span class="table-cell col-2 text-left total-sales" style="color: green; font-size: 13px !important; font-weight: bold !important; padding: 4px 0px !important;" >₹ ${totalSalesAll.toLocaleString('en-IN')}</span>
+
+`;
+final_travelled_total = totalTravelledAll;
+$('.total').html(totalEntries.toLocaleString())
+$('.totall').html(totalsRow);
+}); 
+
+            $('.tab-pane').each(function(){
+                thiss=$(this)
+                total_entries=total_pax=total_amount=total_confirmed=total_travelled=total_travelled_amount=0;
+                thiss.find('.users .amount').each(function(){
+                    total_amount+=parseInt($(this).html())
+                })
+                thiss.find('.users .confirmed').each(function(){
+                    total_confirmed+=parseInt($(this).html())
+                })
+                thiss.find('.users .travelled').each(function(){
+                    total_travelled+=parseInt($(this).html())
+                })
+                
+                thiss.find('.users .pax').each(function(){
+                    total_pax+=parseInt($(this).html())
+                })
+                thiss.find('.users .entries').each(function(){
+                    total_entries+=parseInt($(this).html())
+                })
+                
+                thiss.find('.users .Confirmedamount').each(function(){
+                    total_travelled_amount+=parseInt($(this).html())
+                })
+                thiss.find('.total_pax').html(total_pax.toLocaleString())
+                thiss.find('.total_entries').html(total_entries.toLocaleString())
+                if(thiss.attr('id')=='total')
+
+                $('.tttravelled').html(final_travelled_total.toLocaleString())
+                
+                
+                thiss.find('.total_travelled').html(total_travelled.toLocaleString())
+                thiss.find('.total_confirmed').html(total_confirmed.toLocaleString())
+                thiss.find('.total_amount').html(` ${total_amount.toLocaleString()}`)
+                thiss.find('.total_travelled_amount').html(`${total_travelled_amount.toLocaleString()}`)
+            })
+         
+            
+            $('.users .d-flex').each(function(){
+                i=0;
+                if($(this).find('.entries').html()>0)
+                    i++
+                if($(this).find('.pax').html()>0)
+                    i++
+                if($(this).find('.confirmed').html()>0)
+                    i++
+                if($(this).find('.travelled').html()>0)
+                    i++
+                if($(this).find('.Confirmedamount').html()>0)
+                    i++
+                if($(this).find('.amount').html()>0)
+                    i++
+                if(i==0)
+                {
+                    $(this).addClass('d-none')
+                }
+            })
+            if(select_staff_id=='')
+            {
+                var options = {
+                    series: total,
+                    labels: total_label,
+                    colors:total_color
+                }
+                chart.updateOptions(options)
+                $('#chart').removeClass('d-none')
+            }
+            if(select_staff_id!='')
+            {   
+                total=[0,0,0,0,0,0,0,0,0,0,0,0]
+                eval("sale=[0,0,0,0,0,0,0,0,0,0,0,0]")
+                eval("salecategory=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec']")
+                $.each(html.contribiution, function(index, value) {
+                    $.each(value.monthly, function(index1, value1) 
+                    {
+                                
+                        if(Object.keys(value.monthly).length<=1)
+                        {
+                            $.each(value1, function(index2, value2) 
+                            {
+                                dataTotal=0;
+                                $.each(value2, function(index3, value3) 
+                                {
+                                    eval(index3.toLowerCase().trim()+"=[0,0,0,0,0,0,0,0,0,0,0,0]")
+                                    eval(index3.toLowerCase().trim()+"category=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec']")                                                                        
+                                })       
+                            })
+                            
+                        }
+                        else
+                        {
+                            $.each(value1, function(index2, value2) 
+                            {
+                                $.each(value2, function(index3, value3) 
+                                {
+                                    eval(index3.toLowerCase().trim()+"s=[]")
+                                    eval(index3.toLowerCase().trim()+"category=[]")
+                                    eval("sales=[]")
+                                    for($i=0;$i<Object.keys(value.monthly).length;$i++)
+                                    {
+                                        eval(index3.toLowerCase().trim()+"s.push(0)")
+                                        eval(index3.toLowerCase().trim()+"category.push('"+index2+"')")
+                                        eval("sales.push(0)")
+                                        eval("salecategory.push('"+index2+"')")                                        
+                                    }
+                                })
+                            })
+                        }
+                        
+                    })
+                }) 
+                $.each(html.contribiution, function(index, value) {
+                    category=[];
+                    $year=0; 
+                    // if(value.hasOwnProperty("monthly") && value.monthly && Object.keys(value.monthly).length>1)
+                    // {
+                    //     total=[];
+                    //     for($i=0;$i<Object.keys(value.monthly).length;$i++)
+                    //     {
+                    //         total.push(0)
+                    //     }
+                    // }
+
+                    if (value.hasOwnProperty("monthly") && value.monthly && Object.keys(value.monthly).length > 0) {
+    let total = new Array(Object.keys(value.monthly).length).fill(0);
+
+    // Iterate over each key in value.monthly
+    Object.keys(value.monthly).forEach((statYear, index) => {
+        console.log(`Year: ${statYear}`); // Debugging: Show the year in console
+
+        Object.keys(value.monthly[statYear]).forEach((monthKey) => {
+            let monthData = value.monthly[statYear][monthKey];
+
+            // Ensure monthData exists
+            if (monthData) {
+                Object.keys(monthData).forEach((key) => {
+                    console.log(`Month: ${monthKey}, DataKey: ${key}, Value: ${monthData[key]}`);
+                    
+                    // Summing total
+                    total[index] += monthData[key]['total'] || 0;
+                });
+            }
+        });
+    });
+
+    console.log("Total Array:", total); // Debugging: Check the total array output
+}
+
+                    yearoptions=`<option value="">Select Year</option>`
+                        
+                    $.each(value.monthly, function(index1, value1) 
+                    {
+                        if(Object.keys(value.monthly).length<=1)
+                        {
+                            $.each(value1, function(index2, value2) 
+                            {
+                                dataTotal=0;
+                                $.each(value2, function(index3, value3) 
+                                {
+                                    eval(index3.toLowerCase().trim()+"[parseInt("+index2+")]="+value3['total'])
+                                    eval("sale[parseInt("+index2+")]="+value3['total'])
+                                        
+                                    dataTotal+=value3['total'];
+                                })       
+                                total[parseInt(index2)]=dataTotal        
+                            })
+                            var options = {
+                                series: [{
+                                    name: "Customers",
+                                    data: total
+                                }],
+                                title: {
+                                    text: 'Sales per Month',
+                                    align: 'left'
+                                }
+                            }
+                            charts.updateOptions(options)
+                        }
+                        else
+                        {
+                            category.push(index1) 
+                            // eval("totalcategory.push('"+index1+"')")
+                            // eval(index3.toLowerCase().trim()+"category.push('"+index1+"')")
+                            type=[]
+                            dataTotal=0;
+                            yearoptions+=`<option value="${index1}">${index1}</option>`
+                        
+                            $.each(value1, function(index2, value2) 
+                            {
+                                $.each(value2, function(index3, value3) 
+                                {
+                                    eval(index3.toLowerCase().trim()+"s["+$year+"]=[]")
+                                })
+                            })    
+                            $.each(value1, function(index2, value2) 
+                            {
+                                $.each(value2, function(index3, value3) 
+                                {
+                                    eval(index3.toLowerCase().trim()+"s["+$year+"].push("+value3['total']+")")
+                                    dataTotal+=value3['total'];
+                                    type.push(index3)
+                                })       
+                                total[parseInt($year)]=dataTotal        
+                            })
+                            type=type.filter(function(item, i, ar){ return ar.indexOf(item) === i; })
+                            // console.log(granted)
+                            for(i=0;i<type.length;i++)
+                            {
+                                newArray=eval(type[i].toLowerCase().trim()+'s')
+                                eval(type[i]+"=[]")
+                            }
+                            for(i=0;i<type.length;i++)
+                            {
+                                newArray=eval(type[i].toLowerCase().trim()+'s')
+                                for(jj=0;jj<newArray.length;jj++)
+                                {
+                                    newtotals=0;
+                                    for(ll=0;ll<eval(newArray[jj]).length;ll++)
+                                    {
+                                        newtotals+=eval(newArray[jj])[ll]
+                                    }
+                                    eval(type[i]+"["+jj+"]"+"="+newtotals)
+                                }
+                            }
+                            $year++
+                            var options = {
+                                series: [{
+                                    name: "Customers",
+                                    data: total
+                                }],
+                                title: {
+                                    text: 'Sales per Year',
+                                    align: 'left'
+                                },
+                                xaxis: {
+                                    categories: category,
+                                }
+                            }
+                            charts.updateOptions(options)
+                            
+                        }
+
+                    })
+                    $('#statyear').html(yearoptions)
+                })   
+                
+            }
+            
+            toggleSpanVisibility();
+
+        }
+    })
+
+   
+}
+
+
+function change_chart(name)
+{
+    select_staff_id=$('#staff_list').val()
+    if(select_staff_id=='')
+    {
+        if(name=='total' || name=='sale')
+        {
+            var options = {
+                series: eval(name),
+                labels: eval(name+'_label'),
+                colors:eval(name+'_color'),
+                tooltip: {
+                    custom: function({series, seriesIndex, dataPointIndex, w}) {
+                        return '<div class="arrow_box p-1" style="background:'+eval(name+'_color')[seriesIndex]+'">' +
+                        '<span>' +eval(name+'_label')[seriesIndex]+' : '+ total[seriesIndex] + '</span><br>' +
+                        '<span> Total : '+ eval('sale')[seriesIndex] + '</span>' +
+                        '</div>'
+                    }
+                }
+            }
+        }
+        else
+        {
+            var options = {
+                series: eval(name),
+                labels: eval(name+'_label'),
+                colors:eval(name+'_color'),
+                tooltip: {
+                    custom: function({series, seriesIndex, dataPointIndex, w}) {
+                        return '<div class="arrow_box p-1" style="background:'+eval(name+'_color')[seriesIndex]+'">' +
+                        '<span>' +eval(name+'_label')[seriesIndex]+' : '+ series[seriesIndex] + '</span><br>' +
+                        '<span> Total : '+ eval(name+'totalamounts')[seriesIndex] + '</span>' +
+                        '</div>'
+                    }
+                }
+            }
+        }
+        chart.updateOptions(options)
+    }
+    else
+    {
+        statyear=$('#statyear').val()
+        if($('#statyear').val()!='')
+        {
+            total=[0,0,0,0,0,0,0,0,0,0,0,0]
+            eval("sale=[0,0,0,0,0,0,0,0,0,0,0,0]")
+            eval("salecategory=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec']")
+            totalcategory= ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec'];
+            html=JSON.parse(statdata)
+            $.each(html.contribiution, function(index, value) {
+                $.each(value, function(index1, value1) {
+                    if(index1!='total' && index1!='monthly' && index1!='totalPAX')
+                    {
+                        eval(index1.toLowerCase().trim()+"=[0,0,0,0,0,0,0,0,0,0,0,0]")
+                        eval(index1.toLowerCase().trim()+"category=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec']")
+                    }
+                })
+            })
+            $.each(html.contribiution, function(index, value) {
+                // console.log(value.monthly[statyear])
+                if(value.monthly && typeof value.monthly === 'object' && value.monthly.hasOwnProperty(statyear))
+                {
+                    $.each(value.monthly[statyear], function(index1, value1) 
+                    {
+                        $.each(value1, function(index2, value2) 
+                        {
+                            eval(index2.toLowerCase().trim()+"=[0,0,0,0,0,0,0,0,0,0,0,0]")
+                            eval(index2.toLowerCase().trim()+"category=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec']")                                                                                                   
+                        })
+                        
+                    });
+                    $.each(value.monthly[statyear], function(index1, value1) 
+                    { 
+                        dataTotal=0;                    
+                        $.each(value1, function(index2, value2) 
+                        {
+                            index1=parseInt(index1)-1
+                            eval(index2.toLowerCase().trim()+"[parseInt("+index1+")]="+value2['total'])
+                            eval("sale[parseInt("+index1+")]="+value2['sale'])
+                            dataTotal+=value2['total'];
+                        })
+                        total[parseInt(index1)]=dataTotal        
+                    })
+                }
+                else
+                {
+                    
+                }
+                
+            })
+            var options = {
+                series: [{
+                    name: name+" Customers",
+                    data: eval(name)
+                }],
+                xaxis: {
+                    categories: eval(name+"category"),
+                }
+            }
+            charts.updateOptions(options)
+        }        
+        else
+        {
+            var options = {
+                series: [{
+                    name: "Customers",
+                    data: eval(name)
+                }],
+                // xaxis: {
+                //     categories: eval(name+"category"),
+                // }
+            }
+            charts.updateOptions(options)
+        }
+        
+    }
+}
+
+const background = document.getElementById("background");
+
+const getRandomNumber = (limit) => {
+  return Math.floor(Math.random() * limit);
+};
+// newcolors=[];
+// const setBackgroundColor = () => {
+//   const h = getRandomNumber(360);
+//   const randomColor = `hsl(${h}deg, 100%, 30%)`;
+//   console.log(h)
+//   if(newcolors.includes(h))
+//     return setBackgroundColor()
+//   else
+//   {
+//     newcolors.push(h);
+//     return randomColor  
+//   }
+// };
+
+
+
+
+newcolors=[];
+
+function setBackgroundColor() {
+
+    const h = Math.floor(Math.random() * 360);
+    const s = Math.floor(Math.random() * 51) + 50; // 50-100%
+    const l = Math.floor(Math.random() * 21) + 10; // 10-30%
+    
+    // Create HSL color string
+    const hslColor = `hsl(${h}, ${s}%, ${l}%)`;
+    if(newcolors.includes(hslColor))
+    {
+        return setBackgroundColor();
+    }
+    else
+    {
+        newcolors.push(hslColor);
+        return hslColor
+    }
+}
+
+// intake_menu_date()
+// function intake_menu_date() {
+//     $('.year_menu').html('');
+//     var d = new Date();
+//     var year = d.getFullYear()-2;
+//     var month = d.getMonth();
+//     var day = d.getDate();
+//     var c = new Date(year + 4, month, day);
+//     var next_year = c.getFullYear();
+//     $(".year_menu").append('<option value="All" selected>All</option>');
+//     for($i=year;$i<=next_year;$i++)
+//     {
+//         $(".year_menu").append('<option value="' + $i + '">' + $i + '</option>');
+//     }
+//     $(".months").append('<option value="All" selected>All</option>')
+//     months=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
+//     for($i=1;$i<=months.length;$i++)
+//     {
+//         $('.months').append('<option value="' + $i + '">' + months[$i-1] + '</option>');
+//     }
+//     // $('.select2').select2()
+// }
+
+
+</script>
+
+<script>
+    // Initialize To Date datepicker
+    $(document).ready(function () {
+        // Set default date and behavior for To Date
+        $('#travel_date2').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    autoUpdateInput: false,
+    minDate: new Date('2022-06-01'),  // Display from 2022
+    maxDate: new Date(),  // Display up to today
+    locale: {
+        format: 'YYYY-MM-DD'
+    },
+    isInvalidDate: function(date) {
+        // Disable dates not in 2025
+        return date.year() !== 2025;
+    }
+});
+        
+
+        // Open date picker on input field click
+        $('#travel_date2').on('click', function () {
+            $(this).data('daterangepicker').show();
+        });
+
+        // Update input field value on date selection
+        $('#travel_date2').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.startDate.format('YYYY-MM-DD'));
+            apply_search(); // Trigger your search function
+        });
+    });
+
+    // Function to reset dates and reapply filters
+    function clearAndResetDates() {
+        $('#travel_date1').val("01-01-2025"); //remove the date 01-01-2025
+        $('#travel_date2').val('');
+        apply_search();
+    }
+</script>
+
+<style>
+    
+.form-check .form-check-label:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    border-radius: 100px;
+    border: 2px solid #2626ad;
+}
+
+
+/* On hover, change border color */
+.custom-radio:hover {
+    border-color: darkgreen;
+}
+
+/* When the radio button is checked, change border color */
+.custom-radio:checked {
+    border-color: darkgreen;
+    background-color: darkgreen; /* Add color when checked */
+}
+
+/* Style for the label next to the radio button */
+.form-check-label {
+    font-size: 14px;
+    color: black;
+    padding-left: 5px;
+}
+</style>
+
+<script>
+function toggleSpanVisibility() {
+    const confirmChecked = document.getElementById('confirm').checked;
+    const travelledChecked = document.getElementById('travelled').checked;
+
+    const showAll = !confirmChecked && !travelledChecked;
+
+    // Confirmed-related columns
+    document.querySelectorAll('.confirmed, .confirmed-amount, .total_confirmed, .total_travelled_amount')
+        .forEach(el => el.style.display = (confirmChecked || showAll) ? 'table-cell' : 'none');
+
+    // Travelled-related columns
+    document.querySelectorAll('.travelled, .travelled-amount, .total_travelled, .total_amount')
+        .forEach(el => el.style.display = (travelledChecked || showAll) ? 'table-cell' : 'none');
+
+    // Show/hide Confirmed label and amount
+    document.getElementById('confirm-label').style.display = (confirmChecked || showAll) ? 'block' : 'none';
+    document.getElementById('confirm-amount').style.display = (confirmChecked || showAll) ? 'block' : 'none';
+
+    // Show/hide Travelled label and amount
+    document.getElementById('travelled-label').style.display = (travelledChecked || showAll) ? 'block' : 'none';
+    document.getElementById('travelled-amount').style.display = (travelledChecked || showAll) ? 'block' : 'none';
+}
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let input = document.getElementById("travel_date2");
+    
+        // Prevent selecting years before 2023
+        input.addEventListener("change", function () {
+            let selectedDate = new Date(this.value);
+            if (selectedDate.getFullYear() < 2023) {
+                alert("Please select a date from the year 2023 onwards.");
+                this.value = ""; // Reset input
+            }
+        });
+    
+        // Clear input function
+        function clearDate() {
+            document.getElementById("travel_date2").value = "";
+        }
+    });
+    </script>
+
+
+<script>
+ function toggleDropdown() {
+  document.getElementById('dropdown').classList.toggle('open');
+}
+
+function selectItem(element) {
+  const selectedValue = element.getAttribute('data-value');
+
+  // Call your logic
+  if (document.querySelectorAll('.toggles [type=checkbox]:checked').length > 0) {
+    document.getElementById('staff_list').value = '';
+  }
+  apply_search();
+
+  // Highlight selected option
+  document.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
+  element.classList.add('active');
+
+  // Close the dropdown
+  // document.getElementById('dropdown').classList.remove('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function (e) {
+  const container = document.querySelector('.dropdown-container');
+  const dropdown = document.getElementById('dropdown');
+
+  if (!container || !dropdown) return; // prevent errors if elements are missing
+
+  if (!container.contains(e.target)) {
+    dropdown.classList.remove('open');
+  }
+});
+
+
+  function handleCustomerSelect(checkbox) {
+    // alert('called')
+    const container = checkbox.closest('.customer-type');
+    if (checkbox.checked) {
+      container.classList.add('selected');
+    } else {
+      container.classList.remove('selected');
+    }
+
+    // 👇 Check if any customer type checkbox is selected
+    const anySelected = $('input[name="type_customer"]:checked').length > 0;
+
+    // 👇 Set the state of the International checkbox
+    $('#fInternational').prop('checked', anySelected);
+
+    // 👇 Toggle visibility for customer block based on checkbox state
+    $('#user_type_customer').toggleClass('d-none', !anySelected);
+  }
+
+  // Optional: initialize on page load (e.g. for pre-checked values)
+  document.querySelectorAll('.customer-type input[type=checkbox]').forEach(cb => {
+    handleCustomerSelect(cb);
+  });
+
+  </script>
+
+
+
+<script>
+
+// function toggleDropdown() {
+//     const dropdown = document.getElementById("reportDropdown");
+//     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+//   }
+
+//   function selectReport(element) {
+//     const items = document.querySelectorAll(".dropdown-menu-custom div");
+//     items.forEach(item => item.classList.remove("active"));
+//     element.classList.add("active");
+
+//     console.log("Selected Report:", element.innerText);
+//   }
+
+//   // Close dropdown if clicked outside
+//   document.addEventListener("click", function (event) {
+//     const dropdown = document.getElementById("reportDropdown");
+//     const trigger = document.querySelector(".custom-dropdown");
+//     if (!trigger.contains(event.target)) {
+//       dropdown.style.display = "none";
+//     }
+//   });
+
+//   // Ensure dropdown is hidden on page load
+//   window.addEventListener("load", function () {
+//     document.getElementById("reportDropdown").style.display = "none";
+//   });
+// </script>
+
+
+ <script>
+//   function toggleDashboardDropdown() {
+//     const dropdown = document.getElementById('dashboardDropdown');
+//     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+//   }
+
+//   // Optional: Close dropdown on outside click
+//   document.addEventListener('click', function(event) {
+//     const dropdown = document.getElementById('dashboardDropdown');
+//     const trigger = event.target.closest('.dropdown-container');
+//     if (!trigger) {
+//       dropdown.style.display = 'none';
+//     }
+//   });
+</script>
+
+
+
+<script>
+//   const staffList = {
+//     International: ['Prachi Lele', 'Bhagashree V'],
+//     Domestic: ['Rahul K', 'Siddharth R']
+//   };
+
+//   const excludedStaff = ['Devika Nair', 'Komal', 'Ruchira Keer', 'Riya Pinge', 'Yash Dongre'];
+
+// //   const allStaff = [...staffList.International, ...staffList.Domestic];
+// const allStaff = [...staffList.International, ...staffList.Domestic].filter(
+//   name => !excludedStaff.includes(name)
+// );
+
+//   function toggleStaffDropdown() {
+//     const dropdown = document.getElementById('staffDropdown');
+//     if (dropdown.innerHTML.trim() === '') {
+//       renderStaffDropdown(allStaff);
+//     }
+//     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+//   }
+
+// //   function renderStaffDropdown(staffArray) {
+// //     const staffDropdown = document.getElementById('staffDropdown');
+// //     staffDropdown.innerHTML = '';
+// //     staffArray.forEach(name => {
+// //       const div = document.createElement('div');
+// //       div.className = 'dropdown-item1';
+// //       div.innerText = name;
+// //       div.onclick = () => selectStaff(name);
+// //       staffDropdown.appendChild(div);
+// //     });
+// //   }
+
+// function renderStaffDropdown(staffArray) {
+//   const staffDropdown = document.getElementById('staffDropdown');
+//   staffDropdown.innerHTML = '';
+
+//   staffArray
+//     .filter(name => !excludedStaff.includes(name))  // Ensure excluded names are removed
+//     .forEach(name => {
+//       const div = document.createElement('div');
+//       div.className = 'dropdown-item1';
+//       div.innerText = name;
+//       div.onclick = () => selectStaff(name);
+//       staffDropdown.appendChild(div);
+//     });
+// }
+
+
+// //   function selectStaff(name) {
+// //     document.getElementById('staffSelectedText').innerText = name;
+// //     document.getElementById('staffDropdown').style.display = 'none';
+// //     document.getElementById('categoryContainer').style.display = 'inline-block';
+// //   }
+
+// function selectStaff(name) {
+//   document.getElementById('staffSelectedText').innerText = name;
+//   document.getElementById('staffDropdown').style.display = 'none';
+//   document.getElementById('categoryContainer').style.display = 'inline-block';
+
+//   // Optional: Update <select> if needed
+//   const select = document.getElementById('staff_list');
+//   const exists = [...select.options].some(opt => opt.value === name);
+//   if (!exists) {
+//     const opt = document.createElement('option');
+//     opt.value = name;
+//     opt.text = name;
+//     select.add(opt);
+//   }
+//   select.value = name;
+//   $('#staff_list').trigger('change');
+// }
+
+//   function toggleMainDropdown() {
+//     const dropdown = document.getElementById('mainDropdown');
+//     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+//   }
+
+// //   function showCategoryStaff(category) {
+// //     document.getElementById('mainSelectedText').innerText = category;
+// //     document.getElementById('mainDropdown').style.display = 'none';
+// //     renderStaffDropdown(staffList[category]);
+// //     document.getElementById('staffSelectedText').innerText = 'Select Staff';
+// //   }
+
+
+// function showCategoryStaff(category) {
+//   document.getElementById('mainSelectedText').innerText = category;
+//   document.getElementById('mainDropdown').style.display = 'none';
+
+//   const filtered = staffList[category].filter(name => !excludedStaff.includes(name));
+//   renderStaffDropdown(filtered);
+
+//   document.getElementById('staffSelectedText').innerText = 'Select Staff';
+// }
+
+//   // Close dropdowns on outside click
+//   window.addEventListener('click', function (e) {
+//     if (!e.target.closest('.dropdown-container1')) {
+//       document.getElementById('staffDropdown').style.display = 'none';
+//       document.getElementById('mainDropdown').style.display = 'none';
+//     }
+//   });
+
+
+  const staffList = {
+    International: ['Prachi Lele', 'Namira Patel', 'Ratika Dunga'],
+    Domestic: ['Rahul K', 'Komal', 'Ruchira Keer', 'Yash Dongre', 'Riya Pinge']
+  };
+
+  const excludedStaff = ['Devika Nair', 'Komal', 'Ruchira Keer', 'Riya Pinge', 'Yash Dongre'];
+
+  // Filtered all staff excluding excludedStaff
+  const allStaff = [...staffList.International, ...staffList.Domestic].filter(
+    name => !excludedStaff.includes(name)
+  );
+
+  function toggleStaffDropdown() {
+    const dropdown = document.getElementById('staffDropdown');
+    if (dropdown.innerHTML.trim() === '') {
+      renderStaffDropdown(allStaff);
+    }
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function renderStaffDropdown(staffArray) {
+    const staffDropdown = document.getElementById('staffDropdown');
+    staffDropdown.innerHTML = ;
+
+    staffArray
+      .filter(name => !excludedStaff.includes(name)) // Double check
+      .forEach(name => {
+        const div = document.createElement('div');
+        div.className = 'dropdown-item1';
+        div.innerText = name;
+        div.onclick = () => selectStaff(name);
+        staffDropdown.appendChild(div);
+      });
+  }
+
+  function selectStaff(name) {
+    document.getElementById('staffSelectedText').innerText = name;
+    document.getElementById('staffDropdown').style.display = 'none';
+
+    const select = document.getElementById('staff_list');
+    const exists = [...select.options].some(opt => opt.value === name);
+    if (!exists) {
+      const opt = document.createElement('option');
+      opt.value = name;
+      opt.text = name;
+      select.add(opt);
+    }
+    select.value = name;
+
+    // Trigger change event
+    $('#staff_list').trigger('change');
+  }
+
+  // Optional: Toggle by category
+  function showCategoryStaff(category) {
+    document.getElementById('mainSelectedText').innerText = category;
+    document.getElementById('mainDropdown').style.display = 'none';
+
+    const filtered = staffList[category].filter(name => !excludedStaff.includes(name));
+    renderStaffDropdown(filtered);
+    document.getElementById('staffSelectedText').innerText = 'Select Staff';
+  }
+
+  // Close dropdown on outside click
+  window.addEventListener('click', function (e) {
+    if (!e.target.closest('.dropdown-container1') &&
+        !e.target.closest('.dropdown-header1')) {
+      // document.getElementById('staffDropdown').style.display = 'none';
+    }
+  });
+
+
+  // const staffList = {
+  //   International: ['Prachi Lele', 'Namira Patel', 'Ratika Dunga'],
+  //   Domestic: ['Rahul K', 'Komal', 'Ruchira Keer', 'Yash Dongre', 'Riya Pinge']
+  // };
+
+  // const excludedStaff = ['Devika Nair', 'Komal', 'Ruchira Keer', 'Riya Pinge', 'Yash Dongre'];
+
+  // // Filter all staff
+  // const allStaff = [...staffList.International, ...staffList.Domestic].filter(
+  //   name => !excludedStaff.includes(name)
+  // );
+
+  // function toggleStaffDropdown() {
+  //   const dropdown = document.getElementById('staffDropdown');
+  //   if (dropdown.innerHTML.trim() === '') {
+  //     renderStaffDropdown(allStaff); // Always filtered
+  //   }
+  //   dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  // }
+
+  // function renderStaffDropdown(staffArray) {
+  //   const staffDropdown = document.getElementById('staffDropdown');
+  //   staffDropdown.innerHTML = '';
+
+  //   staffArray
+  //     .filter(name => !excludedStaff.includes(name)) // Extra safety
+  //     .forEach(name => {
+  //       const div = document.createElement('div');
+  //       div.className = 'dropdown-item1';
+  //       div.innerText = name;
+  //       div.onclick = () => selectStaff(name);
+  //       staffDropdown.appendChild(div);
+  //     });
+  // }
+
+  // function selectStaff(name) {
+  //   document.getElementById('staffSelectedText').innerText = name;
+  //   document.getElementById('staffDropdown').style.display = 'none';
+  //   document.getElementById('categoryContainer').style.display = 'inline-block';
+
+  //   // Sync with <select>
+  //   const select = document.getElementById('staff_list');
+  //   const exists = [...select.options].some(opt => opt.value === name);
+  //   if (!exists) {
+  //     const opt = document.createElement('option');
+  //     opt.value = name;
+  //     opt.text = name;
+  //     select.add(opt);
+  //   }
+  //   select.value = name;
+  //   $('#staff_list').trigger('change');
+  // }
+
+  // function toggleMainDropdown() {
+  //   const dropdown = document.getElementById('mainDropdown');
+  //   dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  // }
+
+  // function showCategoryStaff(category) {
+  //   document.getElementById('mainSelectedText').innerText = category;
+  //   document.getElementById('mainDropdown').style.display = 'none';
+
+  //   const filtered = staffList[category].filter(name => !excludedStaff.includes(name));
+  //   renderStaffDropdown(filtered);
+
+  //   document.getElementById('staffSelectedText').innerText = 'Select Staffg';
+  // }
+
+  // // Close dropdowns on outside click
+  // window.addEventListener('click', function (e) {
+  //   if (!e.target.closest('.dropdown-container1') &&
+  //       !e.target.closest('#staffSelectedText')) {
+  //     document.getElementById('staffDropdown').style.display = 'none';
+  //   }
+  // });
+
+</script>
+
+<style>
+  #staff_dropdown {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  /* Optional: Custom scrollbar styling */
+  #staff_dropdown::-webkit-scrollbar {
+    width: 8px;
+  }
+  #staff_dropdown::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+
+.dropdown-container1 {
+    position: relative;
+    display: inline-block;
+    
+    margin-left: 14px;
+  }
+
+  .dropdown-header1 {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* border: 1px solid #ccc; */
+    /* border-radius: 8px; */
+    /* padding: 6px 12px; */
+    /* background: #fff; */
+    min-width: 160px;
+  }
+
+  .dropdown-list1 {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    width: 100%;
+  }
+
+  .dropdown-item1 {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .dropdown-item1:hover {
+    background: #f0f0f0; 
+ } 
+
+
+
+
+.custom-dropdown {
+    /* background: #f7b2156e; */
+    padding: 5px 12px;
+    border-radius: 13px;
+    cursor: pointer;
+    padding-right: 20px;
+    position: relative;
+    width: 220px;
+  }
+
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown-toggle img {
+    margin-right: 8px;
+  }
+
+  .dropdown-menu-custom {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 999;
+    flex-direction: column; /* Force vertical layout */
+  }
+
+  .dropdown-menu-custom div {
+    display: block;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-left: 5px solid transparent;
+    white-space: nowrap;
+  }
+
+  .dropdown-menu-custom div:hover {
+    background-color: #f2f2f2;
+  }
+
+  .dropdown-menu-custom .active {
+    background-color: #e0e0e0;
+    border-left: 5px solid red;
+  }
+  .dropdown-menu-custom2 .active {
+    background-color: #e0e0e0;
+    border-left: 5px solid red;
+  }
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* border: 1px solid #ccc; */
+    /* border-radius: 8px; */
+    /* padding: 6px 12px; */
+    /* background: #fff; */
+    /* min-width: 160px; */
+  }
+
+
+     .table-header {
+    background-color: #E9EAEB;
+    font-weight: bold;
+    color: #717680;
+    font-size: smaller;
+  }
+  .table-row {
+    background-color: #ffffff;
+    color: #717680;
+    font-size: smaller;
+  }
+
+  .even-row {
+    background-color: #E9EAEB;
+}
+  /* .table-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ababab;
+    border-radius: 16px;
+  } */
+  .table-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px 0;
+  font-family: Arial, sans-serif;
+}
+  /* .table-row, .table-header {
+    display: flex;
+    padding: 8px 16px;
+  } */
+
+  .table-header, .table-row {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  /* background-color: #f9f9f9; */
+  padding: 10px;
+}
+  .table-cell {
+    flex: 1;
+    padding: 4px 8px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 100 !important;
+
+  }
+  .col-20 { flex: 2; }   /* 20% */
+  .col-10 { flex: 1; }   /* 10% */
+  .col-15 { flex: 1.5; } /* 15% */
+
+
+  .custom-dropdown {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+  }
+
+  .sidebar-section {
+    font-family: sans-serif;
+  }
+
+
+  .sidebar-toggle:hover {
+    background-color: #f9f9f9;
+  }
+
+  .sidebar-toggle img:last-child {
+    transition: transform 0.3s ease;
+  }
+
+  .rotate-down {
+    transform: rotate(180deg);
+  }
+
+  .sub-options {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 5px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .form-check {
+    padding: 8px 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: small;
+  }
+
+  .form-check:hover {
+    background-color: #ffecec;
+    cursor: pointer;
+    border-left: 3px solid #EB1616;
+  }
+
+  .form-check input[type="checkbox"] {
+    margin-left: auto;
+  }
+
+  .form-check input[type="checkbox"]:checked + label,
+  .form-check label:has(input[type="checkbox"]:checked) {
+    border-left: 3px solid red;
+    background-color: #f5f5f5;
+  }
+
+  .form-check label {
+    flex: 1;
+    margin: 0;
+    padding-left: 8px;
+  } 
+
+
+  .customer-type.selected {
+    background-color: #ffecec;
+    border-radius: 5px;
+  }
+
+  .customer-type.selected label {
+    font-weight: lighter;
+    color: #000000;
+  }
+
+  #staff_list {
+    padding: 8px;
+    border-radius: 6px;
+    background-color: white;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+    width: 150px;
+}
+
+#staff_list optgroup {
+    font-weight: bold;
+    color: #d90429; /* red indicator like your image */
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+}
+
+#staff_list option {
+    padding: 5px 10px;
+    color: #444;
+    background-color: white;
+}
+
+#staff_list option:hover {
+    background-color: #f3f3f3;
+}
+  
+.active-filter {
+    border: 2px solid red !important;
+    font-weight: 600;
+    color: red;
+  }
+</style>
+
+</html>
+
+

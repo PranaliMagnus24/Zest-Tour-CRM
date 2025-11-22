@@ -1,0 +1,125 @@
+<html class="hydrated">
+
+<head>
+    <style data-styles="">
+        ion-icon {
+            visibility: hidden
+        }
+        
+        .hydrated {
+            visibility: inherit
+        }
+    </style>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="assets/dataTables.css" />
+    <link rel="stylesheet" href="assets/css/fstdropdown.css">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js" data-stencil-namespace="ionicons"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js" data-stencil-namespace="ionicons"></script>
+</head>
+
+<body>
+        <div class="container" style=" max-width: 700px !important; ">
+            <div class="text-center"><img src="assets/logo.png" style="height: 67px;"></div>
+            <div class="col-lg-12 col-md-12" style="float: right;">
+                <div class="section mt-2" style="width: 100%;">
+
+                    <div class="card  bg-white box-shadow-1 no-border">
+                        <div class="card-body pe-5 ps-5" id="join">
+
+                            <div class="divider card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Webinar</span><span></span></div>
+
+
+                            <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <!-- <label class="label">Select Gender</label> -->
+                                        <label class="label" for="name">Full Name</label>
+                                        <input type="text" class="form-control input_style" name="name" id="candidatename" data-required='yes' data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 pe-1" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <!-- <label class="label">Select Gender</label> -->
+                                        <label class="label" for="name">Email :</label>
+                                        <input type="text" class="form-control input_style" name="email" id="candidateemail" autocomplete="off" data-pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                                            data-validation-message="Not valid email" data-required='yes' data-validation-required-message="This field is required" style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6" style="float: left;padding: 0px; padding-left: 0px;">
+                                <div class="form-group basic">
+                                    <div class="input-wrapper">
+                                        <!-- <label class="label">Select Gender</label> -->
+                                        <label class="label" for="name">Phone :</label>
+                                        <input type="text" class="form-control input_style" name="phone" id="candidatephone" autocomplete="off" data-pattern="^(\d)+$" minlength="10" maxlength="10" data-validation-message="Only Numbers" data-required='yes' data-validation-required-message="This field is required"
+                                            style="font-size: 15px !important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 pull-left text-center mt-1">
+                                <button type="button" class="btn btn-primary me-1 no-border blue-back" id="add_can_btn" onclick="validate('#join','webinarjoin')" style="background: #283477 !important;">Join Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+    <!-- Ionicons -->
+    <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
+    <!-- Owl Carousel -->
+    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Bootstrap-->
+    <script src="assets/js/lib/popper.min.js"></script>
+    <script src="assets/js/lib/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <!-- Base Js File -->
+    <script src="assets/js/base.js"></script>
+    <script src="assets/js/fstdropdown.js"></script>
+
+    <script type="text/javascript" src="assets/dataTables.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.datetimepicker.min.css" />
+    <script src="assets/js/jquery.datetimepicker.js"></script>
+</body>
+<script>
+
+function webinarjoin() {
+$("#add_can_btn").attr("disabled", true);
+$.ajax({    
+    type: "POST",
+    url: baseurl + 'webinar.php',
+    data: 'req=1&' + $("#join").find('select, textarea, input').serialize(),
+    success: function(html) {
+        if (html.trim() == 'ok') {
+            window.location.href='https://jiomeetpro.jio.com/shortener?meetingId=2714735622&pwd=XrL89';
+            // show_toast("Candidate Added", "success", 'big', "center", "inverse");
+        } else {
+            // show_toast("error", "danger", 'big', "center", "inverse");
+        }
+    }
+});
+}
+</script>
+
+</html>

@@ -1,0 +1,72 @@
+DirectoryIndex index.html
+<Files "*">
+Order deny,allow
+deny from all
+allow from 122.169.111.216
+allow from 103.182.196.243
+allow from 103.182.196.242
+allow from 202.134.178.169
+allow from 103.186.198.162
+allow from 103.115.203.244
+allow from 45.157.126.156
+allow from 49.36.113.123
+allow from 202.134.180.186
+allow from 103.170.214.132
+allow from 106.213.83.169
+allow from 45.157.126.156
+allow from 103.139.220.248 
+allow from 106.213.82.223
+allow from 45.157.126.156
+allow from 152.59.61.223
+allow from 223.228.44.150
+allow from 106.213.81.224
+allow from 49.43.27.194 
+allow from 45.157.126.156
+allow from 103.205.174.142
+allow from 49.43.27.224 
+allow from 103.226.240.67
+allow from 103.226.242.178
+allow from 103.182.196.54
+allow from 103.182.196.53
+allow from 202.134.178.169
+allow from 103.182.196.106
+allow from 103.182.196.95
+allow from 157.119.200.154
+allow from 160.250.28.137
+allow from 103.182.196.80
+allow from 103.182.196.49
+allow from 103.182.196.100
+allow from 103.186.198.136
+allow from 103.182.196.125
+allow from 103.182.196.42
+allow from 193.43.70.69
+allow from 223.228.141.116
+allow from 103.182.196.20
+allow from 192.168.4.120
+allow from 103.182.196.10
+allow from 192.168.1.25
+allow from 106.216.243.207
+allow from 192.168.1.10
+allow from 81.17.122.83
+allow from 103.182.196.105
+allow from 106.213.81.2
+allow form 89.40.212.151
+allow form 106.213.84.243
+allow form 106.213.87.86
+allow form 106.213.87.86
+allow form 94.140.8.52
+allow form 94.156.30.101
+allow form 106.213.80.127
+allow form 106.213.86.154
+allow form 106.213.87.36
+allow form 106.213.83.63
+allow form 106.213.87.121
+allow form 194.35.235.121
+
+</Files>
+
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</IfModule>

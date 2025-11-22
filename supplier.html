@@ -1,0 +1,1174 @@
+<html class="hydrated">
+<head>
+    <style data-styles="">
+        ion-icon {
+            visibility: hidden
+        }
+        
+        .hydrated {
+            visibility: inherit
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zest</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link href="assets/zestlogo.png" rel="icon">
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js" data-stencil-namespace="ionicons"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js" data-stencil-namespace="ionicons"></script>
+</head>
+<body>
+    <div id="loader" class="hidden">
+        Please do not reload page untill data gets added
+    </div>
+    <div class="col-lg-12 col-md-12 p-0">
+        <div class="section p-0" style="width: 100%;">
+            <div class="col-12 bg-white pull-left shadowed" style="width: 100%;  ">
+                <div class="col-12 d-flex justify-content-between align-items-center pull-left p-0">
+                     <div  onclick="javascript:window.location.href='index.html'" class="col-2 pull-left text-left"><img src="assets/logo.png" style="height: 67px;"></div>
+                    <div class="col-8 pull-right p-0" id="menu">
+                        <div class="w-100 pull-left text-center p-0 d-flex justify-content-end align-items-center">                                
+                                                        
+                            <div onclick="javascript:window.location.href='index.html'" class="pull-left text-center text-black">
+                                <i style="color: #283477;"><svg width="25px" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M336 64h32a48 48 0 0148 48v320a48 48 0 01-48 48H144a48 48 0 01-48-48V112a48 48 0 0148-48h32" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><rect x="176" y="32" width="160" height="64" rx="26.13" ry="26.13" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg></i>
+                                <div>
+                                    Followup
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='missing_reminder.html'" class="pull-left text-center text-black me-0" style="cursor: pointer;">
+                                <svg width="25px" style="color:#384381;fill:#384381" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" x="48" y="80" width="416" height="384" rx="48"/><circle cx="296" cy="232" r="24"/><circle cx="376" cy="232" r="24"/><circle cx="296" cy="312" r="24"/><circle cx="376" cy="312" r="24"/><circle cx="136" cy="312" r="24"/><circle cx="216" cy="312" r="24"/><circle cx="136" cy="392" r="24"/><circle cx="216" cy="392" r="24"/><circle cx="296" cy="392" r="24"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" stroke-linecap="round" d="M128 48v32M384 48v32"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M464 160H48"/></svg>
+                                <div class="">
+                                    Missing Rem.
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='confirmed.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <svg fill="#283477" width="25px" enable-background="new 0 0 64 64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="m43 23c-.718 0-1.425.042-2.124.116.074-.702.124-1.408.124-2.116 0-11.028-8.972-20-20-20s-20 8.972-20 20 8.972 20 20 20c.708 0 1.414-.049 2.116-.123-.074.698-.116 1.406-.116 2.123 0 11.028 8.972 20 20 20s20-8.972 20-20-8.972-20-20-20zm-22 16c-9.925 0-18-8.075-18-18s8.075-18 18-18 18 8.075 18 18c0 .821-.072 1.639-.182 2.447-.722.154-1.426.355-2.117.585.191-.995.299-2.008.299-3.032 0-8.822-7.178-16-16-16s-16 7.178-16 16 7.178 16 16 16c1.024 0 2.036-.108 3.032-.299-.23.691-.43 1.395-.585 2.116-.809.11-1.626.183-2.447.183zm3.959-4.575c-1.281.377-2.61.575-3.959.575-3.891 0-7.413-1.598-9.952-4.168.182-1.243 1.103-2.246 2.358-2.5l3.693-.749c.23-.066.448-.158.659-.261l3.242 4.352 3.249-4.361c.231.114.471.216.729.289l3.616.73c.219.044.426.119.627.209-1.758 1.676-3.204 3.668-4.262 5.884zm-8.959-13.425c-.551 0-1-.449-1-1s.449-1 1-1zm.78-4h-.78c-.263 0-.514.045-.757.109-.154-.468-.243-.957-.243-1.452 0-2.568 2.089-4.657 4.657-4.657h2.687c2.567 0 4.656 2.089 4.656 4.657 0 .495-.089.984-.243 1.452-.243-.064-.494-.109-.757-.109h-1-1.764c-1.308 0-2.618-.309-3.789-.895l-.211-.105h-.236c-.883 0-1.67.391-2.22 1zm9.22 2c.551 0 1 .449 1 1s-.449 1-1 1zm-2 2c0 1.654-1.346 3-3 3s-3-1.346-3-3v-2c0-.486.349-.893.809-.982 1.38.643 2.905.982 4.427.982h.764zm-4.539 4.732c.488.16.999.268 1.539.268.541 0 1.052-.108 1.54-.268.056.097.116.192.181.284l-1.721 2.31-1.72-2.308c.064-.093.124-.188.181-.286zm11.37 1.432c-.552-.382-1.173-.658-1.842-.792l-3.54-.712c-.502-.143-.914-.479-1.17-.917.548-.481.999-1.067 1.296-1.743h.425c1.654 0 3-1.346 3-3 0-.64-.205-1.23-.547-1.718.355-.827.547-1.721.547-2.625 0-3.671-2.986-6.657-6.657-6.657h-2.687c-3.67 0-6.656 2.986-6.656 6.657 0 .905.192 1.798.547 2.626-.342.487-.547 1.077-.547 1.717 0 1.654 1.346 3 3 3h.424c.297.677.749 1.263 1.297 1.744-.252.436-.648.768-1.095.897l-3.616.73c-1.553.313-2.792 1.319-3.461 2.658-1.6-2.276-2.549-5.041-2.549-8.029 0-7.72 6.28-14 14-14s14 6.28 14 14c0 1.351-.201 2.68-.578 3.961-1.278.61-2.479 1.348-3.591 2.203zm12.169 33.836c-9.925 0-18-8.075-18-18s8.075-18 18-18 18 8.075 18 18-8.075 18-18 18z"/><path d="m57.562 27.223 1.967-.364c-.132-.709-.293-1.422-.479-2.118l-1.932.518c.173.645.322 1.306.444 1.964z"/><path d="m42 10c.866 0 1.641-.374 2.19-.964 5.708 3.041 10.178 8.204 12.331 14.297l1.886-.666c-2.337-6.614-7.21-12.21-13.426-15.473.004-.065.019-.128.019-.194 0-1.654-1.346-3-3-3s-3 1.346-3 3 1.346 3 3 3zm0-4c.551 0 1 .449 1 1s-.449 1-1 1-1-.449-1-1 .449-1 1-1z"/><path d="m6.438 36.777-1.967.364c.132.709.293 1.422.479 2.118l1.932-.518c-.173-.645-.322-1.306-.444-1.964z"/><path d="m22 54c-.866 0-1.641.374-2.19.964-5.707-3.041-10.177-8.204-12.331-14.297l-1.886.666c2.337 6.614 7.21 12.21 13.426 15.473-.004.065-.019.128-.019.194 0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3zm0 4c-.551 0-1-.449-1-1s.449-1 1-1 1 .449 1 1-.449 1-1 1z"/><path d="m54.829 34.172c-.001 0-.001 0 0 0-.941-.941-2.241-1.343-3.567-1.105-.786.142-1.535.551-2.167 1.183l-11.095 11.093-3.095-3.096c-.633-.631-1.382-1.04-2.166-1.181-1.327-.24-2.626.163-3.567 1.104s-1.344 2.241-1.105 3.567c.142.786.551 1.535 1.183 2.167l5.922 5.923c.755.757 1.759 1.173 2.828 1.173s2.073-.416 2.828-1.172l13.923-13.923c.632-.632 1.041-1.381 1.183-2.167.238-1.325-.164-2.625-1.105-3.566zm-.864 3.212c-.087.483-.39.869-.628 1.107l-13.923 13.923c-.755.756-2.072.756-2.828 0l-5.923-5.923c-.238-.239-.541-.625-.628-1.108-.121-.671.08-1.326.552-1.797.38-.381.882-.586 1.415-.586.125 0 .253.011.382.034.482.087.869.39 1.107.628l4.509 4.509 12.509-12.508c.239-.238.625-.541 1.108-.628.671-.121 1.326.08 1.797.551.471.471.672 1.126.551 1.798z"/></svg>
+                                <div class="">
+                                    Confirmed
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='travelled.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <svg fill="#283477" width="25px" enable-background="new 0 0 392.362 392.362" version="1.1" viewBox="0 0 392.36 392.36" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m74.832 334.42c-0.125-0.112-0.254-0.219-0.388-0.321-4-3.32-8-6.88-11.68-10.56-2.338-2.313-6.102-2.313-8.44 0-2.34 2.343-2.34 6.137 0 8.48 4 4 8 7.72 12.48 11.32 2.463 2.217 6.257 2.017 8.474-0.446 2.216-2.463 2.017-6.256-0.446-8.473z"/>		<path d="m12.038 156.53c-3.128-1.093-6.55 0.558-7.643 3.686-0.162 0.464-0.267 0.947-0.311 1.436-1.2 5.48-2.12 11.04-2.8 16.6-0.428 3.252 1.834 6.245 5.08 6.72h0.76c3.037 2e-3 5.596-2.265 5.96-5.28 0.64-5.2 1.52-10.44 2.64-15.52 1.093-3.128-0.558-6.55-3.686-7.642z"/>		<path d="m45.004 302.62c-3.08-4.24-6-8.64-8.68-13.12-1.694-2.848-5.376-3.784-8.224-2.09-5e-3 3e-3 -0.011 6e-3 -0.016 0.01-2.848 1.694-3.784 5.376-2.09 8.224 3e-3 5e-3 6e-3 0.011 0.01 0.016 2.88 4.8 6 9.52 9.32 14.04 2.047 2.606 5.819 3.058 8.425 1.011 2.479-1.948 3.028-5.483 1.255-8.091z"/>		<path d="m24.084 264.78c-1.92-4.84-3.68-9.84-5.16-14.88-0.923-3.182-4.252-5.014-7.434-4.091-0.056 0.016-0.111 0.033-0.166 0.051-3.149 0.962-4.934 4.283-4 7.44 1.6 5.36 3.44 10.72 5.52 16 1.248 3.104 4.776 4.608 7.88 3.36s4.608-4.776 3.36-7.88z"/>		<path d="m27.664 115.4c-2.96-1.491-6.569-0.3-8.06 2.66-2.52 5-4.84 10.16-6.88 15.4-1.203 3.07 0.298 6.536 3.36 7.76 3.081 1.22 6.568-0.288 7.788-3.369 4e-3 -0.01 8e-3 -0.021 0.012-0.031 1.92-4.88 4-9.72 6.44-14.36 1.491-2.96 0.3-6.568-2.66-8.06z"/>		<path d="m13.286 223.03c-1e-3 -5e-3 -1e-3 -0.011-2e-3 -0.016-0.64-5.2-1.08-10.48-1.28-15.68-0.121-3.314-2.906-5.901-6.22-5.78s-5.901 2.906-5.78 6.22c0 5.6 0.64 11.24 1.36 16.8 0.41 2.908 2.865 5.091 5.8 5.16h0.92c3.288-0.415 5.617-3.417 5.202-6.704z"/>		<path d="m172.46 22.876c-0.32-3.314-3.266-5.74-6.58-5.42-5.56 0.56-11.16 1.36-16.68 2.44-3.314 0.309-5.749 3.246-5.44 6.56s3.246 5.749 6.56 5.44l-0.04-0.16h1.16c5.16-1 10.4-1.76 15.6-2.28 3.314-0.32 5.74-3.266 5.42-6.58z"/>		<path d="m53.724 79.096c-2.496-2.209-6.311-1.976-8.52 0.52-3.68 4.2-7.2 8.64-10.48 13.2-1.944 2.683-1.345 6.435 1.339 8.379 1.019 0.738 2.243 1.137 3.501 1.141v0.08c1.931 7e-3 3.747-0.916 4.88-2.48 3.08-4.24 6.36-8.4 9.8-12.32 2.209-2.496 1.976-6.31-0.52-8.52z"/>		<path d="m212 18.456c-5.52-0.84-11.16-1.44-16.76-1.76-3.314-0.199-6.161 2.326-6.36 5.64s2.326 6.161 5.64 6.36c5.28 0.4 10.52 0.96 15.68 1.76h0.92c3.314 0.243 6.197-2.246 6.44-5.56 0.243-3.313-2.246-6.197-5.56-6.44z"/>		<path d="m87.799 50.507c-1.877-2.549-5.411-3.202-8.075-1.491-4.6 3.16-9.12 6.6-13.44 10.16-2.552 2.121-2.901 5.908-0.78 8.46s5.908 2.901 8.46 0.78c4-3.36 8.24-6.56 12.56-9.52 2.669-1.964 3.239-5.72 1.275-8.389z"/><path d="m107.92 45.656c-0.02 0-0.039-4e-3 -0.059-4e-3 -0.021 0-0.041 4e-3 -0.061 4e-3h0.12z"/><path d="m129.08 31.602c-0.877-3.195-4.179-5.075-7.375-4.197-0.281 0.077-0.556 0.175-0.823 0.292-5.24 1.92-10.48 4-15.52 6.52-3.005 1.398-4.307 4.967-2.909 7.971 0.98 2.107 3.09 3.453 5.41 3.465 0.866-0.017 1.719-0.218 2.499-0.596 4.72-2.24 9.6-4.28 14.52-6.08 3.197-0.878 5.076-4.18 4.198-7.375z"/><path d="m201.62 378.68c-0.21-3.314-3.066-5.83-6.38-5.62-5.24 0.4-10.52 0.52-15.76 0.36-3.314-0.088-6.072 2.526-6.16 5.84s2.526 6.072 5.84 6.16h5.08c4 0 8 0 11.76-0.36 3.314-0.209 5.83-3.066 5.62-6.38z"/>		<path d="m358.66 239.68c-3.214-0.817-6.483 1.126-7.3 4.34-1.28 5.08-2.84 10.12-4.6 15.04-1.043 3.09 0.573 6.448 3.64 7.56 3.119 1.119 6.555-0.503 7.674-3.622l6e-3 -0.018c1.88-5.28 3.52-10.68 4.92-16 0.818-3.214-1.126-6.482-4.34-7.3z"/>		<path d="m366.32 170.98c-0.92-5.52-2.08-11.08-3.48-16.48-0.958-3.172-4.307-4.967-7.479-4.008-3.007 0.908-4.804 3.982-4.121 7.048 1.32 5.04 2.4 10.24 3.28 15.4 0.517 2.827 2.966 4.89 5.84 4.92h1c3.269-0.531 5.489-3.61 4.96-6.88z"/>		<path d="m391.82 102.11c-0.282-0.613-0.668-1.172-1.141-1.652l-10.6-11.04c-1.518-1.516-3.749-2.07-5.8-1.44l-19.12 5.8-22.4-23.76 50.28-28c2.93-1.349 4.211-4.818 2.861-7.747-0.282-0.613-0.668-1.172-1.141-1.652l-14.12-14.12c-1.539-1.479-3.763-2.001-5.8-1.36l-63.72 19.28-21.44-22.76c-5.464-6.318-14.359-8.429-22.08-5.24h-0.36c-5.821 2.396-10.444 7.019-12.84 12.84-0.604 1.52-1.033 3.103-1.28 4.72l-2.44-0.84c-3.159-1.016-6.544 0.721-7.56 3.88s0.721 6.544 3.88 7.56c3.08 1 6.16 2.12 9.24 3.28 0.927 1.45 2.014 2.792 3.24 4l22.6 21.44-6.48 21.4c-63.378-45.209-151.4-30.48-196.61 32.898s-30.48 151.4 32.898 196.61 151.4 30.48 196.61-32.898c36.052-50.541 34.794-118.72-3.098-167.89l10.24-18.48 23.76 22.4-5.72 18.92c-0.689 2.079-0.147 4.369 1.4 5.92 0 0 11.72 11.6 12 12 2.771 1.606 6.32 0.662 7.927-2.109 0.025-0.043 0.05-0.087 0.073-0.131l15.64-28.68 28.24-15.4c2.93-1.35 4.211-4.819 2.861-7.748zm-298.66 7.907c24.115-24.104 56.824-37.631 90.92-37.6 2.667 0 5.333 0.08 8 0.24 22.68 20.92 16 40 0.8 57.2-8.97 9.513-18.593 18.388-28.8 26.56-14.76 12.56-28.52 24.28-33.72 36-6.16 13.92-1.64 26.52 23.24 37.52 12.44 5.52 19.2 9.8 21.84 13.04 0.039 0.047 0.077 0.08 0.116 0.109-0.082 0.025-0.165 0.052-0.276 0.091-6.024 2.294-12.436 3.394-18.88 3.24-30.16 1.28-51.64-18-68.32-32.92-12-10.68-21.96-19.56-32.32-19.64 1.712-31.599 15.031-61.455 37.4-83.84zm219.96 91.12h0.04c-0.018 55.75-35.857 105.18-88.84 122.52-1.488-9.375 0.246-18.978 4.92-27.24 6.338-10.179 14.47-19.123 24-26.4 36.92-30.8 39-48 40.6-61.24 1-8.36 1.76-14.6 18.28-23.68 0.663 5.321 0.997 10.678 1 16.04zm-7.44-43.28c1.788 5.036 3.257 10.18 4.4 15.4-25.16 12.8-26.28 21.92-27.8 34.36-1.36 11.2-3.12 25.84-36.48 53.68-10.685 8.175-19.77 18.25-26.8 29.72-6.129 10.834-8.253 23.478-6 35.72-69.389 15.862-138.5-27.53-154.36-96.918-1.814-7.936-2.872-16.026-3.16-24.162 6.36 0 14.6 7.56 24.72 16.56 18.32 16.36 41.76 37.24 76.68 36 8.228 0.142 16.397-1.41 24-4.56 3.205-1.417 5.631-4.164 6.64-7.52 0.852-3.743-0.229-7.664-2.88-10.44-3.76-4.6-12-10.04-26.16-16.36-16.92-7.48-20.6-14.76-17.28-22.2 4-9.36 16.88-20 30.56-32 10.66-8.615 20.698-17.971 30.04-28 16.72-19.04 25.32-39.8 8.32-62.52 18.893 3.862 36.669 11.944 52 23.64l-9.2 30.36c-0.679 2.08-0.139 4.365 1.4 5.92 0 0 14.92 14.8 15.4 15.08 2.771 1.606 6.32 0.662 7.927-2.109 0.025-0.043 0.049-0.087 0.073-0.131l11.64-21.04c6.871 9.702 12.363 20.31 16.32 31.52zm53.64-44.68-5.16 2.56c-1.155 0.573-2.085 1.516-2.64 2.68l-2.56 5.2-9.96 18-2.92-3.2 5.8-19.16c0.676-2.245-0.066-4.675-1.88-6.16l-31.56-29.72c-2.285-2.245-5.957-2.212-8.202 0.073-0.054 0.055-0.106 0.11-0.158 0.167-0.4 0.44-28.8 51.6-28.8 51.6l-6.2-6.2 19.36-63.8c0.694-2.257-0.05-4.709-1.88-6.2l-25.12-23.64c-2.78-2.355-3.704-6.246-2.28-9.6 1.276-2.906 3.606-5.221 6.52-6.48h0.2c3.313-1.279 7.072-0.315 9.36 2.4l24 25.36c1.507 1.618 3.803 2.239 5.92 1.6l64-19.32 6.2 6.2-50.8 27.92c-2.812 1.534-3.848 5.058-2.313 7.869 0.024 0.044 0.048 0.087 0.073 0.131 0.24 0.44 30.84 33 30.84 33 1.516 1.604 3.811 2.209 5.92 1.56l19.24-5.8 3 3-18 9.96z"/>		<path d="m343.87 281.84c-0.087-0.051-0.176-0.101-0.266-0.147-2.867-1.499-6.406-0.455-8 2.36-2.52 4.6-5.28 9.12-8.24 13.44-1.911 2.717-1.257 6.469 1.46 8.38s6.469 1.257 8.38-1.46c3.12-4.64 6.08-9.48 8.8-14.36 1.679-2.858 0.723-6.535-2.134-8.213z"/>		<path d="m362.84 194.26c-3.313-0.045-6.036 2.604-6.082 5.917-1e-3 0.081-1e-3 0.162 2e-3 0.243v0.68c0 5.24-0.24 10.52-0.72 15.76-0.3 3.3 2.131 6.219 5.431 6.519 3e-3 0 6e-3 1e-3 9e-3 1e-3h0.56c3.165 0.03 5.808-2.404 6.04-5.56 0.52-5.56 0.76-11.2 0.76-16.8v-0.8c-0.022-3.298-2.702-5.96-6-5.96z"/>		<path d="m152.16 370.42c-5.2-0.88-10.36-2-15.36-3.52-3.126-1.099-6.551 0.544-7.651 3.67s0.544 6.551 3.67 7.651c0.229 0.081 0.464 0.147 0.701 0.2 5.36 1.52 10.88 2.84 16.4 4h1.12c3.314 0.309 6.251-2.126 6.56-5.44s-2.126-6.251-5.44-6.561z"/>		<path d="m245 368.59c-1.085-2.946-4.258-4.558-7.277-3.696v0.16c-4.96 1.64-10.08 3.04-15.16 4-3.236 0.729-5.269 3.944-4.54 7.18s3.944 5.269 7.18 4.54c5.44-1.24 10.92-2.76 16.24-4.48 3.11-1.146 4.702-4.595 3.557-7.704z"/>		<path d="m111 357.34c-4.76-2.36-9.44-4.92-13.96-7.48-2.861-1.679-6.541-0.721-8.22 2.14s-0.721 6.541 2.14 8.22c4.84 2.84 9.84 5.48 14.92 8 3.004 1.414 6.586 0.124 8-2.88s0.125-6.586-2.88-8z"/>		<path d="m318.38 318.74c-2.404-2.195-6.121-2.073-8.375 0.277h0.04c-3.6 4-7.4 7.52-11.28 11-2.474 2.209-2.689 6.006-0.48 8.48s6.006 2.689 8.48 0.48c4-3.72 8.24-7.68 12-11.76 2.235-2.448 2.062-6.243-0.385-8.477z"/><path d="m285.28 348.67c-1.7-2.844-5.384-3.771-8.229-2.071-0.096 0.057-0.19 0.117-0.282 0.18v-0.16c-4.4 2.8-9 5.44-13.64 8-2.949 1.513-4.113 5.131-2.6 8.08s5.131 4.113 8.08 2.6c4.96-2.56 9.88-5.4 14.6-8.4 2.844-1.701 3.772-5.385 2.071-8.229z"/></svg>
+                                <div class="">
+                                    Travelled
+                                </div>
+                            </div>
+                            <!---For Dummy Data-->
+                            <div onclick="javascript:window.location.href='dropout.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <i style="color: #283477;"><svg fill="#283477" width="25px" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"></path><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path></svg></i>
+                                <div class="">
+                                    Dummy
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='dropout.html'" class="pull-left text-center text-black" style="cursor: pointer;">
+                                <i style="color: #283477;"><svg fill="#283477" width="25px" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"></path><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></path></svg></i>
+                                <div class="">
+                                    Drop Out
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='dashboard.html'" class="pull-left  text-center text-black">
+                                <span class="position-relative">
+                                    <svg  width="25px" style="color:#283477" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M344 280l88-88M232 216l64 64M80 320l104-104"/><circle cx="456" cy="168" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="320" cy="304" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="208" cy="192" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="56" cy="344" r="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                </span>
+                                <div class="">
+                                    Dashboard
+                                </div>
+                            </div>
+                            <div onclick="javascript:window.location.href='supplier.html'" style="cursor: pointer;background: #f7b2156e;border-radius: 13px;" class="pull-left  text-center text-black">
+                                <span class="position-relative">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" style="color:#283477" viewBox="0 0 46 46" fill="none"> <path d="M16.1518 17.1168H20.7578C21.2602 17.1168 21.669 16.708 21.669 16.2055V13.7914C21.669 13.2889 21.2602 12.8802 20.7578 12.8802H16.1518C15.6493 12.8802 15.2405 13.2889 15.2405 13.7914V16.2055C15.2404 16.7079 15.6492 17.1168 16.1518 17.1168ZM16.6208 14.2604H20.2886V15.7363H16.6208V14.2604ZM38.0466 32.6931C39.7996 31.7948 41.0027 29.9705 41.0027 27.8692C41.0027 26.004 40.0553 24.356 38.6163 23.3809L41.0133 17.8201C41.2255 17.8626 41.4448 17.8853 41.6693 17.8853C43.5057 17.8853 44.9998 16.3912 44.9998 14.5548C44.9998 12.7183 43.5057 11.2242 41.6693 11.2242C40.6609 11.2242 39.7565 11.6753 39.1452 12.3856L34.201 9.67784V2.83739C34.2012 1.82427 33.3769 1 32.3638 1H13.6361C12.623 1 11.7987 1.82427 11.7987 2.83739V9.67784L6.85458 12.3855C6.24332 11.6753 5.33891 11.2242 4.33053 11.2242C2.4941 11.2242 1 12.7182 1 14.5547C1 16.3911 2.4941 17.8852 4.33053 17.8852C4.55502 17.8852 4.77433 17.8626 4.98648 17.82L7.38361 23.3808C5.94473 24.3559 4.99718 26.0038 4.99718 27.8691C4.99718 29.9704 6.20044 31.7947 7.95328 32.693C4.1881 33.7213 1.30748 37.0447 1.0038 41.0938C0.976792 41.4545 1.10163 41.8126 1.34639 42.0764C1.59124 42.3402 1.93901 42.4916 2.30067 42.4916H12.5129C12.4546 42.8265 12.4122 43.1668 12.3862 43.5119V43.512C12.3575 43.896 12.4904 44.2773 12.7511 44.5582C13.0117 44.8389 13.3819 45 13.767 45H32.2331C32.6182 45 32.9885 44.8389 33.249 44.558C33.5096 44.2772 33.6426 43.8959 33.6138 43.5119C33.5879 43.1668 33.5454 42.8265 33.4872 42.4916H43.6995C44.0611 42.4916 44.4089 42.3402 44.6537 42.0764C44.8985 41.8126 45.0234 41.4545 44.9964 41.0938C44.6924 37.0447 41.8119 33.7214 38.0466 32.6931ZM39.6223 27.8692C39.6223 30.0956 37.811 31.9069 35.5846 31.9069C33.3582 31.9069 31.5469 30.0956 31.5469 27.8692C31.5469 25.6428 33.3582 23.8315 35.5846 23.8315C37.811 23.8315 39.6223 25.6428 39.6223 27.8692ZM41.6694 12.6046C42.7447 12.6046 43.6195 13.4794 43.6195 14.5548C43.6195 15.6301 42.7446 16.5049 41.6694 16.5049C40.5941 16.5049 39.7193 15.63 39.7193 14.5548C39.7193 13.4795 40.5941 12.6046 41.6694 12.6046ZM20.2912 2.38039H25.7086V5.80497L23.7591 4.20665C23.3192 3.84594 22.6807 3.84585 22.2408 4.20656L20.2911 5.80497L20.2912 2.38039ZM13.1791 2.83739C13.1791 2.58969 13.3884 2.38039 13.6361 2.38039H18.9108V6.19209C18.9108 6.65987 19.1733 7.07467 19.5957 7.27466C19.761 7.35291 19.9363 7.39139 20.1101 7.39139C20.3803 7.39139 20.647 7.29847 20.8671 7.11798L23 5.36929L25.1329 7.11807C25.4948 7.41468 25.9819 7.47473 26.4043 7.27457C26.8267 7.07467 27.0891 6.65987 27.0891 6.19209V2.38039H32.3639C32.6116 2.38039 32.8209 2.58969 32.8209 2.83739V18.721C32.8209 18.9687 32.6116 19.178 32.3639 19.178H13.6361C13.3884 19.178 13.1791 18.9687 13.1791 18.721V2.83739ZM2.38039 14.5547C2.38039 13.4793 3.2553 12.6045 4.33053 12.6045C5.40577 12.6045 6.28068 13.4793 6.28068 14.5547C6.28068 15.63 5.40586 16.5048 4.33053 16.5048C3.25521 16.5048 2.38039 15.63 2.38039 14.5547ZM6.25324 17.2716C7.10417 16.6676 7.66098 15.6753 7.66098 14.5547C7.66098 14.2211 7.61112 13.8992 7.51949 13.5951L11.7987 11.2517V18.721C11.7987 19.7342 12.623 20.5584 13.6361 20.5584H32.3637C33.3769 20.5584 34.2011 19.7342 34.2011 18.721V11.2517L38.4804 13.5952C38.3888 13.8992 38.3389 14.2212 38.3389 14.5547C38.3389 15.6752 38.8957 16.6675 39.7466 17.2715L37.3813 22.7586C36.8187 22.5602 36.2142 22.4511 35.5845 22.4511C32.597 22.4511 30.1664 24.8816 30.1664 27.8692C30.1664 29.9696 31.3687 31.7934 33.1204 32.692C31.4497 33.1455 29.925 34.0569 28.7142 35.3466C27.7444 34.7248 26.6704 34.2558 25.5279 33.9735C27.6156 33.0128 29.0694 30.9024 29.0694 28.4576C29.0694 25.1107 26.3465 22.3878 22.9997 22.3878C19.6529 22.3878 16.93 25.1107 16.93 28.4576C16.93 30.9024 18.3838 33.0128 20.4715 33.9736C19.329 34.2559 18.255 34.7249 17.2852 35.3467C16.0744 34.057 14.5497 33.1457 12.879 32.6921C14.6307 31.7934 15.833 29.9697 15.833 27.8692C15.833 24.8817 13.4024 22.4512 10.4149 22.4512C9.78523 22.4512 9.18079 22.5603 8.6182 22.7587L6.25324 17.2716ZM18.3106 28.4575C18.3106 25.8717 20.4142 23.7681 23 23.7681C25.5857 23.7681 27.6893 25.8717 27.6893 28.4575C27.6893 31.0432 25.5856 33.1467 23 33.1467C20.4143 33.1467 18.3106 31.0432 18.3106 28.4575ZM6.37757 27.8692C6.37757 25.6428 8.1889 23.8315 10.4153 23.8315C12.6417 23.8315 14.453 25.6428 14.453 27.8692C14.453 30.0956 12.6417 31.9069 10.4153 31.9069C8.1889 31.9069 6.37757 30.0955 6.37757 27.8692ZM2.38721 41.1112C2.74214 36.9727 6.25186 33.7437 10.4153 33.7437C12.5899 33.7437 14.649 34.6208 16.1652 36.1716C14.6379 37.4562 13.4703 39.1614 12.8511 41.1111L2.38721 41.1112ZM13.7627 43.6192C13.7627 43.6192 13.7625 43.6179 13.7626 43.6151C14.1232 38.8103 18.1807 35.0466 22.9999 35.0466C27.8192 35.0466 31.8767 38.8103 32.233 43.6196L13.7627 43.6192ZM33.1488 41.1112C32.5296 39.1615 31.362 37.4563 29.8347 36.1716C31.351 34.6208 33.4102 33.7437 35.5847 33.7437C39.7481 33.7437 43.2578 36.9727 43.6128 41.1112H33.1488Z" fill="#283477" stroke="#283477" stroke-width="0.5"/>
+                                        </svg>
+                                </span>
+                                <div class="">
+                                    Supplier
+                                </div>
+                            </div>
+                            
+                            <div onclick="javascript:window.location.href='index.html#add_customer_btn'" class="pull-left  text-center text-black">
+                                <svg fill="#283477" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M256,0C114.833,0,0,114.833,0,256s114.833,256,256,256s256-114.853,256-256S397.167,0,256,0z M256,472.341    c-119.275,0-216.341-97.046-216.341-216.341S136.725,39.659,256,39.659S472.341,136.705,472.341,256S375.295,472.341,256,472.341z    "/></g></g><g><g><path d="M355.148,234.386H275.83v-79.318c0-10.946-8.864-19.83-19.83-19.83s-19.83,8.884-19.83,19.83v79.318h-79.318    c-10.966,0-19.83,8.884-19.83,19.83s8.864,19.83,19.83,19.83h79.318v79.318c0,10.946,8.864,19.83,19.83,19.83    s19.83-8.884,19.83-19.83v-79.318h79.318c10.966,0,19.83-8.884,19.83-19.83S366.114,234.386,355.148,234.386z"/></g></g></svg>
+                                <div class="">
+                                    Add Enquiry
+                                </div>
+                            </div>
+                            
+                            <div  style="cursor: pointer;padding: 2px 8px;" class="pull-right  text-center text-black " type="button">
+                                <svg data-bs-toggle="dropdown" aria-expanded="true" fill="#283477" width="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><g><path d="M176.792,0H59.208C26.561,0,0,26.561,0,59.208v117.584C0,209.439,26.561,236,59.208,236h117.584    C209.439,236,236,209.439,236,176.792V59.208C236,26.561,209.439,0,176.792,0z M196,176.792c0,10.591-8.617,19.208-19.208,19.208    H59.208C48.617,196,40,187.383,40,176.792V59.208C40,48.617,48.617,40,59.208,40h117.584C187.383,40,196,48.617,196,59.208    V176.792z"></path></g></g><g><g><path d="M452,0H336c-33.084,0-60,26.916-60,60v116c0,33.084,26.916,60,60,60h116c33.084,0,60-26.916,60-60V60    C512,26.916,485.084,0,452,0z M472,176c0,11.028-8.972,20-20,20H336c-11.028,0-20-8.972-20-20V60c0-11.028,8.972-20,20-20h116    c11.028,0,20,8.972,20,20V176z"></path></g></g><g><g><path d="M176.792,276H59.208C26.561,276,0,302.561,0,335.208v117.584C0,485.439,26.561,512,59.208,512h117.584    C209.439,512,236,485.439,236,452.792V335.208C236,302.561,209.439,276,176.792,276z M196,452.792    c0,10.591-8.617,19.208-19.208,19.208H59.208C48.617,472,40,463.383,40,452.792V335.208C40,324.617,48.617,316,59.208,316h117.584    c10.591,0,19.208,8.617,19.208,19.208V452.792z"></path></g></g><g><g><path d="M452,276H336c-33.084,0-60,26.916-60,60v116c0,33.084,26.916,60,60,60h116c33.084,0,60-26.916,60-60V336    C512,302.916,485.084,276,452,276z M472,452c0,11.028-8.972,20-20,20H336c-11.028,0-20-8.972-20-20V336c0-11.028,8.972-20,20-20    h116c11.028,0,20,8.972,20,20V452z"></path></g></g></svg>
+                                <div class=" bold pt-0" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Menu
+                                </div>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item remove_admin d-none" href="#">
+                                        Holiday To TravelReport 
+                                        <div class="float-end form-check form-switch  ms-2">
+                                            <input class="form-check-input dark-mode-switch" type="checkbox" id="switch">
+                                            <label class="form-check-label" for="switch"></label>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item d-none" href="index.html#add_agent_btn">Add Agent</a>
+                                    <a class="d-none dropdown-item" href="index.html#add_supplier_btn">Add Supplier</a>
+                                    <a class="dropdown-item bold" href="supplier.html">View Supplier</a>
+                                    <a class="dropdown-item" href="birthday_reminder.html">Birthday & Anniversary</a>                                    
+                                    <a class="dropdown-item" href="weblead.html">Website Lead</a>
+                                    <a class="dropdown-item" onclick="logout()" href="#">Logout <span class="pull-right bold" id="welcome"></span></a>
+                                </div>
+                            </div>                                                                                                                
+                        </div>
+                    </div>                
+                </div>
+            </div>
+            <div class="col-12 pull-left" id="counts" style="margin-bottom:40px">
+                <div class="col-12 pull-left p-0" style="margin-top:50px ;  ">
+                      <div class="col-12 pull-left p-0" style="margin-top:50px;">
+                    <div class="col-12 pull-left d-flex align-items-center text-center p-0 justify-content-between">
+                        <div class="pull-left p-0 d-flex align-items-center col-10">
+                            <div class="ms-2 pull-left d-none p-0" style=" margin-top: 15px;min-width: 100px;">
+                                <h5 class="m-0" style="line-height: 30px;">
+                                    <div id="entries" class="d-none">Total Entries : 0</div>
+                                </h5>
+                            </div>
+                            </div>
+                        </div>
+                           <div class="pull-left col-6 d-flex align-items-center" style="margin-left: 300px;">
+                           <!-- Search Input -->
+                           <div class="form-group basic" style="flex: 1; margin-right: 10px;">
+                               <div class="input-wrapper">
+                                   <input
+                                       type="text"
+                                       id="find"
+                                       class="form-control bg-white box-shadow-1 no-border"
+                                       autocomplete="off"
+                                       onkeyup="clear_btn_hide(),onenter('apply_search')"
+                                       style="background-color: white; height: 37px; font-size: 13px; padding-left: 37px; border-radius: 30px; "
+                                       placeholder="Search Supplier"
+                                   />
+                                   <ion-icon
+                                       name="search-outline"
+                                       style="right: 0px; position: absolute; top: 6px; font-size: 25px; padding-right: 5px;"
+                                       onclick="apply_search()"
+                                       role="img"
+                                       class="md hydrated"
+                                       aria-label="search outline"
+                                   ></ion-icon>
+                                   <div
+                                       id="clear_in"
+                                       class="hidden"
+                                       style="font-size: 29px; position: absolute; top: 4px; color: #283477;"
+                                       onclick="clear_input()"
+                                   >
+                                       <ion-icon
+                                           name="close-circle-outline"
+                                           role="img"
+                                           class="md hydrated"
+                                           aria-label="close circle outline"
+                                       ></ion-icon>
+                                   </div>
+                               </div>
+                           </div>
+
+                           <div style="flex: 0.5;">
+                           <select id="countryDropdown" class="form-control" onchange="country_search()" style="height: 37px; font-size: 13px; 
+                           border-radius:30px; font-family: Poppins;border: none;padding-left: 25px;color: #887b7d;">
+                               <option value="">Select Country</option>
+                               <option value="armenia_georgia">Armenia & Georgia</option>
+                               <option value="australia">Australia</option>
+                               <option value="azerbaijan">Azerbaijan</option>
+                               <option value="bahrain">Bahrain</option>
+                               <option value="bulgaria">Bulgaria</option>
+                               <option value="canada">Canada</option>
+                               <option value="cambodia">Cambodia</option>
+                               <option value="china">China</option>
+                               <option value="egypt">Egypt</option>
+                               <option value="europe">Europe</option>
+                               <option value="fiji">Fiji</option>
+                               <option value="finland">Finland</option>
+                               <option value="france">France</option>
+                               <option value="germany">Germany</option>
+                               <option value="greece">Greece</option>
+                               <option value="Hong Kong">Hong Kong</option>
+                               <option value="iceland">Iceland</option>
+                               <option value="indonesia">Indonesia</option>
+                               <option value="ireland">Ireland</option>
+                               <option value="israel">Israel</option>
+                               <option value="italy">Italy</option>
+                               <option value="japan">Japan</option>
+                               <option value="jordan">Jordan</option>
+                               <option value="kenya">Kenya</option>
+                               <option value="korea">Korea</option>
+                               <option value="kyrgyzstan">Kyrgyzstan</option>
+                               <option value="madagascar">Madagascar</option>
+                               <option value="malaysia">Malaysia</option>
+                               <option value="maldives">Maldives</option>
+                               <option value="mauritius">Mauritius</option>
+                               <option value="new_zealand">New Zealand</option>
+                               <option value="philippines">Philippines</option>
+                               <option value="poland">Poland</option>
+                               <option value="qatar">Qatar</option>
+                               <option value="russia">Russia</option>
+                               <option value="scandinavia">Scandinavia</option>
+                               <option value="seychelles">Seychelles</option>
+                               <option value="singapore">Singapore</option>
+                               <option value="south_africa">South Africa</option>
+                               <option value="spain">Spain</option>
+                               <option value="sri_lanka">Sri Lanka</option>
+                               <option value="tanzania">Tanzania</option>
+                               <option value="thailand">Thailand</option>
+                               <option value="turkey">Turkey</option>
+                               <option value="uae">UAE</option>
+                               <option value="uk">UK</option>
+                               <option value="ukraine">Ukraine</option>
+                               <option value="usa">USA</option>
+                               <option value="uzbekistan">Uzbekistan</option>
+                               <option value="vietnam">Vietnam</option>
+                               <!-- Add other countries as needed -->\n    </select>
+                            </div>
+<!-- data-required="yes" -->
+                       <!-- Country Dropdown -->
+                                        
+                    </div>
+                    <div class="pull-left" style="margin-top: 9px;">
+                        <button type="button" class="btn btn-primary no-border blue-back pl-5" style="background: #283477 !important;margin-left: 2px; border-radius: 30px" data-bs-target="#add_supplier_modal" data-bs-toggle="modal"><svg fill="white" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512; padding-right:4px" xml:space="preserve"><g><g><path d="M256,0C114.833,0,0,114.833,0,256s114.833,256,256,256s256-114.853,256-256S397.167,0,256,0z M256,472.341    c-119.275,0-216.341-97.046-216.341-216.341S136.725,39.659,256,39.659S472.341,136.705,472.341,256S375.295,472.341,256,472.341z    "/></g></g><g><g><path d="M355.148,234.386H275.83v-79.318c0-10.946-8.864-19.83-19.83-19.83s-19.83,8.884-19.83,19.83v79.318h-79.318    c-10.966,0-19.83,8.884-19.83,19.83s8.864,19.83,19.83,19.83h79.318v79.318c0,10.946,8.864,19.83,19.83,19.83    s19.83-8.884,19.83-19.83v-79.318h79.318c10.966,0,19.83-8.884,19.83-19.83S366.114,234.386,355.148,234.386z"/></g></g></svg> Add Supplier</button>
+                       </div>  
+                </div>
+                </div>
+                
+                 <div class=" pull-left p-0">
+                    <h5 class="m-0" style="line-height: 30px;">
+                        <div id="count1" style="margin-top:4px; margin-left:5px">Entries : 0</div>
+                    </h5>
+                 </div>
+                <!-- <div class="pull-left align-items-center">
+                 <button type="button" class="btn btn-primary no-border blue-back pl-5" style="background: #283477 !important;margin-left: 570px" data-bs-target="#add_supplier_modal" data-bs-toggle="modal"><svg fill="white" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512; padding-right:4px" xml:space="preserve"><g><g><path d="M256,0C114.833,0,0,114.833,0,256s114.833,256,256,256s256-114.853,256-256S397.167,0,256,0z M256,472.341    c-119.275,0-216.341-97.046-216.341-216.341S136.725,39.659,256,39.659S472.341,136.705,472.341,256S375.295,472.341,256,472.341z    "/></g></g><g><g><path d="M355.148,234.386H275.83v-79.318c0-10.946-8.864-19.83-19.83-19.83s-19.83,8.884-19.83,19.83v79.318h-79.318    c-10.966,0-19.83,8.884-19.83,19.83s8.864,19.83,19.83,19.83h79.318v79.318c0,10.946,8.864,19.83,19.83,19.83    s19.83-8.884,19.83-19.83v-79.318h79.318c10.966,0,19.83-8.884,19.83-19.83S366.114,234.386,355.148,234.386z"/></g></g></svg> Add Supplier</button>
+                </div> -->
+                  <!-- <div class="pull-left align-items-center">
+                 <button type="button" class="btn btn-primary no-border blue-back pl-5" style="background: #283477 !important;margin-left: 20px;" data-bs-target="#apply_search" data-bs-toggle="modal"><svg width="20px" class="svg-icon search-icon" aria-labelledby="title desc" style="margin-right: 3px" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title id="title">Search Icon</title><desc id="desc">A magnifying glass icon.</desc><g class="search-path" fill="none" stroke="#FFFFFF"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/><circle cx="8" cy="8" r="7"/></g></svg> Search Supplier</button>
+                </div> -->
+                           
+                <div class="pull-right p-0" style="position: fixed;bottom: 0;margin: auto;left: 0;justify-content: center;right: 0;z-index: 1000;display: flex;">
+                    <div class="page_ination text-center float-start bg-white m-auto"></div>
+                </div>
+            </div>
+
+          <div class="col-12 p-0 student_data" style="float: left;">
+            <div class="section mt-1 p-0 pull-left" style="width: 100%;">
+                <div class="col-12 p-0 pull-left font-blue remove d-flex" style="background: #bdc5f1;position: sticky;top: 0;position: -webkit-sticky;font-weight: bold !important;z-index: 1;border: 1px solid #aaa7a7;border-bottom:0">
+                    <div class="pull-left Flex-item font-blue" style="width: 8%;padding-left: 8px;">Sr. No.</div>
+                    <div class="col-2 pull-left Flex-item font-blue" style="width: 15%;">Supplier Name</div>
+                    <div class="col-1 pull-left Flex-item font-blue" style="width: 15%;">Contact Person Name</div>
+                    <div class="col-1 pull-left Flex-item font-blue" style="width: 10%;">Contact Number</div>
+                    <div class="col-1 pull-left Flex-item font-blue" style="width: 12%;">Email ID</div>
+                    <div class="col-1 pull-left Flex-item font-blue" style="width: 8%;">Country</div>
+                    <div class="col-1 pull-left Flex-item font-blue" style="width: 8%;">Categories</div>
+                    <div class="col-1 pull-left Flex-item font-blue" style="width: 8%;">Remark</div>
+                    <div class="col-1 pull-left Flex-item font-blue position-relative" style="width: 15%;">Status</div>
+                </div>
+                <div class="pull-left details1 p-0 w-100"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+                      
+    <div class="modal fade dialog" id="add_supplier_modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body" id="contactForm" onsubmit="return validateContactForm()">
+                    <input type="hidden" name="id">
+                    <input type="hidden" name="table" value="supplier">
+                     <div class="divider card-title text-center"><span></span><span class="" style="font-size: 25px;color: black;">Add Supplier</span><span></span></div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Status*</label>
+                                <select  class="form-control input_style" name="status" style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required">
+                                    <option value="Active">Active</option>
+                                    <option value="In-Active">In-Active</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Supplier Name *</label>
+                                <input type="text" class="form-control input_style" name="name" id="supplier_name"
+                                    style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required">
+                                <div id="name_error" class="text-danger" style="font-size: 13px; margin-top: 5px;"></div>
+                            </div>
+                            <!-- <div class="input-wrapper">
+                                <label class="label" for="name">Supplier Name *</label>
+                                <input type="text" class="form-control input_style" name="name" style="font-size: 15px !important;" data-required="yes" data-validation-required-message="This field is required">
+                            </div> -->
+                        </div>
+                    </div>
+                     <div class="col-lg-12 col-md-12" style="float: left;padding: 0px; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Country *</label>
+                                <select type="text" multiple class="form-control input_style" name="country_id" style="font-size: 15px !important;" data-required="yes"  data-validation-required-message="This field is required">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="country_name">
+                    <div class="w-100 pull-left contact_no">
+                            
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Contact Person Name*</label>
+                                <input type="text" class="form-control input_style" name="name_poc" style="font-size: 15px !important;" data-required="yes"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Designation </label>
+                                <input type="text" class="form-control input_style" name="designation" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6 pe-1" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Contact Number*</label>
+                                <!-- <input type="number" class="form-control input_style" id="contact_no" name="contact_no"
+                                        id="numbercontact"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                        maxlength="12" style="font-size: 15px !important;">
+                                    <small class="text-danger" id="contactError" style="display: none;">
+                                        Please enter valid contact numbers, separated by commas.
+                                    </small> -->
+                                    <input 
+    type="text" 
+    class="form-control input_style" 
+    id="contact_no" 
+    name="contact_no"
+    oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+    maxlength="12" 
+    style="font-size: 15px !important;"
+    
+/>
+
+<small class="text-danger" id="contactError" style="display: none;">
+    Please enter a valid contact number (10 to 12 digits).
+</small>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                     <div class="col-lg-6 col-md-6 pe-1" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Landline Number </label>
+                                <!-- <input type="number" class="form-control input_style" name="landline_no" autocomplete="off" data-pattern="^(\d)+$" minlength="8" maxlength="10" data-validation-message="Only Numbers" style="font-size: 15px !important;"> -->
+                                 <input 
+                                type="text" 
+                                class="form-control input_style only-digits" 
+                                name="landline_no" 
+                                id="landline_no"
+                                autocomplete="off" 
+                                pattern="^\d{8,12}$" 
+                                minlength="8" 
+                                maxlength="12" 
+                                inputmode="numeric"
+                                data-validation-message="Only numbers allowed (8–12 digits)" 
+                                style="font-size: 15px !important;" 
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Email ID</label>
+                                <!-- <input type="text" class="form-control input_style" name="email" autocomplete="off" data-pattern="^[a-zA-Z0-9.!#$%&amp;'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" data-validation-message="Not valid email" style="font-size: 15px !important;"  data-validation-required-message="This field is required"> -->
+                                 <input type="text" 
+       class="form-control input_style" 
+       name="email" 
+       autocomplete="off" 
+       data-pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+       data-validation-message="Not a valid email address" 
+       data-validation-required-message="This field is required" 
+       style="font-size: 15px !important;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Address</label>
+                                <input type="text" class="form-control input_style" name="address" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Operating From </label>
+                                <input type="text" class="form-control input_style" name="operating_from" autocomplete="off" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Categories </label>
+                                <select multiple class="form-control input_style" id="categoriesDropdown" name="categories" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                                    <option value="">Loading...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                  
+                    <div class="col-12 pull-left text-center mt-1">
+                        <button type="button" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;" onclick='validate("#add_supplier_modal","add_supplier",{"divid":"#add_supplier_modal","fun":"apply_search"})'>Submit</button>
+                        <button type="button" data-bs-dismiss="modal" class="btn btn-primary me-1 no-border blue-back" style="background: #283477 !important;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        @media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 630px !important;
+        margin: 1.75rem auto;
+    }
+}
+    </style> 
+
+
+      <script>
+    
+    let contactNumbersRaw = document.getElementById("contact_no").value.trim();
+
+    let cleanedContactNumbers = contactNumbersRaw
+    .split(',')
+    .map(num => {
+        let cleaned = num.trim();
+
+        // Replace any form of 'plus', 'pluss', etc. (case-insensitive) with '+'
+        cleaned = cleaned.replace(/^plus+/i, '+');
+
+        // Remove any characters except digits and a leading +
+        cleaned = cleaned.replace(/(?!^\+)\D/g, '');
+
+        // If it doesn't start with + and is 10+ digits, add +91
+        if (!cleaned.startsWith('+') && cleaned.length >= 10) {
+            cleaned = '+91' + cleaned;
+        }
+
+        return cleaned;
+    })
+    .filter(num => num !== '')
+    .join(',');
+
+  
+
+    document.getElementById("contact_no").addEventListener("input", function () {
+    var input = this.value;
+    var errorMsg = document.getElementById("contactError");
+
+    // Split by comma and trim spaces
+    const numbers = input.split(",").map(num => num.trim());
+
+    // Regex: optional + followed by 10 to 15 digits
+    const numberPattern = /^\+?\d{10,15}$/;
+
+    const invalidNumbers = numbers.filter(num => !numberPattern.test(num));
+
+    if (invalidNumbers.length > 0) {
+        errorMsg.style.display = "block";
+        errorMsg.textContent = "Enter numbers: " + invalidNumbers.join(", ");
+    } else {
+        errorMsg.style.display = "none";
+    }
+});
+    </script>       
+<script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap-->
+<script src="assets/js/lib/popper.min.js"></script>
+<script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+
+<link href="assets/css/select2.min.css" rel="stylesheet" />
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!-- Bootstrap-->
+<script src="assets/js/lib/popper.min.js"></script>
+<script src="assets/js/lib/moment.min.js"></script>
+<script src="assets/js/daterangepicker.js"></script>
+<script src="assets/js/base.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="assets/css/jquery.datetimepicker.min.css" /> -->
+<!-- <script src="assets/js/jquery.datetimepicker.js"></script> -->
+
+
+
+<script>
+   
+
+    function get_categories() {
+    $.ajax({
+        type: "GET",
+        url: newbaseurl + "GetData/get_list",
+        async: true,
+        data: { table: "categories", sort: "name" }, // Sending parameters as an object
+        success: function (response) {
+            var dropdown = $('[name="categories"]');
+            dropdown.empty(); // Clear previous options
+
+            try {
+                response = JSON.parse(response); // Parse JSON response
+
+                let options = ''; // Initialize options
+                for (let x in response) {
+                    options += `<option data-name="${response[x]['name']}" value="${response[x]['name']}">${response[x]['name']}</option>`;
+                }
+
+                dropdown.html(options); // Populate dropdown
+                dropdown.select2({ multiple: true, placeholder: "Select Categories" });
+            } catch (e) {
+                console.error("Error parsing categories JSON:", e);
+            }
+        },
+        error: function () {
+            console.log("Error loading categories.");
+        }
+    });
+}
+
+// Call function on page load
+$(document).ready(function () {
+    get_categories();
+});
+
+</script>
+
+
+<script>
+
+var user_email_enquiry = localStorage.getItem("user_email_enquiry");
+if (typeof user_email_enquiry == 'undefined' || user_email_enquiry == null) {
+    window.location.href = 'login.html'
+}
+if(window.location.hash!='')
+{
+    $(window.location.hash).click()
+}
+var assigned_id = localStorage.getItem("user_id_enquiry");        
+(function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
+if(localStorage.getItem("user_type_enquiry").trim()=='admin' || localStorage.getItem("user_type_enquiry").trim()=='sales' || localStorage.getItem("user_type_enquiry").trim()=='account')
+{
+    $('#toggles').removeClass('d-none')
+    $('#user_type_customer').removeClass('d-none')
+    $('input[type=radio][name=etype]').attr('disabled',false)
+    $('input[type=radio][name=etype_customer]').attr('disabled',false)
+}    
+setTimeout(function(){$('#clear_in').click()},1500)
+setTimeout(function(){$('#clear_in').click()},500)
+var user_type_enquiry = localStorage.getItem("user_type_enquiry");
+if(localStorage.getItem("user_designation").trim()!='ex')
+{
+    $('#assigned_staff').removeClass('d-none')  
+}
+
+get_country()
+function get_country()
+{
+    $.ajax({
+        type: "get",
+        url: newbaseurl + 'GetData/get_list',
+        async: true,
+        data:'table=country&sort=name',
+        success: function (html) 
+        {
+            $('#add_supplier_modal [name="country_id"]').html('')
+            html=JSON.parse(html);
+            option=`<option data-name="Whole World" value="0">Whole World</option>`
+            for(x in html)
+            {
+                option+=`<option data-name="${html[x]['name']}" value="${html[x]['id']}">${html[x]['name']}</option>`
+            }
+            $('#add_supplier_modal [name="country_id"]').html(option)
+            $('#add_supplier_modal [name="country_id"]').select2({multiple: true,'placeholder':'Select Country'});
+        }
+    })
+}
+$('#add_supplier_modal [name="product"]').select2({multiple: true,'placeholder':'Select Product'});
+$('#add_supplier_modal [name="type"]').val('')
+$('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+
+
+
+
+function apply_search(page = '') {
+    if (page === '' && $('.pagination').length > 0) {
+        page = $('.pagination .current button').html();
+    }
+
+    // Get search value and selected country
+    const value = (decodeURIComponent($("#find").val())).trim();
+    const selectedCountry = $('#countryDropdown').val()?.trim(); // Get selected country
+    
+    // Hide table and clear data if both search and country selection are empty
+    if (value === '' && (!selectedCountry || selectedCountry === '')) {
+        $('.student_data').hide(); // Hide table
+        $('.details1').html(''); // Clear previous data
+        $('#count1').html(''); // Clear entry count
+        $('.page_ination').html(''); // Clear pagination
+        return;
+    }
+
+    // Ensure the search only triggers when at least 3 characters are entered
+    if (value.length < 3 && (!selectedCountry || selectedCountry === '')) {
+        $('.details1').html(''); // Clear previous data
+        $('#count1').hide(); // Hide count if zero
+        $('.page_ination').html(''); // Clear pagination
+        $('.student_data').hide(); // Hide table if no data
+        return;
+    }
+
+    $.ajax({
+        type: "get",
+        url: newbaseurl + 'Supplier/get_search_Supplier_data',
+        async: true,
+        data: {
+            func: 'apply_search',
+            value: value,
+            page: page,
+            selected_country: selectedCountry // Pass selected country
+        },
+        success: function (html) {
+            html = html.split(',,$');
+
+            // If search or country filter returns data, show the table
+            if (html[0].trim() !== '') {
+                $('.details1').html(html[0]);
+                $('#count1').html('Entries : ' + html[1]).show();
+                $('.page_ination').html(html[2]);
+                $('.student_data').show(); // Show table only when there is data
+            } else {
+                $('.details1').html(''); // Clear previous data
+                $('#count1').hide(); // Hide count if zero
+                $('.page_ination').html(''); // Clear pagination
+                $('.student_data').hide(); // Hide table if no data
+            }
+        },
+        error: function (err) {
+            console.error('Error fetching data:', err);
+        }
+    });
+}
+
+function country_search(page = '') {
+    apply_search(page); // Reuse apply_search to keep consistency
+}
+
+// Bind events to trigger search on input change
+$(document).ready(function () {
+    $("#find").on("keyup", function () {
+        apply_search();
+    });
+
+    $("#countryDropdown").on("change", function () {
+        apply_search();
+    });
+});
+
+
+
+
+function add_textfield(e)
+{
+    if($(e).val()=='')
+    {
+        $(e).find('option').attr("disabled",false)
+        
+        $('#add_supplier_modal [name="type"]').find('option').each(function(){
+            if($(this).val()=='offline'){$(this).attr("disabled",false)}
+        })
+        $('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+    }
+    else if($(e).val()==0)
+    {
+        $('#add_supplier_modal [name="type"]').find('option').each(function(){
+            if($(this).val()=='offline'){$(this).attr("disabled",true)}
+        })
+        $(e).find('option').each(function(){
+            if($(this).val()>0){$(this).attr("disabled",true)}else{$(this).attr("disabled",false)}
+        })
+        $('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+    }
+    else
+    {
+        
+        $('#add_supplier_modal [name="type"]').find('option').each(function(){
+            if($(this).val()=='offline'){$(this).attr("disabled",false)}
+        })
+        $(e).find('option').each(function(){
+            if($(this).val()<=0){$(this).attr("disabled",true)}else{$(this).attr("disabled",false)}
+        })
+        $('#add_supplier_modal [name="type"]').select2({multiple: true,'placeholder':'Select Type'});
+    }
+    for(i=0;i<$(e).val().length-$('.contact_no .contact_no_name').length;i++)
+    {
+        name=$(e).find('option:selected').attr('data-name')
+        data=`
+                    <div class="divider card-title m-0 mt-1 text-center"><span></span><span class="country_name" style="font-size: 15px;color: black;">${name}</span><span></span></div>
+                    <div class="col-lg-12 col-md-12 contact_no_product" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">${name} Products ${$('.contact_no .contact_no_name').length+1} *</label>
+                                <select  class="form-control input_style" multiple name="person_contact_product" style="font-size: 15px !important;"  data-validation-required-message="This field is required">
+                                    <option value="hotel">Hotel</option>
+                                    <option value="transfer">Transfer</option>
+                                    <option value="apartments">Apartments</option>
+                                    <option value="sightseeing">Sightseeing</option>
+                                    <option value="sightseeing">Private Vehicle</option>
+                                </select>`
+                            if($(e).val().length>1)
+                            {
+                                data+=`<button onclick="$(this).siblings('[name=person_contact_product]').val($('.contact_no .contact_no_product:eq(0) [name=person_contact_product]').val());$('#add_supplier_modal [name=person_contact_product]').select2({multiple: true,'placeholder':'Select Product'});" type="button" class="btn btn-sm btn-primary no-border blue-back" style="background: #283477 !important;position: static;right: 0;top: 12px;bottom: 0;margin: auto;height: 24px; width: 200px;  justify-content: center; align-items: center; padding:15px 10px 15px 10px;">Same as above</button>`
+                            }
+                        data+=`</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 contact_no_name" style="float: left; padding-left: 0px;">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">${name} Person Name ${$('.contact_no .contact_no_name').length+1} *</label>
+                                <input type="text" class="form-control input_style" name="person_contact_name" autocomplete="off" style="font-size: 15px !important;"  data-validation-required-message="This field is required">`
+                            if($(e).val().length>1)
+                            {
+                                data+=`<button onclick="$(this).siblings('[name=person_contact_name]').val($('.contact_no .contact_no_name:eq(0) [name=person_contact_name]').val())" type="button" class="btn btn-sm btn-primary no-border blue-back" style="background: #283477 !important;position: static;right: 0;top: 12px;bottom: 0;margin: auto;height: 24px; width: 200px;  justify-content: center; align-items: center; padding:15px 10px 15px 10px;">Same as above</button>`
+                            }
+                        data+=`
+                            </div>
+                        </div>
+                    </div>
+              <div class="col-lg-12 col-md-12 contact_no_number" style="float: left; padding-left: 0px;">
+    <div class="form-group basic">
+        <div class="input-wrapper">
+            <label class="label" for="name">${name} Contact Numbers ${$('.contact_no .contact_no_name').length + 1} *</label>
+            <div class="row" style="margin-top: 5px;">`;
+
+for (let j = 1; j <= 3; j++) {
+    data += `
+        <div class="col-md-4">
+            <div style="margin-bottom: 10px;">
+                <input type="text" class="form-control input_style" name="person_contact_number_${j}" autocomplete="off"
+                    data-pattern="^(\\d)+$" minlength="10" maxlength="12"
+                    data-validation-message="Only Numbers"
+                    style="font-size: 15px !important;"
+                    data-validation-required-message="This field is required"
+                    placeholder="Number ${j}">`;
+
+    if ($(e).val().length > 1) {
+        data += `<button onclick="$(this).siblings('[name=person_contact_number_${j}]').val($('.contact_no .contact_no_number:eq(0) [name=person_contact_number_${j}]').val())"
+                    type="button" class="btn btn-sm btn-primary no-border blue-back mt-1"
+                    style="background: #283477 !important; width: 100%; font-size: 12px;">
+                    Same as above
+                </button>`;
+    }
+
+    data += `
+            </div>
+        </div>`;
+}
+
+data += `
+            </div>
+        </div>
+    </div>
+</div>`;
+        $('.contact_no').append(data)
+                    
+                    validate_onupdate()
+                    $('#add_supplier_modal [name="person_contact_product"]').select2({multiple: true,'placeholder':'Select Product'});
+    }
+    if($(e).val().length<$('.contact_no .contact_no_name').length)
+    {
+        $('.contact_no .country_name:last').remove()
+        $('.contact_no .contact_no_name:last').remove()
+        $('.contact_no .contact_no_product:last').remove()
+        $('.contact_no .contact_no_number:last').remove()
+    }
+    i=0;
+    country_name=[]
+    $('[name=country_id]').find('option:selected').each(function(){
+        name=$(this).attr('data-name')
+        country_name.push(name)
+        $('.contact_no .country_name:eq('+i+')').html(name)
+        $('.contact_no .contact_no_product:eq('+i+')').find('label').html(' Products '+(parseInt(i)+1))
+        $('.contact_no .contact_no_name:eq('+i+')').find('label').html(' Person Name '+(parseInt(i)+1))
+        $('.contact_no .contact_no_number:eq('+i+')').find('label').html(' Person Number '+(parseInt(i)+1))
+        i++
+    })
+    $('[name="country_name"]').val(country_name)
+    
+}
+
+
+function add_supplier(json='')
+{
+    $('#add_supplier_modal button[type=button]').attr('disabled', true);
+    let person_name = [];
+let selectedCountryIds = $('select[name="country_id"]').val() || [];
+let i = 0;
+selectedCountryIds.forEach(function (countryId, i) {
+    const block = $(`.contact_no .country-block[data-country="${countryId}"]`);
+    if (block.length) {
+        person_name[i] = {}; // Initialize
+
+        // Name
+        const name = block.find(`[name="person_contact_name_${countryId}"]`).val();
+        person_name[i]["name"] = name;
+
+        // Numbers
+        for (let j = 1; j <= 3; j++) {
+            const number = block.find(`[name="person_contact_number_${j}_${countryId}"]`).val();
+            if (number) {
+                person_name[i][`number${j}`] = number;
+            }
+        }
+
+        // Products
+        const products = block.find(`[name="person_contact_product_${countryId}"]`).val() || [];
+        if (products.length) {
+            person_name[i]["product"] = products;
+        }
+    }
+});
+    
+json=JSON.parse(JSON.stringify(json))
+    data=divid=fun=param=''
+    if(Object.keys(json).length>0)
+    {
+        for(x in json)
+        {
+            if(x=='divid')
+            {
+                divid=json[x]
+            }
+            else if(x=='fun')
+            {
+                fun=json[x]
+            }
+            else if(x=='param')
+            {
+                param=json[x]
+            }
+            else if(data=='')
+            {
+                data+=x+'='+json[x]
+            }
+            else
+            {
+                data+='&'+x+'='+json[x]
+            }        
+        }
+    }
+
+  
+
+
+    //new add number function
+    $(divid).find('select, textarea, input[type=text], input[type=email], input[type=number], input[type=hidden], input[type=radio], input[type=checkbox]').each(function() {
+        if ($(this).attr('name') != 'json') {
+            let val = $(this).val();
+            let name = $(this).attr('name');
+
+            if (Object.prototype.toString.call(val) === '[object Array]') {
+                val = val.toString();
+            }
+
+            if (val !== '' && val != null) {
+                val = encodeURIComponent(val);
+            }
+
+            if (data === '') {
+                data += name + '=' + val;
+            } else {
+                data += '&' + name + '=' + val;
+            }
+        }
+    });
+
+    data+="&person_name="+JSON.stringify(person_name)+"&assigned_id="+assigned_id
+    $.ajax({
+        type: "post",
+        url: newbaseurl + 'GetData/insert_data',
+        async: false,
+        data:data,
+        success: function (html) 
+        {
+           
+            $('#add_supplier_modal button[type=button]').attr('disabled',false)
+            i++
+            console.log(html)
+            html=JSON.parse(html);
+            if (html[0]['success']==true) {
+                show_toast(html[0]['message'], "success", '', 'top', 'success')
+            }
+            $(divid).modal('hide')
+            window[fun](param)
+            let data = {
+    contact_no: cleanedContactNumbers,
+    // ... other data fields
+};
+        }
+    })
+}
+
+$('#supplier_name').on('blur keyup', function () {
+    let supplierName = $(this).val().trim();
+
+    if (supplierName !== '') {
+        $.ajax({
+            url: newbaseurl + 'GetData/check_supplier_name',
+            method: 'POST',
+            data: { name: supplierName },
+            dataType: 'json',
+            success: function (response) {
+                if (response.exists) {
+                    $('#name_error').text('Supplier name already exists.');
+                } else {
+                    $('#name_error').text('');
+                }
+            },
+            error: function () {
+                $('#name_error').text('Error checking name. Please try again.');
+            }
+        });
+    } else {
+        $('#name_error').text('');
+    }
+});
+// amount=942000
+// amounts=942000
+// aa=0
+// for(i=0;i<48;i++)
+// {
+//     aa+=11221+14750
+//     percent=(amount*(3.5/100))
+//     percents=(amounts*(3.5/100))
+//     amount=amount+percent;
+//     amounts=amounts+percents-(11221+14750);
+//     // amount+=(amount+amount*(3.5/100));
+// }
+// console.log(amount+','+aa)
+// console.log(amounts+','+aa)
+// console.log(amount-amounts+','+aa)
+
+</script>        
+<script>
+    $(document).ready(function () {
+        const container = $('.contact_no');
+    
+        // Keep track of form values before removing blocks
+        function getCurrentFormData() {
+            const data = {};
+    
+            container.find('.country-block').each(function () {
+                const countryId = $(this).data('country');
+                data[countryId] = {
+                    products: $(this).find(`[name="person_contact_product_${countryId}"]`).val() || [],
+                    name: $(this).find(`[name="person_contact_name_${countryId}"]`).val() || '',
+                    numbers: [
+                        $(this).find(`[name="person_contact_number_1_${countryId}"]`).val() || '',
+                        $(this).find(`[name="person_contact_number_2_${countryId}"]`).val() || '',
+                        $(this).find(`[name="person_contact_number_3_${countryId}"]`).val() || ''
+                    ]
+                };
+            });
+    
+            return data;
+        }
+    
+        // Re-fill form data after rendering new blocks
+        function fillFormData(data) {
+            Object.entries(data).forEach(([countryId, countryData]) => {
+                const block = container.find(`.country-block[data-country="${countryId}"]`);
+                if (block.length) {
+                    block.find(`[name="person_contact_product_${countryId}"]`).val(countryData.products);
+                    block.find(`[name="person_contact_name_${countryId}"]`).val(countryData.name);
+                    block.find(`[name="person_contact_number_1_${countryId}"]`).val(countryData.numbers[0]);
+                    block.find(`[name="person_contact_number_2_${countryId}"]`).val(countryData.numbers[1]);
+                    block.find(`[name="person_contact_number_3_${countryId}"]`).val(countryData.numbers[2]);
+                }
+            });
+        }
+    
+        $('select[name="country_id"]').on('change', function () {
+            const selectedCountryIds = $(this).val() || [];
+            const existingData = getCurrentFormData();
+    
+            const renderedIds = [];
+            container.find('.country-block').each(function () {
+                renderedIds.push($(this).data('country').toString());
+            });
+    
+            // Add new blocks
+            selectedCountryIds.forEach(function (countryId) {
+                if (!renderedIds.includes(countryId)) {
+                    const countryName = $(`select[name="country_id"] option[value="${countryId}"]`).text();
+    
+                    const countryBlock = `
+                    <div class="country-block" data-country="${countryId}">
+                        <div class="divider card-title m-0 mt-1 text-center">
+                            <span></span><span class="country_name" style="font-size: 15px;color: black;">${countryName}</span><span></span>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 contact_no_product" style="float: left; padding-left: 0px;">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label">Products</label>
+                                    <select class="form-control input_style" multiple name="person_contact_product_${countryId}" style="font-size: 15px !important;" data-validation-required-message="This field is required">
+                                        <option value="hotel">Hotel</option>
+                                        <option value="transfer">Transfer</option>
+                                        <option value="apartments">Apartments</option>
+                                        <option value="sightseeing">Sightseeing</option>
+                                        <option value="private_vehicle">Private Vehicle</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 contact_no_name" style="float: left; padding-left: 0px;">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <label class="label">Person Name</label>
+                                    <input type="text" class="form-control input_style" name="person_contact_name_${countryId}" autocomplete="off" style="font-size: 15px !important;" data-validation-required-message="This field is required">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 contact_no_number" style="float: left; padding-left: 0px;">
+                            <div class="form-group basic">
+                                <div class="input-wrapper">
+                                    <div class="row" style="margin-top: 5px;">
+                                        ${[1, 2, 3].map(i => `
+                                            <div class="col-md-4">
+                                                <label class="label">${countryName} Person Number ${i}</label>
+                                                <div style="margin-bottom: 10px;">
+                                                    <input type="text" class="form-control input_style" name="person_contact_number_${i}_${countryId}" id="number"
+                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                                    maxlength="12" style="font-size: 15px !important;" placeholder="Number ${i}">
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="divider card-title m-0 mt-1 text-center"><span></span><span></span></div>
+                    </div>
+                    `;
+    
+                    container.append(countryBlock);
+
+                    $(`select[name="person_contact_product_${countryId}"]`).select2({
+                        multiple: true,
+                        placeholder: 'Select Product'
+                    });
+                }
+            });
+    
+            // Remove unselected
+            container.find('.country-block').each(function () {
+                const countryId = $(this).data('country').toString();
+                if (!selectedCountryIds.includes(countryId)) {
+                    $(this).remove();
+                }
+            });
+    
+            // Re-fill form data
+            fillFormData(existingData);
+
+            country_name=[]
+            $('[name=country_id]').find('option:selected').each(function(){
+                name=$(this).attr('data-name')
+                country_name.push(name)
+                
+            })
+            $('[name="country_name"]').val(country_name)
+        });
+    });
+</script>
+
+   <script>
+function validateContactForm() {
+    const number = document.getElementById("number").value.trim();
+    const altNumber = document.getElementById("alternatenumber").value.trim();
+
+    if (number.length < 10 || number.length > 12) {
+        alert("Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    if (altNumber && (altNumber.length < 10 || altNumber.length > 12)) {
+        alert("Alternate Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    return true;
+}
+
+function validateContactForm() {
+    const number = document.getElementById("contact_no").value.trim();
+    const altNumber = document.getElementById("alternatenumber")?.value.trim(); // optional check if exists
+
+    if (number.length < 10 || number.length > 12) {
+        document.getElementById("contactError").style.display = "block";
+        return false;
+    } else {
+        document.getElementById("contactError").style.display = "none";
+    }
+
+    if (altNumber && (altNumber.length < 10 || altNumber.length > 12)) {
+        alert("Alternate Contact No. must be between 10 and 12 digits.");
+        return false;
+    }
+
+    return true;
+}
+
+document.querySelectorAll('.only-digits').forEach(function(input) {
+    // Block any non-digit keys
+    input.addEventListener('keypress', function (e) {
+        if (!/[0-9]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    // Block non-digit paste
+    input.addEventListener('paste', function (e) {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        if (!/^\d+$/.test(paste)) {
+            e.preventDefault();
+        }
+    });
+
+    // Ensure field only keeps digits if injected or autofilled
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
+});
+</script>  
+    
+</body>
+</html>

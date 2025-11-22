@@ -1,0 +1,88 @@
+DirectoryIndex index.html
+
+<Files "*">
+    Require local
+    Require all denied
+
+    Require ip 122.169.111.216
+    Require ip 103.182.196.243
+    Require ip 103.182.196.242
+    Require ip 202.134.178.169
+    Require ip 103.186.198.162
+    Require ip 103.115.203.244
+    Require ip 45.157.126.156
+    Require ip 49.36.113.123
+    Require ip 202.134.180.186
+    Require ip 103.170.214.132
+    Require ip 106.213.83.169
+    Require ip 103.139.220.248
+    Require ip 106.213.82.223
+    Require ip 152.59.61.223
+    Require ip 223.228.44.150
+    Require ip 106.213.81.224
+    Require ip 49.43.27.194
+    Require ip 103.205.174.142
+    Require ip 49.43.27.224
+    Require ip 103.226.240.67
+    Require ip 103.226.242.178
+    Require ip 103.182.196.54
+    Require ip 103.182.196.53
+    Require ip 103.182.196.106
+    Require ip 103.182.196.95
+    Require ip 157.119.200.154
+    Require ip 160.250.28.137
+    Require ip 103.182.196.80
+    Require ip 103.182.196.49
+    Require ip 103.182.196.100
+    Require ip 103.186.198.136
+    Require ip 103.182.196.125
+    Require ip 103.182.196.42
+    Require ip 193.43.70.69
+    Require ip 223.228.141.116
+    Require ip 103.182.196.20
+    Require ip 192.168.4.120
+    Require ip 192.168.1.25
+    Require ip 106.216.243.207
+    Require ip 192.168.1.10
+    Require ip 81.17.122.83
+    Require ip 103.182.196.105
+    Require ip 106.213.81.2
+    Require ip 89.40.212.151
+    Require ip 106.213.84.243
+    Require ip 103.182.196.10
+    Require ip 106.213.84.3
+    Require ip 203.192.232.113
+    Require ip 171.50.247.191
+    Require ip 106.213.87.86
+    Require ip 106.213.81.191
+    Require ip 106.213.87.86
+    Require ip 81.17.122.51
+    Require ip 160.250.28.137
+    Require ip 94.140.8.52
+    Require ip 171.50.247.191
+    Require ip 203.192.232.113
+    Require ip 203.76.182.138
+    Require ip 94.156.30.101
+    Require ip 106.213.80.127
+    Require ip 194.35.232.219
+    Require ip 203.76.182.138
+    Require ip 171.50.245.157
+    Require ip 91.205.107.41
+    Require ip 106.213.86.154
+    Require ip 106.213.87.36
+    Require ip 106.213.83.63
+    Require ip 106.213.87.121
+    Require ip 171.50.244.239
+    Require ip 103.182.196.22
+    Require ip 194.35.235.121
+    Require ip 106.213.80.216
+    Require ip 123.201.215.156
+</Files>
+
+
+
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</IfModule>
